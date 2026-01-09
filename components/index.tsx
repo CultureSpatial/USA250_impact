@@ -13,9 +13,13 @@ export { default as GTMAcceleratorDashboard } from './gtm/GTMAcceleratorDashboar
 // Guild Components
 export { default as GuildAcademyCharter } from './guild/GuildAcademyCharter';
 
+// Narrative Components
+export { default as HumancodeWine } from './narrative/HumancodeWine';
+
 // Re-export types for consumers
 export type GTMPhase = 'pilot' | 'scale' | 'global';
 export type GTMSegment = 'synergy' | 'propensity' | 'activation';
+export type NarrativePhase = 'research' | 'pilot' | 'scale';
 
 export interface MarketNode {
   id: number;
@@ -31,6 +35,17 @@ export interface GuildMember {
   role: string;
   guild: string;
   credentials: string[];
+}
+
+export interface NarrativeNode {
+  id: string;
+  title: string;
+  era: string;
+  location: string;
+  crimeContext: string;
+  cultureTransformation: string;
+  gtmScore: number;
+  status: 'Active' | 'Pipeline' | 'Research';
 }
 
 /**

@@ -10,6 +10,7 @@ A comprehensive React component library for Go-To-Market (GTM) strategy visualiz
 
 - **GTM Accelerator Dashboard** - Spatial intelligence for market strategy
 - **Guild Academy Charter** - Technical infrastructure R&D framework
+- **Humancode Wine** - Crime-to-Culture narrative engine for heritage tourism
 - **Integration Examples** - Production-ready implementation patterns
 
 ## Quick Start
@@ -38,6 +39,16 @@ import { GuildAcademyCharter } from '@usa250/impact-gtm-components';
 
 function App() {
   return <GuildAcademyCharter />;
+}
+```
+
+### Humancode Wine (Narrative Engine)
+
+```tsx
+import { HumancodeWine } from '@usa250/impact-gtm-components';
+
+function App() {
+  return <HumancodeWine />;
 }
 ```
 
@@ -81,6 +92,10 @@ See [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for detailed patterns:
 6. **Embedded Widget Mode** - CMS integration
 7. **Multi-Tenant Guild** - Regional deployments
 8. **AI Copilot Integration** - UMCES-CGC model
+9. **Narrative Tourism Integration** 🆕 - Crime-to-Culture storytelling
+10. **Atlassian Compass Sync** 🆕 - Full-stack component tracking
+
+See [COMPASS_CROSSWALK.md](./COMPASS_CROSSWALK.md) for Atlassian Compass integration and component mapping.
 
 ## Architecture
 
@@ -90,6 +105,8 @@ components/
 │   └── GTMAcceleratorDashboard.tsx
 ├── guild/
 │   └── GuildAcademyCharter.tsx
+├── narrative/
+│   └── HumancodeWine.tsx
 └── index.tsx
 
 src/
@@ -97,6 +114,11 @@ src/
     ├── UnifiedGTMDashboard.tsx
     ├── FeltIntegration.tsx
     └── index.ts
+
+docs/
+├── INTEGRATION_GUIDE.md
+├── COMPASS_CROSSWALK.md
+└── COMPONENT_LIBRARY_SUMMARY.md
 ```
 
 ## Integration Outcomes
@@ -146,9 +168,11 @@ GTM_ANALYTICS_URL=https://analytics.usa250.org
 
 ## Documentation
 
-- [Integration Guide](./INTEGRATION_GUIDE.md) - Comprehensive integration patterns
-- [API Reference](./docs/API.md) - Component props and types
-- [Contributing](./CONTRIBUTING.md) - Development guidelines
+- [Integration Guide](./INTEGRATION_GUIDE.md) - 10 comprehensive integration patterns
+- [Compass Crosswalk](./COMPASS_CROSSWALK.md) - Atlassian Compass component mapping & GraphQL API
+- [Component Library Summary](./COMPONENT_LIBRARY_SUMMARY.md) - Implementation metrics and outcomes
+- [API Reference](./docs/API.md) - Component props and types (coming soon)
+- [Contributing](./CONTRIBUTING.md) - Development guidelines (coming soon)
 
 ## License
 

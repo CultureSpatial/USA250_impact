@@ -22,9 +22,30 @@ This guide documents integration patterns, outcomes, and best practices for the 
    - PBL (Project-Based Learning) methodology
    - Articulation literacy with AI assistance
 
+3. **HumancodeWine** (`components/narrative/HumancodeWine.tsx`)
+   - Crime-to-Culture narrative engine
+   - USA250 Story Trails heritage tourism
+   - Interactive audio tours and local commerce integration
+   - Multi-era historical transformation visualization
+
 ---
 
 ## Integration Patterns
+
+This guide documents **10 comprehensive integration patterns** for the USA250 Impact component library:
+
+1. **Standalone Deployment** - Quick single-component apps
+2. **Unified Dashboard** ⭐ - Recommended for operations
+3. **Felt.com Spatial** - Collaborative mapping
+4. **Data-Driven API** - Enterprise integration
+5. **Event-Driven** - Cross-component workflows
+6. **Embedded Widget** - CMS integration
+7. **Multi-Tenant Guild** - Regional autonomy
+8. **AI Copilot** - UMCES-CGC articulation literacy
+9. **Narrative Tourism** - Crime-to-Culture storytelling 🆕
+10. **Compass Sync** - Atlassian full-stack visibility 🆕
+
+---
 
 ### Pattern 1: Standalone Deployment
 
@@ -411,6 +432,109 @@ function AIAssistedGuild() {
 ```
 
 **Outcome**: Indigenous monitors deploy sensors without CS degree
+
+---
+
+### Pattern 9: Narrative Tourism Integration
+
+**Use Case**: Crime-to-Culture heritage storytelling for USA250 Story Trails
+
+```tsx
+import { HumancodeWine, GTMAcceleratorDashboard } from './components';
+import { useState } from 'react';
+
+function StoryTrailExperience() {
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  // Sync narrative selection with GTM nodes
+  const handleNarrativeSelect = (narrative) => {
+    setSelectedLocation({
+      territory: narrative.location,
+      gtmScore: narrative.gtmScore,
+      storyContext: {
+        crime: narrative.crimeContext,
+        culture: narrative.cultureTransformation
+      }
+    });
+  };
+
+  return (
+    <div className="grid grid-cols-2 h-screen">
+      <HumancodeWine onStorySelect={handleNarrativeSelect} />
+      <GTMAcceleratorDashboard selectedNode={selectedLocation} />
+    </div>
+  );
+}
+```
+
+**Outcome**:
+- ✅ Tourist consumption layer for heritage sites
+- ✅ Audio tour integration with local commerce
+- ✅ GTM scoring for cultural impact measurement
+- ✅ Multi-era historical transformation visualization
+
+**Tourist Consumption Features**:
+- Interactive audio tours with local guide narration
+- "Shop Local" integration for artisan products
+- "Visit Site" geolocation for heritage trail navigation
+- Real-time visitor flow tracking via sensors
+
+---
+
+### Pattern 10: Atlassian Compass Sync
+
+**Use Case**: Sync React components to Compass for full-stack visibility
+
+```tsx
+import { useCompassSync } from '@/hooks/useCompass';
+
+function CompassDashboard() {
+  const { components, syncStatus } = useCompassSync({
+    autoSync: true,
+    interval: 60000, // Sync every minute
+  });
+
+  // Automatically syncs component metadata from TSDoc
+  return (
+    <div>
+      <h2>Compass Component Health</h2>
+      {components.map(comp => (
+        <div key={comp.id}>
+          <h3>{comp.name}</h3>
+          <StatusBadge status={comp.health.status} />
+          <p>Linked to: {comp.jiraTickets.join(', ')}</p>
+          <DependencyGraph dependencies={comp.dependencies} />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+**Outcome**:
+- ✅ Automated sync from GitHub → Compass on git push
+- ✅ Jira ticket traceability (OTEC-22, CUL-19, etc.)
+- ✅ Real-time dependency graph visualization
+- ✅ Component health monitoring (deployment frequency, change failure rate)
+
+**GraphQL Integration**:
+```graphql
+mutation SyncComponent {
+  compass {
+    createComponent(input: {
+      name: "usa250-gtm-dashboard"
+      typeId: "APPLICATION"
+      labels: ["gtm", "spatial-intelligence", "usa250"]
+      links: [{ type: "REPOSITORY", url: "https://github.com/cultura-d/USA250_impact" }]
+    }) {
+      success
+      component { id name }
+    }
+  }
+}
+```
+
+**See Also**: [COMPASS_CROSSWALK.md](./COMPASS_CROSSWALK.md) for comprehensive Compass integration guide
 
 ---
 
