@@ -13,6 +13,28 @@ A comprehensive React component library for Go-To-Market (GTM) strategy visualiz
 - **Humancode Wine** - Crime-to-Culture narrative engine for heritage tourism
 - **Integration Examples** - Production-ready implementation patterns
 
+---
+
+## 🔗 Atlassian Compass Integration Status
+
+**Check Connection Status**:
+```bash
+node scripts/check-compass-connection.js
+```
+
+| Status | Item | Action |
+|--------|------|--------|
+| ⚠️ | API Connection | [Setup Required](./COMPASS_SETUP_GUIDE.md) |
+| ⚠️ | Component Registration | Register 3 components in Compass |
+| ⚠️ | GitHub Link | Link to https://github.com/cultura-d/USA250_impact |
+| ⚠️ | Jira Traceability | Add ticket references (OTEC-22, CUL-19, CUL-20) |
+
+**Quick Setup** (~30 mins): Follow [COMPASS_SETUP_GUIDE.md](./COMPASS_SETUP_GUIDE.md)
+
+**Full Status Report**: [COMPASS_STATUS_REPORT.md](./COMPASS_STATUS_REPORT.md)
+
+---
+
 ## Quick Start
 
 ```bash
