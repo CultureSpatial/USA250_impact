@@ -53,6 +53,33 @@ export type Database = {
         Insert: Omit<Database['public']['Tables']['sessions']['Row'], 'id'>
         Update: Partial<Database['public']['Tables']['sessions']['Insert']>
       }
+      // Cascadia expansion tables
+      wine_interactions: {
+        Row: {
+          id: string
+          session_id: string
+          persona: 'trader' | 'buyer'
+          event_type: string
+          event_payload: Record<string, unknown>
+          created_at: string
+        }
+        Insert: Omit<Database['public']['Tables']['wine_interactions']['Row'], 'id' | 'created_at'>
+        Update: Partial<Database['public']['Tables']['wine_interactions']['Insert']>
+      }
+      wine_cards: {
+        Row: {
+          id: string
+          wine_name: string
+          region: string
+          varietal: string
+          maker_voice: string | null
+          cultural_context: string | null
+          attribution: Record<string, unknown>
+          created_at: string
+        }
+        Insert: Omit<Database['public']['Tables']['wine_cards']['Row'], 'id' | 'created_at'>
+        Update: Partial<Database['public']['Tables']['wine_cards']['Insert']>
+      }
     }
   }
 }
@@ -106,4 +133,69 @@ export async function saveCardToProfile(sessionId: string, wineId: string) {
     })
 
   return !error
+}
+
+// ============================================
+// Cascadia Wine Cards helpers
+// ============================================
+
+/**
+ * Log interaction to simplified wine_interactions table
+ * Use for Cascadia region tracking (WA, OR, BC)
+ */
+export async function logInteraction(
+  sessionId: string,
+  persona: 'trader' | 'buyer',
+  eventType: string,
+  eventPayload: Record<string, unknown> = {}
+) {
+  const { error } = await supabase
+    .from('wine_interactions')
+    .insert({
+      session_id: sessionId,
+      persona,
+      event_type: eventType,
+      event_payload: eventPayload,
+    })
+
+  if (error) {
+    console.error('Failed to log interaction:', error)
+  }
+  return !error
+}
+
+/**
+ * Get wine cards by region (WA, OR, BC)
+ */
+export async function getWineCardsByRegion(regionFilter?: string) {
+  let query = supabase.from('wine_cards').select('*')
+
+  if (regionFilter) {
+    query = query.ilike('region', `%${regionFilter}%`)
+  }
+
+  const { data, error } = await query
+
+  if (error) {
+    console.error('Failed to fetch wine cards:', error)
+    return []
+  }
+
+  return data
+}
+
+/**
+ * Get all Cascadia wine cards grouped by state/province
+ */
+export async function getCascadiaWineSummary() {
+  const { data, error } = await supabase
+    .from('cascadia_wine_summary')
+    .select('*')
+
+  if (error) {
+    console.error('Failed to fetch Cascadia summary:', error)
+    return []
+  }
+
+  return data
 }
