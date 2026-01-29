@@ -14,6 +14,13 @@ interface WineCard {
   attribution: Record<string, unknown>
 }
 
+interface GeneratedStory {
+  headline: string
+  narrative: string
+  pairing: string
+  cultural_safety_check: boolean
+}
+
 interface WineCanvasProps {
   persona: 'trader' | 'buyer'
   onWineCardSelect?: (card: WineCard) => void
@@ -23,6 +30,9 @@ export default function WineCanvas({ persona, onWineCardSelect }: WineCanvasProp
   const gameRef = useRef<Phaser.Game | null>(null)
   const sessionId = useRef(crypto.randomUUID())
   const [selectedCard, setSelectedCard] = useState<WineCard | null>(null)
+  const [generatedStory, setGeneratedStory] = useState<GeneratedStory | null>(null)
+  const [storyLoading, setStoryLoading] = useState(false)
+  const [storyError, setStoryError] = useState<string | null>(null)
 
   useEffect(() => {
     if (gameRef.current) return
@@ -75,6 +85,8 @@ export default function WineCanvas({ persona, onWineCardSelect }: WineCanvasProp
 
     if (data) {
       setSelectedCard(data as WineCard)
+      setGeneratedStory(null)
+      setStoryError(null)
       onWineCardSelect?.(data as WineCard)
       await logInteraction(sessionId.current, persona, 'card_viewed', {
         wine_id: data.id,
@@ -83,6 +95,36 @@ export default function WineCanvas({ persona, onWineCardSelect }: WineCanvasProp
       })
     } else if (error) {
       console.error('Failed to fetch wine card:', error)
+    }
+  }
+
+  const handleGenerateStory = async (card: WineCard) => {
+    setStoryLoading(true)
+    setStoryError(null)
+
+    try {
+      const res = await fetch('/api/generate-story', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ wine_card: card, persona }),
+      })
+
+      if (!res.ok) {
+        const err = await res.json()
+        throw new Error(err.error || 'Generation failed')
+      }
+
+      const story: GeneratedStory = await res.json()
+      setGeneratedStory(story)
+      await logInteraction(sessionId.current, persona, 'story_generated', {
+        wine_id: card.id,
+        headline: story.headline,
+        safety_passed: story.cultural_safety_check,
+      })
+    } catch (err) {
+      setStoryError(err instanceof Error ? err.message : 'Failed to generate story')
+    } finally {
+      setStoryLoading(false)
     }
   }
 
@@ -126,6 +168,30 @@ export default function WineCanvas({ persona, onWineCardSelect }: WineCanvasProp
                 </div>
               )}
 
+              {/* AI Generated Story */}
+              {generatedStory && (
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4 border border-purple-200">
+                  <p className="text-sm font-bold text-purple-900 mb-2">{generatedStory.headline}</p>
+                  <p className="text-purple-800 text-sm leading-relaxed mb-3">{generatedStory.narrative}</p>
+                  <div className="flex items-center gap-2 text-xs text-purple-600">
+                    <span className="bg-purple-100 px-2 py-0.5 rounded-full">
+                      Pair with: {generatedStory.pairing}
+                    </span>
+                    {generatedStory.cultural_safety_check && (
+                      <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+                        Safety verified
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {storyError && (
+                <div className="bg-red-50 rounded-lg p-3 text-red-700 text-sm">
+                  {storyError}
+                </div>
+              )}
+
               {/* Attribution */}
               {selectedCard.attribution && (
                 <div className="text-xs text-gray-500 border-t pt-4">
@@ -144,26 +210,48 @@ export default function WineCanvas({ persona, onWineCardSelect }: WineCanvasProp
             </div>
 
             {/* Actions */}
-            <div className="border-t p-4 flex gap-3">
-              {persona === 'trader' ? (
-                <>
-                  <button className="flex-1 py-2 px-4 bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition">
-                    Request Allocation
-                  </button>
-                  <button className="py-2 px-4 border border-purple-900 text-purple-900 rounded-lg hover:bg-purple-50 transition">
-                    Export Data
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button className="flex-1 py-2 px-4 bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition">
-                    Save to Collection
-                  </button>
-                  <button className="py-2 px-4 border border-purple-900 text-purple-900 rounded-lg hover:bg-purple-50 transition">
-                    Share Story
-                  </button>
-                </>
+            <div className="border-t p-4 space-y-3">
+              {/* Generate Story Button */}
+              {!generatedStory && (
+                <button
+                  className="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => handleGenerateStory(selectedCard)}
+                  disabled={storyLoading}
+                >
+                  {storyLoading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
+                      Generating...
+                    </span>
+                  ) : persona === 'trader' ? (
+                    'Generate Allocation Insights'
+                  ) : (
+                    'Generate Wine Story'
+                  )}
+                </button>
               )}
+
+              <div className="flex gap-3">
+                {persona === 'trader' ? (
+                  <>
+                    <button className="flex-1 py-2 px-4 bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition">
+                      Request Allocation
+                    </button>
+                    <button className="py-2 px-4 border border-purple-900 text-purple-900 rounded-lg hover:bg-purple-50 transition">
+                      Export Data
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className="flex-1 py-2 px-4 bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition">
+                      Save to Collection
+                    </button>
+                    <button className="py-2 px-4 border border-purple-900 text-purple-900 rounded-lg hover:bg-purple-50 transition">
+                      Share Story
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
