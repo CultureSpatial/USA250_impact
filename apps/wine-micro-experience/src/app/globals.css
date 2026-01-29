@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F5F0E8;
+  --foreground: #1E3A5F;
+  --wine-red: #8B1538;
+  --wine-gold: #C9A962;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Wine card animations */
+@keyframes card-reveal {
+  from {
+    transform: rotateY(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.wine-card-reveal {
+  animation: card-reveal 0.6s ease-out forwards;
+}
+
+/* Engagement pulse */
+@keyframes engagement-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 21, 56, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(139, 21, 56, 0);
+  }
+}
+
+.pulse-engagement {
+  animation: engagement-pulse 2s infinite;
+}
+
+/* Phaser canvas container */
+.phaser-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.phaser-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
