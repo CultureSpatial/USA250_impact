@@ -61,7 +61,7 @@ export default function SpinBottle({ sessionId, persona, onWineSelected }: SpinB
 }
 
 function preloadSpin(this: Phaser.Scene) {
-  const graphics = this.make.graphics({ x: 0, y: 0, add: false })
+  const graphics = this.add.graphics()
 
   // Bottle body
   graphics.fillStyle(0x8b4513, 1)
