@@ -40,6 +40,12 @@ export default function RootLayout({
                 Explorer
               </Link>
               <Link
+                href="/play"
+                className="px-3 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-700 transition"
+              >
+                Play
+              </Link>
+              <Link
                 href="/insights"
                 className="px-3 py-1.5 rounded-full bg-green-100 hover:bg-green-200 text-green-700 transition"
               >
