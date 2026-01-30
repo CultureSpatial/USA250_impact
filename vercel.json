@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "cd apps/wine-micro-experience && npm install && npm run build",
-  "outputDirectory": "apps/wine-micro-experience/.next",
-  "installCommand": "cd apps/wine-micro-experience && npm install"
+  "installCommand": "npm install && cd apps/wine-micro-experience && npm install",
+  "buildCommand": "cd apps/wine-micro-experience && npm run build",
+  "outputDirectory": "apps/wine-micro-experience/.next"
 }

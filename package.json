@@ -1,0 +1,14 @@
+{
+  "name": "usa250-impact",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix apps/wine-micro-experience",
+    "build": "npm run build --prefix apps/wine-micro-experience",
+    "start": "npm run start --prefix apps/wine-micro-experience",
+    "install:app": "cd apps/wine-micro-experience && npm install"
+  },
+  "dependencies": {
+    "next": "^16.1.6"
+  }
+}
