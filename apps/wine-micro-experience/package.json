@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.0",
+    "@tailwindcss/postcss": "^4.1.18",
     "@supabase/supabase-js": "^2.93.2",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.10",

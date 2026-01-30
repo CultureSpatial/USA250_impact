@@ -34,7 +34,7 @@ export function WineExplorerGame({
   useEffect(() => {
     // Dynamic import of Phaser (client-side only)
     const initPhaser = async () => {
-      const Phaser = (await import('phaser')).default
+      const Phaser = await import('phaser')
 
       if (!gameRef.current || phaserGameRef.current) return
 
