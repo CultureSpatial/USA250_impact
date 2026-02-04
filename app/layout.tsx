@@ -10,9 +10,9 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = {
-  title: 'Guild Academy Charter',
-  description: 'Guild Academy Technical Infrastructure Charter',
+export const metadata = {
+  title: 'Next.js App',
+  description: 'A clean Next.js project setup',
 }
 
 export default function RootLayout({

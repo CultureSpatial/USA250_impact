@@ -1,40 +1,28 @@
-import type { Config } from 'typescript'
-
-const config: Config = {
-  compilerOptions: {
-    target: 'ES2020',
-    useDefineForClassFields: true,
-    lib: ['ES2020', 'DOM', 'DOM.Iterable'],
-    module: 'ESNext',
-    skipLibCheck: true,
-    esModuleInterop: true,
-    allowSyntheticDefaultImports: true,
-
-    strict: true,
-    noImplicitAny: true,
-    strictNullChecks: true,
-    strictFunctionTypes: true,
-    strictBindCallApply: true,
-    strictPropertyInitialization: true,
-    noImplicitThis: true,
-    alwaysStrict: true,
-    noUnusedLocals: true,
-    noUnusedParameters: true,
-    noImplicitReturns: true,
-    noFallthroughCasesInSwitch: true,
-
-    moduleResolution: 'node',
-    allowImportingTsExtensions: true,
-    resolveJsonModule: true,
-    isolatedModules: true,
-    jsx: 'react-jsx',
-    baseUrl: '.',
-    paths: {
-      '@/*': ['./*'],
-    },
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  include: ['**/*.ts', '**/*.tsx'],
-  exclude: ['node_modules'],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
 
-export default config
