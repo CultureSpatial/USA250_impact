@@ -430,3 +430,5 @@ const GuildAcademyCharter = () => {
 export default GuildAcademyCharter;
 
 export default GuildAcademyCharter;
+
+export default GuildAcademyCharter;
