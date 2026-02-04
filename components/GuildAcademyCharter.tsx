@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "shadcn";
-import { Badge } from "shadcn";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "shadcn";
-import { CheckCircle2, BookOpen, Users, Zap, GitBranch } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BookOpen } from "lucide-react";
 
 const GuildAcademyCharter = () => {
   const [activeTab, setActiveTab] = useState("mandate");
