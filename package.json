@@ -1,18 +1,27 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "nextjs-mfe-sanity",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "16.0.7",
     "react": "^19",
     "react-dom": "^19",
-    "lucide-react": "^0.544.0"
+    "lucide-react": "^0.544.0",
+    "@sanity/client": "^6.0.0",
+    "@sanity/image-url": "^1.0.0",
+    "groq": "^3.0.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5",
+    "date-fns": "^4.1.0",
+    "zod": "^3.24.1",
+    "react-hook-form": "^7.54.1"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -24,4 +33,5 @@
     "autoprefixer": "^10.4.20"
   }
 }
+
 

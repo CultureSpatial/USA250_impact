@@ -1,98 +1,118 @@
 
 
-````markdown
-# USA 250 · FIFA 2026  │  VineSight Corridor Execution Hub
-_CultureSpatial / Stadium Soundwave_
+# Next.js Microfrontend with Sanity CMS - Quick Start
 
-> “From terroir to telemetry” — bridging partner activations, federal compliance and
-> community sovereignty in one place.
+A production-ready monorepo architecture combining Next.js 16, Sanity.io CMS, and microfrontend capabilities with Tailwind CSS.
 
----
+## Features
 
-## 1 · Why this repo exists
+✅ **Next.js 16** - Latest App Router with React 19  
+✅ **Sanity.io Integration** - Headless CMS with GROQ queries  
+✅ **Microfrontend Ready** - Module Federation setup for scalable architecture  
+✅ **TypeScript** - Full type safety across the stack  
+✅ **Tailwind CSS** - Utility-first styling framework  
+✅ **Vercel Deployment** - Optimized for Vercel with workflows  
+✅ **Airops Support** - Multi-service orchestration option  
 
-| Layer | What lives here | Up-stream | Down-stream |
-|-------|-----------------|-----------|-------------|
-| **Specs & policy** | `docs/` – DMAC v1.0 spec, FADGI mapping table, partner playbooks, Story-Trail deck | Jira CEAZ-196 / CEAZ-203 | State proposals (`HOW-202`), partner MOUs |
-| **Schemas** | `schemas/` – *temporal-sovereignty.json* + future Campfire tags | Linear HOW-91 | Visible-Flame dashboard (STA-40 / CEAZ-197) |
-| **Governance** | `governance-plane/` – RMAC matrix, consent ledger proto | v0-move-culture repo | Compliance matrix (OPS-68), DMO consent interface (OPS-71) |
-| **Value flow** | `value-flow/au-ledger/` – AU accounting API stub | Linear HOW-150 v2 | Partner statements → corridor revenue model |
-| **Observability** | `observability/slo-harness/` – Grafana / NR configs | — | SLOs for CEAZ-197 endpoints |
-| **Experience seeds** | `narrative-assets/`, `pwa/`, Discord bot, wire-frames | legacy repos | VanWineFest & Lighthouse pilots |
+## Quick Setup
 
-_Think of this repo as **ESXi for ideas**: every artifact that drives the corridor is staged here before being shipped to partner-facing infrastructure._
-
----
-
-## 2 · Live development board
-
-👉  **[GitHub Project — “FIFA Wine Corridor 2026”](<paste board URL>)**
-
-Custom fields: `Jira Epic`, `Linear Ref`, `Corridor Phase`, `Metric Lineage`.
-
-Cards labelled `fifa-corridor` auto-land in Backlog.
-
----
-
-## 3 · Seed issues (Jan-2026)
-
-| # | Title | Jira | Linear | Phase |
-|---|-------|------|--------|-------|
-| #3 | DMAC spec v1.0 (FADGI) | CEAZ-196 | — | **In Progress** |
-| #4 | Hospitality Phenomenology kit | CEAZ-203 | RES-11 | Pilot |
-| #5 | Vintage & Voice Discord bot | CEAZ-203 | ENG-11 | Lighthouse |
-| #6 | Event Playbook + Compliance | CEAZ-193 | OPS-68 | Pilot |
-| #7 | Seattle–Van DMO PWA | CEAZ-193 | OPS-57 | Pilot |
-| #8 | Data-loop dashboard MVP | CEAZ-203/197 | OPS-72 | Lighthouse |
-| #9 | Tourism Van partnership scaffold | CEAZ-193 | OPS-70 | Pilot |
-| #10| SLO harness integration | CEAZ-197 | — | **In Progress** |
-
----
-
-## 4 · Usage
-
-### Developer bootstrap
+### 1. Install Dependencies
 ```bash
-git clone https://github.com/CultureSpatial/USA250_impact.git
-cd USA250_impact
-npm i            # for any dashboard/PWA work
-make pdf         # renders docs/dmac-spec-draft.md -> build/dmac-spec-v1.pdf
+pnpm install
 ```
 
-### Editing specs
-1. Update markdown in `docs/`
-2. Run `make pdf`
-3. Attach PDF to the matching Jira epic
+### 2. Configure Sanity
+```bash
+# Copy environment template
+cp .env.example .env.local
 
-### Syncing schemas
-1. Author change in **Campfire** repo  
-2. `npm run schema:import <tag>` – copies to `schemas/` here  
-3. Commit & open PR (auto-links to HOW-91)
+# Add your Sanity credentials
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=your_token
+```
 
----
+### 3. Development
+```bash
+# Start dev server
+pnpm dev
 
-## 5 · Open branches worth exploring
+# Open http://localhost:3000
+```
 
-| Branch | Fossil | Re-use |
-|--------|--------|--------|
-| `idea/prototype-lighthouse` | Early PWA venue selector | Basis for OPS-57 |
-| `schema-draft` | First schema w/ `pourVolume` field | Rationale captured in DMAC appendix |
-| `wireframes/wine-lighthouse` | PNG set | Partner deck visuals |
+### 4. Build & Deploy
+```bash
+# Build for production
+pnpm build
 
-See `/ARCHAEOLOGY.md` for full commit-history log.
+# Deploy to Vercel
+vercel deploy --prod
+```
 
----
+## Project Structure
 
-## 6 · License
+```
+project-root/
+├── app/                 # Next.js App Router
+├── lib/                 # Sanity client, queries, types
+├── components/          # React components
+├── public/             # Static assets
+├── SETUP.md            # Comprehensive setup guide
+├── DEPLOYMENT.md       # Deployment strategies
+└── .env.example        # Environment template
+```
 
-Apache 2.0 – **but** all cultural-content exemplars remain subject to community licenses described in `/governance-plane/CONSENT_LICENSES.md`.
+## Key Files
 
----
+- **lib/sanity.client.ts** - Sanity client configuration
+- **lib/sanity.queries.ts** - GROQ queries for content
+- **lib/types.ts** - TypeScript interfaces
+- **lib/utils.ts** - Utility functions (image URLs, formatting)
+- **app/page.tsx** - Home page with Sanity integration
 
-*Maintained by Stadium Soundwave / CultureSpatial.  Contact*  
-`tbd@culturespatial.org` for partnerships •  
-`ops-alerts` channel on Discord for uptime/SLO issues.
-````
+## Environment Variables
 
----
- fully represent its new direction.
+See `.env.example` for all required variables:
+- Sanity project credentials
+- Vercel deployment tokens (optional)
+- Airops configuration (optional)
+- MFE URLs (development)
+
+## Documentation
+
+- **SETUP.md** - Comprehensive setup guide with microfrontend architecture
+- **DEPLOYMENT.md** - Deployment strategies and scaling considerations
+
+## Available Scripts
+
+```bash
+pnpm dev          # Start development server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm type-check   # Run TypeScript check
+```
+
+## Deployment Options
+
+1. **Vercel** (Recommended) - Seamless Next.js integration
+2. **Airops** - Multi-service orchestration
+3. **Docker** - Containerized deployment
+4. **Self-hosted** - Full control with custom infrastructure
+
+See DEPLOYMENT.md for detailed instructions.
+
+## Next Steps
+
+1. Read SETUP.md for comprehensive architecture guide
+2. Configure your Sanity project and add content
+3. Customize components in `/components`
+4. Set up deployment with Vercel or Airops
+5. Review DEPLOYMENT.md for scaling strategies
+
+## Resources
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [Sanity Docs](https://www.sanity.io/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Vercel Docs](https://vercel.com/docs)
+
