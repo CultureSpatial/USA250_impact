@@ -1,0 +1,271 @@
+<svg width="1600" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="gridPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1200" fill="#F8FAFC"/>
+  <rect width="1600" height="1200" fill="url(#gridPattern)" opacity="0.5"/>
+
+  <!-- Title -->
+  <text x="800" y="70" font-family="sans-serif" font-size="42" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    PLACE PACKET LAYOUT ARCHITECTURE
+  </text>
+  <text x="800" y="110" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#64748B">
+    Consistent Structure Across All Contexts
+  </text>
+
+  <!-- MAIN LAYOUT STRUCTURE -->
+  <g id="main-layout">
+    <!-- Browser Chrome -->
+    <rect x="150" y="160" width="1300" height="850" rx="12" fill="white" stroke="#CBD5E1" stroke-width="3"/>
+    <rect x="150" y="160" width="1300" height="40" rx="12" fill="#E2E8F0"/>
+    <circle cx="175" cy="180" r="6" fill="#EF4444"/>
+    <circle cx="195" cy="180" r="6" fill="#F59E0B"/>
+    <circle cx="215" cy="180" r="6" fill="#10B981"/>
+    <text x="250" y="186" font-family="sans-serif" font-size="12" fill="#64748B">
+      spatialstud.io/place-packets/wine-heritage/prohibition-cellar
+    </text>
+
+    <!-- SIDEBAR (Spatial Studio Structure - Stable) -->
+    <rect x="150" y="200" width="380" height="810" fill="#FFFFFF" stroke="#10B981" stroke-width="4"/>
+
+    <!-- Sidebar Label -->
+    <rect x="160" y="210" width="360" height="50" rx="8" fill="#10B981" opacity="0.1"/>
+    <text x="340" y="240" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#10B981">
+      SIDEBAR (Stable Structure)
+    </text>
+
+    <!-- Logo Area -->
+    <rect x="180" y="280" width="320" height="80" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="220" cy="320" r="25" fill="#10B981"/>
+    <text x="260" y="318" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0F172A">
+      Spatial Studio
+    </text>
+    <text x="260" y="335" font-family="sans-serif" font-size="11" fill="#64748B">
+      [Context Edition Name]
+    </text>
+
+    <!-- Navigation Controls -->
+    <rect x="180" y="380" width="320" height="60" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="340" y="407" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#64748B">
+      Phase Selector (Pilot/Scale/Global)
+    </text>
+    <rect x="190" y="415" width="95" height="30" rx="6" fill="#10B981"/>
+    <text x="237" y="435" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+      Pilot
+    </text>
+    <rect x="295" y="415" width="95" height="30" rx="6" fill="#E2E8F0"/>
+    <text x="342" y="435" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#64748B">
+      Scale
+    </text>
+    <rect x="400" y="415" width="95" height="30" rx="6" fill="#E2E8F0"/>
+    <text x="447" y="435" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#64748B">
+      Global
+    </text>
+
+    <!-- Content Cards Area -->
+    <rect x="180" y="460" width="320" height="400" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="340" y="487" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#64748B">
+      Place Packet List (Context Cards)
+    </text>
+
+    <!-- Card 1 (Active) -->
+    <rect x="190" y="500" width="300" height="90" rx="12" fill="white" stroke="#10B981" stroke-width="2" filter="url(#glow)"/>
+    <circle cx="215" cy="530" r="12" fill="#10B981"/>
+    <text x="240" y="533" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0F172A">
+      Active Place Packet
+    </text>
+    <text x="240" y="550" font-family="sans-serif" font-size="10" fill="#64748B">
+      Location • Era • Status
+    </text>
+    <rect x="395" y="520" width="75" height="20" rx="10" fill="#10B981" opacity="0.2"/>
+    <text x="432" y="534" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#10B981">
+      ACTIVE
+    </text>
+    <text x="240" y="572" font-family="sans-serif" font-size="9" fill="#64748B">
+      GTM Score: 92 | Context-themed
+    </text>
+
+    <!-- Card 2 (Inactive) -->
+    <rect x="190" y="605" width="300" height="90" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="215" cy="635" r="12" fill="#94A3B8"/>
+    <text x="240" y="638" font-family="sans-serif" font-size="13" fill="#64748B">
+      Inactive Place Packet
+    </text>
+    <text x="240" y="655" font-family="sans-serif" font-size="10" fill="#94A3B8">
+      Location • Era • Status
+    </text>
+
+    <!-- Card 3 (Inactive) -->
+    <rect x="190" y="710" width="300" height="90" rx="12" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="215" cy="740" r="12" fill="#94A3B8"/>
+    <text x="240" y="743" font-family="sans-serif" font-size="13" fill="#64748B">
+      Inactive Place Packet
+    </text>
+    <text x="240" y="760" font-family="sans-serif" font-size="10" fill="#94A3B8">
+      Location • Era • Status
+    </text>
+
+    <!-- CTA Footer -->
+    <rect x="180" y="880" width="320" height="110" rx="8" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="2"/>
+    <text x="340" y="907" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#0F172A">
+      Felt.com Integration CTA
+    </text>
+    <rect x="210" y="920" width="260" height="50" rx="12" fill="#10B981"/>
+    <text x="340" y="951" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">
+      🗺️ Deploy to Live Map
+    </text>
+
+    <!-- MAIN CANVAS (Context-Adaptive) -->
+    <rect x="530" y="200" width="920" height="810" fill="#0F172A" stroke="#9333EA" stroke-width="4"/>
+
+    <!-- Canvas Label -->
+    <rect x="540" y="210" width="900" height="50" rx="8" fill="#9333EA" opacity="0.2"/>
+    <text x="990" y="240" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#E9D5FF">
+      MAIN CANVAS (Context-Adaptive Theme)
+    </text>
+
+    <!-- Header Bar -->
+    <rect x="540" y="280" width="900" height="70" rx="8" fill="#000000" opacity="0.4" stroke="#9333EA" stroke-width="2"/>
+    <text x="560" y="310" font-family="sans-serif" font-size="12" fill="#E9D5FF">
+      Status Badge
+    </text>
+    <rect x="560" y="318" width="120" height="24" rx="12" fill="#9333EA" opacity="0.3"/>
+    <circle cx="575" cy="330" r="4" fill="#A78BFA"/>
+    <text x="590" y="333" font-family="sans-serif" font-size="10" font-weight="bold" fill="#E9D5FF">
+      LIVE SYNC
+    </text>
+
+    <text x="1350" y="310" font-family="sans-serif" font-size="12" text-anchor="end" fill="#E9D5FF">
+      Impact Score: 92%
+    </text>
+    <rect x="1310" y="318" width="110" height="24" rx="12" fill="#9333EA"/>
+    <text x="1365" y="333" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+      Export Story
+    </text>
+
+    <!-- Content Area with Context Texture -->
+    <rect x="540" y="370" width="900" height="500" rx="8" fill="url(#gridPattern)" opacity="0.2"/>
+    <rect x="540" y="370" width="900" height="500" rx="8" fill="linear-gradient(135deg, rgba(88,28,135,0.8) 0%, rgba(147,51,234,0.4) 100%)"/>
+
+    <!-- Narrative Content Card -->
+    <rect x="720" y="450" width="540" height="320" rx="16" fill="#000000" opacity="0.7" stroke="#9333EA" stroke-width="2"/>
+
+    <text x="990" y="490" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#E9D5FF">
+      Place Packet Title
+    </text>
+    <text x="990" y="520" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#C084FC" font-style="italic">
+      Era • Location
+    </text>
+
+    <!-- Crime Context -->
+    <rect x="740" y="545" width="500" height="80" rx="8" fill="#9333EA" opacity="0.2"/>
+    <text x="760" y="568" font-family="sans-serif" font-size="12" font-weight="bold" fill="#F87171">
+      ⚡ Crime Context (Historical)
+    </text>
+    <text x="760" y="590" font-family="sans-serif" font-size="11" fill="#E9D5FF">
+      Historical constraint narrative (2-3 sentences)
+    </text>
+    <text x="760" y="608" font-family="sans-serif" font-size="11" fill="#E9D5FF">
+      Community knowledge preserved through place
+    </text>
+
+    <!-- Culture Transform -->
+    <rect x="740" y="640" width="500" height="110" rx="8" fill="#9333EA" opacity="0.3"/>
+    <text x="760" y="663" font-family="sans-serif" font-size="12" font-weight="bold" fill="#C084FC">
+      🍷 Cultural Transformation (Today)
+    </text>
+    <text x="760" y="685" font-family="sans-serif" font-size="11" fill="white">
+      Modern context showing innovation from constraint
+    </text>
+    <text x="760" y="703" font-family="sans-serif" font-size="11" fill="white">
+      Heritage tourism, community learning, living knowledge
+    </text>
+
+    <!-- Action Buttons -->
+    <rect x="760" y="720" width="140" height="40" rx="8" fill="#9333EA"/>
+    <text x="830" y="745" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+      🎧 Audio Tour
+    </text>
+
+    <rect x="920" y="720" width="140" height="40" rx="8" fill="white" opacity="0.1" stroke="#9333EA" stroke-width="1"/>
+    <text x="990" y="745" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#E9D5FF">
+      💬 Discussion
+    </text>
+
+    <rect x="1080" y="720" width="140" height="40" rx="8" fill="white" opacity="0.1" stroke="#9333EA" stroke-width="1"/>
+    <text x="1150" y="745" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#E9D5FF">
+      📍 Visit Site
+    </text>
+
+    <!-- Map Interface Area -->
+    <rect x="560" y="900" width="350" height="90" rx="12" fill="#000000" opacity="0.7" stroke="#9333EA" stroke-width="2"/>
+    <text x="735" y="925" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#C084FC">
+      📍 Story Location
+    </text>
+    <text x="735" y="950" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      Willamette Valley, OR
+    </text>
+    <text x="735" y="972" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#A78BFA">
+      45.5155° N, 122.9833° W
+    </text>
+
+    <!-- Felt.com Attribution -->
+    <rect x="930" y="900" width="490" height="90" rx="12" fill="#312E81" opacity="0.8" stroke="#6366F1" stroke-width="2"/>
+    <text x="945" y="925" font-family="sans-serif" font-size="11" font-weight="bold" fill="#A5B4FC">
+      Powered by Felt.com
+    </text>
+    <text x="945" y="948" font-family="sans-serif" font-size="10" fill="#C7D2FE">
+      Interactive map layer showing spatial context
+    </text>
+    <text x="945" y="968" font-family="sans-serif" font-size="10" fill="#C7D2FE">
+      Historical overlay + modern infrastructure
+    </text>
+  </g>
+
+  <!-- ANNOTATION: RESPONSIVE BREAKPOINTS -->
+  <g id="responsive-notes">
+    <rect x="100" y="1050" width="700" height="120" rx="12" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="450" y="1080" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0F172A">
+      RESPONSIVE BREAKPOINTS
+    </text>
+
+    <text x="130" y="1105" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Desktop (1200px+): Sidebar + Canvas side-by-side
+    </text>
+    <text x="130" y="1125" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Tablet (768-1199px): Collapsible sidebar, full canvas
+    </text>
+    <text x="130" y="1145" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Mobile (<768px): Bottom sheet navigation, full canvas
+    </text>
+  </g>
+
+  <!-- ANNOTATION: THEME SWITCHING -->
+  <g id="theme-notes">
+    <rect x="850" y="1050" width="700" height="120" rx="12" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="1200" y="1080" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0F172A">
+      CONTEXT THEME APPLICATION
+    </text>
+
+    <text x="880" y="1105" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Sidebar structure: Always Spatial Studio (emerald)
+    </text>
+    <text x="880" y="1125" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Canvas background: Context gradient (wine/trail/sound)
+    </text>
+    <text x="880" y="1145" font-family="Monaco, monospace" font-size="11" fill="#64748B">
+      • Content cards: Context colors with stable interaction patterns
+    </text>
+  </g>
+</svg>

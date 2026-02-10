@@ -1,0 +1,243 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#581C87;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#831843;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F172A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F172A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="soundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EA580C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DB2777;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333EA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="600" y="50" font-family="sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    DESIGN TOKEN ARCHITECTURE
+  </text>
+  <text x="600" y="80" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#64748B">
+    Spatial Studio Core + Place Packet Context Layers
+  </text>
+
+  <!-- LAYER 1: SPATIAL STUDIO CORE (Left Column) -->
+  <g id="spatial-studio-core">
+    <rect x="50" y="120" width="340" height="600" rx="16" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+
+    <!-- Header -->
+    <rect x="50" y="120" width="340" height="60" rx="16" fill="#10B981"/>
+    <text x="220" y="158" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      LAYER 1: STABLE CORE
+    </text>
+
+    <!-- Brand Colors -->
+    <text x="70" y="215" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0F172A">
+      Brand Colors (Never Change)
+    </text>
+    <circle cx="90" cy="245" r="20" fill="#10B981"/>
+    <text x="125" y="252" font-family="sans-serif" font-size="12" fill="#475569">
+      Primary: Emerald-600 (#10B981)
+    </text>
+    <circle cx="90" cy="285" r="20" fill="#312E81"/>
+    <text x="125" y="292" font-family="sans-serif" font-size="12" fill="#475569">
+      Secondary: Indigo-900 (#312E81)
+    </text>
+    <circle cx="90" cy="325" r="20" fill="#0F172A"/>
+    <text x="125" y="332" font-family="sans-serif" font-size="12" fill="#475569">
+      Dark: Slate-900 (#0F172A)
+    </text>
+
+    <!-- Layout Structure -->
+    <text x="70" y="385" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0F172A">
+      Layout Structure
+    </text>
+    <rect x="70" y="400" width="60" height="120" rx="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+    <text x="100" y="470" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#475569">
+      Sidebar
+    </text>
+    <text x="100" y="485" font-family="sans-serif" font-size="9" text-anchor="middle" fill="#64748B">
+      w-85 to w-96
+    </text>
+
+    <rect x="145" y="400" width="200" height="120" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1"/>
+    <text x="245" y="470" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#475569">
+      Main Canvas
+    </text>
+    <text x="245" y="485" font-family="sans-serif" font-size="9" text-anchor="middle" fill="#64748B">
+      flex-1 (map/visualization)
+    </text>
+
+    <!-- UI Patterns -->
+    <text x="70" y="555" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0F172A">
+      UI Patterns (Stable)
+    </text>
+    <rect x="70" y="570" width="100" height="40" rx="12" fill="white" stroke="#10B981" stroke-width="2"/>
+    <text x="120" y="595" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#0F172A">
+      rounded-xl
+    </text>
+
+    <rect x="185" y="570" width="100" height="40" rx="16" fill="white" stroke="#10B981" stroke-width="2"/>
+    <text x="235" y="595" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#0F172A">
+      rounded-2xl
+    </text>
+
+    <rect x="70" y="625" width="280" height="60" rx="12" fill="#10B981" filter="drop-shadow(0 10px 15px rgba(16, 185, 129, 0.3))"/>
+    <text x="210" y="660" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+      Shadow + Hover Effects
+    </text>
+  </g>
+
+  <!-- LAYER 2: PLACE PACKET CONTEXTS (Right Column) -->
+  <g id="place-packet-contexts">
+    <rect x="420" y="120" width="730" height="600" rx="16" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+
+    <!-- Header -->
+    <rect x="420" y="120" width="730" height="60" rx="16" fill="#9333EA"/>
+    <text x="785" y="158" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      LAYER 2: CONTEXTUAL THEMES (Adaptive)
+    </text>
+
+    <!-- Wine Heritage Context -->
+    <g id="wine-context">
+      <rect x="445" y="200" width="220" height="240" rx="12" fill="url(#wineGrad)"/>
+      <text x="555" y="230" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+        WINE HERITAGE
+      </text>
+
+      <circle cx="475" cy="265" r="15" fill="#9333EA"/>
+      <text x="505" y="271" font-family="sans-serif" font-size="11" fill="white">
+        Purple-600 (#9333EA)
+      </text>
+
+      <circle cx="475" cy="300" r="15" fill="#DB2777"/>
+      <text x="505" y="306" font-family="sans-serif" font-size="11" fill="white">
+        Pink-600 (#DB2777)
+      </text>
+
+      <circle cx="475" cy="335" r="15" fill="#581C87"/>
+      <text x="505" y="341" font-family="sans-serif" font-size="11" fill="white">
+        Purple-900 (#581C87)
+      </text>
+
+      <text x="555" y="380" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Texture: Wine cellars
+      </text>
+      <text x="555" y="400" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Tone: Mysterious, transformative
+      </text>
+      <text x="555" y="420" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Icon: Wine glass
+      </text>
+    </g>
+
+    <!-- Freedom Trails Context -->
+    <g id="trail-context">
+      <rect x="690" y="200" width="220" height="240" rx="12" fill="url(#trailGrad)"/>
+      <text x="800" y="230" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+        FREEDOM TRAILS
+      </text>
+
+      <circle cx="720" cy="265" r="15" fill="#1E40AF"/>
+      <text x="750" y="271" font-family="sans-serif" font-size="11" fill="white">
+        Blue-800 (#1E40AF)
+      </text>
+
+      <circle cx="720" cy="300" r="15" fill="#B45309"/>
+      <text x="750" y="306" font-family="sans-serif" font-size="11" fill="white">
+        Amber-700 (#B45309)
+      </text>
+
+      <circle cx="720" cy="335" r="15" fill="#1E293B"/>
+      <text x="750" y="341" font-family="sans-serif" font-size="11" fill="white">
+        Slate-800 (#1E293B)
+      </text>
+
+      <text x="800" y="380" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Texture: Archival maps
+      </text>
+      <text x="800" y="400" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Tone: Reverent, dignified
+      </text>
+      <text x="800" y="420" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Icon: Map pin
+      </text>
+    </g>
+
+    <!-- Sound Clash Context -->
+    <g id="sound-context">
+      <rect x="935" y="200" width="195" height="240" rx="12" fill="url(#soundGrad)"/>
+      <text x="1032" y="230" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+        SOUND CLASH
+      </text>
+
+      <circle cx="960" cy="265" r="15" fill="#EA580C"/>
+      <text x="990" y="271" font-family="sans-serif" font-size="11" fill="white">
+        Orange-500
+      </text>
+
+      <circle cx="960" cy="300" r="15" fill="#06B6D4"/>
+      <text x="990" y="306" font-family="sans-serif" font-size="11" fill="white">
+        Cyan-500
+      </text>
+
+      <circle cx="960" cy="335" r="15" fill="#F59E0B"/>
+      <text x="990" y="341" font-family="sans-serif" font-size="11" fill="white">
+        Yellow-400
+      </text>
+
+      <text x="1032" y="380" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Texture: Carnival
+      </text>
+      <text x="1032" y="400" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Tone: Energetic
+      </text>
+      <text x="1032" y="420" font-family="sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.8">
+        Icon: Music note
+      </text>
+    </g>
+
+    <!-- Merge Concept -->
+    <text x="785" y="480" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0F172A">
+      Runtime Theme Composition
+    </text>
+    <rect x="520" y="500" width="530" height="180" rx="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+
+    <text x="540" y="530" font-family="Monaco, monospace" font-size="11" fill="#475569">
+      function generatePlacePacketTheme(context) {
+    </text>
+    <text x="560" y="555" font-family="Monaco, monospace" font-size="11" fill="#475569">
+      return {
+    </text>
+    <text x="580" y="580" font-family="Monaco, monospace" font-size="11" fill="#10B981">
+        ...spatialStudioCore,  // Stable structure
+    </text>
+    <text x="580" y="605" font-family="Monaco, monospace" font-size="11" fill="#9333EA">
+        contextTheme: placePacketContexts[context]  // Adaptive
+    </text>
+    <text x="560" y="630" font-family="Monaco, monospace" font-size="11" fill="#475569">
+      }
+    </text>
+    <text x="540" y="655" font-family="Monaco, monospace" font-size="11" fill="#475569">
+      }
+    </text>
+  </g>
+
+  <!-- Arrow showing composition -->
+  <path d="M 390 420 L 420 420" stroke="#94A3B8" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#94A3B8"/>
+    </marker>
+  </defs>
+  <text x="405" y="410" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#64748B">
+    +
+  </text>
+</svg>
