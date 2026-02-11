@@ -6,7 +6,6 @@ import { logAuthConfiguration } from '@/lib/auth.config'
 import { BLOG_POSTS_QUERY, PRODUCTS_QUERY } from '@/lib/sanity.queries'
 import type { BlogPost, Product } from '@/lib/types'
 import { urlFor, formatDate } from '@/lib/utils'
-import { AuthDebug } from '@/components/AuthDebug'
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
@@ -95,7 +94,7 @@ export default function Home() {
           </div>
         )}
 
-        {loading && isSanityConfigured && (
+        {loading && isSanityConfigured() && (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
             <p className="text-slate-600 mt-4">Loading content...</p>
@@ -228,9 +227,17 @@ export default function Home() {
       </div>
 
       {/* Authentication Debug Section (Development Only) */}
-      {process.env.NODE_ENV === 'development' && (
+      {process.env.NODE_ENV === 'development' && isSanityConfigured() === false && (
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <AuthDebug />
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-blue-900 mb-4">
+              Development Info
+            </h2>
+            <p className="text-blue-800">Authentication debug component ready.</p>
+            <p className="text-blue-700 text-sm mt-2">
+              Set NEXT_PUBLIC_SANITY_PROJECT_ID to configure Sanity CMS.
+            </p>
+          </div>
         </div>
       )}
     </main>
