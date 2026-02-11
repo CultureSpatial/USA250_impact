@@ -1,10 +1,7 @@
-
-
-````markdown
 # USA 250 · FIFA 2026  │  VineSight Corridor Execution Hub
 _CultureSpatial / Stadium Soundwave_
 
-> “From terroir to telemetry” — bridging partner activations, federal compliance and
+> "From terroir to telemetry" — bridging partner activations, federal compliance and
 > community sovereignty in one place.
 
 ---
@@ -26,7 +23,7 @@ _Think of this repo as **ESXi for ideas**: every artifact that drives the corrid
 
 ## 2 · Live development board
 
-👉  **[GitHub Project — “FIFA Wine Corridor 2026”](<paste board URL>)**
+👉  **[GitHub Project — "FIFA Wine Corridor 2026"](<paste board URL>)**
 
 Custom fields: `Jira Epic`, `Linear Ref`, `Corridor Phase`, `Metric Lineage`.
 
@@ -92,7 +89,3 @@ Apache 2.0 – **but** all cultural-content exemplars remain subject to communit
 *Maintained by Stadium Soundwave / CultureSpatial.  Contact*  
 `tbd@culturespatial.org` for partnerships •  
 `ops-alerts` channel on Discord for uptime/SLO issues.
-````
-
----
- fully represent its new direction.
