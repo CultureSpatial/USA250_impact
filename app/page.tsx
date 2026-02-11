@@ -23,7 +23,7 @@ export default function Home() {
         setLoading(true)
 
         // Skip fetching if Sanity isn't configured
-        if (!isSanityConfigured) {
+        if (!isSanityConfigured()) {
           setError(null)
           setLoading(false)
           return
@@ -212,7 +212,7 @@ export default function Home() {
           </>
         )}
 
-        {!isSanityConfigured && !loading && (
+        {!isSanityConfigured() && !loading && (
           <div className="text-center py-12">
             <p className="text-lg text-slate-600 mb-4">
               Welcome to your Next.js Microfrontend app
