@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { fetchSanityData, isSanityConfigured, getSanityStatus } from '@/lib/sanity.client'
+import { logAuthConfiguration } from '@/lib/auth.config'
 import { BLOG_POSTS_QUERY, PRODUCTS_QUERY } from '@/lib/sanity.queries'
 import type { BlogPost, Product } from '@/lib/types'
 import { urlFor, formatDate } from '@/lib/utils'
+import { AuthDebug } from '@/components/AuthDebug'
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
@@ -13,6 +15,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    // Log authentication configuration on component mount
+    logAuthConfiguration()
+
     async function loadContent() {
       try {
         setLoading(true)
@@ -221,6 +226,13 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* Authentication Debug Section (Development Only) */}
+      {process.env.NODE_ENV === 'development' && (
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <AuthDebug />
+        </div>
+      )}
     </main>
   )
 }
