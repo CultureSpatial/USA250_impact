@@ -5,25 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "start": "next start"
   },
   "dependencies": {
-    "@sanity/client": "^6.0.0",
-    "@sanity/image-url": "^1.0.0",
-    "@sanity/vision": "^5.9.0",
-    "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
-    "groq": "^3.0.0",
-    "lucide-react": "^0.544.0",
     "next": "canary",
     "react": "^19",
-    "react-dom": "^19",
-    "react-hook-form": "^7.54.1",
-    "sanity": "^5.9.0",
-    "tailwind-merge": "^2.5.5",
-    "zod": "^3.24.1"
+    "react-dom": "^19"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -35,3 +22,4 @@
     "typescript": "5.7.3"
   }
 }
+
