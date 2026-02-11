@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "16.0.7",
+    "next": "canary",
     "react": "^19",
     "react-dom": "^19",
     "lucide-react": "^0.544.0",
