@@ -1,0 +1,248 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for different contexts -->
+    <linearGradient id="wineCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#581C87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333EA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trailCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="soundCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EA580C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#0F172A"/>
+
+  <!-- Title -->
+  <text x="700" y="60" font-family="sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="white">
+    PLACE PACKET CARD COMPONENTS
+  </text>
+  <text x="700" y="95" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#94A3B8">
+    Consistent Structure, Context-Driven Visual Language
+  </text>
+
+  <!-- WINE HERITAGE CARD -->
+  <g id="wine-card" filter="url(#cardShadow)">
+    <rect x="80" y="150" width="380" height="650" rx="24" fill="#1F1525" stroke="#9333EA" stroke-width="2"/>
+
+    <!-- Card Header with Icon -->
+    <rect x="80" y="150" width="380" height="100" rx="24" fill="url(#wineCardGrad)"/>
+    <circle cx="140" cy="200" r="28" fill="#ffffff" opacity="0.2"/>
+    <text x="140" y="210" font-family="sans-serif" font-size="28" text-anchor="middle" fill="white">🍷</text>
+    <text x="190" y="195" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">
+      Prohibition Cellar
+    </text>
+    <text x="190" y="220" font-family="sans-serif" font-size="12" fill="#E9D5FF">
+      Willamette Valley, OR
+    </text>
+
+    <!-- Status Badge -->
+    <rect x="350" y="175" width="85" height="24" rx="12" fill="#10B981" opacity="0.2"/>
+    <text x="392" y="192" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#6EE7B7">
+      ACTIVE
+    </text>
+
+    <!-- Content Area -->
+    <text x="110" y="290" font-family="sans-serif" font-size="14" font-weight="bold" fill="#C084FC">
+      Crime Context (1920-1933)
+    </text>
+    <text x="110" y="315" font-family="sans-serif" font-size="12" fill="#D8B4FE">
+      Bootlegger operation during
+    </text>
+    <text x="110" y="335" font-family="sans-serif" font-size="12" fill="#D8B4FE">
+      Prohibition era. Secret cellar
+    </text>
+    <text x="110" y="355" font-family="sans-serif" font-size="12" fill="#D8B4FE">
+      network connected 47 sites.
+    </text>
+
+    <line x1="110" y1="385" x2="430" y2="385" stroke="#9333EA" stroke-width="1" opacity="0.3"/>
+
+    <text x="110" y="420" font-family="sans-serif" font-size="14" font-weight="bold" fill="#E9D5FF">
+      Cultural Transformation (Today)
+    </text>
+    <text x="110" y="445" font-family="sans-serif" font-size="12" fill="#E9D5FF">
+      Historic winery restoration &
+    </text>
+    <text x="110" y="465" font-family="sans-serif" font-size="12" fill="#E9D5FF">
+      heritage tourism experience.
+    </text>
+    <text x="110" y="485" font-family="sans-serif" font-size="12" fill="#E9D5FF">
+      Now a living museum.
+    </text>
+
+    <!-- Map Preview -->
+    <rect x="110" y="520" width="320" height="140" rx="12" fill="#581C87" opacity="0.3"/>
+    <text x="270" y="595" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#C084FC">
+      📍 Interactive Map Layer
+    </text>
+
+    <!-- Action Buttons -->
+    <rect x="110" y="690" width="145" height="45" rx="12" fill="#9333EA" opacity="0.8"/>
+    <text x="182" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+      🎧 Audio Tour
+    </text>
+
+    <rect x="270" y="690" width="160" height="45" rx="12" fill="white" opacity="0.1" stroke="#9333EA" stroke-width="1"/>
+    <text x="350" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#E9D5FF">
+      💬 Join Discussion
+    </text>
+  </g>
+
+  <!-- FREEDOM TRAILS CARD -->
+  <g id="trail-card" filter="url(#cardShadow)">
+    <rect x="510" y="150" width="380" height="650" rx="24" fill="#0F1629" stroke="#3B82F6" stroke-width="2"/>
+
+    <!-- Card Header -->
+    <rect x="510" y="150" width="380" height="100" rx="24" fill="url(#trailCardGrad)"/>
+    <circle cx="570" cy="200" r="28" fill="#ffffff" opacity="0.2"/>
+    <text x="570" y="210" font-family="sans-serif" font-size="28" text-anchor="middle" fill="white">🗺️</text>
+    <text x="620" y="195" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">
+      Underground Railroad
+    </text>
+    <text x="620" y="220" font-family="sans-serif" font-size="12" fill="#BFDBFE">
+      Philadelphia Station Network
+    </text>
+
+    <!-- Status Badge -->
+    <rect x="780" y="175" width="85" height="24" rx="12" fill="#F59E0B" opacity="0.2"/>
+    <text x="822" y="192" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#FDE047">
+      RESEARCH
+    </text>
+
+    <!-- Content Area -->
+    <text x="540" y="290" font-family="sans-serif" font-size="14" font-weight="bold" fill="#93C5FD">
+      Historical Context (1830-1865)
+    </text>
+    <text x="540" y="315" font-family="sans-serif" font-size="12" fill="#BFDBFE">
+      Safe house network assisted
+    </text>
+    <text x="540" y="335" font-family="sans-serif" font-size="12" fill="#BFDBFE">
+      freedom seekers. Documented
+    </text>
+    <text x="540" y="355" font-family="sans-serif" font-size="12" fill="#BFDBFE">
+      18 verified stations.
+    </text>
+
+    <line x1="540" y1="385" x2="860" y2="385" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+
+    <text x="540" y="420" font-family="sans-serif" font-size="14" font-weight="bold" fill="#DBEAFE">
+      Living Heritage (Today)
+    </text>
+    <text x="540" y="445" font-family="sans-serif" font-size="12" fill="#DBEAFE">
+      Community-led historical
+    </text>
+    <text x="540" y="465" font-family="sans-serif" font-size="12" fill="#DBEAFE">
+      preservation. Educational
+    </text>
+    <text x="540" y="485" font-family="sans-serif" font-size="12" fill="#DBEAFE">
+      walking tours with descendants.
+    </text>
+
+    <!-- Map Preview -->
+    <rect x="540" y="520" width="320" height="140" rx="12" fill="#1E3A8A" opacity="0.3"/>
+    <text x="700" y="595" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#93C5FD">
+      📍 Story Trail Route
+    </text>
+
+    <!-- Action Buttons -->
+    <rect x="540" y="690" width="145" height="45" rx="12" fill="#3B82F6" opacity="0.8"/>
+    <text x="612" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+      📖 Read Stories
+    </text>
+
+    <rect x="700" y="690" width="160" height="45" rx="12" fill="white" opacity="0.1" stroke="#3B82F6" stroke-width="1"/>
+    <text x="780" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#BFDBFE">
+      🎓 Learn More
+    </text>
+  </g>
+
+  <!-- SOUND CLASH CARD -->
+  <g id="sound-card" filter="url(#cardShadow)">
+    <rect x="940" y="150" width="380" height="650" rx="24" fill="#1C0F0A" stroke="#F59E0B" stroke-width="2"/>
+
+    <!-- Card Header -->
+    <rect x="940" y="150" width="380" height="100" rx="24" fill="url(#soundCardGrad)"/>
+    <circle cx="1000" cy="200" r="28" fill="#ffffff" opacity="0.2"/>
+    <text x="1000" y="210" font-family="sans-serif" font-size="28" text-anchor="middle" fill="white">🎵</text>
+    <text x="1050" y="195" font-family="sans-serif" font-size="20" font-weight="bold" fill="white">
+      Bamboula Tradition
+    </text>
+    <text x="1050" y="220" font-family="sans-serif" font-size="12" fill="#FEF3C7">
+      St. Croix, USVI
+    </text>
+
+    <!-- Status Badge -->
+    <rect x="1210" y="175" width="85" height="24" rx="12" fill="#10B981" opacity="0.2"/>
+    <text x="1252" y="192" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#6EE7B7">
+      ACTIVE
+    </text>
+
+    <!-- Content Area -->
+    <text x="970" y="290" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FBBF24">
+      Cultural Practice (Traditional)
+    </text>
+    <text x="970" y="315" font-family="sans-serif" font-size="12" fill="#FDE68A">
+      African drum tradition preserved
+    </text>
+    <text x="970" y="335" font-family="sans-serif" font-size="12" fill="#FDE68A">
+      through Carnival. Movement-based
+    </text>
+    <text x="970" y="355" font-family="sans-serif" font-size="12" fill="#FDE68A">
+      knowledge transmission.
+    </text>
+
+    <line x1="970" y1="385" x2="1290" y2="385" stroke="#F59E0B" stroke-width="1" opacity="0.3"/>
+
+    <text x="970" y="420" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FEF3C7">
+      Living Practice (Today)
+    </text>
+    <text x="970" y="445" font-family="sans-serif" font-size="12" fill="#FEF3C7">
+      Youth learning from elders.
+    </text>
+    <text x="970" y="465" font-family="sans-serif" font-size="12" fill="#FEF3C7">
+      Community performances and
+    </text>
+    <text x="970" y="485" font-family="sans-serif" font-size="12" fill="#FEF3C7">
+      artist corporation pathways.
+    </text>
+
+    <!-- Map Preview -->
+    <rect x="970" y="520" width="320" height="140" rx="12" fill="#EA580C" opacity="0.3"/>
+    <text x="1130" y="595" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#FBBF24">
+      📍 Performance Venues
+    </text>
+
+    <!-- Action Buttons -->
+    <rect x="970" y="690" width="145" height="45" rx="12" fill="#F59E0B" opacity="0.8"/>
+    <text x="1042" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+      🎭 Experience
+    </text>
+
+    <rect x="1130" y="690" width="160" height="45" rx="12" fill="white" opacity="0.1" stroke="#F59E0B" stroke-width="1"/>
+    <text x="1210" y="718" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FEF3C7">
+      👥 Meet Artists
+    </text>
+  </g>
+
+  <!-- Footer Annotation -->
+  <text x="700" y="860" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#64748B">
+    Same component structure (PlacePacketCard.tsx) • Context-driven theme props • Fully accessible
+  </text>
+</svg>

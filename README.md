@@ -1,91 +1,165 @@
-# USA 250 · FIFA 2026  │  VineSight Corridor Execution Hub
-_CultureSpatial / Stadium Soundwave_
+# USA250 Impact GTM Component Library
 
-> "From terroir to telemetry" — bridging partner activations, federal compliance and
-> community sovereignty in one place.
+Content apparatus for USA250 Story Trails with after-event impact and infrastructure integration (FDAGI format), focused on tourist consumption and spatial intelligence.
 
----
+## Overview
 
-## 1 · Why this repo exists
+A comprehensive React component library for Go-To-Market (GTM) strategy visualization and guild management systems. Built for USA250 Story Trails infrastructure deployment, featuring spatial intelligence dashboards, market mirroring analysis, and collaborative mapping integration with Felt.com.
 
-| Layer | What lives here | Up-stream | Down-stream |
-|-------|-----------------|-----------|-------------|
-| **Specs & policy** | `docs/` – DMAC v1.0 spec, FADGI mapping table, partner playbooks, Story-Trail deck | Jira CEAZ-196 / CEAZ-203 | State proposals (`HOW-202`), partner MOUs |
-| **Schemas** | `schemas/` – *temporal-sovereignty.json* + future Campfire tags | Linear HOW-91 | Visible-Flame dashboard (STA-40 / CEAZ-197) |
-| **Governance** | `governance-plane/` – RMAC matrix, consent ledger proto | v0-move-culture repo | Compliance matrix (OPS-68), DMO consent interface (OPS-71) |
-| **Value flow** | `value-flow/au-ledger/` – AU accounting API stub | Linear HOW-150 v2 | Partner statements → corridor revenue model |
-| **Observability** | `observability/slo-harness/` – Grafana / NR configs | — | SLOs for CEAZ-197 endpoints |
-| **Experience seeds** | `narrative-assets/`, `pwa/`, Discord bot, wire-frames | legacy repos | VanWineFest & Lighthouse pilots |
+### Key Components
 
-_Think of this repo as **ESXi for ideas**: every artifact that drives the corridor is staged here before being shipped to partner-facing infrastructure._
+- **GTM Accelerator Dashboard** - Spatial intelligence for market strategy
+- **Guild Academy Charter** - Technical infrastructure R&D framework
+- **Integration Examples** - Production-ready implementation patterns
 
----
+## Quick Start
 
-## 2 · Live development board
-
-👉  **[GitHub Project — "FIFA Wine Corridor 2026"](<paste board URL>)**
-
-Custom fields: `Jira Epic`, `Linear Ref`, `Corridor Phase`, `Metric Lineage`.
-
-Cards labelled `fifa-corridor` auto-land in Backlog.
-
----
-
-## 3 · Seed issues (Jan-2026)
-
-| # | Title | Jira | Linear | Phase |
-|---|-------|------|--------|-------|
-| #3 | DMAC spec v1.0 (FADGI) | CEAZ-196 | — | **In Progress** |
-| #4 | Hospitality Phenomenology kit | CEAZ-203 | RES-11 | Pilot |
-| #5 | Vintage & Voice Discord bot | CEAZ-203 | ENG-11 | Lighthouse |
-| #6 | Event Playbook + Compliance | CEAZ-193 | OPS-68 | Pilot |
-| #7 | Seattle–Van DMO PWA | CEAZ-193 | OPS-57 | Pilot |
-| #8 | Data-loop dashboard MVP | CEAZ-203/197 | OPS-72 | Lighthouse |
-| #9 | Tourism Van partnership scaffold | CEAZ-193 | OPS-70 | Pilot |
-| #10| SLO harness integration | CEAZ-197 | — | **In Progress** |
-
----
-
-## 4 · Usage
-
-### Developer bootstrap
 ```bash
-git clone https://github.com/CultureSpatial/USA250_impact.git
-cd USA250_impact
-npm i            # for any dashboard/PWA work
-make pdf         # renders docs/dmac-spec-draft.md -> build/dmac-spec-v1.pdf
+npm install
+npm run dev
 ```
 
-### Editing specs
-1. Update markdown in `docs/`
-2. Run `make pdf`
-3. Attach PDF to the matching Jira epic
+## Component Usage
 
-### Syncing schemas
-1. Author change in **Campfire** repo  
-2. `npm run schema:import <tag>` – copies to `schemas/` here  
-3. Commit & open PR (auto-links to HOW-91)
+### GTM Accelerator Dashboard
 
----
+```tsx
+import { GTMAcceleratorDashboard } from '@usa250/impact-gtm-components';
 
-## 5 · Open branches worth exploring
+function App() {
+  return <GTMAcceleratorDashboard />;
+}
+```
 
-| Branch | Fossil | Re-use |
-|--------|--------|--------|
-| `idea/prototype-lighthouse` | Early PWA venue selector | Basis for OPS-57 |
-| `schema-draft` | First schema w/ `pourVolume` field | Rationale captured in DMAC appendix |
-| `wireframes/wine-lighthouse` | PNG set | Partner deck visuals |
+### Guild Academy Charter
 
-See `/ARCHAEOLOGY.md` for full commit-history log.
+```tsx
+import { GuildAcademyCharter } from '@usa250/impact-gtm-components';
 
----
+function App() {
+  return <GuildAcademyCharter />;
+}
+```
 
-## 6 · License
+### Unified Dashboard (Recommended)
 
-Apache 2.0 – **but** all cultural-content exemplars remain subject to community licenses described in `/governance-plane/CONSENT_LICENSES.md`.
+```tsx
+import { UnifiedGTMApp } from '@usa250/impact-gtm-components/examples';
 
----
+function App() {
+  return <UnifiedGTMApp />;
+}
+```
 
-*Maintained by Stadium Soundwave / CultureSpatial.  Contact*  
-`tbd@culturespatial.org` for partnerships •  
-`ops-alerts` channel on Discord for uptime/SLO issues.
+## Features
+
+### GTM Accelerator Dashboard
+
+- 🗺️ **Spatial Intelligence** - Market mirroring and node activation
+- 📊 **GTM Scoring** - Real-time market propensity analysis
+- 🌍 **Multi-Region Support** - PNW, EU-West, BC-Canada markets
+- 🔗 **Felt.com Integration** - Deploy to collaborative maps
+- ⚡ **Live Sync** - 30-second data refresh intervals
+
+### Guild Academy Charter
+
+- 🎓 **PBL Methodology** - Project-based learning framework
+- 🤖 **AI Articulation Literacy** - Non-technical contribution enablement
+- 🔬 **UMCES-CGC Foundation** - Environmental telemetry integration
+- 🏛️ **Constitutional Bounds** - AI + Human partnership framework
+- 📜 **Verifiable Credentials** - Technical architect certification
+
+## Integration Patterns
+
+See [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for detailed patterns:
+
+1. **Standalone Deployment** - Individual components
+2. **Unified Dashboard** - Combined GTM + Guild management
+3. **Felt.com Spatial Integration** - Collaborative mapping
+4. **Data-Driven External API** - Live data feeds
+5. **Event-Driven Communication** - Cross-component state
+6. **Embedded Widget Mode** - CMS integration
+7. **Multi-Tenant Guild** - Regional deployments
+8. **AI Copilot Integration** - UMCES-CGC model
+
+## Architecture
+
+```
+components/
+├── gtm/
+│   └── GTMAcceleratorDashboard.tsx
+├── guild/
+│   └── GuildAcademyCharter.tsx
+└── index.tsx
+
+src/
+└── examples/
+    ├── UnifiedGTMDashboard.tsx
+    ├── FeltIntegration.tsx
+    └── index.ts
+```
+
+## Integration Outcomes
+
+| Pattern | Performance | Complexity | Scalability | Use Case |
+|---------|-------------|------------|-------------|----------|
+| Standalone | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐ | Single-purpose |
+| Unified Dashboard | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Operations |
+| Felt Spatial | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Collaboration |
+| Data-Driven API | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Enterprise |
+
+## Tourist Consumption Layer
+
+Components integrate with USA250 Story Trails infrastructure:
+
+- **Sensor Deployment** - Environmental telemetry at heritage sites
+- **Guild-Trained Guides** - Technical monitors for story trails
+- **Revenue Transparency** - Hospitality integration tracking
+- **Impact Analytics** - Ecological + economic monitoring
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+
+# Format code
+npm run format
+```
+
+## Environment Variables
+
+```bash
+FELT_API_KEY=your_felt_api_key
+UMCES_CGC_ENDPOINT=https://cgc.umces.edu/api
+GTM_ANALYTICS_URL=https://analytics.usa250.org
+```
+
+## Documentation
+
+- [Integration Guide](./INTEGRATION_GUIDE.md) - Comprehensive integration patterns
+- [API Reference](./docs/API.md) - Component props and types
+- [Contributing](./CONTRIBUTING.md) - Development guidelines
+
+## License
+
+MIT License - See [LICENSE](./LICENSE) for details
+
+## Support
+
+- **Technical**: guild-academy@usa250.org
+- **Felt.com API**: https://feltmaps.notion.site/Felt-Public-API
+- **UMCES-CGC**: https://cgc.umces.edu/learning-resources
+
+## Version
+
+**v1.0.0** | January 9, 2026 | ARIA-X Technical Council + OTEC Constitutional Framework

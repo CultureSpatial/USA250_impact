@@ -1,0 +1,215 @@
+<svg width="1600" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define patterns for different contexts -->
+    <pattern id="wineTexture" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#9333EA" opacity="0.3"/>
+    </pattern>
+    <pattern id="trailTexture" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect x="8" y="8" width="4" height="4" fill="#3B82F6" opacity="0.2"/>
+    </pattern>
+    <pattern id="soundTexture" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 0 10 Q 5 5, 10 10 T 20 10" stroke="#F59E0B" fill="none" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="800" y="70" font-family="sans-serif" font-size="42" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    LOGO EVOLUTION FRAMEWORK
+  </text>
+  <text x="800" y="110" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#64748B">
+    Spatial Studio Core + Place Packet Context Variations
+  </text>
+
+  <!-- SECTION 1: CORE SPATIAL STUDIO LOGO -->
+  <rect x="100" y="160" width="1400" height="200" rx="16" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="150" y="200" font-family="sans-serif" font-size="20" font-weight="bold" fill="#0F172A">
+    CORE BRAND (Never Changes)
+  </text>
+
+  <!-- Primary Logo -->
+  <g id="primary-logo" transform="translate(300, 220)">
+    <circle cx="0" cy="0" r="35" fill="#10B981"/>
+    <path d="M -15 -15 L 15 -15 L 0 15 Z" fill="white"/>
+    <circle cx="0" cy="-8" r="4" fill="white"/>
+  </g>
+  <text x="300" y="300" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    SPATIAL
+  </text>
+  <text x="300" y="330" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#10B981" letter-spacing="2">
+    STUDIO
+  </text>
+
+  <!-- Monochrome Variation -->
+  <g id="mono-logo" transform="translate(600, 220)">
+    <circle cx="0" cy="0" r="35" fill="#0F172A"/>
+    <path d="M -15 -15 L 15 -15 L 0 15 Z" fill="white"/>
+    <circle cx="0" cy="-8" r="4" fill="white"/>
+  </g>
+  <text x="600" y="300" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    SPATIAL
+  </text>
+  <text x="600" y="330" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#64748B">
+    Monochrome (Dark Backgrounds)
+  </text>
+
+  <!-- Icon Only -->
+  <g id="icon-only" transform="translate(900, 220)">
+    <circle cx="0" cy="0" r="40" fill="#10B981"/>
+    <path d="M -18 -18 L 18 -18 L 0 18 Z" fill="white"/>
+    <circle cx="0" cy="-10" r="5" fill="white"/>
+  </g>
+  <text x="900" y="300" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#64748B">
+    Icon Only (App Badge)
+  </text>
+
+  <!-- Horizontal Lockup -->
+  <g id="horizontal-lockup" transform="translate(1200, 243)">
+    <circle cx="0" cy="0" r="28" fill="#10B981"/>
+    <path d="M -12 -12 L 12 -12 L 0 12 Z" fill="white"/>
+    <circle cx="0" cy="-6" r="3" fill="white"/>
+    <text x="45" y="10" font-family="sans-serif" font-size="22" font-weight="bold" fill="#0F172A">
+      SPATIAL STUDIO
+    </text>
+  </g>
+  <text x="1280" y="300" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#64748B">
+    Horizontal (Headers/Navigation)
+  </text>
+
+  <!-- SECTION 2: PLACE PACKET VARIATIONS -->
+  <text x="800" y="430" font-family="sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    PLACE PACKET CONTEXTUAL VARIATIONS
+  </text>
+  <text x="800" y="465" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#64748B">
+    Logo adapts to heritage context while maintaining brand recognition
+  </text>
+
+  <!-- Wine Heritage Variation -->
+  <g id="wine-variation">
+    <rect x="100" y="500" width="420" height="420" rx="16" fill="url(#wineTexture)" stroke="#9333EA" stroke-width="3"/>
+    <rect x="100" y="500" width="420" height="420" rx="16" fill="linear-gradient(135deg, rgba(88,28,135,0.9) 0%, rgba(147,51,234,0.9) 100%)"/>
+
+    <text x="310" y="545" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+      WINE HERITAGE
+    </text>
+
+    <!-- Adapted Logo -->
+    <g transform="translate(310, 650)">
+      <circle cx="0" cy="0" r="50" fill="#9333EA"/>
+      <circle cx="0" cy="0" r="50" fill="url(#wineTexture)"/>
+      <path d="M -20 -20 L 20 -20 L 0 20 Z" fill="white"/>
+      <circle cx="0" cy="-10" r="5" fill="white"/>
+      <!-- Wine glass overlay -->
+      <path d="M -8 -5 L -8 10 L 8 10 L 8 -5 L 0 -15 Z" fill="white" opacity="0.3"/>
+    </g>
+
+    <text x="310" y="740" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">
+      SPATIAL STUDIO
+    </text>
+    <text x="310" y="770" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#E9D5FF" letter-spacing="1">
+      WINE DISCOVERY EDITION
+    </text>
+
+    <!-- Context Badge -->
+    <rect x="210" y="800" width="200" height="40" rx="20" fill="white" opacity="0.2"/>
+    <text x="310" y="827" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      🍷 Prohibition Heritage
+    </text>
+
+    <text x="310" y="880" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#D8B4FE">
+      Brand: Spatial Studio (stable)
+    </text>
+    <text x="310" y="900" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#D8B4FE">
+      Context: Wine/Heritage (adaptive)
+    </text>
+  </g>
+
+  <!-- Freedom Trails Variation -->
+  <g id="trail-variation">
+    <rect x="570" y="500" width="420" height="420" rx="16" fill="url(#trailTexture)" stroke="#3B82F6" stroke-width="3"/>
+    <rect x="570" y="500" width="420" height="420" rx="16" fill="linear-gradient(135deg, rgba(30,58,138,0.9) 0%, rgba(59,130,246,0.9) 100%)"/>
+
+    <text x="780" y="545" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+      FREEDOM TRAILS
+    </text>
+
+    <!-- Adapted Logo -->
+    <g transform="translate(780, 650)">
+      <circle cx="0" cy="0" r="50" fill="#3B82F6"/>
+      <circle cx="0" cy="0" r="50" fill="url(#trailTexture)"/>
+      <path d="M -20 -20 L 20 -20 L 0 20 Z" fill="white"/>
+      <circle cx="0" cy="-10" r="5" fill="white"/>
+      <!-- Map pin overlay -->
+      <path d="M -6 -15 Q -6 -22, 0 -25 Q 6 -22, 6 -15 L 0 -5 Z" fill="#FDE68A" opacity="0.7"/>
+      <circle cx="0" cy="-16" r="3" fill="#1E3A8A"/>
+    </g>
+
+    <text x="780" y="740" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">
+      SPATIAL STUDIO
+    </text>
+    <text x="780" y="770" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#BFDBFE" letter-spacing="1">
+      STORY TRAIL NAVIGATOR
+    </text>
+
+    <!-- Context Badge -->
+    <rect x="680" y="800" width="200" height="40" rx="20" fill="white" opacity="0.2"/>
+    <text x="780" y="827" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      🗺️ Underground Railroad
+    </text>
+
+    <text x="780" y="880" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#BFDBFE">
+      Brand: Spatial Studio (stable)
+    </text>
+    <text x="780" y="900" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#BFDBFE">
+      Context: Historical Trails (adaptive)
+    </text>
+  </g>
+
+  <!-- Sound Clash Variation -->
+  <g id="sound-variation">
+    <rect x="1040" y="500" width="420" height="420" rx="16" fill="url(#soundTexture)" stroke="#F59E0B" stroke-width="3"/>
+    <rect x="1040" y="500" width="420" height="420" rx="16" fill="linear-gradient(135deg, rgba(234,88,12,0.9) 0%, rgba(245,158,11,0.9) 100%)"/>
+
+    <text x="1250" y="545" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+      SOUND CLASH
+    </text>
+
+    <!-- Adapted Logo -->
+    <g transform="translate(1250, 650)">
+      <circle cx="0" cy="0" r="50" fill="#F59E0B"/>
+      <circle cx="0" cy="0" r="50" fill="url(#soundTexture)"/>
+      <path d="M -20 -20 L 20 -20 L 0 20 Z" fill="white"/>
+      <circle cx="0" cy="-10" r="5" fill="white"/>
+      <!-- Sound wave overlay -->
+      <path d="M -25 0 Q -20 -8, -15 0 T -5 0" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M 5 0 Q 10 -8, 15 0 T 25 0" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+    </g>
+
+    <text x="1250" y="740" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">
+      SPATIAL STUDIO
+    </text>
+    <text x="1250" y="770" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FEF3C7" letter-spacing="1">
+      CARNIVAL EDITION
+    </text>
+
+    <!-- Context Badge -->
+    <rect x="1150" y="800" width="200" height="40" rx="20" fill="white" opacity="0.2"/>
+    <text x="1250" y="827" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+      🎵 Bamboula Heritage
+    </text>
+
+    <text x="1250" y="880" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#FEF3C7">
+      Brand: Spatial Studio (stable)
+    </text>
+    <text x="1250" y="900" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#FEF3C7">
+      Context: Sound/Movement (adaptive)
+    </text>
+  </g>
+
+  <!-- Bottom Note -->
+  <text x="800" y="970" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0F172A">
+    Design Principle: Spatial Studio provides infrastructure • Place Packets provide cultural context
+  </text>
+</svg>
