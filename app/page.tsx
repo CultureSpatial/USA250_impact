@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         )}
 
-        {!loading && !error && isSanityConfigured && (
+        {!loading && !error && isSanityConfigured() && (
           <>
             {/* Blog Posts Section */}
             {blogPosts.length > 0 && (
