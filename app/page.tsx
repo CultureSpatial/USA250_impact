@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { fetchSanityData, isSanityConfigured } from '@/lib/sanity.client'
+import { fetchSanityData, isSanityConfigured, getSanityStatus } from '@/lib/sanity.client'
 import { BLOG_POSTS_QUERY, PRODUCTS_QUERY } from '@/lib/sanity.queries'
 import type { BlogPost, Product } from '@/lib/types'
 import { urlFor, formatDate } from '@/lib/utils'
@@ -58,24 +58,35 @@ export default function Home() {
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Configuration Warning */}
-        {!isSanityConfigured && (
+        {!isSanityConfigured() && (
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
             <h3 className="text-lg font-semibold text-yellow-900 mb-2">
               Sanity CMS Not Configured
             </h3>
             <p className="text-yellow-800 mb-3">
-              To see content from Sanity, set these environment variables:
+              To see content from Sanity, set these environment variables in .env.local or your deployment platform:
             </p>
-            <code className="block bg-yellow-100 p-3 rounded text-sm text-yellow-900 font-mono">
+            <code className="block bg-yellow-100 p-3 rounded text-sm text-yellow-900 font-mono overflow-x-auto">
               NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
               <br />
               NEXT_PUBLIC_SANITY_DATASET=production
               <br />
-              SANITY_API_TOKEN=your_token (optional)
+              SANITY_API_TOKEN=your_token (optional for read-only)
             </code>
-            <p className="text-yellow-800 text-sm mt-3">
-              See .env.example for more details.
-            </p>
+            <div className="text-yellow-800 text-sm mt-4 space-y-2">
+              <p>
+                <strong>Development:</strong> Copy from .env.example, update with your Sanity credentials
+              </p>
+              <p>
+                <strong>Production:</strong> Set variables in Vercel/Airops dashboard
+              </p>
+              <p>
+                <strong>Status:</strong> {getSanityStatus().info}
+              </p>
+              <p>
+                <strong>Docs:</strong> See ENV_CONFIG.md for comprehensive setup guide
+              </p>
+            </div>
           </div>
         )}
 
