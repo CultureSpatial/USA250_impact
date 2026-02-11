@@ -10,28 +10,28 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@sanity/client": "^6.0.0",
+    "@sanity/image-url": "^1.0.0",
+    "@sanity/vision": "^5.9.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "groq": "^3.0.0",
+    "lucide-react": "^0.544.0",
     "next": "canary",
     "react": "^19",
     "react-dom": "^19",
-    "lucide-react": "^0.544.0",
-    "@sanity/client": "^6.0.0",
-    "@sanity/image-url": "^1.0.0",
-    "groq": "^3.0.0",
-    "clsx": "^2.1.1",
+    "react-hook-form": "^7.54.1",
+    "sanity": "^5.9.0",
     "tailwind-merge": "^2.5.5",
-    "date-fns": "^4.1.0",
-    "zod": "^3.24.1",
-    "react-hook-form": "^7.54.1"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.7.3",
-    "autoprefixer": "^10.4.20"
+    "typescript": "5.7.3"
   }
 }
-
-
