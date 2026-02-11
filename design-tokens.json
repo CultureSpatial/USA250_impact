@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Spatial Studio Design System",
+    "version": "1.0.0",
+    "description": "Layered token architecture with contextual themes",
+    "lastUpdated": "2026-02-10"
+  },
+  "selectedConfiguration": {
+    "tokenSet": "earthMotif",
+    "designStyle": "neomorphic",
+    "variant": "gradient"
+  },
+  "colors": {
+    "primary": "#15803D",
+    "secondary": "#92400E",
+    "accent": "#78350F",
+    "dark": "#44403C",
+    "slate": "#A8A29E"
+  },
+  "gradients": {
+    "background": "linear-gradient(135deg, #78350F 0%, #92400E 50%, #15803D 100%)"
+  },
+  "semantics": {
+    "description": "Grounded, organic, stable",
+    "keywords": ["forest", "clay", "earth", "terracotta", "natural"],
+    "tone": "Grounded, trustworthy, natural"
+  },
+  "typography": {
+    "primary": {
+      "fontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    }
+  }
+}
