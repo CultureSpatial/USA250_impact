@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { fetchSanityData } from '@/lib/sanity.client'
+import { fetchSanityData, isSanityConfigured } from '@/lib/sanity.client'
 import { BLOG_POSTS_QUERY, PRODUCTS_QUERY } from '@/lib/sanity.queries'
 import type { BlogPost, Product } from '@/lib/types'
 import { urlFor, formatDate } from '@/lib/utils'
@@ -16,6 +16,14 @@ export default function Home() {
     async function loadContent() {
       try {
         setLoading(true)
+
+        // Skip fetching if Sanity isn't configured
+        if (!isSanityConfigured) {
+          setError(null)
+          setLoading(false)
+          return
+        }
+
         const [posts, prods] = await Promise.all([
           fetchSanityData<BlogPost[]>(BLOG_POSTS_QUERY),
           fetchSanityData<Product[]>(PRODUCTS_QUERY),
@@ -49,7 +57,29 @@ export default function Home() {
 
       {/* Content */}
       <div className="max-w-6xl mx-auto px-4 py-12">
-        {loading && (
+        {/* Configuration Warning */}
+        {!isSanityConfigured && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+            <h3 className="text-lg font-semibold text-yellow-900 mb-2">
+              Sanity CMS Not Configured
+            </h3>
+            <p className="text-yellow-800 mb-3">
+              To see content from Sanity, set these environment variables:
+            </p>
+            <code className="block bg-yellow-100 p-3 rounded text-sm text-yellow-900 font-mono">
+              NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+              <br />
+              NEXT_PUBLIC_SANITY_DATASET=production
+              <br />
+              SANITY_API_TOKEN=your_token (optional)
+            </code>
+            <p className="text-yellow-800 text-sm mt-3">
+              See .env.example for more details.
+            </p>
+          </div>
+        )}
+
+        {loading && isSanityConfigured && (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
             <p className="text-slate-600 mt-4">Loading content...</p>
@@ -62,7 +92,7 @@ export default function Home() {
           </div>
         )}
 
-        {!loading && !error && (
+        {!loading && !error && isSanityConfigured && (
           <>
             {/* Blog Posts Section */}
             {blogPosts.length > 0 && (
@@ -164,6 +194,20 @@ export default function Home() {
               </div>
             )}
           </>
+        )}
+
+        {!isSanityConfigured && !loading && (
+          <div className="text-center py-12">
+            <p className="text-lg text-slate-600 mb-4">
+              Welcome to your Next.js Microfrontend app
+            </p>
+            <p className="text-slate-500 mb-6">
+              Configure Sanity CMS above to display dynamic content
+            </p>
+            <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+              Learn More
+            </button>
+          </div>
         )}
       </div>
     </main>
