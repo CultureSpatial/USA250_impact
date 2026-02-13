@@ -2,17 +2,12 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
-  subsets: ['latin'],
-})
+const geistSans = Geist({ subsets: ['latin'] })
+const geistMono = Geist_Mono({ subsets: ['latin'] })
 
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-})
-
-export const metadata = {
-  title: 'Next.js App',
-  description: 'A clean Next.js project setup',
+export const metadata: Metadata = {
+  title: 'Component Repository',
+  description: 'Discover and manage components in the Studio Soundwave ecosystem',
 }
 
 export default function RootLayout({
@@ -22,9 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className}`}>
+      <body className={`${geistSans.className} ${geistMono.className}`}>
         {children}
       </body>
     </html>
   )
 }
+
