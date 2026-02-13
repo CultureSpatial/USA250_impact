@@ -26,6 +26,7 @@ export function FilterSidebar({
         <div className="space-y-2">
           {CATEGORIES.map((cat) => (
             <button
+              suppressHydrationWarning
               key={cat}
               onClick={() => onCategoryChange(cat)}
               className={`w-full text-left px-3 py-2 rounded-md transition ${
@@ -45,6 +46,7 @@ export function FilterSidebar({
         <div className="space-y-2">
           {STATUSES.map((status) => (
             <button
+              suppressHydrationWarning
               key={status}
               onClick={() => onStatusChange(status)}
               className={`w-full text-left px-3 py-2 rounded-md transition ${
@@ -64,6 +66,7 @@ export function FilterSidebar({
         <div className="flex flex-wrap gap-2">
           {TAGS.map((tag) => (
             <button
+              suppressHydrationWarning
               key={tag}
               onClick={() => onTagToggle(tag)}
               className={`px-3 py-1 text-sm rounded-full transition ${

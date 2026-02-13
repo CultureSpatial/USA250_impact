@@ -19,6 +19,7 @@ export function SearchBar({
     <div className="space-y-4">
       <div className="flex gap-4">
         <input
+          suppressHydrationWarning
           type="text"
           placeholder="Search components..."
           value={value}
@@ -26,6 +27,7 @@ export function SearchBar({
           className="flex-1 neo-surface px-4 py-3 rounded-neo text-earth-dark placeholder-earth-slate/50 focus:outline-none focus:shadow-neo-large transition"
         />
         <select
+          suppressHydrationWarning
           value={sortBy}
           onChange={(e) => onSortChange(e.target.value as 'name' | 'usage' | 'updated')}
           className="neo-surface px-4 py-3 rounded-neo text-earth-dark focus:outline-none focus:shadow-neo-large transition"
