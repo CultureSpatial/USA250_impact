@@ -1,165 +1,19 @@
-# USA250 Impact GTM Component Library
+# USA 250 Impact
 
-Content apparatus for USA250 Story Trails with after-event impact and infrastructure integration (FDAGI format), focused on tourist consumption and spatial intelligence.
+## Introduction
+This project aims to analyze the impact of the USA's 250 significant cultural events.
 
-## Overview
-
-A comprehensive React component library for Go-To-Market (GTM) strategy visualization and guild management systems. Built for USA250 Story Trails infrastructure deployment, featuring spatial intelligence dashboards, market mirroring analysis, and collaborative mapping integration with Felt.com.
-
-### Key Components
-
-- **GTM Accelerator Dashboard** - Spatial intelligence for market strategy
-- **Guild Academy Charter** - Technical infrastructure R&D framework
-- **Integration Examples** - Production-ready implementation patterns
-
-## Quick Start
-
+## Installation
+To install the required packages, run:
 ```bash
-npm install
-npm run dev
+pip install -r requirements.txt
 ```
 
-## Component Usage
+## Usage
+Use the scripts in the 'scripts' directory to analyze data. Ensure you have the necessary permissions to access the data sources.
 
-### GTM Accelerator Dashboard
-
-```tsx
-import { GTMAcceleratorDashboard } from '@usa250/impact-gtm-components';
-
-function App() {
-  return <GTMAcceleratorDashboard />;
-}
-```
-
-### Guild Academy Charter
-
-```tsx
-import { GuildAcademyCharter } from '@usa250/impact-gtm-components';
-
-function App() {
-  return <GuildAcademyCharter />;
-}
-```
-
-### Unified Dashboard (Recommended)
-
-```tsx
-import { UnifiedGTMApp } from '@usa250/impact-gtm-components/examples';
-
-function App() {
-  return <UnifiedGTMApp />;
-}
-```
-
-## Features
-
-### GTM Accelerator Dashboard
-
-- 🗺️ **Spatial Intelligence** - Market mirroring and node activation
-- 📊 **GTM Scoring** - Real-time market propensity analysis
-- 🌍 **Multi-Region Support** - PNW, EU-West, BC-Canada markets
-- 🔗 **Felt.com Integration** - Deploy to collaborative maps
-- ⚡ **Live Sync** - 30-second data refresh intervals
-
-### Guild Academy Charter
-
-- 🎓 **PBL Methodology** - Project-based learning framework
-- 🤖 **AI Articulation Literacy** - Non-technical contribution enablement
-- 🔬 **UMCES-CGC Foundation** - Environmental telemetry integration
-- 🏛️ **Constitutional Bounds** - AI + Human partnership framework
-- 📜 **Verifiable Credentials** - Technical architect certification
-
-## Integration Patterns
-
-See [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for detailed patterns:
-
-1. **Standalone Deployment** - Individual components
-2. **Unified Dashboard** - Combined GTM + Guild management
-3. **Felt.com Spatial Integration** - Collaborative mapping
-4. **Data-Driven External API** - Live data feeds
-5. **Event-Driven Communication** - Cross-component state
-6. **Embedded Widget Mode** - CMS integration
-7. **Multi-Tenant Guild** - Regional deployments
-8. **AI Copilot Integration** - UMCES-CGC model
-
-## Architecture
-
-```
-components/
-├── gtm/
-│   └── GTMAcceleratorDashboard.tsx
-├── guild/
-│   └── GuildAcademyCharter.tsx
-└── index.tsx
-
-src/
-└── examples/
-    ├── UnifiedGTMDashboard.tsx
-    ├── FeltIntegration.tsx
-    └── index.ts
-```
-
-## Integration Outcomes
-
-| Pattern | Performance | Complexity | Scalability | Use Case |
-|---------|-------------|------------|-------------|----------|
-| Standalone | ⭐⭐⭐⭐⭐ | ⭐ | ⭐⭐⭐ | Single-purpose |
-| Unified Dashboard | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Operations |
-| Felt Spatial | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Collaboration |
-| Data-Driven API | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Enterprise |
-
-## Tourist Consumption Layer
-
-Components integrate with USA250 Story Trails infrastructure:
-
-- **Sensor Deployment** - Environmental telemetry at heritage sites
-- **Guild-Trained Guides** - Technical monitors for story trails
-- **Revenue Transparency** - Hospitality integration tracking
-- **Impact Analytics** - Ecological + economic monitoring
-
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Run tests
-npm test
-
-# Build for production
-npm run build
-
-# Format code
-npm run format
-```
-
-## Environment Variables
-
-```bash
-FELT_API_KEY=your_felt_api_key
-UMCES_CGC_ENDPOINT=https://cgc.umces.edu/api
-GTM_ANALYTICS_URL=https://analytics.usa250.org
-```
-
-## Documentation
-
-- [Integration Guide](./INTEGRATION_GUIDE.md) - Comprehensive integration patterns
-- [API Reference](./docs/API.md) - Component props and types
-- [Contributing](./CONTRIBUTING.md) - Development guidelines
+## Contribution
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 ## License
-
-MIT License - See [LICENSE](./LICENSE) for details
-
-## Support
-
-- **Technical**: guild-academy@usa250.org
-- **Felt.com API**: https://feltmaps.notion.site/Felt-Public-API
-- **UMCES-CGC**: https://cgc.umces.edu/learning-resources
-
-## Version
-
-**v1.0.0** | January 9, 2026 | ARIA-X Technical Council + OTEC Constitutional Framework
+This project is licensed under the MIT License.
