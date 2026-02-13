@@ -5,6 +5,15 @@ interface ComponentCardProps {
   onSelect?: (component: Component) => void
 }
 
+// Consistent date formatting that works on both server and client
+function formatDate(dateString: string): string {
+  const date = new Date(dateString)
+  const year = date.getUTCFullYear()
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(date.getUTCDate()).padStart(2, '0')
+  return `${month}/${day}/${year}`
+}
+
 export function ComponentCard({ component, onSelect }: ComponentCardProps) {
   const statusColors: Record<string, string> = {
     active: 'bg-earth-primary/10 text-earth-primary',
@@ -47,8 +56,9 @@ export function ComponentCard({ component, onSelect }: ComponentCardProps) {
       <div className="flex items-center justify-between text-xs text-earth-slate">
         <span>v{component.version}</span>
         <span>{component.usage} uses</span>
-        <span>{new Date(component.lastUpdated).toLocaleDateString()}</span>
+        <span>{formatDate(component.lastUpdated)}</span>
       </div>
     </div>
   )
 }
+
