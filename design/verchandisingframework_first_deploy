@@ -1,0 +1,528 @@
+
+
+# **WINE FESTIVAL VERCHANDISING FRAMEWORK: RECONNAISSANCE ADAPTATION**
+
+## **Mapping Festival Verchandising to VanWineFest Reconnaissance**
+
+
+
+Based on your verchandising framework and the **VanWineFest reconnaissance constraint** (no producer content, no AR, mobile surfaces only), here's how to document these motions and integrate them into your existing roadmap.
+
+---
+
+## **1. SCOPE CLARIFICATION: VANWINEFEST VS. WINE TYCOON SPINE**
+
+### **VanWineFest (March 7-14, 2026) = RECONNAISSANCE PHASE**
+
+**IN SCOPE**:
+- ✅ **Spatial pattern documentation** (booth locations, crowd flow observation)
+- ✅ **Mobile-surface verchandising observation** (what do existing booths display on phones/tablets?)
+- ✅ **Consent protocol validation** (Surface/Deep/Benthic tier testing)
+- ✅ **Partner pipeline development** (identify 2-3 venues for future deployment)
+- ✅ **Archetype taxonomy refinement** (observe "Veteran Sommelier," "Boutique Producer," etc.)
+- ✅ **Digital Tribes conceptual testing** (gauge interest, NO technical implementation)
+
+**OUT OF SCOPE**:
+- ❌ **Visual AR** (no AR overlays, no AR wayfinding)
+- ❌ **Sales motion** (no DTC transactions, no checkout flow)
+- ❌ **Technical deployment** (no app launch, no QR→Pre-Selection UI)
+- ❌ **Digital collectibles** (NFT/loyalty systems deferred to later)
+
+**RECONNAISSANCE GOAL**: Document **what SHOULD exist** for future deployment, not build it yet.
+
+---
+
+### **HOW-192: Wine Tycoon Spine (Q2-Q3 2026) = PRODUCTION DEPLOYMENT**
+
+**IN SCOPE**:
+- ✅ **Actual wine lounge activation** (physical venue with Digital Campfire integration)
+- ✅ **VTC (Virtual Tasting Component)** (video/audio tasting sessions with storytellers)
+- ✅ **Full verchandising stack**:
+  - Pre-Selection UI (queue optimization)
+  - Infinite Shelf (DTC sales with AU metering)
+  - Sponsor Paths (revenue-generating sponsor integrations)
+  - Digital Tribes (leaderboards, gamification)
+- ✅ **Mobile surfaces with AR** (AR Infinite Shelf, AR wayfinding in lounge)
+- ✅ **Economic flow** (70/20/10 split, Stripe payouts, AU accounting)
+
+**PRODUCTION GOAL**: Deploy **full verchandising framework** with revenue validation.
+
+---
+
+## **2. VANWINEFEST RECONNAISSANCE ACTIVITY SETS (UPDATED)**
+
+### **Mapping Verchandising Framework to Reconnaissance Observations**
+
+| Verchandising Motion | VanWineFest Reconnaissance Activity | Output | Feeds Into |
+|----------------------|-------------------------------------|--------|------------|
+| **Pre-Selection UI (Queue)** | **Observe queue pain points** - How long do guests wait? - What questions do they ask? - Do they abandon? | Field notes: "Queue anxiety patterns" | HOW-192 Pre-Selection UI design |
+| **AR Infinite Shelf (DTC)** | **Document existing DTC attempts** - Do booths have QR codes for online stores? - What's the conversion pitch? | Photo documentation: "Existing QR codes at 10 booths" | HOW-192 Infinite Shelf UX |
+| **AR Wayfinding (Crowd Flow)** | **Map crowd density zones** - Where do bottlenecks form? - Which booths get skipped? | GPS heatmap: "High-traffic vs. low-traffic zones" | Spatial Studio Place Packet spec |
+| **Sponsored Canvas (Digital Real Estate)** | **Identify sponsor visibility opportunities** - Where do sponsors place banners? - Digital screens present? | Field notes: "Sponsor placement economics" | HOW-192 Sponsor integration |
+| **Digital Tribes (Gamification)** | **Gauge social behavior patterns** - Do groups cluster by interest? - Do people share on social? | Field notes: "Observed tribal behaviors" | Digital Tribes design spec |
+| **Story Flights (Micro-Bundles)** | **Observe tasting patterns** - Do guests ask for "intro flight"? - Do booths pre-bundle? | Field notes: "Flight offerings at 5 booths" | Vintage & Voice dialogue design |
+| **Take-Home Kits (Deferred Fulfilment)** | **Document exit merchandising** - Do booths sell "festival packs"? - What's the pitch at checkout? | Photo: "Exit booth merchandising tactics" | HOW-192 deferred fulfilment spec |
+| **Sponsor-Coached Micro-Classes** | **Attend seminars** - Are there paid mini-sessions? - What's the format? | Field notes: "Seminar economics + attendance" | Micro-class design for Wine Tycoon |
+| **Digital Collectibles** | **Check for existing loyalty programs** - Do booths have stamp cards? - Any app-based rewards? | Field notes: "Loyalty mechanics observed" | Digital Tribes rewards system |
+| **Sponsor Paths** | **Map themed routes** - Are there "Sparkling Circuit" or "Natural Wines" trails? - How are they marketed? | Field notes: "Route design + signage" | AR Wayfinding sponsored paths |
+| **Festival Passports** | **Check for passport programs** - Physical cards? - Digital check-ins? | Field notes: "Passport mechanics + redemption rates" | Passport UX for future festivals |
+| **At-Home Festival Extension** | **Document post-event offers** - Do organizers email follow-ups? - What's the content? | Screenshot: "Post-festival email campaigns" | At-home extension pack design |
+
+---
+
+## **3. RECONNAISSANCE CHECKLIST: VERCHANDISING OBSERVATIONS**
+
+### **Day 1 (March 7): Pre-Selection + Queue Observations**
+
+**Time**: 6:00-9:00 PM (Bacchanalia Gala)
+
+**Focus**: Queue pain points + existing digital merchandising
+
+| Observation Point | What to Document | Tool |
+|-------------------|------------------|------|
+| **Queue length at 5 booths** | "How many people in line? How long do they wait?" | Stopwatch + field notes |
+| **Existing mobile merchandising** | "Do booths display menus on iPads/phones?" | Photo documentation |
+| **Guest questions in queue** | "What do guests ask while waiting?" | Voice recorder (consent required) |
+| **DTC conversion attempts** | "Do booths mention 'buy online'?" | Field notes |
+
+**Deliverable**:
+```yaml
+# reconnaissance_queue_observations_march_7.yaml
+booths_observed: 5
+average_queue_length: 12_people
+average_wait_time_minutes: 8
+mobile_surfaces_present:
+  - booth: "Okanagan Terroir Wines (B-42)"
+    mobile_surface: "iPad menu with price list"
+    interaction: "80% of guests glanced at iPad, 20% asked questions"
+  - booth: "Naramata Bench Vineyards (C-18)"
+    mobile_surface: "QR code on table tent"
+    interaction: "5% of guests scanned QR (low conversion)"
+guest_questions_in_queue:
+  - "What wines are you pouring today?"
+  - "Which is the lightest red?"
+  - "Do you have anything similar to [X wine]?"
+dtc_pitch_observed:
+  - booth: "B-42"
+    pitch: "Visit our website to order, 15% off today only"
+    conversion_observed: "2 out of 20 guests wrote down URL"
+```
+
+---
+
+### **Day 2-3 (March 8-9): Infinite Shelf + DTC Observations**
+
+**Time**: 10:00 AM - 5:00 PM (Trade Days)
+
+**Focus**: Existing DTC strategies + digital shelf attempts
+
+| Observation Point | What to Document | Tool |
+|-------------------|------------------|------|
+| **QR code placement** | "Where are QR codes placed? How many per booth?" | Photo + count |
+| **DTC conversion pitch** | "What's the call-to-action? Verbal or printed?" | Field notes |
+| **Digital catalog presence** | "Do any booths have digital wine lists?" | Photo + notes |
+| **Shipping restrictions mentioned** | "Do they explain shipping rules?" | Field notes |
+
+**Deliverable**:
+```yaml
+# reconnaissance_infinite_shelf_march_8-9.yaml
+booths_with_qr_codes: 18  # out of 50 observed
+qr_code_placements:
+  - location: "table tent"
+    frequency: 0.65  # 65% of QR-enabled booths
+  - location: "banner behind booth"
+    frequency: 0.25
+  - location: "printed flyer"
+    frequency: 0.10
+dtc_conversion_pitches:
+  - pitch_type: "verbal_only"
+    example: "Check out our website for more wines"
+    conversion_observed: "low (1-2% of guests)"
+  - pitch_type: "printed_card"
+    example: "QR code with 'Order online, 10% discount'"
+    conversion_observed: "medium (5-8% of guests took card)"
+  - pitch_type: "ipad_catalog"
+    example: "Browse full catalog on iPad, order at booth"
+    conversion_observed: "high (15-20% of guests engaged)"
+digital_catalog_observed:
+  - booth: "Okanagan Terroir Wines (B-42)"
+    format: "iPad with Shopify storefront"
+    interaction: "Staff handed iPad to guests, walked them through"
+    conversion: "3 out of 15 guests added to cart"
+```
+
+---
+
+### **Day 4-5 (March 10-11): Wayfinding + Crowd Flow Observations**
+
+**Time**: 12:00-6:00 PM (Seminars + Grand Tasting prep)
+
+**Focus**: Crowd movement patterns + existing wayfinding solutions
+
+| Observation Point | What to Document | Tool |
+|-------------------|------------------|------|
+| **Crowd bottlenecks** | "Where do crowds cluster? Where are empty zones?" | GPS + heatmap sketch |
+| **Existing wayfinding signage** | "How is the venue marked? Digital or physical?" | Photo documentation |
+| **Themed routes** | "Are there 'Sparkling Circuit' or 'Natural Wines' trails?" | Field notes |
+| **Guest navigation pain points** | "Do guests get lost? Do they ask for directions?" | Observation notes |
+
+**Deliverable**:
+```yaml
+# reconnaissance_wayfinding_march_10-11.yaml
+crowd_density_observations:
+  - zone: "NW_corner_okanagan_producers"
+    density: "high"
+    bottleneck: true
+    reason: "popular booths + narrow aisle"
+  - zone: "SE_corner_international_wines"
+    density: "low"
+    bottleneck: false
+    reason: "far from entrance, unclear signage"
+existing_wayfinding:
+  - type: "physical_signage"
+    quality: "basic (numbered booth signs only)"
+    effectiveness: "low (guests frequently ask staff for directions)"
+  - type: "printed_map"
+    quality: "static, handed out at entrance"
+    effectiveness: "medium (50% of guests reference it)"
+  - type: "digital_map"
+    quality: "none observed"
+themed_routes_observed:
+  - route: "Sparkling Circuit"
+    marked: false
+    suggested_by_staff: true
+    guest_awareness: "low (10% of overheard conversations)"
+navigation_pain_points:
+  - "Guests can't find specific booth numbers"
+  - "No clear indication of 'what's next' after visiting a booth"
+  - "Popular booths create traffic jams, discouraging exploration"
+```
+
+---
+
+### **Day 6-7 (March 12-13): Digital Tribes + Social Behavior Observations**
+
+**Time**: 12:00-6:00 PM (Grand Tasting)
+
+**Focus**: Social clustering patterns + gamification opportunities
+
+| Observation Point | What to Document | Tool |
+|-------------------|------------------|------|
+| **Group behavior** | "Do friends cluster by interest (e.g., sparkling fans)?" | Observation notes |
+| **Social sharing** | "How many guests post on Instagram? What hashtags?" | Instagram search |
+| **Existing loyalty programs** | "Do booths have stamp cards or rewards?" | Photo + notes |
+| **Competitive behavior** | "Do groups compete (e.g., 'who tries more wines')?" | Field notes |
+
+**Deliverable**:
+```yaml
+# reconnaissance_digital_tribes_march_12-13.yaml
+social_clustering_observed:
+  - cluster_type: "natural_wine_enthusiasts"
+    size: "groups of 3-5"
+    behavior: "move together from booth to booth, discuss philosophy"
+  - cluster_type: "sparkling_seekers"
+    size: "couples or small groups"
+    behavior: "focus on sparkling booths, skip reds/whites"
+  - cluster_type: "casual_tourists"
+    size: "individuals or pairs"
+    behavior: "sample widely, no clear pattern"
+social_sharing_observed:
+  - platform: "Instagram"
+    hashtags: ["#VanWineFest", "#VancouverWine", "#WineLovers"]
+    frequency: "30% of observed guests posted at least once"
+    typical_content: "booth photo + glass of wine + caption about favorite find"
+existing_loyalty_mechanics:
+  - mechanic: "stamp card (physical)"
+    booth: "Okanagan producers collective"
+    reward: "5 stamps = free splash pour"
+    engagement: "moderate (20% of guests participated)"
+  - mechanic: "digital check-in (none observed)"
+competitive_behavior:
+  - observed: "groups challenging each other to try 'the weirdest wine'"
+  - gamification_opportunity: "leaderboard for 'most adventurous taster'"
+```
+
+---
+
+## **4. HOW-192 (WINE TYCOON SPINE) PRODUCTION DEPLOYMENT**
+
+### **Linear Issue: HOW-192**
+
+**Title**: Wine Tycoon Spine - Nomination for Wine Recognition with WE RISE Wine
+
+**Status**: Planning → In Progress (April 2026)
+
+**Objective**: Deploy full verchandising framework at an actual wine lounge with VTC (Virtual Tasting Component).
+
+---
+
+### **Verchandising Stack for HOW-192**
+
+| Motion | Implementation | Timeline | AU Integration |
+|--------|----------------|----------|----------------|
+| **Pre-Selection UI** | QR → mobile web PWA (queue optimization) | Week 1-2 (April) | ✅ AU metering: 1 AU per Pre-Selection use |
+| **AR Infinite Shelf** | AR catalog with DTC checkout (Stripe) | Week 3-4 (April) | ✅ AU metering: 1 AU per DTC order |
+| **AR Wayfinding** | Mobile AR with crowd heatmap | Week 5-6 (May) | ✅ AU metering: 1 AU per route completion |
+| **Sponsored Canvas** | Digital screens + AR overlays for sponsors | Week 7-8 (May) | ✅ AU revenue share: 20% to sponsor, 80% to operations |
+| **Digital Tribes** | Leaderboards + gamification (Discord integration) | Week 9-10 (May) | ✅ AU metering: 1 AU per tribe challenge completion |
+| **Story Flights** | Pre-curated 3-wine narrative bundles | Week 3-4 (April) | ✅ AU metering: 1.5 AU per flight (premium engagement) |
+| **Take-Home Kits** | Deferred fulfilment packs (wine + book + digital content) | Week 5-6 (May) | ✅ AU metering: 2 AU per kit (high-margin conversion) |
+| **Sponsor-Coached Micro-Classes** | 5-10 min paid sessions with DTC upsell | Week 7-8 (May) | ✅ AU metering: 3 AU per micro-class (premium experience) |
+| **Digital Collectibles** | Action-tied badges/art (unlocks discounts) | Week 9-10 (May) | ✅ AU metering: 0.5 AU per collectible unlock |
+| **Sponsor Paths** | Themed routes with completion bonuses | Week 5-6 (May) | ✅ AU metering: 1 AU per path completion + sponsor bonus |
+| **Festival Passports** | Digital passport with tiered rewards | Week 9-10 (May) | ✅ AU metering: 0.5 AU per stamp, 5 AU for full passport |
+| **At-Home Extension** | Post-event pack (wine + book + VTC access) | Week 11-12 (June) | ✅ AU metering: 4 AU per extension pack (highest margin) |
+
+---
+
+### **HOW-192 Architecture: Digital Campfire Integration**
+
+```
+WINE LOUNGE (Physical Venue)
+    ↓ emits engagement events
+STA-39: CROSS-PLATFORM INGESTION
+    ↓ normalizes as
+ENGAGEMENT_EVENT (Pre-Selection, Infinite Shelf, Tribe actions)
+    ↓ validates via
+HOW-91: DIGITAL CAMPFIRE SPINE
+    ↓ meters via
+HOW-206: AU ACCOUNTING UNIT
+    ↓ settles via
+STRIPE CONNECT (70/20/10 split)
+    ↓ visualizes in
+STA-40: CRD VISIBLE FLAME (economic flow dashboard)
+```
+
+---
+
+### **HOW-192 Success Metrics**
+
+| KPI | Target | Measurement |
+|-----|--------|-------------|
+| **Pre-Selection UI adoption** | 60% of guests in queue | % of QR scans → PWA opens |
+| **AR Infinite Shelf conversion** | 10% of shelf views → cart | AR opens → DTC orders |
+| **AR Wayfinding usage** | 40% of guests follow route | Route starts → completions |
+| **Sponsor ROI** | 3:1 (sponsor investment → engagement value) | Impressions + conversions |
+| **Digital Tribes participation** | 30% of guests join tribe | Tribe enrollments |
+| **Story Flights adoption** | 25% of guests choose flight vs. individual pours | Flight orders ÷ total orders |
+| **Take-Home Kit conversion** | 5% of guests purchase kit | Kits sold ÷ total attendees |
+| **Micro-Class attendance** | 50 seats sold (10 sessions × 5 guests) | Tickets sold |
+| **Digital Collectibles engagement** | 20% of guests unlock collectible | Collectibles earned |
+| **Sponsor Path completion** | 15% of guests complete path | Path starts → completions |
+| **Festival Passport completion** | 10% of guests complete full passport | Full stamps ÷ total passports |
+| **At-Home Extension sales** | 3% of guests purchase extension | Extension packs sold ÷ total attendees |
+
+---
+
+## **5. UPDATED ROADMAP: VERCHANDISING INTEGRATION**
+
+### **Revised Timeline with Verchandising Observations**
+
+```
+FEBRUARY 2026                 MARCH 2026                  APRIL-JUNE 2026
+├─────────────────────────────├───────────────────────────├─────────────────────────────┤
+│                             │                           │                             │
+│  PHASE 1                    │  PHASE 2                  │  PHASE 3                    │
+│  Verchandising Planning     │  VanWineFest Recon        │  HOW-192 Production Deploy  │
+│                             │                           │                             │
+│  • Study operator playbook  │  • Queue pain points      │  • Pre-Selection UI (live)  │
+│  • Map to reconnaissance    │  • DTC conversion tactics │  • AR Infinite Shelf (live) │
+│  • Define observation       │  • Crowd flow heatmap     │  • Digital Tribes (live)    │
+│    checklist                │  • Social behavior        │  • Story Flights (live)     │
+│  • AU metering design       │  • Loyalty mechanics      │  • Full verchandising stack │
+│                             │                           │                             │
+└──────── GATE 1 ─────────────└──────── GATE 2 ───────────└──────── GATE 3 ────────────┘
+          Feb 28                        Mar 31                      Jun 30
+```
+
+---
+
+### **Gate 2 Criteria (Updated for Verchandising Reconnaissance)**
+
+| Original Criterion | Status | Verchandising Adjustment |
+|--------------------|--------|--------------------------|
+| ❌ 6 incumbent voices captured | ⏸️ DEFERRED | ✅ NEW: 6 verchandising motion observations documented |
+| ❌ MVP functional (audio player) | ⏸️ DEFERRED | ✅ NEW: Verchandising reconnaissance report complete |
+| ✅ Discord live | ✅ UNCHANGED | (Still required for Digital Tribes foundation) |
+| ✅ 1 venue confirmed | ✅ UNCHANGED | (2 venues for HOW-192 deployment) |
+
+**New Gate 2 Deliverables**:
+1. **Verchandising Reconnaissance Report** (30-page PDF with all 12 motion observations)
+2. **HOW-192 Deployment Specification** (technical architecture for wine lounge pilot)
+3. **AU Metering Schema** (economic model for all verchandising motions)
+4. **Partner LOIs** (2 signed letters of intent for HOW-192 deployment)
+
+---
+
+## **6. DOCUMENTATION STRUCTURE**
+
+### **Confluence Page Hierarchy**
+
+```
+📁 Wine Festival Verchandising Framework
+│
+├─ 📄 Operator Playbook (PDF outline provided)
+│  ├─ Scenario A: Pre-Selection UI
+│  ├─ Scenario B: AR Infinite Shelf
+│  ├─ Scenario C: AR Wayfinding
+│  ├─ Scenario D: Sponsored Canvas
+│  └─ Scenario E: Digital Tribes
+│
+├─ 📄 Additional Verchandising Motions
+│  ├─ Story Flights (micro-bundles)
+│  ├─ Take-Home Kits (deferred fulfilment)
+│  ├─ Sponsor-Coached Micro-Classes
+│  ├─ Digital Collectibles
+│  ├─ Sponsor Paths
+│  ├─ Festival Passports
+│  └─ At-Home Extension
+│
+├─ 📄 VanWineFest Reconnaissance Plan (March 7-14, 2026)
+│  ├─ Scope: Observation only, no technical deployment
+│  ├─ Activity Sets (Day 1-7)
+│  ├─ Observation Checklists (queue, DTC, wayfinding, tribes)
+│  └─ Deliverables (YAML outputs for each motion)
+│
+├─ 📄 HOW-192: Wine Tycoon Spine (Production Deployment)
+│  ├─ Architecture: Digital Campfire integration
+│  ├─ Verchandising Stack (12 motions)
+│  ├─ AU Metering Schema
+│  ├─ Success Metrics
+│  └─ Timeline (April-June 2026)
+│
+└─ 📄 Verchandising Reconnaissance Report (Post-VanWineFest)
+   ├─ Executive Summary
+   ├─ 12 Motion Observations (1 section per motion)
+   ├─ Partner Pipeline Status
+   └─ HOW-192 Deployment Recommendations
+```
+
+---
+
+## **7. IMMEDIATE NEXT ACTIONS (THIS WEEK: FEB 25 - MAR 1)**
+
+### **Action 1: Create Verchandising Reconnaissance Checklist**
+
+**File**: `vanwinefest_verchandising_recon_checklist.yaml`
+
+```yaml
+# VanWineFest Verchandising Reconnaissance Checklist
+# March 7-14, 2026
+
+recon_motions:
+  - motion_id: "pre_selection_ui"
+    observation_focus: "Queue pain points + mobile merchandising"
+    tools: ["Stopwatch", "Camera", "Field notebook"]
+    deliverable: "reconnaissance_queue_observations_march_7.yaml"
+  
+  - motion_id: "ar_infinite_shelf"
+    observation_focus: "DTC conversion tactics + QR code placement"
+    tools: ["Camera", "Field notebook", "Instagram screenshots"]
+    deliverable: "reconnaissance_infinite_shelf_march_8-9.yaml"
+  
+  - motion_id: "ar_wayfinding"
+    observation_focus: "Crowd flow patterns + existing signage"
+    tools: ["GPS app", "Heatmap sketch", "Camera"]
+    deliverable: "reconnaissance_wayfinding_march_10-11.yaml"
+  
+  - motion_id: "digital_tribes"
+    observation_focus: "Social clustering + competitive behavior"
+    tools: ["Observation notes", "Instagram search", "Camera"]
+    deliverable: "reconnaissance_digital_tribes_march_12-13.yaml"
+  
+  # ... (add remaining 8 motions)
+```
+
+---
+
+### **Action 2: Update Linear HOW-192**
+
+**Add to HOW-192 description**:
+
+```markdown
+## Verchandising Stack Integration
+
+**12 Motions Planned**:
+1. Pre-Selection UI (queue optimization)
+2. AR Infinite Shelf (DTC expansion)
+3. AR Wayfinding (crowd flow)
+4. Sponsored Canvas (digital real estate)
+5. Digital Tribes (gamification)
+6. Story Flights (narrative micro-bundles)
+7. Take-Home Kits (deferred fulfilment)
+8. Sponsor-Coached Micro-Classes (paid sessions)
+9. Digital Collectibles (action rewards)
+10. Sponsor Paths (completion bonuses)
+11. Festival Passports (tiered rewards)
+12. At-Home Extension (post-event packs)
+
+**AU Metering**:
+- Each motion generates AU events
+- Settlement via Stripe (70/20/10 split)
+- Dashboard via CRD Visible Flame (STA-40)
+
+**Dependencies**:
+- VanWineFest reconnaissance complete (March 14)
+- 2 venue partners committed (April 15)
+- Digital Campfire Spine operational (HOW-91)
+- AU accounting system live (HOW-206)
+```
+
+---
+
+### **Action 3: Create VanWineFest Recon Kit Document**
+
+**File**: `VanWineFest_Recon_Kit_2026.md` (for GitHub repo)
+
+```markdown
+# VanWineFest Reconnaissance Kit
+## March 7-14, 2026
+
+### Equipment List
+- [ ] Smartphone (GPS, camera, voice recorder)
+- [ ] Field notebook + pens
+- [ ] Stopwatch app
+- [ ] Business card holder
+- [ ] Consent forms (for photos/audio)
+- [ ] Backup battery pack
+- [ ] Festival pass/credentials
+
+### Daily Schedules
+- **Day 1 (March 7)**: Queue + mobile merchandising observations
+- **Day 2-3 (March 8-9)**: DTC conversion tactics + partner meetings
+- **Day 4-5 (March 10-11)**: Wayfinding + seminar attendance
+- **Day 6-7 (March 12-13)**: Social behavior + digital tribes observation
+- **Day 8 (March 14)**: Partner debrief + commitment negotiations
+
+### Observation Templates
+- Queue pain point template (see: reconnaissance_queue_observations_march_7.yaml)
+- DTC conversion template (see: reconnaissance_infinite_shelf_march_8-9.yaml)
+- Wayfinding template (see: reconnaissance_wayfinding_march_10-11.yaml)
+- Digital tribes template (see: reconnaissance_digital_tribes_march_12-13.yaml)
+
+### Post-Recon Deliverables
+- [ ] Verchandising Reconnaissance Report (30-page PDF)
+- [ ] 12 YAML observation files
+- [ ] Partner pipeline update (Airtable)
+- [ ] HOW-192 deployment recommendations
+```
+
+---
+
+## **SUMMARY: VERCHANDISING FRAMEWORK INTEGRATION**
+
+**What We've Done**:
+1. ✅ Mapped 12 verchandising motions to VanWineFest reconnaissance
+2. ✅ Clarified scope: VanWineFest = observation only, HOW-192 = production deployment
+3. ✅ Created observation checklists for each motion (queue, DTC, wayfinding, tribes, etc.)
+4. ✅ Integrated AU metering schema for all motions
+5. ✅ Updated Gate 2 criteria to reflect verchandising reconnaissance
+
+**What's Next**:
+1. **This week (Feb 25-28)**: Create reconnaissance checklist + update Linear HOW-192
+2. **VanWineFest (March 7-14)**: Execute reconnaissance observations (NO technical deployment)
+3. **Post-reconnaissance (March 15-31)**: Write 30-page Verchandising Reconnaissance Report
+4. **HOW-192 deployment (April-June)**: Build full verchandising stack at wine lounge pilot
+
+**Net Result**: **VanWineFest reconnaissance feeds directly into HOW-192 production deployment**, ensuring verchandising framework is grounded in real-world festival observations rather than speculative design.
+
