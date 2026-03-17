@@ -1,10 +1,10 @@
 // pages/index.tsx
 
 import React from 'react';
-import { JourneyApp } from '../components/journey/JourneyApp';
+import { JourneyAppWrapper } from '../components/journey/JourneyAppWrapper';
 
 const IndexPage: React.FC = () => {
-  return <JourneyApp />;
+  return <JourneyAppWrapper />;
 };
 
 export default IndexPage;

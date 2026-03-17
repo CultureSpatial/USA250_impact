@@ -8,7 +8,8 @@
  */
 
 // Journey SPA (Main Application)
-export { JourneyApp, useJourney } from './journey/JourneyApp';
+export { default as JourneyApp, useJourney } from './journey/JourneyApp';
+export { JourneyAppWrapper } from './journey/JourneyAppWrapper';
 
 // GTM Components
 export { default as GTMAcceleratorDashboard } from './gtm/GTMAcceleratorDashboard';

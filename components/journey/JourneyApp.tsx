@@ -1,4 +1,6 @@
-import React, { useState, createContext, useContext, useCallback } from 'react';
+'use client';
+
+import React, { useState, createContext, useContext, useCallback, useEffect } from 'react';
 import {
   Wine,
   MapPin,
@@ -171,6 +173,7 @@ interface JourneyState {
   setAudioPlaying: (playing: boolean) => void;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
+  isHydrated: boolean;
 }
 
 const JourneyContext = createContext<JourneyState | null>(null);
@@ -236,12 +239,21 @@ const guildTracks = [
 // MAIN JOURNEY APP COMPONENT
 // ============================================================================
 
-export const JourneyApp: React.FC = () => {
+export default function JourneyApp(): React.ReactNode {
   const [currentView, setCurrentView] = useState<JourneyContextType>('home');
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isHydrated, setIsHydrated] = useState(false);
   
   const theme = journeyContexts[currentView];
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  if (!isHydrated) {
+    return <div className="w-screen h-screen bg-black/90" />;
+  }
 
   const contextValue: JourneyState = {
     currentView,
@@ -251,6 +263,7 @@ export const JourneyApp: React.FC = () => {
     setAudioPlaying,
     sidebarOpen,
     setSidebarOpen,
+    isHydrated,
   };
 
   return (
@@ -270,7 +283,7 @@ export const JourneyApp: React.FC = () => {
       </div>
     </JourneyContext.Provider>
   );
-};
+}
 
 // ============================================================================
 // SIDEBAR COMPONENT
@@ -295,6 +308,7 @@ const JourneySidebar: React.FC = () => {
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-black/60 backdrop-blur-xl rounded-xl border border-white/10"
+        aria-label="Toggle sidebar"
       >
         {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
@@ -448,6 +462,7 @@ const JourneyHeader: React.FC = () => {
         <button
           onClick={() => setAudioPlaying(!audioPlaying)}
           className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+          aria-label="Toggle audio"
         >
           {audioPlaying ? (
             <Volume2 className="w-5 h-5" style={{ color: theme.palette.light }} />
@@ -457,7 +472,7 @@ const JourneyHeader: React.FC = () => {
         </button>
         
         <button
-          className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-lg"
+          className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-lg hover:opacity-90"
           style={{
             background: `linear-gradient(to right, ${theme.palette.primary}, ${theme.palette.secondary})`,
             boxShadow: `0 4px 14px ${theme.palette.primary}40`,
@@ -569,53 +584,41 @@ const HomeView: React.FC = () => {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
               }}
             >
-              <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
-                style={{
-                  background: `linear-gradient(135deg, ${expTheme.palette.primary}, ${expTheme.palette.secondary})`,
-                }}
-              >
-                <Icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="p-3 rounded-2xl"
+                  style={{
+                    background: `linear-gradient(135deg, ${expTheme.palette.primary}30, ${expTheme.palette.secondary}30)`,
+                  }}
+                >
+                  <Icon className="w-6 h-6" style={{ color: expTheme.palette.light }} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-white">{exp.title}</h3>
+                  <p className="text-xs text-white/50">{exp.desc}</p>
+                </div>
               </div>
-              
-              <h3 className="text-lg font-bold mb-1">{exp.title}</h3>
-              <p className="text-sm text-white/50 mb-4">{exp.desc}</p>
-              
-              <div className="flex items-center gap-3">
-                <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+
+              <div className="mt-6 space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-semibold text-white/70">Progress</span>
+                  <span className="text-xs font-bold" style={{ color: expTheme.palette.light }}>
+                    {exp.progress}%
+                  </span>
+                </div>
+                <div className="h-2 bg-black/40 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full"
+                    className="h-full rounded-full transition-all duration-700"
                     style={{
                       width: `${exp.progress}%`,
                       background: `linear-gradient(90deg, ${expTheme.palette.primary}, ${expTheme.palette.secondary})`,
                     }}
                   />
                 </div>
-                <span className="text-xs font-bold" style={{ color: expTheme.palette.light }}>
-                  {exp.progress}%
-                </span>
               </div>
             </button>
           );
         })}
-      </div>
-
-      {/* Stats Row */}
-      <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {[
-          { label: 'Active Markets', value: '7', change: '+2' },
-          { label: 'Guild Members', value: '23', change: '+5' },
-          { label: 'Story Nodes', value: '47', change: '+12' },
-          { label: 'Impact Score', value: '89%', change: '+4%' },
-        ].map((stat, i) => (
-          <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
-            <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">{stat.label}</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-black">{stat.value}</span>
-              <span className="text-xs font-bold text-emerald-400">{stat.change}</span>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
@@ -626,92 +629,70 @@ const HomeView: React.FC = () => {
 // ============================================================================
 
 const WineHeritageView: React.FC = () => {
-  const [selectedNarrative, setSelectedNarrative] = useState(wineNarratives[0]);
   const { theme } = useJourney();
+  const [selectedNarrative, setSelectedNarrative] = React.useState(0);
+  const narrative = wineNarratives[selectedNarrative];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Narrative List */}
-        <div className="space-y-4">
-          <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">
-            Narrative Threads
-          </h2>
-          {wineNarratives.map((narrative) => (
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-6">
+        {/* Narrative Selector */}
+        <div className="lg:col-span-1 space-y-3">
+          {wineNarratives.map((item, idx) => (
             <button
-              key={narrative.id}
-              onClick={() => setSelectedNarrative(narrative)}
-              className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 ${
-                selectedNarrative.id === narrative.id
-                  ? 'border-purple-500 bg-purple-500/20 shadow-lg'
-                  : 'border-white/10 bg-white/5 hover:bg-white/10'
+              key={item.id}
+              onClick={() => setSelectedNarrative(idx)}
+              className={`w-full text-left p-4 rounded-2xl border transition-all ${
+                selectedNarrative === idx
+                  ? 'border-white/30 bg-white/10'
+                  : 'border-white/10 bg-white/5 hover:bg-white/7'
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-bold">{narrative.title}</span>
-                <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold ${
-                  narrative.status === 'Active' ? 'bg-emerald-500/20 text-emerald-300' :
-                  narrative.status === 'Pipeline' ? 'bg-indigo-500/20 text-indigo-300' :
-                  'bg-slate-500/20 text-slate-300'
-                }`}>
-                  {narrative.status}
-                </span>
-              </div>
-              <p className="text-[10px] text-white/50">{narrative.era} - {narrative.location}</p>
-              <div className="flex items-center gap-2 mt-2">
-                <span className="text-[9px] text-white/40">GTM Score:</span>
-                <span className="text-xs font-bold text-purple-300">{narrative.gtmScore}</span>
+              <h4 className="font-bold text-white mb-1">{item.title}</h4>
+              <p className="text-xs text-white/50">{item.era}</p>
+              <div className="mt-3 flex items-center gap-2">
+                <BarChart3 className="w-3 h-3" style={{ color: theme.palette.light }} />
+                <span className="text-xs font-semibold">GTM Score: {item.gtmScore}</span>
               </div>
             </button>
           ))}
         </div>
 
-        {/* Narrative Detail */}
+        {/* Narrative Details */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-black mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              {selectedNarrative.title}
-            </h2>
-            <p className="text-white/60 italic">{selectedNarrative.era} - {selectedNarrative.location}</p>
-          </div>
-
-          {/* Crime Context */}
-          <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <Zap className="w-5 h-5 text-red-400" />
-              <h3 className="text-lg font-bold text-red-300">Crime Context (Historical)</h3>
-            </div>
-            <p className="text-white/80 leading-relaxed">{selectedNarrative.crimeContext}</p>
-          </div>
-
-          {/* Cultural Transformation */}
           <div
-            className="backdrop-blur-xl border rounded-3xl p-6"
+            className="p-6 lg:p-8 rounded-3xl border"
             style={{
               background: `linear-gradient(135deg, ${theme.palette.primary}20, ${theme.palette.secondary}20)`,
               borderColor: `${theme.palette.primary}30`,
             }}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <Wine className="w-5 h-5" style={{ color: theme.palette.light }} />
-              <h3 className="text-lg font-bold" style={{ color: theme.palette.lighter }}>
-                Cultural Transformation (Today)
-              </h3>
-            </div>
-            <p className="text-white/90 leading-relaxed mb-6">{selectedNarrative.cultureTransformation}</p>
-
-            <div className="grid grid-cols-3 gap-4">
-              {['Audio Tour', 'Visit Site', 'Discussion'].map((action, i) => (
-                <button
-                  key={action}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all border border-white/20"
-                >
-                  {i === 0 && <Volume2 className="w-4 h-4" />}
-                  {i === 1 && <MapPin className="w-4 h-4" />}
-                  {i === 2 && <Users className="w-4 h-4" />}
-                  <span className="text-sm font-semibold">{action}</span>
-                </button>
-              ))}
+            <div className="space-y-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Era & Location</p>
+                <p className="text-white/60 text-sm">{narrative.era} • {narrative.location}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Crime Context</p>
+                <p className="text-white/80">{narrative.crimeContext}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-70">Cultural Transformation</p>
+                <p className="text-white/80">{narrative.cultureTransformation}</p>
+              </div>
+              <div className="pt-4 border-t border-white/10">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest">GTM Score</span>
+                  <span className="text-2xl font-black" style={{ color: theme.palette.light }}>
+                    {narrative.gtmScore}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -726,37 +707,51 @@ const WineHeritageView: React.FC = () => {
 
 const FreedomTrailsView: React.FC = () => {
   const { theme } = useJourney();
-  
+
   return (
-    <div className="max-w-4xl mx-auto text-center">
-      <div
-        className="p-12 rounded-3xl border backdrop-blur-xl"
-        style={{
-          background: `linear-gradient(135deg, ${theme.palette.primary}10, ${theme.palette.secondary}10)`,
-          borderColor: `${theme.palette.primary}30`,
-        }}
-      >
-        <MapPin className="w-16 h-16 mx-auto mb-6" style={{ color: theme.palette.primary }} />
-        <h2 className="text-4xl font-black mb-4 bg-gradient-to-r from-blue-400 via-amber-400 to-blue-400 bg-clip-text text-transparent">
-          Freedom Trails
-        </h2>
-        <p className="text-xl text-white/60 mb-8">
-          Underground Railroad narratives and heritage route documentation.
-          Archival research connecting historical sites to modern memory preservation.
-        </p>
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-          <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-            <p className="text-2xl font-black" style={{ color: theme.palette.light }}>47</p>
-            <p className="text-[10px] text-white/50 uppercase">Trail Sites</p>
-          </div>
-          <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-            <p className="text-2xl font-black" style={{ color: theme.palette.light }}>12</p>
-            <p className="text-[10px] text-white/50 uppercase">States</p>
-          </div>
-          <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-            <p className="text-2xl font-black" style={{ color: theme.palette.light }}>89%</p>
-            <p className="text-[10px] text-white/50 uppercase">Documented</p>
-          </div>
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
+      </div>
+
+      <div className="space-y-4">
+        <div
+          className="p-6 lg:p-8 rounded-3xl border"
+          style={{
+            background: `linear-gradient(135deg, ${theme.palette.primary}20, ${theme.palette.secondary}20)`,
+            borderColor: `${theme.palette.primary}30`,
+          }}
+        >
+          <h3 className="text-xl font-bold mb-3">Underground Railroad Heritage Trails</h3>
+          <p className="text-white/70 leading-relaxed">
+            Map narrative paths from enslavement to freedom. Document safe house networks, guide systems, and community resilience stories across the USA250 corridors.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-4">
+          {[
+            { title: 'Northern Routes', routes: 42, active: 'Live' },
+            { title: 'Southern Networks', routes: 38, active: 'Research' },
+            { title: 'Coastal Passages', routes: 28, active: 'Planning' },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="p-4 rounded-2xl border border-white/10 bg-white/5"
+            >
+              <h4 className="font-bold text-white mb-2">{item.title}</h4>
+              <p className="text-sm text-white/60 mb-3">{item.routes} documented routes</p>
+              <span
+                className="inline-block px-3 py-1 rounded-full text-xs font-semibold"
+                style={{
+                  background: `${theme.palette.primary}20`,
+                  color: theme.palette.light,
+                }}
+              >
+                {item.active}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -769,43 +764,59 @@ const FreedomTrailsView: React.FC = () => {
 
 const SoundClashView: React.FC = () => {
   const { theme, audioPlaying, setAudioPlaying } = useJourney();
-  
+
   return (
-    <div className="max-w-4xl mx-auto text-center">
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
+      </div>
+
       <div
-        className="p-12 rounded-3xl border backdrop-blur-xl"
+        className="p-8 rounded-3xl border"
         style={{
-          background: `linear-gradient(135deg, ${theme.palette.primary}10, ${theme.palette.secondary}10)`,
+          background: `linear-gradient(135deg, ${theme.palette.primary}20, ${theme.palette.secondary}20)`,
           borderColor: `${theme.palette.primary}30`,
         }}
       >
-        <Music className="w-16 h-16 mx-auto mb-6" style={{ color: theme.palette.primary }} />
-        <h2 className="text-4xl font-black mb-4 bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-          Sound Clash
-        </h2>
-        <p className="text-xl text-white/60 mb-8">
-          Carnival edition - embodied memory through sonic heritage.
-          Experience the rhythms that shaped cultural identity.
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-2xl font-bold">Carnival Heritage Audio Experience</h3>
+          <button
+            onClick={() => setAudioPlaying(!audioPlaying)}
+            className="p-4 rounded-2xl transition-all"
+            style={{
+              background: `linear-gradient(135deg, ${theme.palette.primary}, ${theme.palette.secondary})`,
+              boxShadow: `0 4px 14px ${theme.palette.primary}40`,
+            }}
+          >
+            {audioPlaying ? (
+              <Pause className="w-6 h-6" />
+            ) : (
+              <Play className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+
+        <p className="text-white/70 leading-relaxed mb-6">
+          Experience the embodied memory of Carnival traditions through sonic documentation. Heritage sounds, music, and oral histories preserved and spatially deployed.
         </p>
-        
-        <button
-          onClick={() => setAudioPlaying(!audioPlaying)}
-          className="px-8 py-4 rounded-2xl font-bold text-lg transition-all"
-          style={{
-            background: `linear-gradient(135deg, ${theme.palette.primary}, ${theme.palette.secondary})`,
-            boxShadow: `0 10px 30px ${theme.palette.primary}40`,
-          }}
-        >
-          {audioPlaying ? (
-            <span className="flex items-center gap-3">
-              <Pause className="w-6 h-6" /> Pause Experience
-            </span>
-          ) : (
-            <span className="flex items-center gap-3">
-              <Play className="w-6 h-6" /> Start Experience
-            </span>
-          )}
-        </button>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {[
+            { title: 'Samba Rhythms', duration: '3:45', recorded: 'Rio de Janeiro' },
+            { title: 'Calypso Stories', duration: '4:12', recorded: 'Trinidad' },
+            { title: 'Parade Marches', duration: '5:30', recorded: 'New Orleans' },
+            { title: 'Call & Response', duration: '3:20', recorded: 'Haiti' },
+          ].map((track) => (
+            <div key={track.title} className="p-3 rounded-xl bg-white/10 border border-white/10">
+              <div className="flex items-center justify-between mb-2">
+                <h4 className="font-semibold text-white">{track.title}</h4>
+                <span className="text-xs text-white/50">{track.duration}</span>
+              </div>
+              <p className="text-xs text-white/50">{track.recorded}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -817,87 +828,56 @@ const SoundClashView: React.FC = () => {
 
 const GTMView: React.FC = () => {
   const { theme } = useJourney();
-  const [activeSegment, setActiveSegment] = useState('synergy');
-
-  const segments = [
-    { id: 'synergy', label: 'Market Mirroring', icon: Target, desc: 'Identify PNW/EU counterparties' },
-    { id: 'propensity', label: 'Growth Propensity', icon: TrendingUp, desc: 'High-yield ecological corridors' },
-    { id: 'activation', label: 'Node Activation', icon: Zap, desc: 'Strategic supply-chain links' },
-  ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Segments */}
-        <div className="space-y-4">
-          <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">
-            GTM Tactical Layers
-          </h2>
-          {segments.map((seg) => {
-            const Icon = seg.icon;
-            return (
-              <button
-                key={seg.id}
-                onClick={() => setActiveSegment(seg.id)}
-                className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 ${
-                  activeSegment === seg.id
-                    ? 'border-emerald-500 bg-emerald-500/20 shadow-lg'
-                    : 'border-white/10 bg-white/5 hover:bg-white/10'
-                }`}
-              >
-                <div className="flex items-center gap-3 mb-1">
-                  <Icon className={`w-4 h-4 ${activeSegment === seg.id ? 'text-emerald-400' : 'text-white/50'}`} />
-                  <span className="text-sm font-bold">{seg.label}</span>
-                </div>
-                <p className="text-[11px] text-white/50 pl-7">{seg.desc}</p>
-              </button>
-            );
-          })}
-        </div>
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
+      </div>
 
-        {/* Market Nodes */}
-        <div className="lg:col-span-2">
-          <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">
-            Market Nodes
-          </h2>
-          <div className="space-y-4">
-            {gtmMarketNodes.map((node) => (
-              <div
-                key={node.id}
-                className="p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`px-2 py-0.5 rounded text-[9px] font-bold ${
-                        node.status === 'Active' ? 'bg-emerald-500/20 text-emerald-300' :
-                        node.status === 'Pipeline' ? 'bg-indigo-500/20 text-indigo-300' :
-                        'bg-slate-500/20 text-slate-300'
-                      }`}
-                    >
-                      {node.status}
-                    </div>
-                    <h4 className="font-bold">{node.territory}</h4>
-                  </div>
-                  <span className="text-emerald-400 font-bold">{node.growth}</span>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-[9px] text-white/40 uppercase font-bold mb-1">GTM Score</p>
-                    <p className="text-xl font-black" style={{ color: theme.palette.light }}>{node.gtmScore}</p>
-                  </div>
-                  <div>
-                    <p className="text-[9px] text-white/40 uppercase font-bold mb-1">Coordinates</p>
-                    <p className="text-xs font-mono text-white/60">
-                      {node.coordinates[0].toFixed(2)}, {node.coordinates[1].toFixed(2)}
-                    </p>
-                  </div>
-                </div>
+      <div className="space-y-6">
+        {gtmMarketNodes.map((node) => (
+          <div
+            key={node.id}
+            className="p-6 rounded-2xl border"
+            style={{
+              background: `linear-gradient(135deg, ${theme.palette.primary}15, ${theme.palette.secondary}15)`,
+              borderColor: `${theme.palette.primary}30`,
+            }}
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold text-white">{node.territory}</h3>
+                <p className="text-sm text-white/60">{node.coordinates.join(', ')}</p>
               </div>
-            ))}
+              <span
+                className="inline-block px-4 py-2 rounded-full text-sm font-bold mt-2 md:mt-0"
+                style={{
+                  background: `${theme.palette.primary}30`,
+                  color: theme.palette.light,
+                }}
+              >
+                {node.status}
+              </span>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-1">GTM Score</p>
+                <p className="text-3xl font-black" style={{ color: theme.palette.light }}>
+                  {node.gtmScore}
+                </p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-1">Growth Propensity</p>
+                <p className="text-3xl font-black" style={{ color: theme.palette.accent }}>
+                  {node.growth}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -909,103 +889,42 @@ const GTMView: React.FC = () => {
 
 const GuildAcademyView: React.FC = () => {
   const { theme } = useJourney();
-  const [activeTab, setActiveTab] = useState<'mandate' | 'pbl'>('mandate');
 
   return (
-    <div className="max-w-6xl mx-auto">
-      {/* Tabs */}
-      <div className="flex gap-2 mb-8">
-        {[
-          { id: 'mandate', label: 'Department Mandate' },
-          { id: 'pbl', label: 'PBL Methodology' },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as typeof activeTab)}
-            className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${
-              activeTab === tab.id
-                ? 'bg-white/20 text-white'
-                : 'bg-white/5 text-white/50 hover:bg-white/10'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
       </div>
 
-      {activeTab === 'mandate' && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* NOT This */}
-          <div className="p-6 rounded-2xl bg-red-500/10 border border-red-500/30">
-            <span className="inline-block px-2 py-1 bg-red-500/20 text-red-300 text-xs font-bold rounded mb-3">
-              NOT This
-            </span>
-            <h3 className="text-lg font-bold mb-4 text-red-200">HR/DEI Training Department</h3>
-            <ul className="space-y-2 text-sm text-red-200/80">
-              {[
-                'Teaches cultural sensitivity workshops',
-                'Recruits based on demographic quotas',
-                'Measures success via representation %',
-                'Treats diversity as separate initiative',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* IS This */}
-          <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
-            <span className="inline-block px-2 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold rounded mb-3">
-              IS This
-            </span>
-            <h3 className="text-lg font-bold mb-4 text-emerald-200">Technical Infrastructure R&D</h3>
-            <ul className="space-y-2 text-sm text-emerald-200/80">
-              {[
-                'Builds infrastructure with co-designers',
-                'Recruits based on technical expertise',
-                'Measures via infrastructure performance',
-                'Treats inclusive design as engineering',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-
-      {activeTab === 'pbl' && (
-        <div className="space-y-4">
-          <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">
-            Guild Technical Tracks
-          </h2>
-          {guildTracks.map((track) => (
-            <div
-              key={track.id}
-              className="p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-between"
-            >
+      <div className="space-y-4">
+        {guildTracks.map((track) => (
+          <div
+            key={track.id}
+            className="p-6 rounded-2xl border"
+            style={{
+              background: `linear-gradient(135deg, ${theme.palette.primary}20, ${theme.palette.secondary}20)`,
+              borderColor: `${theme.palette.primary}30`,
+            }}
+          >
+            <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-bold mb-1">{track.name}</h4>
-                <p className="text-xs text-white/50">{track.members} members</p>
+                <h3 className="font-bold text-white mb-1">{track.name}</h3>
+                <p className="text-sm text-white/60">{track.members} members</p>
               </div>
               <span
-                className={`px-3 py-1 rounded-full text-xs font-bold ${
-                  track.status === 'Active'
-                    ? 'bg-emerald-500/20 text-emerald-300'
-                    : 'bg-slate-500/20 text-slate-300'
-                }`}
+                className="px-4 py-2 rounded-full text-sm font-bold"
+                style={{
+                  background: `${theme.palette.primary}20`,
+                  color: theme.palette.light,
+                }}
               >
                 {track.status}
               </span>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -1016,118 +935,69 @@ const GuildAcademyView: React.FC = () => {
 
 const FeltIntegrationView: React.FC = () => {
   const { theme } = useJourney();
-  const [deployStatus, setDeployStatus] = useState<'idle' | 'deploying' | 'success'>('idle');
-
-  const handleDeploy = async () => {
-    setDeployStatus('deploying');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setDeployStatus('success');
-  };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Market Nodes Preview */}
-        <div>
-          <h2 className="text-sm font-bold text-white/50 uppercase tracking-widest mb-4">
-            Nodes for Deployment
-          </h2>
-          <div className="space-y-3">
-            {gtmMarketNodes.map((node) => (
-              <div
-                key={node.id}
-                className="p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-sm">{node.territory}</span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[9px] font-bold ${
-                      node.status === 'Active'
-                        ? 'bg-emerald-500/20 text-emerald-300'
-                        : 'bg-slate-500/20 text-slate-300'
-                    }`}
-                  >
-                    {node.status}
-                  </span>
-                </div>
-                <p className="text-xs text-white/50">
-                  Score: {node.gtmScore} | Growth: {node.growth}
-                </p>
-              </div>
-            ))}
+    <div className="max-w-5xl mx-auto">
+      <div className="mb-8">
+        <h2 className="text-3xl lg:text-5xl font-black mb-3">{theme.name}</h2>
+        <p className="text-lg text-white/60">{theme.subtitle}</p>
+      </div>
+
+      <div
+        className="p-8 rounded-3xl border"
+        style={{
+          background: `linear-gradient(135deg, ${theme.palette.primary}20, ${theme.palette.secondary}20)`,
+          borderColor: `${theme.palette.primary}30`,
+        }}
+      >
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-bold mb-3">GeoJSON Deployment</h3>
+            <p className="text-white/70 mb-4">
+              Transform spatial heritage data into collaborative mapping layers. Deploy narrative geometries, heritage corridors, and cultural impact zones to Felt.com.
+            </p>
+            <button
+              className="px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2"
+              style={{
+                background: `linear-gradient(135deg, ${theme.palette.primary}, ${theme.palette.secondary})`,
+                boxShadow: `0 4px 14px ${theme.palette.primary}40`,
+              }}
+            >
+              <Upload className="w-4 h-4" />
+              Deploy to Felt.com
+            </button>
           </div>
-        </div>
 
-        {/* Deploy Panel */}
-        <div
-          className="p-8 rounded-3xl border backdrop-blur-xl"
-          style={{
-            background: `linear-gradient(135deg, ${theme.palette.primary}10, ${theme.palette.secondary}10)`,
-            borderColor: `${theme.palette.primary}30`,
-          }}
-        >
-          <Map className="w-12 h-12 mb-4" style={{ color: theme.palette.primary }} />
-          <h2 className="text-2xl font-bold mb-2">Felt.com Integration</h2>
-          <p className="text-white/60 mb-6">
-            Deploy GTM market data to Felt for collaborative spatial analysis.
-          </p>
-
-          <button
-            onClick={handleDeploy}
-            disabled={deployStatus === 'deploying'}
-            className={`w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
-              deployStatus === 'success'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : deployStatus === 'deploying'
-                ? 'bg-white/10 text-white/50 cursor-wait'
-                : ''
-            }`}
-            style={
-              deployStatus === 'idle'
-                ? {
-                    background: `linear-gradient(135deg, ${theme.palette.primary}, ${theme.palette.secondary})`,
-                    boxShadow: `0 10px 30px ${theme.palette.primary}40`,
-                  }
-                : undefined
-            }
-          >
-            {deployStatus === 'deploying' && (
-              <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Deploying...
-              </>
-            )}
-            {deployStatus === 'success' && (
-              <>
-                <CheckCircle2 className="w-4 h-4" />
-                Deployed Successfully
-              </>
-            )}
-            {deployStatus === 'idle' && (
-              <>
-                <Upload className="w-4 h-4" />
-                Deploy to Felt
-              </>
-            )}
-          </button>
-
-          {deployStatus === 'success' && (
-            <div className="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-              <p className="text-sm font-bold text-emerald-300 mb-1">Map deployed!</p>
-              <a
-                href="https://felt.com/map/usa250-gtm-map"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-emerald-400 underline"
-              >
-                View on Felt.com
-              </a>
+          <div className="border-t border-white/10 pt-6">
+            <h3 className="text-xl font-bold mb-3">Active Deployments</h3>
+            <div className="space-y-3">
+              {[
+                { name: 'Wine Heritage Network', features: 147, status: 'Active' },
+                { name: 'Freedom Trails Map', features: 89, status: 'Pipeline' },
+                { name: 'Guild Academies', features: 34, status: 'Active' },
+              ].map((deploy) => (
+                <div key={deploy.name} className="p-3 rounded-lg bg-white/10 border border-white/10">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-white">{deploy.name}</h4>
+                      <p className="text-xs text-white/50">{deploy.features} features</p>
+                    </div>
+                    <span
+                      className="px-3 py-1 rounded-full text-xs font-bold"
+                      style={{
+                        background: `${theme.palette.primary}20`,
+                        color: theme.palette.light,
+                      }}
+                    >
+                      {deploy.status}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default JourneyApp;
