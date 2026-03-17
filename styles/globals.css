@@ -1,7 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   USA250 IMPACT JOURNEY - DESIGN TOKEN SYSTEM
+   ============================================================================ */
+
+:root {
+  /* Core Brand Colors */
+  --color-primary: #10B981;
+  --color-secondary: #312E81;
+  --color-accent: #6366F1;
+  --color-dark: #0F172A;
+  --color-slate: #475569;
+  
+  /* Background */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* Wine Heritage Context */
+  --wine-primary: #9333EA;
+  --wine-secondary: #DB2777;
+  --wine-accent: #F87171;
+  --wine-light: #E9D5FF;
+  
+  /* Freedom Trails Context */
+  --trails-primary: #1E40AF;
+  --trails-secondary: #B45309;
+  --trails-accent: #FDE047;
+  --trails-light: #BFDBFE;
+  
+  /* Sound Clash Context */
+  --sound-primary: #EA580C;
+  --sound-secondary: #06B6D4;
+  --sound-accent: #F59E0B;
+  --sound-light: #FEF3C7;
+  
+  /* GTM Context */
+  --gtm-primary: #10B981;
+  --gtm-secondary: #6366F1;
+  --gtm-accent: #14B8A6;
+  --gtm-light: #D1FAE5;
+  
+  /* Guild Context */
+  --guild-primary: #6366F1;
+  --guild-secondary: #8B5CF6;
+  --guild-accent: #A78BFA;
+  --guild-light: #C7D2FE;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Monaco', 'Consolas', 'Courier New', monospace;
+  
+  --h1: 2.25rem;
+  --h2: 1.875rem;
+  --h3: 1.5rem;
+  --h4: 1.25rem;
+  --body: 1rem;
+  --small: 0.875rem;
+  --tiny: 0.75rem;
+  
+  --line-height: 1.6;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  
+  /* Layout */
+  --sidebar-width: 18rem;
+  --header-height: 4rem;
+  --border-width: 1px;
+  
+  /* Cards */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --card-radius: 1rem;
+  --card-padding: 1.5rem;
+  
+  /* Buttons */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-text: #FFFFFF;
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--color-primary);
+  --btn-secondary-border: var(--color-primary);
+  --btn-height-sm: 2rem;
+  --btn-height-md: 2.5rem;
+  --btn-height-lg: 3rem;
+  --btn-padding-x: 1rem;
+  
+  /* Warm Sand (legacy support) */
+  --warm-sand: #0F172A;
+  --studio-blue: #312E81;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-body);
-  background-color: var(--warm-sand);
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Animation Keyframes */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Glass Morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Styles */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 var(--btn-padding-x);
+  height: var(--btn-height-md);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: var(--small);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: white;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Context-specific gradients */
+.gradient-wine {
+  background: linear-gradient(135deg, #581C87 0%, #831843 50%, #0F172A 100%);
+}
+
+.gradient-trails {
+  background: linear-gradient(135deg, #1E293B 0%, #1E3A8A 50%, #0F172A 100%);
+}
+
+.gradient-sound {
+  background: linear-gradient(135deg, #EA580C 0%, #DB2777 50%, #9333EA 100%);
+}
+
+.gradient-gtm {
+  background: linear-gradient(135deg, #0F172A 0%, #064E3B 50%, #312E81 100%);
+}
+
+.gradient-guild {
+  background: linear-gradient(135deg, #312E81 0%, #581C87 50%, #0F172A 100%);
+}
+
+.gradient-felt {
+  background: linear-gradient(135deg, #0C4A6E 0%, #312E81 50%, #0F172A 100%);
 }

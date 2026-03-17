@@ -7,6 +7,9 @@
  * @module components
  */
 
+// Journey SPA (Main Application)
+export { JourneyApp, useJourney } from './journey/JourneyApp';
+
 // GTM Components
 export { default as GTMAcceleratorDashboard } from './gtm/GTMAcceleratorDashboard';
 
@@ -15,6 +18,15 @@ export { default as GuildAcademyCharter } from './guild/GuildAcademyCharter';
 
 // Narrative Components
 export { default as HumancodeWine } from './narrative/HumancodeWine';
+
+// Place Packet Components
+export {
+  PlacePacketShell,
+  usePlacePacketTheme,
+  WineHeritageDemo,
+  FreedomTrailsDemo,
+  SoundClashDemo,
+} from './place-packet/PlacePacketShell';
 
 // Re-export types for consumers
 export type GTMPhase = 'pilot' | 'scale' | 'global';
