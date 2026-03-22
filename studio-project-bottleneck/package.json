@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "sanity dev --port 3334",
-    "dev:3333": "sanity dev --port 3333",
+    "dev": "sanity dev --port 3333",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
