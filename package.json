@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/vision": "^5.17.1",
     "next": "canary",
     "react": "^19",
     "react-dom": "^19",

@@ -15,17 +15,17 @@
     "cms"
   ],
   "author": "",
-  "license": "UNLICENSE",
+  "license": "UNLICENSED",
   "dependencies": {
-    "react": "^19",
-    "react-dom": "^19",
-    "sanity": "^3",
-    "@sanity/ui": "^2",
-    "@sanity/base": "^3",
-    "@sanity/cli": "^3"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.57.0",
+    "@sanity/vision": "^3.57.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^3",
+    "@sanity/eslint-config-studio": "^4.0.0",
+    "@types/react": "^18.3.3",
+    "eslint": "^8.57.0",
     "typescript": "^5.7.3"
   }
 }
