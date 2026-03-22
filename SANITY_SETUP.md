@@ -50,7 +50,13 @@ cp .env.example .env.local
 
 The `.env.local` file uses these credentials:
 - **Project ID**: `vtm50qra`
-- **Dataset**: `production`
+- **Dataset*
+```bash
+# Terminal 1: Run Next.js app
+npm run dev
+
+# Terminal 2: Run Sanity studio
+cd studio-proje*: `production`
 
 ### Step 3: Start the Studio
 
@@ -65,13 +71,7 @@ The Sanity Studio will be available at: **http://localhost:3333**
 ## Running Both Apps
 
 You can run the Next.js app and Sanity studio simultaneously from the project root:
-
-```bash
-# Terminal 1: Run Next.js app
-npm run dev
-
-# Terminal 2: Run Sanity studio
-cd studio-project-bottleneck
+ct-bottleneck
 npm run dev
 ```
 
