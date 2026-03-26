@@ -1,26 +1,21 @@
-import { defineType, defineField } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 /**
- * Producer Profile — a Value Producer in the B2B2C corridor seeding system.
+ * Producer Profile v1.1 (OPS-66 corrected)
  *
- * This is NOT the same as Author (content creator) or PractitionerProfile (Martha).
- * A Producer is the B2B layer: chef, fisher, cultural custodian, venue operator —
- * a local operator who seeds the corridor with their knowledge, ingredients, and voice.
- *
- * The translation workflow state machine lives here:
- *   submitted → translated → articulated → published
- *
- * Connected to:
- *   corridorNode (which segment they represent)
- *   ancestralStitch (their ingredient/gesture/terroir submission)
- *   corridorActivation (activations they've proposed or synced to)
+ * A producer is NOT an author or content creator.
+ * Producers submit DACUM profiles. Curators articulate their voice.
+ * consentRecord is now a SEPARATE DOCUMENT (not embedded object) — enables independent queries.
+ * node is a string enum (not a reference) — enables seeding portal submissions before node docs exist.
  */
-export default defineType({
+export const producerProfile = defineType({
   name: 'producerProfile',
   title: 'Producer Profile',
   type: 'document',
+  description:
+    'A producer is NOT an author or content creator. Producers submit DACUM profiles. Curators articulate their voice. This document holds the raw submission and translation state.',
   fields: [
-    // ── Identity ──────────────────────────────────────────────────────────
+    // IDENTITY
     defineField({
       name: 'name',
       title: 'Producer Name',
@@ -31,46 +26,69 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'name', maxLength: 100 },
+      options: {source: 'name', maxLength: 100},
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'node',
+      title: 'Corridor Node',
+      type: 'string',
+      description: 'String enum — does not require corridorNode document to exist first.',
+      options: {
+        list: [
+          {title: 'Ensenada (Mexico)', value: 'ensenada'},
+          {title: 'Seattle (WA)', value: 'seattle'},
+          {title: 'Vancouver (BC)', value: 'vancouver'},
+          {title: 'Ucluelet (BC)', value: 'ucluelet'},
+          {title: 'Okanagan (BC)', value: 'okanagan'},
+        ],
+      },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'producerType',
       title: 'Producer Type',
       type: 'string',
+      description: 'What the producer DOES — not what they write.',
       options: {
         list: [
-          { title: 'Chef / Culinary Practitioner', value: 'chef' },
-          { title: 'Fisher / Harvester', value: 'fisher' },
-          { title: 'Cultural Custodian', value: 'cultural_custodian' },
-          { title: 'Winemaker / Vigneron', value: 'winemaker' },
-          { title: 'Venue Operator', value: 'venue_operator' },
-          { title: 'Market / Agricultural Producer', value: 'agricultural' },
+          {title: 'Chef / Culinary', value: 'chef'},
+          {title: 'Fisher / Seafood', value: 'fisher'},
+          {title: 'Farmer / Agriculture', value: 'agricultural'},
+          {title: 'Winemaker / Viticulture', value: 'winemaker'},
+          {title: 'Cultural Custodian', value: 'cultural_custodian'},
+          {title: 'Venue Operator', value: 'venue_operator'},
         ],
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'node',
-      title: 'Corridor Node',
-      type: 'reference',
-      to: [{ type: 'corridorNode' }],
-      description: 'Which corridor segment this producer represents',
-      validation: (Rule) => Rule.required(),
+      name: 'dialect',
+      title: 'Source Language / Dialect',
+      type: 'string',
+      description:
+        'The language or dialect in which the producer submitted. Preserved in archive — not erased by translation. e.g. "es-MX", "hul\'q\'umi\'num\'", "en-BC"',
+    }),
+    defineField({
+      name: 'submissionEmail',
+      title: 'Contact Email (Magic Link re-entry)',
+      type: 'string',
+      validation: (Rule) => Rule.email(),
     }),
 
-    // ── Seeding Portal Submission Fields ──────────────────────────────────
+    // DACUM PROFILE — raw competency documentation
     defineField({
       name: 'dacumProfile',
       title: 'DACUM Profile',
       type: 'object',
-      description: 'Competency profile submitted via Producer Seeding Portal',
+      description:
+        'Raw competency documentation. Preserved as-is in archive. NOT edited for publication.',
       fields: [
         {
           name: 'primarySkill',
-          title: 'Primary Skill / Craft',
-          type: 'string',
-          description: 'In the producer\'s own words — do not edit for style',
+          title: 'Primary Skill',
+          type: 'text',
+          description: 'What this producer does — in their own words.',
         },
         {
           name: 'yearsOfPractice',
@@ -79,53 +97,34 @@ export default defineType({
         },
         {
           name: 'localIngredientSignature',
-          title: 'Signature Local Ingredient',
+          title: 'Signature Ingredient (Local name, terroir-bound)',
           type: 'string',
-          description: 'The one ingredient that defines their practice in this place',
-        },
-        {
-          name: 'sourceLanguage',
-          title: 'Submission Language',
-          type: 'string',
-          description: 'Language/dialect of original submission (e.g. "es-MX", "hul\'q\'umi\'num\'", "en-BC")',
+          description:
+            'The one ingredient that defines their practice in this place. NOT scientific name — local name as pronounced.',
         },
         {
           name: 'gestureDescription',
-          title: 'Oral-Kinetic Gesture Description',
+          title: 'Gesture Description (Oral-Kinetic Vocabulary)',
           type: 'text',
-          description: 'How they physically make their signature dish/process — in their own words',
-          rows: 4,
-        },
-        {
-          name: 'oralKineticVideo',
-          title: 'Oral-Kinetic Video',
-          type: 'file',
-          description: 'Short video of the gesture/process — this feeds Martha\'s Ancestral Stitch sessions',
-          options: { accept: 'video/*' },
+          description:
+            'How they physically make their signature dish — in their own words. Translated but NOT sanitized.',
         },
       ],
     }),
 
-    // ── Ancestral Stitch Packet ────────────────────────────────────────────
-    defineField({
-      name: 'ancestralStitch',
-      title: 'Ancestral Stitch',
-      type: 'reference',
-      to: [{ type: 'ancestralStitch' }],
-      description: 'The compiled ingredient + gesture packet drawn from this producer\'s DACUM submission',
-    }),
-
-    // ── Translation Workflow State Machine ────────────────────────────────
+    // TRANSLATION STATE MACHINE — submitted → translated → articulated → published
     defineField({
       name: 'translationStatus',
       title: 'Translation Status',
       type: 'string',
+      description:
+        'Workflow state. submitted → translated → articulated → published. Each step has a named owner.',
       options: {
         list: [
-          { title: '1 · Submitted — awaiting review', value: 'submitted' },
-          { title: '2 · Translated — content translated from source language', value: 'translated' },
-          { title: '3 · Articulated — contextualized for collective corridor voice', value: 'articulated' },
-          { title: '4 · Published — live on public corridor page', value: 'published' },
+          {title: '📥 Submitted (raw producer voice)', value: 'submitted'},
+          {title: '🌐 Translated (language documented)', value: 'translated'},
+          {title: '🪡 Articulated (woven into collective voice)', value: 'articulated'},
+          {title: '✅ Published (live in public spaces)', value: 'published'},
         ],
         layout: 'radio',
       },
@@ -134,98 +133,83 @@ export default defineType({
     }),
     defineField({
       name: 'translationNotes',
-      title: 'Translation / Articulation Notes',
+      title: 'Translation Notes (Internal)',
       type: 'object',
-      description: 'Internal workflow notes — not public-facing',
       fields: [
         {
-          name: 'translatedAt',
-          title: 'Translated At',
-          type: 'datetime',
-        },
-        {
           name: 'translatedBy',
-          title: 'Translated By',
+          title: 'Translated By (Audit trail)',
           type: 'string',
+          description: 'Named language specialist. Required for audit.',
         },
         {
           name: 'articulatedAt',
           title: 'Articulated At',
           type: 'datetime',
+          description: 'When curator wove this voice into corridor collective.',
         },
         {
-          name: 'culturalReviewNotes',
-          title: 'Cultural Review Notes',
+          name: 'articulationNotes',
+          title: 'Articulation Notes',
           type: 'text',
-          rows: 3,
-        },
-        {
-          name: 'sovereigntyFlags',
-          title: 'Sovereignty Flags',
-          type: 'array',
-          of: [{ type: 'string' }],
-          description: 'Any content requiring CIP/CARE attention before publication',
         },
       ],
     }),
 
-    // ── Collective Identity Output ─────────────────────────────────────────
+    // ARTICULATED VOICE — final public text (NOT the raw DACUM submission)
     defineField({
       name: 'articulatedVoice',
-      title: 'Articulated Collective Voice',
+      title: 'Articulated Voice (Corridor-Ready)',
       type: 'array',
-      of: [{ type: 'block' }],
-      description: 'Final translated + contextualized text for the CollectiveIdentityShell — set when status = articulated',
+      of: [{type: 'block'}],
+      description:
+        "The curator-woven 'corridor voice' version of this producer's story. This — NOT the raw DACUM submission — appears on the public corridor page.",
     }),
 
-    // ── Consent & Sovereignty ─────────────────────────────────────────────
+    // REFERENCES — consentRecord is now a SEPARATE DOCUMENT (v1.1 correction)
     defineField({
       name: 'consentRecord',
       title: 'Consent Record',
-      type: 'object',
-      fields: [
-        { name: 'consentedAt', title: 'Consented At', type: 'datetime' },
-        {
-          name: 'consentScope',
-          title: 'Consent Scope',
-          type: 'array',
-          of: [{ type: 'string' }],
-          options: {
-            list: [
-              { title: 'Corridor collective page', value: 'collective_page' },
-              { title: 'Sponsor surface display', value: 'sponsor_surface' },
-              { title: 'Martha session material', value: 'martha_session' },
-              { title: 'Public DtC attribution', value: 'dtc_attribution' },
-            ],
-          },
-        },
-        {
-          name: 'knowledgeProtections',
-          title: 'Knowledge Protections',
-          type: 'text',
-          description: 'What this producer has explicitly asked NOT to be shared publicly',
-          rows: 2,
-        },
-      ],
+      type: 'reference',
+      to: [{type: 'consentRecord'}],
+      description:
+        'REQUIRED before any content from this producer appears on any surface. Separate document enables independent consent queries.',
+    }),
+    defineField({
+      name: 'ancestralStitch',
+      title: 'Ancestral Stitch',
+      type: 'reference',
+      to: [{type: 'ancestralStitch'}],
+      description: 'The compiled stitch packet (ingredient + gesture + terroir).',
+    }),
+    defineField({
+      name: 'createdAt',
+      title: 'Submitted At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      readOnly: true,
     }),
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'translationStatus',
-      type: 'producerType',
+      subtitle: 'node',
+      status: 'translationStatus',
     },
-    prepare({ title, subtitle, type }) {
+    prepare(value: any) {
+      const {title, subtitle, status} = value
       const statusEmoji: Record<string, string> = {
-        submitted: '⏳',
-        translated: '🔄',
-        articulated: '✍️',
+        submitted: '📥',
+        translated: '🌐',
+        articulated: '🪡',
         published: '✅',
       }
       return {
         title,
-        subtitle: `${type} · ${statusEmoji[subtitle] ?? ''}  ${subtitle}`,
+        subtitle: `${subtitle} • ${statusEmoji[status] ?? ''} ${status}`,
       }
     },
   },
 })
+
+export default producerProfile

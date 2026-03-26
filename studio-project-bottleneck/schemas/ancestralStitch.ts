@@ -1,99 +1,109 @@
-import { defineType, defineField } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 /**
- * Ancestral Stitch — the compiled ingredient + gesture + terroir packet
- * that Martha draws on during oral-kinetic sessions.
+ * Ancestral Stitch v1.1 (OPS-66 corrected)
  *
- * Each Stitch is assembled from one or more ProducerProfile DACUM submissions.
- * It is the seeded knowledge object that bridges the Async Layer (producer prep)
- * to the Sync Layer (Martha's frontstage session).
+ * NOT a recipe or template. The specific compiled stitch for ONE producer at ONE node.
+ * Non-normalizable. A Dungeness crab stitch ≠ an aguachile stitch.
  *
- * Anti-universality: ingredient taxonomy is node-specific.
- * A Dungeness crab stitch from Ucluelet is structurally different from
- * an aguachile stitch from Ensenada — each carries its own acid logic,
- * seasonal rhythm, and gesture vocabulary.
+ * Changes from v1.0:
+ * - producer: single reference (was sourceProducers[] array)
+ * - sovereigntyFlags moved here from producerProfile.translationNotes (they belong to the knowledge, not the person)
+ * - readyForMartha boolean added (replaces status enum as primary gate)
+ * - seasonalLogic added to ingredientPacket (WHY now, not WHEN)
+ * - Linked narrativeLayer preserved from v1.0
  */
-export default defineType({
+export const ancestralStitch = defineType({
   name: 'ancestralStitch',
   title: 'Ancestral Stitch',
   type: 'document',
+  description:
+    'NOT a recipe or template. The specific compiled stitch for one producer at one node. Non-normalizable. A Dungeness crab stitch ≠ an aguachile stitch.',
   fields: [
     defineField({
       name: 'title',
       title: 'Stitch Title',
       type: 'string',
-      description: 'Name of this stitch packet (e.g. "Coast Salish Salmon · Spring 2026")',
+      description: 'e.g. "Coast Salish Salmon · Spring 2026" — descriptive, not branded.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'title', maxLength: 100 },
+      options: {source: 'title', maxLength: 100},
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'node',
-      title: 'Corridor Node',
+      name: 'producer',
+      title: 'Producer',
       type: 'reference',
-      to: [{ type: 'corridorNode' }],
+      to: [{type: 'producerProfile'}],
+      description:
+        'Single producer. v1.1 correction — was sourceProducers[] array. One stitch, one voice.',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'sourceProducers',
-      title: 'Source Producers',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'producerProfile' }] }],
-      description: 'ProducerProfiles whose DACUM submissions feed this stitch',
-      validation: (Rule) => Rule.min(1),
     }),
 
-    // ── Ingredient Packet (node-specific taxonomy) ────────────────────────
+    // INGREDIENT PACKET — node-specific, not normalized
     defineField({
       name: 'ingredientPacket',
       title: 'Ingredient Packet',
       type: 'object',
-      description: 'Node-specific ingredient taxonomy — parameterized by node type',
+      description: 'The stitch. Not a recipe. Node-specific.',
       fields: [
         {
           name: 'primaryIngredient',
           title: 'Primary Ingredient',
           type: 'string',
-          description: 'The central ingredient: the species, varietal, or cultivar by its local name',
+          description: 'Wild, common, or local name — NOT scientific name.',
         },
         {
           name: 'localName',
-          title: 'Local / Indigenous Name',
+          title: 'Local Name (Territory language)',
           type: 'string',
-          description: 'Name in the territory\'s language — record as pronounced, not normalized',
+          description: 'Recorded as pronounced. Not normalized.',
         },
         {
           name: 'acidProfile',
-          title: 'Acid / Ferment Profile',
-          type: 'string',
-          description: 'What gives this ingredient its character: citrus, ferment, brine, smoke, age',
-        },
-        {
-          name: 'terroir',
-          title: 'Terroir Description',
-          type: 'text',
-          rows: 3,
-          description: 'Where it comes from — the water, soil, or sky that made it this specific thing',
-        },
-        {
-          name: 'season',
-          title: 'Season / Harvest Window',
+          title: 'Acid Profile',
           type: 'string',
           options: {
             list: [
-              { title: 'Spring (Feb–May)', value: 'spring' },
-              { title: 'Summer (June–Aug)', value: 'summer' },
-              { title: 'Autumn (Sept–Nov)', value: 'autumn' },
-              { title: 'Winter (Dec–Jan)', value: 'winter' },
-              { title: 'Year-round', value: 'year_round' },
-              { title: 'Ceremonially timed', value: 'ceremonial' },
+              {title: 'Citrus', value: 'citrus'},
+              {title: 'Ferment', value: 'ferment'},
+              {title: 'Brine', value: 'brine'},
+              {title: 'Smoke', value: 'smoke'},
+              {title: 'Age', value: 'age'},
             ],
           },
+        },
+        {
+          name: 'terroir',
+          title: 'Terroir',
+          type: 'text',
+          description: 'Where it comes from — the water, soil, or sky that made it.',
+        },
+        {
+          name: 'season',
+          title: 'Season',
+          type: 'string',
+          options: {
+            list: [
+              {title: 'Spring', value: 'spring'},
+              {title: 'Summer', value: 'summer'},
+              {title: 'Autumn', value: 'autumn'},
+              {title: 'Winter', value: 'winter'},
+              {title: 'Year-round', value: 'year_round'},
+              {title: 'Ceremonially timed', value: 'ceremonial'},
+            ],
+          },
+        },
+        {
+          name: 'seasonalLogic',
+          title: 'Seasonal Logic (WHY now — not calendar-driven)',
+          type: 'text',
+          description:
+            '"When the water is coldest and fish are fullest" — not "December 21".',
         },
         {
           name: 'supportingIngredients',
@@ -103,128 +113,172 @@ export default defineType({
             {
               type: 'object',
               fields: [
-                { name: 'ingredient', title: 'Ingredient', type: 'string' },
-                { name: 'localName', title: 'Local Name', type: 'string' },
-                { name: 'role', title: 'Role in dish', type: 'string', description: 'acid | fat | heat | sweet | bitter | textural | ceremonial' },
+                {name: 'ingredient', type: 'string', title: 'Ingredient'},
+                {name: 'localName', type: 'string', title: 'Local Name'},
+                {
+                  name: 'role',
+                  type: 'string',
+                  title: 'Role',
+                  options: {
+                    list: [
+                      {title: 'Acid', value: 'acid'},
+                      {title: 'Fat', value: 'fat'},
+                      {title: 'Heat', value: 'heat'},
+                      {title: 'Sweet', value: 'sweet'},
+                      {title: 'Bitter', value: 'bitter'},
+                      {title: 'Textural', value: 'textural'},
+                      {title: 'Ceremonial', value: 'ceremonial'},
+                    ],
+                  },
+                },
               ],
+              preview: {
+                select: {title: 'ingredient', subtitle: 'role'},
+              },
             },
           ],
         },
       ],
     }),
 
-    // ── Gesture Packet ────────────────────────────────────────────────────
+    // GESTURE PACKET — physical vocabulary, not technique or recipe
     defineField({
       name: 'gesturePacket',
-      title: 'Oral-Kinetic Gesture Packet',
+      title: 'Gesture Packet (Oral-Kinetic Vocabulary)',
       type: 'object',
-      description: 'The physical vocabulary of this stitch — what Martha enacts in session',
+      description:
+        "NOT a recipe or technique. The physical vocabulary of this producer. Translated but not sanitized.",
       fields: [
         {
           name: 'gestureDescription',
-          title: 'Gesture Description',
+          title: "Gesture Description (Producer's own words)",
           type: 'text',
-          rows: 4,
-          description: 'In the producer\'s own words — translated but not sanitized',
-        },
-        {
-          name: 'gestureVideo',
-          title: 'Gesture Video',
-          type: 'file',
-          options: { accept: 'video/*' },
+          description: 'In the producer\'s own words — translated but NOT sanitized.',
         },
         {
           name: 'bodyParts',
-          title: 'Body Parts Involved',
+          title: 'Body Parts / Tools Involved',
           type: 'array',
-          of: [{ type: 'string' }],
+          of: [{type: 'string'}],
+          description: 'e.g., hands, knife, water, fire, vessel. Guides accessibility adaptation.',
           options: {
             list: ['hands', 'wrists', 'forearms', 'full arms', 'shoulders', 'torso', 'breath'],
           },
-          description: 'Guides accessibility adaptation for Martha\'s sessions',
         },
         {
           name: 'soundSignature',
           title: 'Sound Signature',
           type: 'string',
-          description: 'What this process sounds like — knife on board, sizzle, pour, silence',
+          description: 'What is heard during the gesture. Cues Martha to adjust session tempo.',
         },
         {
           name: 'durationMinutes',
-          title: 'Process Duration (minutes)',
+          title: 'Gesture / Session Duration (minutes)',
           type: 'number',
+        },
+        {
+          name: 'gestureVideo',
+          title: 'Oral-Kinetic Video',
+          type: 'file',
+          options: {accept: 'video/*'},
         },
       ],
     }),
 
-    // ── Session Readiness ─────────────────────────────────────────────────
+    // SESSION READINESS — Martha protocol gates
     defineField({
       name: 'sessionReadiness',
-      title: 'Session Readiness',
+      title: 'Session Readiness (Martha Protocol)',
       type: 'object',
-      description: 'Is this stitch ready for Martha to draw on in a live oral-kinetic session?',
+      description:
+        'Martha must read restrictions before every session. All gates must pass before readyForMartha = true.',
       fields: [
         {
-          name: 'status',
-          title: 'Status',
-          type: 'string',
-          options: {
-            list: [
-              { title: 'Draft — incomplete', value: 'draft' },
-              { title: 'Review — awaiting cultural check', value: 'review' },
-              { title: 'Ready — cleared for Martha sessions', value: 'ready' },
-              { title: 'Restricted — sacred/withheld', value: 'restricted' },
-            ],
-            layout: 'radio',
-          },
-          initialValue: 'draft',
-        },
-        {
-          name: 'culturalClearance',
-          title: 'Cultural Clearance',
+          name: 'readyForMartha',
+          title: 'Cleared for Martha Sessions?',
           type: 'boolean',
-          description: 'Has a knowledge holder or steward cleared this for session use?',
           initialValue: false,
+          description:
+            'Primary gate. Only true when culturalClearance = true AND all sovereigntyFlags resolved.',
         },
         {
           name: 'clearedBy',
           title: 'Cleared By',
           type: 'string',
-          hidden: ({ parent }) => !parent?.culturalClearance,
+          description: 'Named individual with cultural authority. NOT Western credentialing.',
+        },
+        {
+          name: 'culturalClearance',
+          title: 'Cultural Clearance Granted?',
+          type: 'boolean',
+          initialValue: false,
         },
         {
           name: 'restrictions',
-          title: 'Use Restrictions',
+          title: 'Sacred / Non-Negotiable Restrictions',
           type: 'text',
-          rows: 2,
-          description: 'What cannot be demonstrated, recorded, or shared from this stitch',
+          description:
+            'Martha reads this before every session. Cannot be overridden by curator or coordinator.',
+        },
+        {
+          name: 'sovereigntyFlags',
+          title: 'Sovereignty Flags',
+          type: 'array',
+          description:
+            'GATING mechanisms — not warning labels. CIP_REQUIRED blocks publication until CIP review complete. Moved here from producerProfile (flags belong to the knowledge, not the person).',
+          of: [
+            {
+              type: 'string',
+              options: {
+                list: [
+                  {
+                    title: 'CIP Required (Indigenous protocol review required)',
+                    value: 'CIP_REQUIRED',
+                  },
+                  {title: 'CASL Consent (Canadian privacy compliance)', value: 'CASL_CONSENT'},
+                  {
+                    title: 'Seasonal Gate (only available in specific season)',
+                    value: 'SEASONAL_GATE',
+                  },
+                  {title: 'Sacred Knowledge (cannot be generalized)', value: 'SACRED_KNOWLEDGE'},
+                  {title: 'Territorial Water Sacred', value: 'TERRITORIAL_WATER_SACRED'},
+                  {
+                    title: 'Oral Transmission Only (cannot be recorded)',
+                    value: 'ORAL_TRANSMISSION_ONLY',
+                  },
+                  {title: 'No Recording', value: 'NO_RECORDING'},
+                ],
+              },
+            },
+          ],
         },
       ],
     }),
 
-    // ── Linked Session Materials ───────────────────────────────────────────
+    // LINKED MATERIALS — preserved from v1.0
     defineField({
       name: 'narrativeLayer',
       title: 'Linked Narrative Layer',
       type: 'reference',
-      to: [{ type: 'narrativeLayer' }],
-      description: 'Optional: the NarrativeLayer that carries this stitch in the Place Packet system',
+      to: [{type: 'narrativeLayer'}],
+      description:
+        'Optional: the NarrativeLayer that carries this stitch in the Place Packet system.',
     }),
   ],
   preview: {
     select: {
       title: 'title',
-      node: 'node.name',
-      status: 'sessionReadiness.status',
+      producer: 'producer.name',
+      ready: 'sessionReadiness.readyForMartha',
     },
-    prepare({ title, node, status }) {
-      const statusIcon: Record<string, string> = {
-        draft: '📝', review: '🔍', ready: '✅', restricted: '🔒',
-      }
+    prepare(value: any) {
+      const {title, producer, ready} = value
       return {
-        title,
-        subtitle: `${node ?? 'No node'} · ${statusIcon[status] ?? ''} ${status ?? 'draft'}`,
+        title: title as string,
+        subtitle: `${(producer as string) ?? 'No producer'} · ${ready ? '✅ Ready for Martha' : '⏳ Awaiting clearance'}`,
       }
     },
   },
 })
+
+export default ancestralStitch
