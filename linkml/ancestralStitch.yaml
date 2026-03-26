@@ -1,0 +1,204 @@
+id: https://usa250impact.org/schemas/ancestralStitch
+name: ancestralStitch
+title: Ancestral Stitch Schema
+description: >-
+  The compiled ingredient + gesture + terroir packet that Martha draws on
+  during oral-kinetic sessions. Assembled from one or more ProducerProfile DACUM submissions.
+  Anti-universality: ingredient taxonomy is node-specific. A Dungeness crab stitch
+  from Ucluelet is structurally different from an aguachile stitch from Ensenada.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+enums:
+  SeasonEnum:
+    permissible_values:
+      spring: { description: Spring — Feb to May }
+      summer: { description: Summer — June to Aug }
+      autumn: { description: Autumn — Sept to Nov }
+      winter: { description: Winter — Dec to Jan }
+      year_round: {}
+      ceremonial: { description: Ceremonially timed — not calendar-fixed }
+
+  StitchStatusEnum:
+    permissible_values:
+      draft: { description: Draft — incomplete }
+      review: { description: Under cultural review }
+      ready: { description: Cleared for Martha sessions }
+      restricted: { description: Sacred or withheld — not for public sessions }
+
+  IngredientRoleEnum:
+    permissible_values:
+      acid: {}
+      fat: {}
+      heat: {}
+      sweet: {}
+      bitter: {}
+      textural: {}
+      ceremonial: {}
+
+classes:
+  AncestralStitch:
+    description: >-
+      Compiled ingredient + gesture + terroir packet for oral-kinetic sessions.
+      Maps to Sanity schema 'ancestralStitch'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: ancestralStitch
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(ancestralStitch)
+      title:
+        range: string
+        required: true
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        annotations:
+          sanity_type: slug
+          sanity_source: title
+      node:
+        range: string
+        required: true
+        annotations:
+          sanity_type: reference
+          sanity_to: corridorNode
+      sourceProducers:
+        range: string
+        multivalued: true
+        description: ProducerProfile references that feed this stitch
+        annotations:
+          sanity_type: array
+          sanity_of: reference
+          sanity_to: producerProfile
+      ingredientPacket:
+        range: IngredientPacket
+        annotations:
+          sanity_type: object
+      gesturePacket:
+        range: GesturePacket
+        annotations:
+          sanity_type: object
+      sessionReadiness:
+        range: SessionReadiness
+        annotations:
+          sanity_type: object
+      narrativeLayer:
+        range: string
+        description: Optional reference to linked NarrativeLayer in Place Packet system
+        annotations:
+          sanity_type: reference
+          sanity_to: narrativeLayer
+
+  IngredientPacket:
+    description: >-
+      Node-specific ingredient taxonomy. Do not normalize across nodes.
+      Carries local/Indigenous name, acid profile, terroir, and seasonal window.
+    annotations:
+      sanity_type: object
+    attributes:
+      primaryIngredient:
+        range: string
+        description: Central ingredient — the species, varietal, or cultivar by its local name
+        annotations:
+          sanity_type: string
+      localName:
+        range: string
+        description: Name in the territory's language — recorded as pronounced, not normalized
+        annotations:
+          sanity_type: string
+      acidProfile:
+        range: string
+        description: What gives this ingredient character — citrus, ferment, brine, smoke, age
+        annotations:
+          sanity_type: string
+      terroir:
+        range: string
+        description: Where it comes from — the water, soil, or sky that made it this specific thing
+        annotations:
+          sanity_type: text
+      season:
+        range: SeasonEnum
+        annotations:
+          sanity_type: string
+      supportingIngredients:
+        range: SupportingIngredient
+        multivalued: true
+        annotations:
+          sanity_type: array
+          sanity_of: object
+
+  SupportingIngredient:
+    description: A supporting ingredient in the stitch packet with its role
+    annotations:
+      sanity_type: object
+    attributes:
+      ingredient:
+        range: string
+        annotations:
+          sanity_type: string
+      localName:
+        range: string
+        annotations:
+          sanity_type: string
+      role:
+        range: IngredientRoleEnum
+        annotations:
+          sanity_type: string
+
+  GesturePacket:
+    description: The physical vocabulary of the stitch — what Martha enacts in session
+    annotations:
+      sanity_type: object
+    attributes:
+      gestureDescription:
+        range: string
+        description: In the producer's own words — translated but not sanitized
+        annotations:
+          sanity_type: text
+      soundSignature:
+        range: string
+        description: What this process sounds like — knife on board, sizzle, pour, silence
+        annotations:
+          sanity_type: string
+      durationMinutes:
+        range: integer
+        annotations:
+          sanity_type: number
+
+  SessionReadiness:
+    description: Readiness state for Martha to draw on this stitch in a live session
+    annotations:
+      sanity_type: object
+    attributes:
+      status:
+        range: StitchStatusEnum
+        ifabsent: string(draft)
+        annotations:
+          sanity_type: string
+      culturalClearance:
+        range: boolean
+        ifabsent: "false"
+        description: Has a knowledge holder or steward cleared this for session use?
+        annotations:
+          sanity_type: boolean
+      clearedBy:
+        range: string
+        annotations:
+          sanity_type: string
+      restrictions:
+        range: string
+        description: What cannot be demonstrated, recorded, or shared from this stitch
+        annotations:
+          sanity_type: text

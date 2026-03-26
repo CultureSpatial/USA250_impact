@@ -1,0 +1,225 @@
+id: https://usa250impact.org/schemas/corridorActivation
+name: corridorActivation
+title: Corridor Activation Schema
+description: >-
+  Temporal Co-Design Fora proposal document.
+  A producer proposes an activation (date + node + format).
+  Other nodes can sync with it, creating multi-node temporal events
+  that are corridor-coherent without synchronous coordination.
+  Anti-universality: format parameterized by node type.
+  Maps to FIFA match calendar (June–July 2026).
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+enums:
+  ActivationFormatEnum:
+    permissible_values:
+      live_catch_demo: { description: Live catch demonstration — coastal fishing }
+      curing_session: { description: Curing / processing session }
+      harvest_tasting: { description: Harvest tasting — wine / terroir }
+      oral_kinetic_wine: { description: Oral-kinetic wine session }
+      street_food: { description: Street food activation — urban }
+      ceviche_tasting: { description: Ceviche / raw tasting }
+      oral_kinetic_ceremony: { description: Oral-kinetic ceremony }
+      first_foods_ceremony: { description: Salmon / first foods ceremony }
+      market_demo: { description: Market demonstration — agricultural }
+      ferment_session: { description: Ferment / preservation session }
+
+  ProposalStatusEnum:
+    permissible_values:
+      draft: { description: Proposing producer still editing }
+      open: { description: Visible to other nodes for sync }
+      synced: { description: At least one other node has synced }
+      confirmed: { description: All nodes locked in }
+      live: { description: Activation is happening now }
+      complete: { description: Activation has concluded }
+      withdrawn: {}
+
+  SyncTypeEnum:
+    permissible_values:
+      full: { description: Full sync — parallel activation same date }
+      echo: { description: Echo — complementary activation same week }
+      relay: { description: Relay — sequential activation next day }
+
+classes:
+  CorridorActivation:
+    description: >-
+      A temporal co-design activation proposal in the corridor fora.
+      Maps to Sanity schema 'corridorActivation'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: corridorActivation
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(corridorActivation)
+      title:
+        range: string
+        required: true
+        description: Descriptive title in the proposing node's voice — not a marketing headline
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        annotations:
+          sanity_type: slug
+          sanity_source: title
+      proposedBy:
+        range: string
+        required: true
+        description: Reference to the ProducerProfile who initiated this proposal
+        annotations:
+          sanity_type: reference
+          sanity_to: producerProfile
+      proposingNode:
+        range: string
+        required: true
+        annotations:
+          sanity_type: reference
+          sanity_to: corridorNode
+      proposedDate:
+        range: datetime
+        required: true
+        description: Proposed activation date/time — aligned to FIFA match calendar
+        annotations:
+          sanity_type: datetime
+      fifaMatchDay:
+        range: string
+        description: Match day reference (e.g. "Group Stage D · June 15")
+        annotations:
+          sanity_type: string
+      duration:
+        range: float
+        description: Estimated duration in hours (0.5–12)
+        annotations:
+          sanity_type: number
+      activationFormat:
+        range: ActivationFormatEnum
+        required: true
+        description: Node-specific format — use node vocabulary, not generic categories
+        annotations:
+          sanity_type: string
+      nodeSpecificContext:
+        range: NodeSpecificContext
+        description: What makes this activation specific to its node — do not normalize
+        annotations:
+          sanity_type: object
+      syncedNodes:
+        range: NodeSync
+        multivalued: true
+        description: Other nodes that have synced with this activation proposal
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      proposalStatus:
+        range: ProposalStatusEnum
+        required: true
+        ifabsent: string(draft)
+        annotations:
+          sanity_type: string
+      rippleTracking:
+        range: RippleTracking
+        description: Engagement Velocity and AU attribution data
+        annotations:
+          sanity_type: object
+
+  NodeSpecificContext:
+    description: >-
+      Node-specific activation context. Anti-universality: do not normalize
+      across nodes. Each node type carries different meaning here.
+    annotations:
+      sanity_type: object
+    attributes:
+      localIngredientFocus:
+        range: string
+        description: Primary ingredient in local terminology
+        annotations:
+          sanity_type: string
+      ancestralStitchReference:
+        range: string
+        description: Reference to the AncestralStitch this activation draws on
+        annotations:
+          sanity_type: reference
+          sanity_to: ancestralStitch
+      spatialContext:
+        range: string
+        description: Where exactly — waterfront, market, tasting room, ceremonial space
+        annotations:
+          sanity_type: string
+      seasonalLogic:
+        range: string
+        description: Why now? What makes this moment right for this activation?
+        annotations:
+          sanity_type: text
+      audienceSize:
+        range: integer
+        annotations:
+          sanity_type: number
+      requiresMarthaSession:
+        range: boolean
+        ifabsent: "false"
+        description: Does this activation call for an oral-kinetic facilitation session?
+        annotations:
+          sanity_type: boolean
+
+  NodeSync:
+    description: A node that has synced with this activation proposal
+    annotations:
+      sanity_type: object
+    attributes:
+      node:
+        range: string
+        annotations:
+          sanity_type: reference
+          sanity_to: corridorNode
+      syncingProducer:
+        range: string
+        annotations:
+          sanity_type: reference
+          sanity_to: producerProfile
+      syncType:
+        range: SyncTypeEnum
+        annotations:
+          sanity_type: string
+      syncNote:
+        range: string
+        description: What the syncing node is contributing — in their own words
+        annotations:
+          sanity_type: text
+      syncedAt:
+        range: datetime
+        annotations:
+          sanity_type: datetime
+
+  RippleTracking:
+    description: >-
+      Engagement Velocity and AU attribution for a corridor activation.
+      Phase 0: mocked metric. Phase 1: live social API aggregation.
+    annotations:
+      sanity_type: object
+    attributes:
+      auTrailId:
+        range: string
+        description: Attribution Unit ID — generated on activation confirmation
+        annotations:
+          sanity_type: string
+      engagementVelocity:
+        range: float
+        description: Engagement Velocity score (Phase 0 mocked; Phase 1 live)
+        annotations:
+          sanity_type: number
+      sponsorProofGenerated:
+        range: boolean
+        ifabsent: "false"
+        annotations:
+          sanity_type: boolean

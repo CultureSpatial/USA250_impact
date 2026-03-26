@@ -1,0 +1,147 @@
+id: https://usa250impact.org/schemas/corridorNode
+name: corridorNode
+title: Corridor Node Schema
+description: >-
+  Geographic segment of the B2B2C coordination corridor.
+  Top-level container for producers, activations, and Place Packets.
+  Maps-is-globes: a CorridorNode is the geographic unit; the Place Packet
+  is the detailed experience within it.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+  schema: http://schema.org/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+enums:
+  CountryCodeEnum:
+    permissible_values:
+      CA: { description: Canada }
+      US: { description: United States }
+      MX: { description: Mexico }
+
+  NodeTypeEnum:
+    permissible_values:
+      coastal_fishing: { description: Coastal Fishing Territory }
+      wine_terroir: { description: Wine / Terroir node }
+      urban_cultural: { description: Urban Cultural Hub }
+      ceremonial: { description: Ceremonial / Sacred Site }
+      market_agricultural: { description: Market / Agricultural node }
+
+classes:
+  CorridorNode:
+    description: >-
+      A geographic segment of the B2B2C corridor.
+      Maps to Sanity schema 'corridorNode'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: corridorNode
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(corridorNode)
+      name:
+        range: string
+        required: true
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        annotations:
+          sanity_type: slug
+          sanity_source: name
+      territory:
+        range: string
+        required: true
+        description: Unceded / ancestral territory name
+        annotations:
+          sanity_type: string
+      country:
+        range: CountryCodeEnum
+        required: true
+        annotations:
+          sanity_type: string
+      corridorPosition:
+        range: integer
+        required: true
+        description: Sequence position in corridor (1 = northernmost)
+        annotations:
+          sanity_type: number
+      nodeType:
+        range: NodeTypeEnum
+        required: true
+        description: Determines node-specific activation field parameterization
+        annotations:
+          sanity_type: string
+      collectiveIdentity:
+        range: CollectiveIdentityShell
+        description: Static HTML-first collective identity content (Sponsor Surface layer)
+        annotations:
+          sanity_type: object
+      placePackets:
+        range: string
+        multivalued: true
+        description: References to Place Packet documents (the globe/experience layer)
+        annotations:
+          sanity_type: array
+          sanity_of: reference
+          sanity_to: placePacket
+      fifaMatchDays:
+        range: datetime
+        multivalued: true
+        description: Match days relevant to this node (June–July 2026)
+        annotations:
+          sanity_type: array
+          sanity_of: datetime
+
+  CollectiveIdentityShell:
+    description: >-
+      Static content for the corridor node's public-facing collective identity page.
+      Renders as pure HTML — no JS, optimal Lighthouse score.
+    annotations:
+      sanity_type: object
+    attributes:
+      headline:
+        range: string
+        description: One sentence — the corridor position of this node
+        annotations:
+          sanity_type: string
+      body:
+        range: string
+        description: Translated and articulated collective voice (Portable Text)
+        annotations:
+          sanity_type: array
+          sanity_of: block
+      languages:
+        range: string
+        multivalued: true
+        description: Languages of source producer submissions
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      sponsorSurface:
+        range: SponsorSurface
+        description: Static sponsor integration block (no JS)
+        annotations:
+          sanity_type: object
+
+  SponsorSurface:
+    description: Sponsor branding block — static HTML only, no JavaScript required
+    annotations:
+      sanity_type: object
+    attributes:
+      sponsorName:
+        range: string
+        annotations:
+          sanity_type: string
+      sponsorUrl:
+        range: uri
+        annotations:
+          sanity_type: url

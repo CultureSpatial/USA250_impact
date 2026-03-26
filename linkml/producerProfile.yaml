@@ -1,0 +1,197 @@
+id: https://usa250impact.org/schemas/producerProfile
+name: producerProfile
+title: Producer Profile Schema
+description: >-
+  A Value Producer in the B2B2C corridor seeding system.
+  Not an Author (content creator). Not a PractitionerProfile (Martha credentialing).
+  A Producer is the B2B layer: chef, fisher, cultural custodian, winemaker, venue operator.
+  Carries the translation workflow state machine: submitted → translated → articulated → published.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+enums:
+  ProducerTypeEnum:
+    permissible_values:
+      chef: { description: Chef / Culinary Practitioner }
+      fisher: { description: Fisher / Harvester }
+      cultural_custodian: { description: Cultural Custodian }
+      winemaker: { description: Winemaker / Vigneron }
+      venue_operator: { description: Venue Operator }
+      agricultural: { description: Market / Agricultural Producer }
+
+  TranslationStatusEnum:
+    description: State machine for producer content translation workflow
+    permissible_values:
+      submitted:
+        description: Submitted — awaiting human review
+      translated:
+        description: Content translated from source language
+      articulated:
+        description: Translated and contextualized for collective corridor voice
+      published:
+        description: Live on public corridor page
+
+  ConsentScopeEnum:
+    permissible_values:
+      collective_page: { description: Corridor collective page }
+      sponsor_surface: { description: Sponsor surface display }
+      martha_session: { description: Martha oral-kinetic session material }
+      dtc_attribution: { description: Public DtC revenue attribution }
+
+classes:
+  ProducerProfile:
+    description: >-
+      A Value Producer who seeds the corridor via the Producer Seeding Portal.
+      Maps to Sanity schema 'producerProfile'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: producerProfile
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(producerProfile)
+      name:
+        range: string
+        required: true
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        annotations:
+          sanity_type: slug
+          sanity_source: name
+      producerType:
+        range: ProducerTypeEnum
+        required: true
+        annotations:
+          sanity_type: string
+      node:
+        range: string
+        required: true
+        description: Reference to the CorridorNode this producer represents
+        annotations:
+          sanity_type: reference
+          sanity_to: corridorNode
+      dacumProfile:
+        range: DACUMProfile
+        description: Competency profile submitted via Producer Seeding Portal
+        annotations:
+          sanity_type: object
+      ancestralStitch:
+        range: string
+        description: Reference to the compiled AncestralStitch from this producer's submission
+        annotations:
+          sanity_type: reference
+          sanity_to: ancestralStitch
+      translationStatus:
+        range: TranslationStatusEnum
+        required: true
+        ifabsent: string(submitted)
+        description: Current position in translation workflow state machine
+        annotations:
+          sanity_type: string
+      translationNotes:
+        range: TranslationNotes
+        description: Internal workflow notes — not public-facing
+        annotations:
+          sanity_type: object
+      articulatedVoice:
+        range: string
+        description: Final collective voice text (Portable Text) — set when status = articulated
+        annotations:
+          sanity_type: array
+          sanity_of: block
+      consentRecord:
+        range: ConsentRecord
+        annotations:
+          sanity_type: object
+
+  DACUMProfile:
+    description: Competency profile submitted by a producer via the seeding portal
+    annotations:
+      sanity_type: object
+    attributes:
+      primarySkill:
+        range: string
+        description: In the producer's own words — not edited for style
+        annotations:
+          sanity_type: string
+      yearsOfPractice:
+        range: integer
+        annotations:
+          sanity_type: number
+      localIngredientSignature:
+        range: string
+        description: The one ingredient that defines their practice in this place
+        annotations:
+          sanity_type: string
+      sourceLanguage:
+        range: string
+        description: Language/dialect of original submission (e.g. es-MX, hul'q'umi'num')
+        annotations:
+          sanity_type: string
+      gestureDescription:
+        range: string
+        description: How they physically make their signature dish — in their own words
+        annotations:
+          sanity_type: text
+
+  TranslationNotes:
+    description: Internal workflow notes for the translation and articulation process
+    annotations:
+      sanity_type: object
+    attributes:
+      translatedAt:
+        range: datetime
+        annotations:
+          sanity_type: datetime
+      translatedBy:
+        range: string
+        annotations:
+          sanity_type: string
+      articulatedAt:
+        range: datetime
+        annotations:
+          sanity_type: datetime
+      culturalReviewNotes:
+        range: string
+        annotations:
+          sanity_type: text
+      sovereigntyFlags:
+        range: string
+        multivalued: true
+        description: Content requiring CIP/CARE attention before publication
+        annotations:
+          sanity_type: array
+          sanity_of: string
+
+  ConsentRecord:
+    description: Producer consent record — scope and knowledge protections
+    annotations:
+      sanity_type: object
+    attributes:
+      consentedAt:
+        range: datetime
+        annotations:
+          sanity_type: datetime
+      consentScope:
+        range: ConsentScopeEnum
+        multivalued: true
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      knowledgeProtections:
+        range: string
+        description: What this producer has explicitly asked NOT to be shared publicly
+        annotations:
+          sanity_type: text
