@@ -2,14 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Earth Motif Color System */
+/* ── Earth Motif Color System ──────────────────────────────────────────── */
 :root {
-  --color-primary: #15803D;
+  --color-primary:   #15803D;
   --color-secondary: #92400E;
-  --color-accent: #78350F;
-  --color-dark: #44403C;
-  --color-slate: #A8A29E;
-  --color-light: #F5F0E8;
+  --color-accent:    #78350F;
+  --color-dark:      #44403C;
+  --color-slate:     #A8A29E;
+  --color-light:     #F5F0E8;
+
+  /* Ensemble: Prospero / Atmosphere (vii-be-*) — CEP-24 */
+  --vii-be-void:    #0D0D12;
+  --vii-be-dusk:    #1A1035;
+  --vii-be-mist:    #2D2650;
+  --vii-be-bloom:   #5B4EA8;
+  --vii-be-shimmer: #9B8FD4;
+  --vii-be-soft:    #C8C2E8;
+  --vii-be-fog:     #EAE8F5;
+
+  /* Ensemble: Chorus / Pipeline (gem-*) — CEP-24 */
+  --gem-raw:        #3B2000;
+  --gem-harvest:    #92400E;
+  --gem-pressed:    #C2671A;
+  --gem-ferment:    #D97706;
+  --gem-barrel:     #F59E0B;
+  --gem-bottle:     #FCD34D;
+  --gem-pour:       #FEF3C7;
+
+  /* Ensemble: Touchstone / Intelligence (tq-*) — ENG-14 */
+  --tq-safe:        #064E3B;
+  --tq-low:         #065F46;
+  --tq-guarded:     #0D9488;
+  --tq-elevated:    #D97706;
+  --tq-high:        #DC2626;
+  --tq-paused:      #7C3AED;
+  --tq-surface:     #F0FDF4;
+  --tq-bg:          #FEF2F2;
+
+  /* Phaser bridge — runtime override target */
+  --phaser-primary: var(--color-primary);
+  --phaser-accent:  var(--vii-be-bloom);
+  --phaser-signal:  var(--tq-safe);
 }
 
 * {
@@ -57,5 +90,43 @@ body {
 
   .earth-text-secondary {
     @apply text-earth-secondary font-medium;
+  }
+
+  /* ── Ensemble: Prospero atmosphere surface ─────────────────────────── */
+  .vii-be-surface {
+    background: var(--vii-be-dusk);
+    color: var(--vii-be-fog);
+  }
+
+  .vii-be-bloom-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    background: var(--vii-be-bloom);
+    color: var(--vii-be-fog);
+  }
+
+  /* ── Ensemble: gem pipeline progress bar ───────────────────────────── */
+  .gem-pipeline-bar {
+    background: linear-gradient(90deg, var(--gem-raw) 0%, var(--gem-ferment) 50%, var(--gem-pour) 100%);
+    @apply h-2 rounded-full;
+  }
+
+  /* ── Ensemble: TQ safety indicator ────────────────────────────────── */
+  .tq-indicator {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold;
+    background: var(--tq-surface);
+    color: var(--tq-safe);
+    border: 1px solid var(--tq-safe);
+  }
+
+  .tq-indicator[data-state="paused"] {
+    background: var(--tq-bg);
+    color: var(--tq-paused);
+    border-color: var(--tq-paused);
+  }
+
+  .tq-indicator[data-state="elevated"] {
+    background: #FFFBEB;
+    color: var(--tq-elevated);
+    border-color: var(--tq-elevated);
   }
 }

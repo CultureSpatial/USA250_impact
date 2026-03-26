@@ -1,0 +1,63 @@
+# Sense-of-Place Metadata Block — Template v1.0
+# Issue #4 / RES-11 / CEAZ-203
+#
+# Embed this block in any Lighthouse venue JSON or Place Packet
+# to capture the phenomenological identity of a hospitality location.
+# All fields marked `required: true` must be present for CIP validation.
+#
+# Reference: venue_as_terroir_framework.md
+
+sense_of_place:
+  # ── Identity ──────────────────────────────────────────────────────────
+  venue_id:          ""          # required: unique slug, e.g. "vanwinefest-bc-2026"
+  venue_name:        ""          # required: human display name
+  venue_type:        ""          # required: festival | tasting_room | winery | restaurant | market
+  territory:         ""          # required: unceded territory name (e.g. "xʷməθkʷəy̓əm lands")
+  region:            ""          # required: e.g. "Okanagan Valley, BC"
+  season:            ""          # required: spring | summer | autumn | winter | year-round
+
+  # ── Terroir Narrative (the "1" in 1 Sense-of-Place) ───────────────────
+  terroir:
+    headline:        ""          # required: one sentence that is the place — max 120 chars
+    body:            ""          # required: 2–4 paragraph place story (narrativised, no marketing)
+    sensory_anchors:             # 3–5 specific sensory details that ground the place
+      - sense: ""               # sight | sound | smell | taste | touch
+        description: ""
+    temporal_signature:  ""      # What moment/season makes this place itself?
+    watershed:           ""      # Water body that defines the hydrology (if applicable)
+
+  # ── Visitor Experience Arc (the "3" visitor moments) ──────────────────
+  visitor_arc:
+    arrival:
+      setting:       ""         # Physical/atmospheric context on entry
+      micro_copy:    ""         # required: ≤ 30 words, narrativised (not a welcome message)
+      sensory_hook:  ""         # The first thing a visitor smells/hears/sees
+    interstitial:
+      setting:       ""         # Mid-experience environment
+      micro_copy:    ""         # required: ≤ 30 words, deepening the story
+      transition:    ""         # What shifts between arrival and departure
+    departure:
+      setting:       ""         # Leaving context
+      micro_copy:    ""         # required: ≤ 30 words, inviting return/recall
+      ripple_hook:   ""         # What they'll remember tomorrow
+
+  # ── Indigenous Knowledge Layer ─────────────────────────────────────────
+  indigenous_context:
+    protocol:        ""         # CARE principle applied: attribute | withhold | share | transform
+    knowledge_holder: ""        # Name/role of knowledge holder (with consent) or "withheld"
+    seasonal_teaching: ""       # What this place/season teaches (if shareable)
+    visibility:      ""         # express | show | steward (maps to narrativeLayer.visibilityPolicy)
+
+  # ── Producer / Steward ─────────────────────────────────────────────────
+  producer:
+    name:            ""         # required: Producer / venue operator name
+    story_url:       ""         # URL to producer narrative (QR destination)
+    harvest_year:    null        # number: vintage year if applicable
+    varieties:       []          # list of varietals / cultivars featured
+
+  # ── Attribution & Licensing ────────────────────────────────────────────
+  attribution:
+    author:          ""
+    license:         ""         # CC BY | CC BY-SA | CC BY-NC | All Rights Reserved | Custom
+    recorded_at:     ""         # ISO date
+    reviewed_by:     ""         # Knowledge holder or cultural reviewer

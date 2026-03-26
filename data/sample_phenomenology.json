@@ -1,0 +1,79 @@
+{
+  "$schema": "../data/sense-of-place-schema.json",
+  "sense_of_place": {
+    "venue_id": "vanwinefest-bc-2026",
+    "venue_name": "Vancouver International Wine Festival 2026",
+    "venue_type": "festival",
+    "territory": "xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) lands",
+    "region": "Coast Salish Territory / Metro Vancouver, BC",
+    "season": "spring",
+
+    "terroir": {
+      "headline": "Where ocean air carries the first Okanagan harvest north, and salt mingles with cedar and ferment.",
+      "body": "The Convention Centre sits where the inlet narrows. From the floor, you can see the mountains that capture the rain that feeds the rivers that carry the silts that become the soils that become the wine. That chain is not metaphor here. It is the walk from glass to vineyard, condensed into a city block.\n\nEvery producer who brings their bottles north makes a choice: what to translate, what to protect, and what to let the wine say for itself. The festival is the translation layer. What happens in the glass is the original.",
+      "sensory_anchors": [
+        {
+          "sense": "smell",
+          "description": "Brine from the inlet cuts through the cedar and oak of 600 open bottles"
+        },
+        {
+          "sense": "sound",
+          "description": "Conversation pitched just below the ceiling — the particular sound of a crowd listening to wine"
+        },
+        {
+          "sense": "sight",
+          "description": "Mountains visible through glass walls, snow still on the peaks in March"
+        },
+        {
+          "sense": "taste",
+          "description": "The way minerality reads differently at sea level than in the valley where the grapes grew"
+        },
+        {
+          "sense": "touch",
+          "description": "Cold stem, condensation forming on the outside of a white wine still chilled from the Okanagan drive"
+        }
+      ],
+      "temporal_signature": "The last week of February when winter hasn't left but the first dry Rieslings arrive",
+      "watershed": "Burrard Inlet / Fraser River estuary"
+    },
+
+    "visitor_arc": {
+      "arrival": {
+        "setting": "Glass atrium, mountain view, tasting grid in hand",
+        "micro_copy": "You're standing where the ocean ends and the harvest begins. Follow what calls you.",
+        "sensory_hook": "The smell of opened bottles before you see the floor"
+      },
+      "interstitial": {
+        "setting": "Mid-floor, three wines in, producer at the table",
+        "micro_copy": "Ask them what year the river ran low. That's the wine in your glass.",
+        "transition": "From choosing wines to being chosen by stories"
+      },
+      "departure": {
+        "setting": "Coat check, notes written on the program, three bottles in the bag",
+        "micro_copy": "The mountain will still be there. So will the producer. So will the harvest.",
+        "ripple_hook": "Which producer's voice will come back when they open the bottle at home"
+      }
+    },
+
+    "indigenous_context": {
+      "protocol": "attribute",
+      "knowledge_holder": "Territory acknowledgment reviewed by Vancouver Indigenous Tourism",
+      "seasonal_teaching": "The inlet runs cold in late winter. The first salmon ceremony reminds us the season turns before we notice.",
+      "visibility": "express"
+    },
+
+    "producer": {
+      "name": "VanWineFest / BC Wine Institute",
+      "story_url": "https://vanwinefest.ca/producers",
+      "harvest_year": null,
+      "varieties": ["Pinot Noir", "Chardonnay", "Riesling", "Syrah", "Viognier", "Merlot"]
+    },
+
+    "attribution": {
+      "author": "Stadium Soundwave / RES-11",
+      "license": "CC BY-SA",
+      "recorded_at": "2026-01-28",
+      "reviewed_by": "Editorial review pending — cultural review by ITBC partner TBD"
+    }
+  }
+}

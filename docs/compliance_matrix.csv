@@ -1,0 +1,15 @@
+Requirement,Regulation/Standard,Stadium Soundwave Responsibility,Partner Responsibility,Status,Notes
+Data Collection Notice,PIPEDA / BC PIPA,Provide notice template and CIP consent gate,Post physical notice at venue entry,Required,Partner must display before event opens
+Visitor Consent (digital),PIPEDA s.6-8,Implement consent gate in CIP Overlay,Inform visitors consent is required,SS Supplied,Toggle: cipOverlay.consentGating = true
+Indigenous Knowledge Protection,Section 35 Constitution Act 1982,Enforce visibility policies technically (CIP refusalRights),Obtain knowledge holder consent before recording,Shared,Partner coordinates; SS enforces technically
+Cultural Sensitivity Review,CARE Principles (GIDA),CIP audit logging + steward review workflow,Engage knowledge holders in advance,Shared,Minimum 90 days lead time for events with TEK
+Cross-Border Data Transfer (CA→US),PIPEDA + US Privacy Shield framework,Data residency separation (ca-central-1 / us-west-2),Written visitor consent at scan point,SS Supplied,Pending CEAZ-193-A cross-border clause
+Tribal Data Sovereignty (US events),Tribal data sovereignty protocols,CIP communityVeto toggle + platform lockdown,Tribal Council resolution before deployment,Partner Led,SS will not deploy without TC approval document
+Liquor Service Compliance,BC Liquor Control and Licensing Act,Not applicable,Liquor Primary Licence + responsible service,Partner Only,Partner must supply licence number to SS pre-event
+Venue Data Collection Permit,BC Personal Information Protection Act,Provide sample notice text,File permit with venue operator,Shared,See CEAZ-183 permit template
+DtC Follow-Up Marketing,CASL (Canada) / CAN-SPAM (US),Unsubscribe mechanism in all follow-up comms,Obtain express consent for post-event email,Shared,Must be captured at QR scan — not assumed
+Accessibility Standards,AODA / BC Accessibility Act,Provide accessible QR flow and alt-text narratives,Ensure accessible kiosk placement,Shared,Priority for 2026 FIFA corridor events
+Audio Recording Consent,BC Privacy Act s.3,Capture consent before audio gem recording,Inform visitors about recording capability,SS Supplied,Toggle: cipOverlay.evidenceCapture — producer stories only
+Data Retention & Deletion,PIPEDA Principle 5,Automated retention schedule (30d/1y/7y/indefinite),Request deletion within 30 days of event,SS Supplied,Configurable per cipOverlay.evidencePolicy.retention
+SLO / Uptime Obligations,Partner Service Agreement,Maintain p95 < 1.5s; error rate < 0.5%,Provide stable network at venue,SS Supplied,SLO harness (#10) monitors in real-time
+Sovereignty Compliance %,Internal RMAC Standard,Track and report % of interactions with active governance,N/A,SS Supplied,Visible in partner dashboard (#8)
