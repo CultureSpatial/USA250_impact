@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Component, COMPONENTS_REGISTRY } from '@/lib/components-registry'
+import { COMPONENTS_REGISTRY } from '@/lib/components-registry'
 import { ComponentCard } from './ComponentCard'
 import { FilterSidebar } from './FilterSidebar'
 import { SearchBar } from './SearchBar'

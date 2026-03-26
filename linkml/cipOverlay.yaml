@@ -1,0 +1,321 @@
+id: https://usa250impact.org/schemas/cipOverlay
+name: cipOverlay
+title: CIP Overlay Schema
+description: >-
+  Compliance Integration Point overlay providing 12-direction governance
+  toggles, restorative huddle scripts, and evidence capture policies.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  CouplingModeEnum:
+    permissible_values:
+      soft: { description: Optional — engagement recommended but not required }
+      hard: { description: Required — must be completed }
+      steward: { description: Steward-controlled activation }
+
+  JourneyPhaseEnum:
+    permissible_values:
+      pre_flight: { meaning: "pre-flight" }
+      mid_journey: { meaning: "mid-journey" }
+      post: {}
+
+  HuddleResponseTypeEnum:
+    permissible_values:
+      text: {}
+      choice: {}
+      scale: {}
+      audio: {}
+
+  ArtifactTypeEnum:
+    permissible_values:
+      photo: {}
+      audio: {}
+      note: {}
+      signature: {}
+
+  RetentionPeriodEnum:
+    permissible_values:
+      thirty_days: { meaning: "30d" }
+      one_year: { meaning: "1y" }
+      seven_years: { meaning: "7y" }
+      indefinite: {}
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  CIPOverlay:
+    description: >-
+      A Compliance Integration Point document providing governance controls
+      for a Place Packet or Stop. Maps to Sanity schema 'cipOverlay'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: cipOverlay
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(cipOverlay)
+      name:
+        range: string
+        required: true
+        description: Human-readable overlay name
+        annotations:
+          sanity_type: string
+      version:
+        range: string
+        required: true
+        description: Semantic version (e.g. 1.0.0)
+        annotations:
+          sanity_type: string
+          sanity_validation: semver
+      attachmentPoints:
+        range: AttachmentPoint
+        multivalued: true
+        description: Journey phases where this overlay activates
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      couplingMode:
+        range: CouplingModeEnum
+        required: true
+        description: Whether overlay engagement is optional or mandatory
+        annotations:
+          sanity_type: string
+      toggles:
+        range: GovernanceToggles
+        description: 12-direction governance configuration flags
+        annotations:
+          sanity_type: object
+      restorativeHuddleScript:
+        range: RestorativeHuddleScript
+        description: Structured dialogue script for restorative huddles
+        annotations:
+          sanity_type: object
+      governanceHooks:
+        range: GovernanceHooks
+        description: Three-layer hook configuration (surface / deep / benthic)
+        annotations:
+          sanity_type: object
+      evidencePolicy:
+        range: EvidencePolicy
+        description: Rules for evidence capture and retention
+        annotations:
+          sanity_type: object
+
+  AttachmentPoint:
+    description: A trigger definition for when the CIP overlay activates
+    annotations:
+      sanity_type: object
+    attributes:
+      phase:
+        range: JourneyPhaseEnum
+        description: Journey phase that triggers this attachment
+        annotations:
+          sanity_type: string
+      triggerCondition:
+        range: string
+        description: Event name or state expression that fires the trigger
+        annotations:
+          sanity_type: text
+      priority:
+        range: integer
+        ifabsent: int(100)
+        description: Activation priority — lower numbers are higher priority
+        annotations:
+          sanity_type: number
+      required:
+        range: boolean
+        ifabsent: "false"
+        description: Whether this attachment is mandatory
+        annotations:
+          sanity_type: boolean
+
+  GovernanceToggles:
+    description: >-
+      12-direction boolean governance flags that control CIP behaviour.
+      All flags default to false when omitted.
+    annotations:
+      sanity_type: object
+    attributes:
+      consentGating:
+        range: boolean
+        description: Require explicit consent before proceeding
+        annotations:
+          sanity_type: boolean
+      evidenceCapture:
+        range: boolean
+        description: Capture evidence artefacts at this point
+        annotations:
+          sanity_type: boolean
+      attributionTracking:
+        range: boolean
+        description: Track and record contributor attribution
+        annotations:
+          sanity_type: boolean
+      refusalRights:
+        range: boolean
+        description: Allow participants to refuse engagement
+        annotations:
+          sanity_type: boolean
+      dataMinimization:
+        range: boolean
+        description: Enforce data minimisation policies
+        annotations:
+          sanity_type: boolean
+      transparencyMode:
+        range: boolean
+        description: Surface full governance context to participants
+        annotations:
+          sanity_type: boolean
+      auditLogging:
+        range: boolean
+        description: Log all interactions for audit trail
+        annotations:
+          sanity_type: boolean
+      remixPermission:
+        range: boolean
+        description: Allow content to be remixed or adapted
+        annotations:
+          sanity_type: boolean
+      exportControl:
+        range: boolean
+        description: Restrict export of content or data
+        annotations:
+          sanity_type: boolean
+      stewardReview:
+        range: boolean
+        description: Require steward review before publication
+        annotations:
+          sanity_type: boolean
+      communityVeto:
+        range: boolean
+        description: Allow community to veto decisions
+        annotations:
+          sanity_type: boolean
+      temporalLimits:
+        range: boolean
+        description: Enforce time-based access or expiration
+        annotations:
+          sanity_type: boolean
+
+  RestorativeHuddleScript:
+    description: Structured facilitation script for restorative dialogue
+    annotations:
+      sanity_type: object
+    attributes:
+      enabled:
+        range: boolean
+        description: Whether restorative huddles are active
+        annotations:
+          sanity_type: boolean
+      script:
+        range: HuddlePrompt
+        multivalued: true
+        description: Ordered list of prompts in the huddle
+        annotations:
+          sanity_type: array
+          sanity_of: object
+
+  HuddlePrompt:
+    description: A single prompt step in a restorative huddle script
+    annotations:
+      sanity_type: object
+    attributes:
+      prompt:
+        range: string
+        description: The facilitator prompt text
+        annotations:
+          sanity_type: text
+      responseType:
+        range: HuddleResponseTypeEnum
+        description: Expected participant response format
+        annotations:
+          sanity_type: string
+      required:
+        range: boolean
+        description: Whether a response to this prompt is mandatory
+        annotations:
+          sanity_type: boolean
+
+  GovernanceHooks:
+    description: Three-layer governance hook configuration
+    annotations:
+      sanity_type: object
+    attributes:
+      surface:
+        range: string
+        multivalued: true
+        description: Immediate pre-action checks (hook identifiers)
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      deep:
+        range: string
+        multivalued: true
+        description: Detailed review process hooks
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      benthic:
+        range: string
+        multivalued: true
+        description: Long-term archive and governance hooks
+        annotations:
+          sanity_type: array
+          sanity_of: string
+
+  EvidencePolicy:
+    description: Policy governing evidence capture, artefact requirements, and retention
+    annotations:
+      sanity_type: object
+    attributes:
+      requiredEvents:
+        range: string
+        multivalued: true
+        description: Event identifiers that must be captured
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      artifacts:
+        range: RequiredArtifact
+        multivalued: true
+        description: Specific artefact types that must be submitted
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      retention:
+        range: RetentionPeriodEnum
+        description: How long evidence must be retained
+        annotations:
+          sanity_type: string
+
+  RequiredArtifact:
+    description: A required evidence artefact specification
+    annotations:
+      sanity_type: object
+    attributes:
+      type:
+        range: ArtifactTypeEnum
+        description: Kind of artefact required
+        annotations:
+          sanity_type: string
+      required:
+        range: boolean
+        annotations:
+          sanity_type: boolean
+      validation:
+        range: string
+        description: Validation rules as free-text description
+        annotations:
+          sanity_type: text

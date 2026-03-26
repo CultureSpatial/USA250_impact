@@ -1,0 +1,206 @@
+id: https://usa250impact.org/schemas/magnetTemplate
+name: magnetTemplate
+title: Magnet Template Schema
+description: Template for auto-generating engagement artefacts (postcards, field notes, clips)
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  MagnetTypeEnum:
+    permissible_values:
+      postcard: {}
+      field_note: {}
+      clip: { meaning: "Audio Clip" }
+      steward_mark: {}
+
+  LayoutFormatEnum:
+    permissible_values:
+      portrait: {}
+      landscape: {}
+      square: {}
+
+  ProofModeEnum:
+    permissible_values:
+      role: { description: Role-based verification }
+      rotating_code: {}
+      steward: { description: Steward approval required }
+      none: {}
+
+  SharePlatformEnum:
+    permissible_values:
+      twitter: {}
+      facebook: {}
+      instagram: {}
+      discord: {}
+      email: {}
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  MagnetTemplate:
+    description: >-
+      A reusable template for generating engagement content artefacts.
+      Maps to Sanity schema 'magnetTemplate'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: magnetTemplate
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(magnetTemplate)
+      name:
+        range: string
+        required: true
+        description: Template identifier name
+        annotations:
+          sanity_type: string
+      type:
+        range: MagnetTypeEnum
+        required: true
+        description: Kind of artefact this template generates
+        annotations:
+          sanity_type: string
+      layout:
+        range: MagnetLayout
+        description: Layout and design configuration
+        annotations:
+          sanity_type: object
+      copyVariants:
+        range: CopyVariant
+        multivalued: true
+        description: Localised or A/B copy alternatives
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      sharePolicy:
+        range: SharePolicy
+        description: Controls for download and social sharing
+        annotations:
+          sanity_type: object
+      proofMode:
+        range: ProofModeEnum
+        ifabsent: string(none)
+        description: Verification mode for artefact authenticity
+        annotations:
+          sanity_type: string
+      metadata:
+        range: MagnetMetadata
+        description: Metadata inclusion controls
+        annotations:
+          sanity_type: object
+
+  MagnetLayout:
+    description: Layout and visual design settings for a magnet template
+    annotations:
+      sanity_type: object
+    attributes:
+      format:
+        range: LayoutFormatEnum
+        annotations:
+          sanity_type: string
+      dimensions:
+        range: MagnetDimensions
+        annotations:
+          sanity_type: object
+      backgroundColor:
+        range: string
+        description: Hex colour code (#RRGGBB)
+        annotations:
+          sanity_type: string
+
+  MagnetDimensions:
+    description: Pixel dimensions for a magnet template
+    annotations:
+      sanity_type: object
+    attributes:
+      width:
+        range: integer
+        description: Width in pixels
+        annotations:
+          sanity_type: number
+      height:
+        range: integer
+        description: Height in pixels
+        annotations:
+          sanity_type: number
+
+  CopyVariant:
+    description: A copywriting variant (headline + body + CTA)
+    annotations:
+      sanity_type: object
+    attributes:
+      label:
+        range: string
+        description: Internal variant label
+        annotations:
+          sanity_type: string
+      headline:
+        range: string
+        annotations:
+          sanity_type: string
+      body:
+        range: string
+        annotations:
+          sanity_type: text
+      cta:
+        range: string
+        description: Call-to-action text
+        annotations:
+          sanity_type: string
+
+  SharePolicy:
+    description: Sharing and download permissions for generated artefacts
+    annotations:
+      sanity_type: object
+    attributes:
+      allowDownload:
+        range: boolean
+        ifabsent: "true"
+        annotations:
+          sanity_type: boolean
+      allowSharing:
+        range: boolean
+        ifabsent: "true"
+        annotations:
+          sanity_type: boolean
+      platforms:
+        range: SharePlatformEnum
+        multivalued: true
+        description: Social platforms enabled for sharing
+        annotations:
+          sanity_type: array
+          sanity_of: string
+      watermark:
+        range: boolean
+        description: Whether to apply a watermark to downloaded artefacts
+        annotations:
+          sanity_type: boolean
+
+  MagnetMetadata:
+    description: Controls which metadata fields are embedded in generated artefacts
+    annotations:
+      sanity_type: object
+    attributes:
+      includeLocation:
+        range: boolean
+        annotations:
+          sanity_type: boolean
+      includeTimestamp:
+        range: boolean
+        annotations:
+          sanity_type: boolean
+      includeAttribution:
+        range: boolean
+        annotations:
+          sanity_type: boolean

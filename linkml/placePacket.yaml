@@ -1,0 +1,225 @@
+id: https://usa250impact.org/schemas/placePacket
+name: placePacket
+title: Place Packet Schema
+description: >-
+  Root document type for location-based experience packages.
+  Combines route graphs, narrative layers, governance rules,
+  magnet template outputs, and CIP overlays.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  RouteTypeEnum:
+    permissible_values:
+      linear: { description: Fixed sequential route }
+      branching: { description: Conditional multi-path route }
+      freeform: { description: Open exploration with no set path }
+
+  ConsentPolicyEnum:
+    permissible_values:
+      capture: { description: Consent required to capture data }
+      remix: { description: Consent required to remix content }
+      export: { description: Consent required to export content }
+      none: { description: No explicit consent required }
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  PlacePacket:
+    description: >-
+      Top-level document that packages a location experience including route,
+      narrative layers, governance rules, and output artefact templates.
+      Maps to Sanity schema 'placePacket'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: placePacket
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(placePacket)
+      name:
+        range: string
+        required: true
+        description: Human-readable name for this place packet
+        annotations:
+          sanity_type: string
+      version:
+        range: string
+        required: true
+        description: Semantic version string (e.g. 1.0.0)
+        annotations:
+          sanity_type: string
+          sanity_validation: semver
+      routeGraph:
+        range: RouteGraph
+        description: Graph structure defining the route between stops
+        annotations:
+          sanity_type: object
+      layers:
+        range: NarrativeLayerRef
+        multivalued: true
+        description: Ordered narrative layers applied to this packet
+        annotations:
+          sanity_type: array
+          sanity_of: narrativeLayer
+      rules:
+        range: PacketRules
+        description: Consent, refusal, and NTAI classification rules
+        annotations:
+          sanity_type: object
+      outputs:
+        range: PacketOutputs
+        description: Output configuration — default magnet template
+        annotations:
+          sanity_type: object
+      overlays:
+        range: CIPOverlayRef
+        multivalued: true
+        description: CIP overlay references applied to this packet
+        annotations:
+          sanity_type: array
+          sanity_of: reference
+      changelog:
+        range: ChangelogEntry
+        multivalued: true
+        description: Version history for this place packet
+        annotations:
+          sanity_type: array
+          sanity_of: object
+
+  RouteGraph:
+    description: The graph structure defining how stops are connected
+    annotations:
+      sanity_type: object
+    attributes:
+      type:
+        range: RouteTypeEnum
+        required: true
+        description: Traversal style of the route
+        annotations:
+          sanity_type: string
+      nodes:
+        range: RouteNode
+        multivalued: true
+        description: Ordered or conditional list of stops in the route
+        annotations:
+          sanity_type: array
+          sanity_of: object
+
+  RouteNode:
+    description: A single node in a route graph linking a stop to sequence metadata
+    annotations:
+      sanity_type: object
+    attributes:
+      stop:
+        range: string
+        required: true
+        description: Reference ID of the linked Stop document
+        annotations:
+          sanity_type: reference
+          sanity_to: stop
+      sequence:
+        range: integer
+        required: true
+        description: Zero-based display order within the route
+        annotations:
+          sanity_type: number
+      required:
+        range: boolean
+        ifabsent: "true"
+        description: Whether this stop must be visited
+        annotations:
+          sanity_type: boolean
+      conditions:
+        range: string
+        description: JSON Logic expression for conditional branching (branching routes only)
+        annotations:
+          sanity_type: text
+
+  NarrativeLayerRef:
+    description: Inline narrative layer object embedded in a PlacePacket
+    annotations:
+      sanity_type: object
+      sanity_ref: narrativeLayer
+
+  CIPOverlayRef:
+    description: Reference to a CIPOverlay document
+    annotations:
+      sanity_type: reference
+      sanity_to: cipOverlay
+    attributes:
+      _ref:
+        range: string
+        description: Sanity document reference ID
+
+  PacketRules:
+    description: Governance rules including consent policy, refusal gates, and NTAI flags
+    annotations:
+      sanity_type: object
+    attributes:
+      consentPolicy:
+        range: ConsentPolicyEnum
+        description: What type of consent is required
+        annotations:
+          sanity_type: string
+      refusalGate:
+        range: boolean
+        description: Whether a PRS-style refusal workflow is enabled
+        annotations:
+          sanity_type: boolean
+      ntaiClass:
+        range: string
+        multivalued: true
+        description: Non-transactable AI classification flags
+        annotations:
+          sanity_type: array
+          sanity_of: string
+
+  PacketOutputs:
+    description: Output configuration for artefacts generated by this packet
+    annotations:
+      sanity_type: object
+    attributes:
+      magnetDefault:
+        range: string
+        description: Reference ID of the default MagnetTemplate document
+        annotations:
+          sanity_type: reference
+          sanity_to: magnetTemplate
+
+  ChangelogEntry:
+    description: A single versioned changelog entry for a Place Packet
+    annotations:
+      sanity_type: object
+    attributes:
+      version:
+        range: string
+        description: Semantic version for this entry
+        annotations:
+          sanity_type: string
+      date:
+        range: datetime
+        description: Timestamp of this change
+        annotations:
+          sanity_type: datetime
+      changes:
+        range: string
+        description: Description of what changed in this version
+        annotations:
+          sanity_type: text
+      author:
+        range: string
+        description: Name or identifier of the person who made changes
+        annotations:
+          sanity_type: string

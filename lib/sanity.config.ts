@@ -31,7 +31,6 @@ function getEnvironment(): Environment {
 function validateEnvironment(): void {
   const env = getEnvironment()
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 
   if (env === 'production' && !projectId) {
     console.error(

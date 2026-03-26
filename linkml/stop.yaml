@@ -1,0 +1,115 @@
+id: https://usa250impact.org/schemas/stop
+name: stop
+title: Stop Schema
+description: Individual waypoint in a Place Packet route
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  AccessibilityTypeEnum:
+    permissible_values:
+      visual: { description: Visual description variant }
+      audio: { description: Audio description variant }
+      physical: { description: Physical access information }
+      cognitive: { description: Cognitive support variant }
+
+  MediaTypeEnum:
+    permissible_values:
+      audio: {}
+      video: {}
+      image: {}
+      text: {}
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  Stop:
+    description: >-
+      A single physical or conceptual waypoint in a route.
+      Maps to Sanity schema 'stop'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: stop
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(stop)
+      title:
+        range: string
+        required: true
+        description: Human-readable stop name
+        annotations:
+          sanity_type: string
+      locationHint:
+        range: string
+        required: true
+        description: Descriptive location without GPS coordinates
+        annotations:
+          sanity_type: text
+      accessibilityVariants:
+        range: AccessibilityVariant
+        multivalued: true
+        description: Accessibility-specific content variants for this stop
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      contentRefs:
+        range: StopContentRef
+        multivalued: true
+        description: References to content displayed at this stop
+        annotations:
+          sanity_type: array
+          sanity_of: reference,object
+      estimatedDuration:
+        range: integer
+        description: Expected time at this stop in minutes
+        annotations:
+          sanity_type: number
+
+  AccessibilityVariant:
+    description: An accessibility-specific content alternative for a stop
+    annotations:
+      sanity_type: object
+    attributes:
+      type:
+        range: AccessibilityTypeEnum
+        description: Kind of accessibility variant
+        annotations:
+          sanity_type: string
+      description:
+        range: string
+        description: Accessible description of this stop
+        annotations:
+          sanity_type: text
+      media:
+        range: string
+        description: Supporting media file asset reference
+        annotations:
+          sanity_type: file
+
+  StopContentRef:
+    description: Content reference item attached to a stop (reference or inline media)
+    annotations:
+      sanity_type: object
+    attributes:
+      type:
+        range: MediaTypeEnum
+        description: Media type for inline content
+        annotations:
+          sanity_type: string
+      caption:
+        range: string
+        description: Caption for inline media
+        annotations:
+          sanity_type: text

@@ -1,0 +1,102 @@
+id: https://usa250impact.org/schemas/author
+name: author
+title: Author Schema
+description: Author profile document
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+  schema: http://schema.org/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  Author:
+    description: >-
+      A content author profile. Maps to Sanity schema 'author'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: author
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(author)
+      name:
+        range: string
+        required: true
+        description: Author full name
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        description: URL-safe author identifier
+        annotations:
+          sanity_type: slug
+          sanity_source: name
+      bio:
+        range: string
+        description: Short biography (Portable Text)
+        annotations:
+          sanity_type: array
+          sanity_of: block
+      profileImage:
+        range: SanityImage
+        description: Author headshot
+        annotations:
+          sanity_type: image
+      email:
+        range: string
+        description: Contact email address
+        annotations:
+          sanity_type: string
+          sanity_validation: email
+      website:
+        range: uri
+        description: Author personal website
+        annotations:
+          sanity_type: url
+      social:
+        range: AuthorSocial
+        description: Social media handles
+        annotations:
+          sanity_type: object
+
+  AuthorSocial:
+    description: Social media handles for an author
+    annotations:
+      sanity_type: object
+    attributes:
+      twitter:
+        range: string
+        description: Twitter/X handle (without @)
+        annotations:
+          sanity_type: string
+      linkedin:
+        range: string
+        description: LinkedIn profile URL or handle
+        annotations:
+          sanity_type: string
+      github:
+        range: string
+        description: GitHub username
+        annotations:
+          sanity_type: string
+
+  SanityImage:
+    description: Sanity image asset with alt text
+    annotations:
+      sanity_type: image
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(image)
+      alt:
+        range: string

@@ -1,0 +1,101 @@
+id: https://usa250impact.org/schemas/product
+name: product
+title: Product Schema
+description: Product catalogue content type
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  ProductCategoryEnum:
+    permissible_values:
+      electronics: {}
+      fashion: {}
+      home_garden: { meaning: "Home & Garden" }
+      sports: {}
+      books: {}
+
+  StockStatusEnum:
+    permissible_values:
+      in_stock: {}
+      out_of_stock: {}
+      pre_order: {}
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  Product:
+    description: >-
+      A product document. Maps to Sanity schema 'product'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: product
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(product)
+      name:
+        range: string
+        required: true
+        description: Product display name
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        description: URL-safe product identifier
+        annotations:
+          sanity_type: slug
+          sanity_source: name
+      description:
+        range: string
+        description: Product description (Portable Text rich text)
+        annotations:
+          sanity_type: array
+          sanity_of: block
+      price:
+        range: float
+        description: Price in USD
+        annotations:
+          sanity_type: number
+      category:
+        range: ProductCategoryEnum
+        description: Product category
+        annotations:
+          sanity_type: string
+      image:
+        range: SanityImage
+        description: Product image
+        annotations:
+          sanity_type: image
+      inStock:
+        range: StockStatusEnum
+        description: Current stock status
+        annotations:
+          sanity_type: string
+      featured:
+        range: boolean
+        description: Whether to feature this product on the homepage
+        annotations:
+          sanity_type: boolean
+
+  SanityImage:
+    description: Sanity image asset with alt text
+    annotations:
+      sanity_type: image
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(image)
+      alt:
+        range: string

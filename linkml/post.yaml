@@ -1,0 +1,102 @@
+id: https://usa250impact.org/schemas/post
+name: post
+title: Blog Post Schema
+description: Blog post content type for the USA250 Impact application
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+  schema: http://schema.org/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  PostTagEnum:
+    description: Available tags for categorizing blog posts
+    permissible_values:
+      culture: { description: Cultural content }
+      history: { description: Historical content }
+      community: { description: Community-focused content }
+      impact: { description: Impact-related content }
+      event: { description: Event announcements }
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  BlogPost:
+    description: >-
+      A blog post document. Maps to Sanity schema 'post'.
+    tree_root: true
+    annotations:
+      sanity_type: document
+      sanity_name: post
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(post)
+        description: Sanity document type discriminator
+      title:
+        range: string
+        required: true
+        description: Post headline
+        annotations:
+          sanity_type: string
+      slug:
+        range: string
+        required: true
+        description: URL-safe identifier generated from title (max 200 chars)
+        annotations:
+          sanity_type: slug
+          sanity_source: title
+      excerpt:
+        range: string
+        description: Short summary of the post (3 rows)
+        annotations:
+          sanity_type: text
+      body:
+        range: string
+        description: Rich-text body with inline images; stored as Portable Text
+        annotations:
+          sanity_type: array
+          sanity_of: block,image
+      featuredImage:
+        range: SanityImage
+        description: Hero image for the post
+        annotations:
+          sanity_type: image
+      author:
+        range: Author
+        description: Reference to the post author
+        annotations:
+          sanity_type: reference
+          sanity_to: author
+      publishedAt:
+        range: datetime
+        description: ISO-8601 publication timestamp
+        annotations:
+          sanity_type: datetime
+      tags:
+        range: PostTagEnum
+        multivalued: true
+        description: Categorisation tags
+        annotations:
+          sanity_type: array
+          sanity_of: string
+
+  SanityImage:
+    description: Sanity image asset reference with optional alt text
+    annotations:
+      sanity_type: image
+    attributes:
+      _type:
+        range: string
+        ifabsent: string(image)
+      alt:
+        range: string
+        description: Accessibility alt text

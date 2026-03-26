@@ -1,0 +1,168 @@
+id: https://usa250impact.org/schemas/narrativeLayer
+name: narrativeLayer
+title: Narrative Layer Schema
+description: Thematic narrative overlay for Place Packet location experiences
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Enumerations ────────────────────────────────────────────────────────────
+
+enums:
+  NarrativeTypeEnum:
+    permissible_values:
+      tek:
+        description: Traditional Ecological Knowledge
+        meaning: TEK
+      historical: {}
+      contemporary: {}
+      stewardship: {}
+      sound_clash: {}
+
+  AssetTypeEnum:
+    permissible_values:
+      audio: {}
+      video: {}
+      image: {}
+      text: {}
+      interactive: {}
+
+  VisibilityPolicyEnum:
+    permissible_values:
+      express: { description: Always shown }
+      show: { description: Shown on request }
+      steward: { description: Visible to stewards only }
+
+  LicenseEnum:
+    permissible_values:
+      CC_BY: { meaning: "CC BY" }
+      CC_BY_SA: { meaning: "CC BY-SA" }
+      CC_BY_ND: { meaning: "CC BY-ND" }
+      CC_BY_NC: { meaning: "CC BY-NC" }
+      all_rights_reserved: { meaning: "All Rights Reserved" }
+      custom: { meaning: "Custom" }
+
+# ── Classes ─────────────────────────────────────────────────────────────────
+
+classes:
+  NarrativeLayer:
+    description: >-
+      Thematic narrative overlay with cultural attribution and visibility controls.
+      Maps to Sanity schema 'narrativeLayer'.
+    tree_root: true
+    annotations:
+      sanity_type: object
+      sanity_name: narrativeLayer
+    attributes:
+      type:
+        range: NarrativeTypeEnum
+        required: true
+        description: Narrative classification
+        annotations:
+          sanity_type: string
+      title:
+        range: string
+        required: true
+        description: Display title of this narrative layer
+        annotations:
+          sanity_type: string
+      description:
+        range: string
+        description: Narrative description or summary
+        annotations:
+          sanity_type: text
+      assets:
+        range: NarrativeAsset
+        multivalued: true
+        description: Media assets associated with this narrative
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      attribution:
+        range: NarrativeAttribution
+        description: Attribution and licensing information
+        annotations:
+          sanity_type: object
+      visibilityPolicy:
+        range: VisibilityPolicyEnum
+        ifabsent: string(show)
+        description: Access control policy for display
+        annotations:
+          sanity_type: string
+      culturalSensitivity:
+        range: string
+        description: Notes on special handling or cultural context
+        annotations:
+          sanity_type: text
+
+  NarrativeAsset:
+    description: A media asset within a narrative layer
+    annotations:
+      sanity_type: object
+    attributes:
+      assetType:
+        range: AssetTypeEnum
+        description: Kind of media asset
+        annotations:
+          sanity_type: string
+      transcript:
+        range: string
+        description: Transcript or alt text for accessibility
+        annotations:
+          sanity_type: text
+      duration:
+        range: integer
+        description: Duration in seconds (audio/video only)
+        annotations:
+          sanity_type: number
+
+  NarrativeAttribution:
+    description: Attribution and licensing block for a narrative layer
+    annotations:
+      sanity_type: object
+    attributes:
+      contributors:
+        range: Contributor
+        multivalued: true
+        description: List of people who contributed to this narrative
+        annotations:
+          sanity_type: array
+          sanity_of: object
+      license:
+        range: LicenseEnum
+        description: Content license
+        annotations:
+          sanity_type: string
+      acknowledgments:
+        range: string
+        description: Free-text acknowledgments
+        annotations:
+          sanity_type: text
+
+  Contributor:
+    description: A named contributor to a narrative layer
+    annotations:
+      sanity_type: object
+    attributes:
+      name:
+        range: string
+        description: Full name
+        annotations:
+          sanity_type: string
+      role:
+        range: string
+        description: Role or position
+        annotations:
+          sanity_type: string
+      affiliation:
+        range: string
+        description: Organisational affiliation
+        annotations:
+          sanity_type: string

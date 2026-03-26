@@ -1,0 +1,29 @@
+id: https://usa250impact.org/schemas
+name: usa250_impact
+title: USA250 Impact Content Schema
+description: >-
+  Master LinkML schema for the USA250 Impact application.
+  Covers blog content, products, authors, and the Place Packet
+  location-based experience system with governance overlays.
+version: 1.0.0
+license: UNLICENSED
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  usa250: https://usa250impact.org/schemas/
+  schema: http://schema.org/
+  dcterms: http://purl.org/dc/terms/
+
+default_prefix: usa250
+default_range: string
+
+imports:
+  - linkml:types
+  - post
+  - product
+  - author
+  - placePacket
+  - stop
+  - narrativeLayer
+  - magnetTemplate
+  - cipOverlay
