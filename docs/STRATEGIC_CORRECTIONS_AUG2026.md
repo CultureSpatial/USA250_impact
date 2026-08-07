@@ -98,13 +98,18 @@ Genblaze **bridges the desktop/field gap** identified in:
 2. What evidence types captured in-field (via mobile) should trigger upstream Genblaze pipeline regeneration (adaptive learning loop)?
 3. How can Genblaze's B2 storage layer ensure CARE Principles compliance when artifacts contain Indigenous/cultural knowledge?
 
-**Company Alliance Roles (Revised):**
+**Company Alliance Roles (CORRECTED):**
 
 | Company | Technical Contribution | SBIR Innovation Component |
 |---------|------------------------|---------------------------|
 | **Stadium Soundwave** (lead applicant) | SCID competency schemas, pedagogical scaffolding logic, cultural data stewardship | AI-bounded copilot behavior (Phase 1 → 2 → 3 progression) |
-| **Genblaze/Backblaze** | Transport layer SDK, B2 storage, pipeline orchestration | Desktop-to-mobile artifact generation, stable URL provisioning |
-| **GMI Cloud** | Inference compute (TRELLIS v1 splat generation, image/video generation via Genblaze providers) | On-demand generative media for field training scenarios |
+| **GMI Cloud** | **LLM Backbone** — exclusive inference compute provider (TRELLIS v1, image generation, LLM queries) | On-demand generative media for field training scenarios |
+| **Genblaze SDK** (open-source, no formal partnership) | Pipeline orchestration layer (`.step()` chaining, B2 storage sink) | Desktop-to-mobile artifact generation workflow |
+
+**Critical Correction:**
+- **GMI Cloud is THE LLM backbone** (primary/exclusive inference provider), NOT a gateway to other providers
+- **Genblaze is an open-source tool/SDK** (orchestration layer), NOT a company partner requiring formal agreement
+- Clean two-party relationship: Stadium Soundwave + GMI Cloud (Genblaze = enabling infrastructure)
 
 **Next Action:**
 - Clarify with Backblaze: Is Genblaze SDK partnership available for SBIR proposal, or is it open-source (no formal partnership needed)?
