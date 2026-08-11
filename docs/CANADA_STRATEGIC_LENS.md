@@ -22,7 +22,53 @@ Auditing solicitation IDs while the underlying market thesis has shifted is prec
 
 ## Part 1 — WGBC Extension (the aspirational planning layer)
 
-### Naming: the first stale notion
+### The sovereignty rebase already happened — credit where due
+
+**PART-25 was rebased on June 14, 2026**, and the rebase anticipated much of what this document would otherwise be arguing. It must be read before anything else in the Canada thread.
+
+| | Pre-rebase framing | Rebased framing (June 2026) |
+|---|---|---|
+| **What BC is** | "BC-side domain-validation layer" | Where practitioners configure their own participation |
+| **What WGBC is** | Validation partner / credibility provider | **Anchor participant** governing how BC wine knowledge enters corridor economic circulation |
+| **What the treaty is** | Model-proving exercise / MOU | Governance instrument for practitioner **economic self-determination** |
+| **BC practitioners** | Validation subjects | Corridor economic participants receiving proportional value |
+
+The rebase's own summary sentence: *"BC isn't where we prove the model — BC is where practitioners configure their own participation in community-governed economic flow and where we prove that the corridor responds to their terms."*
+
+And the explicit negation: **not** "BC provides content → DTC monetizes → BC receives recognition credit."
+
+**The five-step corridor economic flow as rebased:**
+
+1. BC practitioners configure participation terms (WGBC governance layer)
+2. Knowledge enters corridor economic flow under those terms
+3. Corridor generates economic value (tourism, commerce, hospitality)
+4. Attribution routing distributes value back to BC participants (OPS-87 attribution model)
+5. WGBC governs distribution terms within the BC practitioner community
+
+Supporting architecture already linked: **OPS-7** (Draft Treaty v1.0, Mycelial Steward Gate as economic governance precedent), **OPS-87** (community-governed commercial use policy), **RES-6** (Verifiable Credential issuance, role transition, continuity), **RES-8** (Digital Terroir Translation Layer). Grant posture recorded as **GSBF-eligible, MEDIUM-HIGH**, under Indigenous Tourism BC framing plus a DH2026 academic validation pathway.
+
+### What survives 2026 reality, and what doesn't
+
+This is the key finding of the WGBC extension:
+
+> **The governance architecture survived the rebase and survives the 2026 market. The economic-flow assumption underneath it did not.**
+
+**Survives — and is strengthened by sector distress:**
+
+- *Practitioner economic self-determination.* A sector with a quarter of operators listed for sale needs value-routing and self-determined terms **more**, not less. Distress raises the salience of who captures value from BC wine knowledge.
+- *Attribution routing (step 4).* This is provenance machinery. See Part 3 — it maps directly onto the "Crafted in BC" disclosure problem.
+- *WGBC as governing body over distribution terms (step 5).* WGBC is currently coordinating with BCGA, LDB and CFIA on exactly this class of question for the 2026 industry plan.
+- *Verifiable credential and continuity layer (RES-6).* Workforce displacement through consolidation is live, not speculative.
+
+**Does not survive without re-pointing:**
+
+- *Step 3 — "corridor generates economic value (tourism, commerce, hospitality)" across Seattle–Vancouver.* This is the step the trade war hits. The governance instrument is sound; the value-generation surface it governs has to move (see Part 2, items 2–3).
+- *The VanWineFest ceremonial-validation path (PART-50, PART-47).* Post-2024 state unverified.
+- *The `/stakeholder-update` action recorded on PART-25* — "WGBC outreach needs participation governance language, not validation partnership language" — is still correct, but is now **also** out of date in a second way: it predates the freeze-recovery and labelling developments that give the outreach a concrete hook. The language fix was necessary; it is no longer sufficient.
+
+**Where I was wrong in an earlier read of this thread:** I described the WGBC plan as assuming a validation-then-transfer chain. That was the *pre*-rebase framing, already corrected in June. The correction to make now is narrower and different — it targets step 3, not the power distribution.
+
+### Naming: a remaining stale notion
 
 **WGBC = Wine Growers British Columbia**, the renamed **BC Wine Institute (BCWI)**. The workspace carries both names simultaneously, and the split maps almost exactly onto issue health:
 
@@ -40,11 +86,11 @@ Auditing solicitation IDs while the underlying market thesis has shifted is prec
 
 Two duplicate sub-series (PART-38/39/40 and PART-45/47/48 both labelled PART-25-A/B) with divergent statuses. Approaching an institution under its former name is a small credibility cost, but the pattern is the tell: **the aspirational plan was authored against an entity and a market that have both moved on.**
 
-### What the WGBC plan assumed
+### What the execution chain assumed
 
-The chain, as designed: *BC producer cohort → VanWineFest pilot (PART-50) → corridor validation with WGBC/BC Tourism FC → proof transfers to Washington (OPS-96 → PART-87)*.
+Below the rebased governance layer, the execution chain still runs: *BC producer cohort → VanWineFest pilot (PART-50) → corridor activation with WGBC/BC Tourism FC → transfer to Washington (OPS-96 → PART-87)*.
 
-Every link assumed a **BC wine sector with capacity to participate in experience-layer innovation**, and a **cross-border corridor that was politically ordinary**. Both assumptions have failed, for different reasons.
+That chain assumes a **BC wine sector with capacity to participate in experience-layer innovation** and a **cross-border corridor that is politically ordinary**. Both assumptions have failed — which is a failure of the execution chain, not of the governance instrument above it.
 
 ---
 
@@ -110,7 +156,21 @@ Read that as a systems problem and it is exactly ours:
 
 Our stack already targets this: ATProto provenance records, story-signing under exit-time licensing, the Cultural Stack layering in PART-61, CARE/OCAP governance. **The pitch stops being "cultural experience layer for wine tourism" — a nice-to-have to a distressed sector — and becomes "provenance infrastructure for a regulatory disclosure obligation."** That is a need with government and association urgency behind it, on a 2026 planning timeline, with named institutional owners.
 
-**This deserves validation as the primary Canada thesis.** It is not a repositioning of the same offer; it is a different buyer, budget line, and urgency class.
+### Why this docks onto PART-25 rather than replacing it
+
+This is the part that makes the reframe worth acting on rather than merely clever. **PART-25's rebased architecture already contains the mechanism.**
+
+| PART-25 rebased step | Labelling-regime equivalent |
+|---|---|
+| **Step 1** — practitioners configure participation terms | Producers declare what their fruit is and where it came from, on their terms |
+| **Step 4** — attribution routing distributes value back | Attribution *is* provenance: the same record that routes value proves origin |
+| **Step 5** — WGBC governs distribution terms within the practitioner community | WGBC is already the body coordinating truth-in-labelling with BCGA, LDB and CFIA |
+
+The rebase built a **community-governed attribution system for BC wine knowledge**. The 2026 labelling regime requires a **verifiable origin-disclosure system for BC wine production**. These are the same machine pointed at a different object — and the second has regulatory urgency the first did not.
+
+The rebase also anticipated the framing problem. Its stated concern was that WGBC should be approached as an economic governance partner rather than a credibility provider. Provenance infrastructure is precisely that: it hands WGBC a governing role over a real compliance obligation, instead of asking them to lend legitimacy to someone else's model.
+
+**This deserves validation as the primary Canada thesis.** It is not a repositioning of the same offer; it is a different buyer, budget line, and urgency class — reached through governance architecture we have already built and already rebased.
 
 ### Secondary opportunities
 
