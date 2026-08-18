@@ -148,7 +148,7 @@ v1.0 described feedback loop infrastructure as a prerequisite to build. Portions
 3. **B2B relationship foundation**
    - Domain workshops building trust
    - Co-design partnerships demonstrating value
-   - Case studies from pilot deployments (Fort Vancouver, Royal Sonesta — still proposed, labeled aspirational)
+   - Case studies from pilot deployments (Fort Vancouver, Royal Sonesta — still proposed, labeled aspirational) these targets are stale and posture has changed to outbound  with Us doing GEO 
 
 4. **Capacity building validation**
    - Graduates with technical credentials *(pending first cohort)*
