@@ -217,7 +217,11 @@ Match the path to the shape of the work. Phase 0 and Phase 1 coordination work i
 | RFI26DBC68 (PART-58) | 2 | PART-135 — lapsed date needs explanation |
 | Deltek adoption (OPS-213) | Deferred | Named triggers |
 
-**Needs reframing before it can be phased at all:** the FIFA 2026 cluster — OPS-57, OPS-98, OPS-176, PART-96, PART-102, PART-103, PART-121, PART-63/64, PART-70/71, RES-58. The tournament concluded 19 July 2026. These are legacy artifacts or closures, and the legacy window is already about a month into its useful life.
+**Directional canopy (Sept 2026):** the cluster has switched from FIFA 2026 to **American Lore × Civic Memory** (Jira **CEP-29**). The FIFA work is **absorbed, not closed** — CEP-74 (Host City Brand Book / co-brand), CEP-70 (FWC ritual translation patterns) and CEP-71 (football prompt library) are now children of CEP-29, reusable as translation-pattern source material. See `AMERICAN_LORE_CANOPY.md`.
+
+**Critical path in the canopy:** **CEP-75** — the Brightbean vs Postiz publishing-seam decision — blocks CEP-72 *and* BC Tourism FC *and* the American Lore Wave 2 publishing rhythm. It is a decision, not a build, and it is the cheapest high-leverage unblock currently available.
+
+**Hard gate:** Axis 4 **benthic CIP** (sacred/protected knowledge) specifies "no share without explicit gate" but the gate mechanism is unimplemented. Cultural Governance holds this one; no card touching protected knowledge ships until it exists.
 
 ---
 
