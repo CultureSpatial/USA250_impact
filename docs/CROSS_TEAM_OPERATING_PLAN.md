@@ -155,7 +155,7 @@ PART-85 (NSF SBIR Phase I submission) — blocked on Phase 1. PART-58 (RFI26DBC6
 |---|---|---|
 | **0 → 1** | Partnerships | RES (evidence), CUL (if sovereignty-adjacent) |
 | **1 → 2** | ARIA-Operations | PART (transaction readiness), ENG (delivery capacity) |
-| **Phase 2 activation** | **Cultural Governance holds veto** on consent/sovereignty grounds | PART, ENG |
+| **Phase 2 activation** | **Cultural Governance holds veto** on consent/sovereignty grounds. Test is mechanical under Transmission Terms: named steward? granted for *this* occasion? attribution honored? conditions met? withdrawal path live? | PART, ENG |
 | **Kill / park** | Whoever owns the current phase | Named in the issue before closing |
 
 The CUL veto at activation is deliberate. It is cheaper to stop at the gate than to unwind a deployed surface.
@@ -219,9 +219,9 @@ Match the path to the shape of the work. Phase 0 and Phase 1 coordination work i
 
 **Directional canopy (Sept 2026):** the cluster has switched from FIFA 2026 to **American Lore × Civic Memory** (Jira **CEP-29**). The FIFA work is **absorbed, not closed** — CEP-74 (Host City Brand Book / co-brand), CEP-70 (FWC ritual translation patterns) and CEP-71 (football prompt library) are now children of CEP-29, reusable as translation-pattern source material. See `AMERICAN_LORE_CANOPY.md`.
 
-**Critical path in the canopy:** **CEP-75** — the Brightbean vs Postiz publishing-seam decision — blocks CEP-72 *and* BC Tourism FC *and* the American Lore Wave 2 publishing rhythm. It is a decision, not a build, and it is the cheapest high-leverage unblock currently available.
+**Publishing seam — resolved (Sept 2026):** **Postiz is moot. The seam is Brightbean.** CEP-75 closes as decided and Wave 2 is unblocked. Cleanup outstanding: CEP-72 still carries "Postiz" in its title, and OPS-156 plus both American Lore foundational docs still reference it.
 
-**Hard gate:** Axis 4 **benthic CIP** (sacred/protected knowledge) specifies "no share without explicit gate" but the gate mechanism is unimplemented. Cultural Governance holds this one; no card touching protected knowledge ships until it exists.
+**Hard gate — redressed:** Axis 4's CIP depth scale (Surface/Deep/Benthic) is replaced by **Transmission Terms** — steward, granted-for occasions, attribution, conditions, withdrawal, open question. The unimplemented "benthic gate" is **obsolete by redesign**: nothing circulates without a named steward and a grant for that occasion. This also gives the Cultural Governance veto below a mechanical test instead of a judgment call. See `AXIS_4_REDRESS.md`.
 
 ---
 

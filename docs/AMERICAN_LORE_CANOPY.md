@@ -59,10 +59,12 @@ CEP-29 maps American lore content across five axes. This is the operative conten
 | **1** | Source type | `loreEntry`, `storyGem`, `audioNarrative` |
 | **2** | Output shape | OTW carry-forward record, `dtc-host-letter` web component, AT Protocol record |
 | **3** | Register | Civic memory / American foodways / cultural heritage — *and* K-12 educational as a distinct register |
-| **4** | **CIP depth** | **Surface** (public lore) → **Deep** (oral tradition, contributor consent) → **Benthic** (sacred/protected — no share without explicit gate) |
+| **4** | **Transmission terms** *(redressed — see `AXIS_4_REDRESS.md`)* | Steward · granted-for occasions · attribution · conditions · withdrawal · open question. **Replaces the CIP depth scale**, which was abstract and misaligned with the social practice model. |
 | **5** | Delivery | DOM (web component) → AT Protocol (OTW record as cultural carry-forward) |
 
-**Axis 4 is the governance spine.** CIP depth is a graduated disclosure model, and it is what makes this content cluster different from marketing copy. CEP-29's success criterion states it plainly: two distinct output shapes from one `loreEntry`, each carrying correct `cipDepth` metadata, with **no commercial overlay applied to benthic-CIP content**.
+**Axis 4 is the governance spine — and it has been redressed.** As originally written it was a depth scale (Surface → Deep → Benthic). That treats sensitivity as a property of content, locates authority in whoever classifies, and cannot express non-monotonic terms. It is replaced by **Transmission Terms**: who stewards the material, which occasions they granted it for, attribution, conditions, withdrawal path, and recorded disagreement. Full argument and migration in `AXIS_4_REDRESS.md`.
+
+CEP-29's success criterion survives the change: two distinct output shapes from one `loreEntry`, with **no commercial overlay** on material whose terms forbid it — now carried as an explicit `no-commercial-adjacency` condition rather than inferred from a tier.
 
 The CUL-84 / CUL-80 tension named in the epic is the multi-tenant test: the same lore content must generate different output shapes for civic-memory register versus K-12 educational register.
 
@@ -146,8 +148,8 @@ This is a **different review culture, different grant scale, and different insti
 
 | Risk | Severity | Note |
 |---|---|---|
-| **CEP-75 blocks the publishing seam** | **High** | "[DECISION] Brightbean vs Postiz — publishing seam reconciliation (blocks CEP-72 + BC Tourism FC)." Both the Outlet Strategy and Opportunity Radar depend on OPS-156 as the publishing runtime, and the CEP tickets are inconsistent — CEP-72 says Postiz, CEP-76/77/78 say Brightbean. **Wave 2 cannot proceed until this decision lands.** This is the critical path item and it is not currently flagged as such. |
-| **Benthic CIP has no named gate mechanism** | **High** | Axis 4 specifies "no share without explicit gate" but the gate is unimplemented. Publishing sacred/protected material without it is the highest-consequence failure available here. Cultural Governance veto territory — must be closed before any Wave 1 card touching protected knowledge. |
+| ~~CEP-75 blocks the publishing seam~~ | **Resolved** | **Postiz is moot (Sept 2026). The seam is Brightbean.** CEP-75 closes as decided. Follow-on cleanup: CEP-72 is titled "OPS-156 — Postiz Publishing Seam Architecture" and needs retitling to Brightbean; OPS-156 and both Linear foundational docs still reference Postiz. Wave 2 is unblocked. |
+| ~~Benthic CIP has no named gate mechanism~~ | **Obsolete by redesign** | Under Transmission Terms there is no separate gate to build: nothing circulates without a named steward and a grant for that specific occasion. The missing gate was an artifact of a model that let material flow by default. Close as obsolete, not as done. See `AXIS_4_REDRESS.md`. |
 | **Epic/doc drift** | Medium | CEP-29 created and last updated 19 May 2026 — untouched for four months. The Opportunity Radar was updated 30 July. The strategy is newer than the epic that carries it. |
 | **Unstarted backlog volume** | Medium | ~55 CEP tickets, nearly all "To Do". The canopy is well-specified and barely executed. Wave 1 is 3–5 cards; resist expanding scope before one card ships end-to-end. |
 | **America250 window closing** | Medium | National organizing intensity is scoped to the remainder of 2026. Wave 1 should not queue behind other threads. |
@@ -160,21 +162,21 @@ This is a **different review culture, different grant scale, and different insti
 | Work | Effort phase | Note |
 |---|---|---|
 | America250 premise verification | **0 — complete** | Passed, documented above |
-| Humanities council funding pathway scan | **0** | New; not yet in funding documentation |
-| CEP-75 publishing seam decision | **1** | **Blocks Wave 2 — highest priority in the cluster** |
-| Benthic CIP gate mechanism | **1** | Blocks any protected-knowledge card. CUL owns. |
+| Humanities council funding pathway scan | **0 — done** | Added as §XI of `FUNDING_PATHWAYS_UPDATED.md` |
+| ~~CEP-75 publishing seam decision~~ | **Done** | Resolved: Brightbean. Postiz moot. Retitle CEP-72; scrub Postiz from OPS-156 and both Linear docs. |
+| Transmission Terms implementation | **1** | Replaces the benthic gate. CUL owns. Shared primitive with PART-25 and PART-137. |
 | Archive rights clearance practice | **1** | Blocks LOC-sourced cards |
 | Wave 1 — 3–5 starter cards | **2** | One state, one territory, one non-state locale |
-| Wave 2 — primer/live/return rhythm | **2** | Blocked on CEP-75 |
+| Wave 2 — primer/live/return rhythm | **2** | **Unblocked** (Brightbean) |
 | Wave 3 — partner radar | **2** | By the People is the identified entry point |
 
 ---
 
 ## Recommendations
 
-1. **Resolve CEP-75 first.** A publishing-seam decision blocking both Wave 2 and BC Tourism FC is the cheapest high-leverage unblock available. It is a decision, not a build.
-2. **Name the benthic CIP gate before any card ships.** This is the one failure mode here that cannot be walked back.
-3. **Add public humanities to the funding pathways document.** Federation of State Humanities Councils, LOC/AFC, Smithsonian CFCH, IMLS. Different scale and cadence from NSF; suits Wave 1.
+1. ~~Resolve CEP-75 first.~~ **Done — Brightbean.** Remaining work is cleanup: retitle CEP-72, scrub Postiz references from OPS-156 and the two Linear foundational docs.
+2. **Implement Transmission Terms** as the Axis 4 replacement, built once as the shared primitive across CEP-29, PART-25 and PART-137. See `AXIS_4_REDRESS.md`.
+3. ~~Add public humanities to the funding pathways document.~~ **Done —** `FUNDING_PATHWAYS_UPDATED.md` §XI, placed at Tier 1.
 4. **Target "By the People" as the Wave 3 entry point** — it already combines two of the five opportunity lanes and includes territory councils.
 5. **Pick the Wave 1 territory deliberately.** USVI has an existing strategy document and a territory humanities council. That is the shortest path from canopy to shipped artifact.
 6. **Refresh CEP-29** to reflect the July strategy documents and the America250 verification, so the epic stops being four months behind its own foundational docs.

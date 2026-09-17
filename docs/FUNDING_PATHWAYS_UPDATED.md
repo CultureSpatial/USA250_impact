@@ -416,3 +416,69 @@ Regional Innovation Engines (RIE) is **$2.4B, 10-year NSF initiative** (launched
 **NSF ATE + SBIR AI are better funding homes** than SCiPE ever was. SCiPE closure is not a loss—it's a correction toward programs that actually match our model.
 
 **Next milestone:** Walla Walla CC ATE concept note + SBIR company alliance roles clarified by end of Q4 2026.
+
+---
+
+## XI. Public Humanities Pathway (Added September 2026)
+
+**Why this was missing:** every pathway above assumes a *technical education* or *research* framing (NSF ATE, Engines, SBIR, Horizon). The American Lore canopy (CEP-29, see `AMERICAN_LORE_CANOPY.md`) runs on a different institutional circuit entirely — public humanities — which has its own funders, review culture, scale and cadence. This is a genuine gap, not a subset of the NSF work.
+
+### Why it fits the canopy and not the SCID work
+
+| | NSF technical-education circuit | Public humanities circuit |
+|---|---|---|
+| Unit of value | Competency, credential, workforce outcome | Civic memory, interpretation, public participation |
+| Typical award | $300K–$900K, multi-year | $2K–$75K, often single-year |
+| Cadence | Annual deadlines, 6–9 month decisions | Rolling and quarterly; weeks to months |
+| Review culture | Technical merit, broader impacts | Public value, community partnership, scholarly grounding |
+| Best fit | SCID engine, Guild Academy, mobile PBL | Civic Memory Cards, locale editorial, contributor intake |
+
+The short cycle is the point: humanities council grants can fund **Wave 1 grounding** (3–5 starter cards) on a timeline where NSF cannot.
+
+### A. Federation of State Humanities Councils — network entry point
+
+- Convenes **51 councils**, including DC and **four U.S. territories**
+- Co-runs **"By the People: Conversations Beyond 250"** with the Smithsonian Center for Folklife and Cultural Heritage
+- Program themes: remembering together, harmonizing together, moving together, building together
+- Participants explicitly include **cooks** alongside musicians, artists, poets, craftspeople and storytellers — foodways is in scope by name
+
+**Use:** network-level entry rather than 51 separate approaches. Single strongest Wave 3 target.
+
+### B. State and territory humanities councils — delivery partners
+
+Each council is an independent grantmaker and convener with local programming, oral history and folklore practice.
+
+**Use:** state launch partner for locale card pilots; co-curation and review sessions; territory-specific adaptations. **Territory councils are the shortest path from the canopy to USVI Sound Clash** (`USVI_SOUND_CLASH_STRATEGY.md`), whose replicability framework already names Hawaii, Puerto Rico, Guam and American Samoa.
+
+**Live precedents worth studying before approaching anyone:** Illinois Voices 250 (Illinois Humanities + StoryCorps Studios); Alaska Humanities Forum Storytelling Fellowship; Alabama "Share Your Story" oral history.
+
+### C. Library of Congress / American Folklife Center — source base and legitimacy
+
+Not primarily a funder — a **source and credibility layer**. Card Schema v1 requires an archive trace per card; AFC foodways and folklife collections are the natural grounding for Wave 1.
+
+**Caution (see `AXIS_4_REDRESS.md`):** an archive citation is **not** a transmission grant. Archive trace and steward are distinct fields. LOC rights status varies per item and needs a standing clearance practice, not per-card improvisation.
+
+### D. Smithsonian Center for Folklife and Cultural Heritage
+
+Co-running By the People; food-history and public-culture programming. Interpretive legitimacy for public-facing mobile education, and a comparative model for foodways storytelling.
+
+### E. IMLS — America250 partnership program
+
+Already named as a partnership pathway in `USVI_SOUND_CLASH_STRATEGY.md`. Museums and libraries are natural hosts for locale card activations and contributor intake.
+
+### F. America250 — organizing frame, with a closing window
+
+Continues past 4 July 2026 via its **"After the Fireworks"** initiative, scoped to the remainder of 2026. "Conversations Beyond 250" implies continuation, but **national organizing intensity is a closing window** — roughly one quarter from now. Wave 1 should not queue behind other threads.
+
+**Framing note:** USA250 was correctly removed as a *deadline* from the USVI strategy. It returns here as a **canopy** — a different role, and a compatible one.
+
+### Sequencing
+
+1. **Now:** study the three live precedents; identify one state and one territory council whose current programming fits archive-grounded foodways
+2. **Wave 1 funding:** single council grant for 3–5 starter cards — small, fast, and proves the card end-to-end
+3. **Wave 3:** approach By the People at network level once one card exists as evidence
+4. **Do not** route this through the NSF narrative. Different circuit, different language, and conflating them weakens both.
+
+### Priority placement
+
+Insert as **Tier 1 (near-term)** alongside NSF ATE. It is the only pathway in this document that can fund work inside the current quarter, and it is the natural home for the canopy the directional cluster just switched to.
