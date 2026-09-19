@@ -1,5 +1,9 @@
 # Axis 4 Redress — From CIP Depth to Transmission Terms
 
+> **SUPERSEDED IN PART — 19 Sept 2026.** The diagnosis below stands. The *implementation* does not: GrammarActor (ENG-111, created 2026-05-10, **Done**) predates the axis model (CEP-29, 2026-05-19) and already implements graduated accession as a shipped XState statechart — `idle → induction → hold → carry → verified`, with `verified` emitting a participant-owned ATProto record.
+>
+> **Transmission Terms should be the payload `verified` emits, not a standalone model.** `conditions[]` become XState guards; `hold` is the pause this document proposed building. One field is genuinely missing from the machine: `withdrawal` has no event. See `GRAMMAR_ACTOR_RECONCILIATION.md`.
+
 **Version:** 1.0
 **Date:** 17 September 2026
 **Status:** Proposed replacement for Axis 4 of the Content OS 5-axis model (CEP-29)

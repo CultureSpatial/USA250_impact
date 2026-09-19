@@ -120,3 +120,48 @@ Add §XI Public Humanities Pathway from `docs/FUNDING_PATHWAYS_UPDATED.md`.
 > 4. Are conditions satisfied (incl. `no-commercial-adjacency`)?
 > 5. Is the withdrawal path live?
 > Also owns open questions 2–4 in `docs/AXIS_4_REDRESS.md`: steward succession; honest scoping of withdrawal reach across ATProto (and disclosing that limit to stewards **before** they grant, not after); and institutional stewards where archive material has rights but no living steward.
+
+---
+
+## ADDED 19 SEPT 2026 — GrammarActor reconciliation
+
+Source: ENG-111 and FRM-6 read in full. See `docs/GRAMMAR_ACTOR_RECONCILIATION.md`.
+
+### CEP-29 — invert the Axis 4 dependency (revises the entry above)
+
+The Axis 4 replacement text staged earlier still stands as *vocabulary*, but the framing changes: Axis 4 is **not a dimension of the content**. It is the record GrammarActor emits at `verified`.
+
+**Comment:**
+> Axis 4 dependency inverted. GrammarActor (ENG-111, created 2026-05-10, Done) predates this epic (2026-05-19) and already implements graduated accession as a shipped XState machine: `idle → induction → hold → carry → verified`. `verified` is a Governed Relation emitting a participant-owned AT Protocol record with a BOT-31 `traceId`.
+> Transmission Terms is therefore a **projection of GrammarActor**, not a parallel classification: `grantedFor[]` is what `CO_SIGN` writes; `conditions[]` are XState guards; `hold` is the gate this epic left unnamed for four months. Axis 4 should reference ENG-111 rather than define its own model.
+
+### ENG-111 — comment
+
+> Reconciled against the Content OS axis model (`docs/GRAMMAR_ACTOR_RECONCILIATION.md`).
+> **This machine is upstream of CEP-29 Axis 4, not downstream.** Three follow-ons:
+> 1. **`WITHDRAW` event missing.** `RESET` returns to `idle` but does not retract an emitted ATProto record. A `WITHDRAW` event plus a post-`verified` state is the highest-value addition to an otherwise-complete package — without it, participant "ownership" of the record overstates what the machine supports.
+> 2. **Actor guard needed.** The event list does not restrict actorhood, and `INTENT_IDENTIFIED` / `SENTIMENT_SHIFT` already admit machine-originated events. `CO_SIGN` and `CARRY_FORWARD` must be human-only — an agent that can emit `CO_SIGN` makes consent synthetic and voids the Guild Academy constitutional bound. `HOLD` should be agent-emittable (pausing on a terms violation is the right use). Enforce in the machine, not by convention.
+> 3. **The one open acceptance criterion — the `ams-host` provenance bridge — is the same gap as the AMS pipeline gap map.** SCID competency evidence, GSBF governance trail and PART-35 funder evidence all terminate there. Treat as one work item.
+> Also: state "Rive renders; GrammarActor decides" here and in FRM-6 — this issue says GrammarActor replaces Rive's state machine while FRM-6 migrates to Rive + Bit.dev, which reads as a contradiction.
+
+### FRM-6 — comment + retitle
+
+**Retitle:** drop "Nordcraft" — the Bit.dev/Rive migration (ENG-396) has moved the target and the body already says so.
+
+**Comment:**
+> **`data-state` is carrying three orthogonal dimensions** and needs splitting:
+> • machine state (`idle`/`induction`/`hold`/`carry`/`verified`) → `data-grammar-state`
+> • emotion tokens (`elated` → `--kinetic-intensity: 0.85`, per `emotionTokenMap.ts`) → `data-emotion`
+> • Fenceless/VPS (`pose-matching`, `pose-verified`) → `data-spatial`
+> A surface can be in `hold` **and** `elated` **and** `pose-matching` simultaneously; one attribute cannot express that. This is the same collapse-independent-dimensions error the Axis 4 redress corrected.
+> **`proto-resolving` is grammar-tier, not spatial** — it is the transient between `carry` and `verified`, and belongs in `data-grammar-state`, which also gives co-sign a visible in-flight state rather than an instant flip.
+> **Critical path note:** FRM-6 is in Backlog but gates FRM-4 → SIG-1, the compliance chain. Blocked by ENG-392.
+
+### NEW Linear issue — Engineering
+
+**Title:** `GrammarActor WITHDRAW event + actor guard on CO_SIGN/CARRY_FORWARD`
+**Team:** Engineering · **Priority:** High · **Related:** ENG-111, ENG-89, CUL-80
+**Description:**
+> Two additions to `@vinejocket/grammar-actor`, both governance-bearing:
+> 1. **`WITHDRAW` event and post-`verified` state.** `RESET` clears a session; it does not retract an emitted ATProto record. Until this exists, participant ownership of the record is claimed but not supported. Scope honestly: ATProto records propagate, so document what retraction can and cannot recall, and disclose that limit to participants **before** co-sign, not after.
+> 2. **Actor guard.** Human-only: `CO_SIGN`, `CARRY_FORWARD`, `WITHDRAW`. Agent-permitted: `TRIGGER`, `HOLD`, `INTENT_IDENTIFIED`, `SENTIMENT_SHIFT`. Operator: `RESET`. Enforce in the machine.
