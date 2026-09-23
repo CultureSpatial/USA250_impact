@@ -5,7 +5,9 @@
 
 > **Source note:** Sanity MCP is disconnected and `sanity.io` is egress-blocked from this container, so this is assembled from search results and third-party coverage rather than first-party docs. **Verify against `search_docs`/`read_docs` before implementing.** Where I could not confirm something, it is marked.
 
-> **"Project Horizon" — not externally confirmed.** No public reference under that name. It may be an internal, partner, or private-preview codename. What it evidently describes — agentic coordination for quality with a CMS bias — maps onto the Content Agent + Agent Context + Workflows cluster below, so the substance is addressable even though the name is not verifiable from here.
+> **"Project Horizon" — confirmed real, and it is not what it sounds like.** My earlier note said it could not be verified; that was wrong. **Project Horizon is a Sanity Labs project, open for early access**, announced at Everything \*[NYC] 2026 alongside **Resonance**.
+>
+> But the description "agentic coordination for quality with a CMS bias" matches **Resonance**, not Horizon. The two are very different, and the difference matters — see §1.5.
 
 ---
 
@@ -25,6 +27,51 @@ Announced at **Everything \*[NYC] 2026**, positioned as "the Content Operating S
 | **Blueprints** | Declarative deployment; Editorial Workflows can be declared as a Blueprint resource |
 | **MCP server** | Governed access for external agents, "eliminating duplicate data stores and custom integration work" |
 | **Studio v6.13.0 / App SDK** | Performance and stability; `useApplyReleaseActions` hook for release workflows |
+
+### 1.5 Sanity Labs — Horizon vs Resonance
+
+| | What it actually is | Risk posture |
+|---|---|---|
+| **Resonance** | Builds a living model of your company, audiences and content. **Reads your content the way each audience would**, backs every finding with evidence, and produces a prioritised list of what to improve and why | Low. Analysis and evidence-backed findings. This is the "agentic coordination for quality" capability |
+| **Project Horizon** | `sanity-labs/horizon-connector`: **lets Horizon agents run commands on your machine** over an outbound WebSocket. Experimental, requires your own API key, dials outbound so no inbound port, OTP auth for approving shell execution | **High.** This is agent *execution* on a host, not content quality |
+
+**Resonance is the one that matches the brief.** It maps directly onto the register work — reading content as each audience would is Axis 3 with evidence attached, and it could inform the civic-memory vs K-12 expression test in CEP-29 that currently has no tooling behind it.
+
+**Project Horizon deserves a hard look before adoption, and the reason is close to home.** This thread has spent considerable effort establishing that agents must not emit `CO_SIGN` or `CARRY_FORWARD` — that consent becomes synthetic if a machine can perform the witnessing. Horizon is a tool for letting agents run shell commands on a host. Adopted casually, it bypasses every guard we have specified, not at the content tier but underneath it. The OTP approval on shell execution is the right instinct and is the feature to scrutinise.
+
+Sanity's own framing of both — *"content operations where the repetitive work runs itself and people hold the decisions"* — is the same constitutional bound we have been writing. Worth holding them to it.
+
+### 1.6 Maturity — material for planning
+
+| Stage | Capabilities |
+|---|---|
+| **GA** | Functions, Blueprints, Agent Actions, MCP server, Studio v6.13, App SDK |
+| **Beta** (opt-in; org admin enables in Manage) | **Knowledge Bases, Workflows** |
+| **Early access** | Durable Functions, Blueprints-first setup, **Project Horizon, Resonance** |
+
+**This qualifies §2.1 below.** I recommended modelling Transmission Terms as Workflows. Workflows is **beta** — features and limits may change before GA, plans cap counts, and the published numbers are incomplete. That is not a reason to avoid it, but it is a reason to keep the terms model expressible in more than one substrate, and to not let a beta gate participant consent in production.
+
+### 1.7 Functions constraints that bear on a governance gate
+
+If terms enforcement runs as a Function on publish, these are the operating limits:
+
+| Constraint | Value |
+|---|---|
+| Execution time | **10s default**, configurable 1–900s in Blueprint config |
+| Per-document rate | 200 invocations / 30s, then stopped |
+| Per-project rate | 4000 invocations / 30s, then stopped |
+| **Mutation chain depth** | **Capped at 16** |
+| Cost (Growth) | $1 per 1M invocations; $1 per 20K GB-seconds |
+
+Two of these matter directly. A terms resolution that checks venue authority against an `at://` record makes an external call, so the **10s default is probably too low** — set it explicitly in the Blueprint. And if enforcement mutates the document (stamping a resolved grant, say), it **counts toward the 16-deep mutation chain**, which a publish→function→mutate→function loop can reach faster than expected.
+
+### 1.8 Workflows already carries an actor model
+
+The workflow definition is described as naming *"the stages content moves through, the activities that must be completed, **the actions people or systems can take**, and the conditions that move the process forward."*
+
+**That is the actor guard, first-party.** And the documented example is exactly our proposed split: *a person submits a draft; an agent checks it against the style guide and moves it forward or sends it back.* The agent may advance or reject; the person submits.
+
+This is strong corroboration for ENG-475's guard table — agent may `HOLD`, may not `CO_SIGN` — arrived at independently by the vendor at the content tier.
 
 ---
 
@@ -163,13 +210,14 @@ curl https://zernio.com/api/v1/accounts \
 ## 4. Replanning recommendations
 
 1. **Re-scope ENG-475.** The terms primitive has two homes, not one: Workflow stages for the content tier, `substrate/packages/shared` for the runtime tier. Build them as one model with two bindings.
-2. **Model Transmission Terms as a Sanity Workflow** rather than validation rules. Stages gate transitions; validation rules only check fields.
+2. **Model Transmission Terms as a Sanity Workflow** rather than validation rules — stages gate transitions, validation rules only check fields — **but keep the model substrate-independent.** Workflows is beta with capped, partly unpublished limits. Define terms once as a shared model; bind it to Workflows at the content tier and `substrate/packages/shared` at the runtime tier. Do not let a beta feature be the only thing standing between practitioner material and publication.
 3. **Map GrammarActor states to Workflow stages** explicitly. `verified` ↔ a granted stage is the join between runtime and content tiers, and it is currently missing in both directions.
 4. **Evaluate Agent Context against `KNOWLEDGE_INDEX`** for Sanity-resident content. Keep `steward-obsi` on Vectorize — the vault is not Sanity.
 5. **Audit what the MCP server retires** in `vj-runner` — the GROQ proxy especially. Audit, not rewrite.
 6. **Adopt Blueprints for Editorial Workflow deployment** so the workflow is versioned with the code. This is the vendor's own answer to drift, and drift is our documented recurring failure.
 7. **Run the one-angle one-platform spike** before any of the above. It is independent of all this replanning and has been blocked three months.
-8. **Verify everything here against first-party docs** when the Sanity connector returns — `search_docs` then `read_docs`. This review is secondary-source and the vendor moves fast.
+8. **Evaluate Resonance, not Horizon, for the quality brief.** Resonance matches what was wanted and is low-risk. Project Horizon is agent shell execution on a host — assess it on its own terms, against the actor-guard position this project already holds, and treat its OTP approval on shell execution as the feature to scrutinise rather than a formality.
+9. **Verify everything here against first-party docs** when the Sanity connector returns — `search_docs` then `read_docs`. This review is secondary-source and the vendor moves fast.
 
 ---
 
