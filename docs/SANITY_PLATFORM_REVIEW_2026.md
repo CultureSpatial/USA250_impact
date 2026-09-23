@@ -97,18 +97,55 @@ Seasonal routes to **all five platforms** under `ANGLE_PLATFORMS`. So "Seasonal 
 
 **Better minimal spike: one angle, one platform, dates only.** Connect **Instagram alone**, and restrict Seasonal to Instagram for the validation run. That proves the entire chain — GROQ fetch, per-angle composition, `metadata` round-trip, ACTIVITY_KV correlation, `contextRecord` upsert — with the smallest possible blast radius. Widen after.
 
+### Secret handling — do not export the key to a shell
+
+`ZERNIO_API_KEY` is already bound from **CF Secrets Store** (`Zernio_ApiKey`), per the Packet Publishing Layer security model. GSM is the origin store; that same model states secrets are **never fetched from GSM at runtime**.
+
+So the `/accounts` lookup should not go through a local `curl` with an exported env var — that pulls a production secret onto a workstation, into shell history and process args, for no reason.
+
+**Preferred:** add a temporary diagnostic route to `vj-bot`, which already holds the binding, and read the account IDs from its response. The key never leaves the Worker runtime.
+
+```ts
+// workers/vj-bot/src/  — TEMPORARY, remove after Spike 0b
+app.get('/internal/zernio/accounts', async (c) => {
+  const r = await fetch('https://zernio.com/api/v1/accounts', {
+    headers: { Authorization: `Bearer ${c.env.ZERNIO_API_KEY}` },
+  })
+  return c.json(await r.json())
+})
+```
+
+Gate it behind the existing internal-auth guard, deploy, call once, record the IDs, remove the route.
+
+**If a local call is unavoidable**, read from the store at invocation without persisting — never `export`:
+
+```
+curl https://zernio.com/api/v1/accounts \
+  -H @<(printf 'Authorization: Bearer %s' "$(gcloud secrets versions access latest --secret=Zernio_ApiKey)")
+```
+
+### What goes where
+
+| Value | Home | Secret? |
+|---|---|---|
+| `Zernio_ApiKey` | **CF Secrets Store** (already bound as `ZERNIO_API_KEY`) | Yes — never in `wrangler.toml`, never in the repo |
+| `ZERNIO_WEBHOOK_SECRET` | CF Secrets Store | Yes |
+| `ZERNIO_ACCOUNT_*` | `wrangler.toml` `[vars]` | No — account identifiers, not credentials |
+| `ANGLE_ENABLED`, `ANGLE_PLATFORM_OVERRIDE` | `wrangler.toml` `[vars]` | No |
+
 ### Steps
 
 ```
 1. zernio.com → Settings → Connected Accounts → connect Instagram
-2. curl https://zernio.com/api/v1/accounts -H "Authorization: Bearer $ZERNIO_API_KEY"
-3. In workers/vj-bot/wrangler.toml:
+2. Retrieve account IDs via the diagnostic route above (not a local curl)
+3. In workers/vj-bot/wrangler.toml [vars] — non-secret config only:
      ZERNIO_ACCOUNT_INSTAGRAM = "{id}"
      ANGLE_ENABLED            = "seasonal"      # new allowlist
      ANGLE_PLATFORM_OVERRIDE  = "instagram"     # new, spike-only
 4. Guard in zernio-distribution.ts: skip any angle not in ANGLE_ENABLED
 5. npx wrangler deploy   (from workers/vj-bot/)
-6. POST https://api.humancode.codes/api/distribution/packet-version
+6. Remove the temporary diagnostic route
+7. POST https://api.humancode.codes/api/distribution/packet-version
      { "packetId": "{test-slug}", "packetProvenanceToken": "{token}" }
 ```
 
