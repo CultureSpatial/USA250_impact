@@ -181,3 +181,38 @@ The Axis 4 replacement text staged earlier still stands as *vocabulary*, but the
 > Two additions to `@vinejocket/grammar-actor`, both governance-bearing:
 > 1. **`WITHDRAW` event and post-`verified` state.** `RESET` clears a session; it does not retract an emitted ATProto record. Until this exists, participant ownership of the record is claimed but not supported. Scope honestly: ATProto records propagate, so document what retraction can and cannot recall, and disclose that limit to participants **before** co-sign, not after.
 > 2. **Actor guard.** Human-only: `CO_SIGN`, `CARRY_FORWARD`, `WITHDRAW`. Agent-permitted: `TRIGGER`, `HOLD`, `INTENT_IDENTIFIED`, `SENTIMENT_SHIFT`. Operator: `RESET`. Enforce in the machine.
+
+---
+
+## ADDED 23 SEPT 2026 — Zernio widening + Sanity Workflows build plan
+
+Connectors down again for this batch. Staged:
+
+### Linear — ENG-475 revision
+
+**Re-scope** to reference `docs/SANITY_WORKFLOWS_TERMS_PLAN.md` directly rather than describing the runtime gate in isolation. The plan now specifies: `TransmissionTerms` type on `BasePacket` (required, alongside `provenance`) → `resolve()` in `substrate/packages/shared` → wire into `vj-bot` dispatch, then the `ams-host` direct `VENUES` bind, then GrammarActor's guard. Build order and refusal-type contract are in the plan §5.
+
+### Linear — NEW issue: Zernio Seasonal full-platform widening (Rung 1)
+
+**Team:** Engineering · **Priority:** Medium
+**Title:** `Zernio Rung 1 — widen Seasonal from Instagram-only to full ANGLE_PLATFORMS fan-out`
+**Description:**
+> Spike 0b/2 built out for Seasonal/Instagram only (see `docs/ZERNIO_DISPATCH_STATUS.md`). Rung 1 widens Seasonal to its full platform set (Instagram, TikTok, LinkedIn, X, Pinterest) — zero governance risk since Seasonal has no sensitive fields, and it validates fan-out mechanics before any terms-gated angle.
+> **Precondition: create `ZERNIO_DELIVERY_QUEUE` (Gap 3) first.** Five platforms without a retry buffer against a free-tier engine with documented sleep cycles multiplies the silent-loss surface by five.
+> Remove `ANGLE_PLATFORM_OVERRIDE`; let `ANGLE_PLATFORMS` resolve normally. Connect remaining 4 accounts via the `vj-bot` diagnostic-route pattern (never export `ZERNIO_API_KEY` locally).
+
+### Linear — NEW issue: Venue-authority resolver (unblocks Rung 2 / Place angle)
+
+**Team:** Engineering · **Priority:** High · **Related:** ENG-475, ENG-389
+**Title:** `Venue-authority sub-check — at:// co-sign resolver, standalone from full terms model`
+**Description:**
+> Smallest standalone piece of `resolve()` (see `SANITY_WORKFLOWS_TERMS_PLAN.md` §2, build order item 3). Checks the co-signed `at://` venue record before any Place-angle dispatch; refuses if only `fsqPlaceId`/`plusCode`/VPS pose data is present, since those locate but do not authorize. Ships independently of the full terms model — smallest unit of the substrate resolution work, highest ratio of governance value to build cost.
+
+### Jira — CEP-29 comment
+
+> Transmission Terms build plan finalized: `docs/SANITY_WORKFLOWS_TERMS_PLAN.md`. One model, two bindings — Sanity Workflow stage (beta, content tier) + `substrate/packages/shared resolve()` (GA, runtime tier) — so a beta feature is never the sole gate on practitioner material. Workflow stages proposed: `draft → pending-steward-grant → granted → published`, with `granted` corresponding to GrammarActor's `verified` state. Function timeout should be set to 30s in Blueprint config (not the 10s default) since venue-authority resolution makes an external call.
+
+### Confluence — no change to pages already staged; add cross-reference
+
+When the Cross-Team Operating Plan page is created, add `docs/ZERNIO_DISPATCH_STATUS.md`'s widening ladder as the concrete example under the Phase 2 (Activation) section — it's the clearest illustration of the phase-gate model in the whole doc set.
+
