@@ -4,7 +4,42 @@
 **Date:** 23 September 2026
 **Call:** BOT-1 is reflective and illustrative, and has not evolved to be adaptive to current state. This is the juxtaposition that forces the action.
 
-> **Caveat:** Linear is still unreachable, so BOT-1's body has not been read. This works from its title — *Execution Substrate: VMFE greenfield scaffold (Bot/Runner/Voice + Router)* — its architectural parent ENG-22 (*Bot+Runner+Voice — Three-Layer Execution Substrate*), OPS-158 (*BOT/RUNNER/VOICE panels*), and what this thread has established. Correct against the real text when the connector returns.
+> **Updated 23 Sept 2026 — BOT-1 read in full.** The thesis below holds. Three things sharpen it, and **one recommendation was wrong and is corrected in §7**. BOT-1 already carries two self-audits (2026-08-19, `venues` and `vj-runner`) that independently found the scaffold stale — in *both* directions. See §0.
+
+---
+
+## 0. What BOT-1 actually says — and what its own audits found
+
+The scaffold is what the title promises: `vinejocket-router` as substrate entry, with Service Bindings to `vj-bot` (PII boundary, tokens, ATProto PDS), `vj-runner` (SPA surface, PlacePackets, Sanity), `vj-voice` (V&V prompts, Story Gems, Felt), and `venues`. Shared package carries `domain.ts`, `tokens.ts`, `packets.ts`, `b-r-v.ts`, `vv-themes.ts`, `ensemble.ts`, `slots.ts`.
+
+**BOT-1 has already audited itself twice, and both audits found drift — in opposite directions:**
+
+| Worker | Scaffold said | Reality (2026-08-19, checked directly) |
+|---|---|---|
+| `venues` | Workers-for-Platforms **dispatch namespace** — dynamic multi-tenant plugout | **Never built.** Shipped as a standard Hono Worker, a peer Service Binding. The abstract WFP model was abandoned in practice. |
+| `vj-runner` | "stub — PlacePacket KV→Sanity, webhook, R2 stream, Phaser/Meta Horizon ingest" | **Massively understated.** 15+ live routes, 2 running crons, 3 R2 buckets, 2 Vectorize indexes, a Queue producer, Workers AI. Phaser/Meta Horizon ingest has *no trace in code* — abandoned, not built. |
+
+So the scaffold is not merely behind. It **over-specifies what was never built and under-specifies what shipped**, simultaneously. That is the strongest possible case that a component scaffold cannot track a living system: it describes parts, and parts drift silently in both directions.
+
+### The stale-status pattern is systemic
+
+BOT-1's own audit names it: *"Same stale-status shape found earlier with ENG-262/RES-84."* Two more instances are in the same text — **ENG-233 is marked Backlog while its exact spec (hourly KV-freshness check, daily CPM rollup) is already implemented and running**, and ENG-184's `venues` audit leg shipped ahead of the rest of that issue.
+
+This is the same failure this thread has hit repeatedly from the other side: Postiz living on in an API path, FIFA pre-activation framing surviving the tournament, RFQ24 dates outliving their solicitations, CIP depth specified but never implemented. **The tracker cannot be used to reason about what exists.** That is not a hygiene problem; it is an observability problem, and it is the reason a substrate has to resolve state at request time rather than trust a declared topology.
+
+### Two details that matter more than they look
+
+**`BasePacket` requires `provenance`. It has no terms or steward field.** `packets.ts` is described as "Multi-interface `BasePacket` (7-layer stack); **required** `provenance`; `EconomicDeclaration` with `amountKey`". The provenance-without-permission finding from `PACKET_ANGLE_ANALYSIS.md` §4 is not a pipeline oversight — **it is encoded in the shared type system.** Provenance is mandatory at the type level; permission is absent from it.
+
+**`venues` and `vj-runner` share one D1 database** (`vinejocket-db`, same `database_id`). Peer workers isolated by Service Bindings, with a shared-state backdoor underneath. The substrate boundary is porous by construction, which means a guard at any single binding does not hold.
+
+Also worth resolving: `ACTIVITY_KV` appears as a binding name in three places — the BOT-1 deploy checklist (runner), `venues` ("own KV `ACTIVITY_KV`"), and the packet publishing layer (vj-bot, id `9cc54ccab449415f81c0f6703b81386d`). Whether that is one namespace or three sharing a name is unclear and load-bearing for the campfire correlation contract.
+
+### `b-r-v.ts` is the multi-interface canonical definition
+
+`InterfaceType` (T/CC/CO/E/A), `MetabolicMode`, `INTERFACE_RATIOS` live in `shared`. The CEP tickets already use `[CO]` and `[CC]` and `[E]` as interface tags, so this vocabulary is in active editorial use.
+
+**Interface type and stance are orthogonal and both are needed.** `InterfaceType` answers *what kind of surface this is*; the stance lens (GUEST/OPERATOR/VENUE/PROTOCOL) answers *who may act here*. Neither substitutes for the other, and only the first currently exists in code.
 
 ---
 
@@ -113,7 +148,8 @@ This is the force behind the call.
 
 1. **Re-scope BOT-1** from "what parts exist" to "what the substrate resolves before dispatch" — stance, venue, grammar state, terms.
 2. **Specify refusal as a first-class outcome**, with a recorded reason, not an exception.
-3. **Move the actor guard into the Router** so paths that bypass GrammarActor (notably the packet publishing layer) cannot bypass the guard.
+3. **~~Move the actor guard into the Router~~ — corrected.** Putting the guard in the Router is **insufficient**, and BOT-1 says why: `apps/ams-host` binds `VENUES` **directly**, not via `vinejocket-router`, across three real proxy call sites — with a local-JSON-store fallback when the binding is absent. A live, shipped consumption path already bypasses the Router, and its fallback *degrades to local state rather than refusing*, which is a second hole in the same path.
+   **Correct placement: resolution belongs in `substrate/packages/shared`**, called by every entry point, not chokepointed at one. That fits the existing architecture rather than fighting it — `shared` already owns `domain`, `tokens`, `packets`, `b-r-v` and `slots`, and every worker depends on it. Concretely: **add a required `terms` field to `BasePacket` alongside the already-required `provenance`**, and a `resolve()` function in `shared` that returns stance, venue authority, grammar state and grant — or a typed refusal. Type-level enforcement reaches paths a Router never sees.
 4. **Declare the `at://` venue record the sole venue authority.** FSQ, Plus Code, Mapillary and VPS locate; they do not authorize. Write this down before another surface treats `fsqPlaceId` as sufficient.
 5. **Bind ENG-389 to BOT-1** as the authority model rather than a UI workstream, and reprioritize accordingly — it is blocking more than its current framing suggests.
 6. **Gate the packet layer on substrate resolution** before Spike 2 dispatches live. A terms check at the vj-bot boundary is the minimum; Router resolution is the correct version.

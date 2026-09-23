@@ -1,9 +1,25 @@
-# Tracker Updates — Pending Apply
+# Tracker Updates — Apply Log
 
-**Date:** 17 September 2026
-**Blocker:** Atlassian (Jira + Confluence), Linear, Attio and Sanity MCP servers all failed to connect this session (400 / `CLIENT_HTTP_NOT_IMPLEMENTED`). Connection failure, not a permissions problem — retry or reconnect and these apply as written.
+**Date:** 17 September 2026 · **Applied:** 23 September 2026 (connectors restored)
 
-Everything below is decided and ready to post. Local docs are already updated and pushed.
+## APPLIED ✅
+
+| Target | What | Result |
+|---|---|---|
+| **CEP-75** (Jira) | Closed as decided — Brightbean, Postiz moot; Postiz-in-API-path cleanup noted | Comment 13929 |
+| **CEP-29** (Jira) | Axis 4 redressed **and** dependency inverted to ENG-111 | Comment 13930 |
+| **ENG-111** (Linear) | Upstream of Axis 4; `WITHDRAW` missing; actor guard; placement correction; ams-host bridge = AMS gap | Posted |
+| **FRM-6** (Linear) | `data-state` carries three orthogonal dimensions; `proto-resolving` reclassified grammar-tier; retitle; critical path | Posted |
+| **BOT-1** (Linear) | The call — scaffold → adaptive substrate; venue authority; corrected placement | Posted |
+| **ENG-475** (Linear, new) | GrammarActor `WITHDRAW` + actor guard, resolved in `substrate/packages/shared` | Created, Urgent |
+
+## STILL TO APPLY
+
+Confluence pages (operating plan, canopy, Axis 4 redress, funding §XI), the Canada/GMI/ATE issues from the September batch, the Linear foundational-doc edits (Card Schema `steward` + `withdrawal`; Outlet Strategy Brightbean + per-occasion `grantedFor`; Opportunity Radar public-humanities lanes), CEP-72 retitle, and the FRM-6 retitle.
+
+---
+
+The original staged text follows, retained for the entries not yet applied.
 
 ---
 
