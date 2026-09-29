@@ -1,6 +1,6 @@
 # Tracker Updates — Apply Log
 
-**Date:** 17 September 2026 · **Applied:** 23 September 2026 (connectors restored)
+**Date:** 17 September 2026 · **Fully applied:** 29 September 2026 (connectors restored, full batch fired)
 
 ## APPLIED ✅
 
@@ -13,9 +13,33 @@
 | **BOT-1** (Linear) | The call — scaffold → adaptive substrate; venue authority; corrected placement | Posted |
 | **ENG-475** (Linear, new) | GrammarActor `WITHDRAW` + actor guard, resolved in `substrate/packages/shared` | Created, Urgent |
 
-## STILL TO APPLY
+## APPLIED — 29 SEPT 2026 BATCH ✅
 
-Confluence pages (operating plan, canopy, Axis 4 redress, funding §XI), the Canada/GMI/ATE issues from the September batch, the Linear foundational-doc edits (Card Schema `steward` + `withdrawal`; Outlet Strategy Brightbean + per-occasion `grantedFor`; Opportunity Radar public-humanities lanes), CEP-72 retitle, and the FRM-6 retitle.
+| Target | What | Result |
+|---|---|---|
+| Confluence (new) | Cross-Team Operating Plan — Phase 0 → 2 | Page 180387841 |
+| Confluence (new) | American Lore Canopy — Directional Cluster Switch | Page 180420609 |
+| CEP-72 (Jira) | Retitled Postiz → Brightbean; comment explaining retitle + staleness | Comment 13967 |
+| CEP-29 (Jira) | Transmission Terms build plan finalized comment | Comment 13968 |
+| CEP-87 (Jira, new) | Transmission Terms — Axis 4 implementation as shared primitive | Created, parent CEP-28 |
+| CEP-88 (Jira, new) | Archive rights clearance practice for LOC/AFC-sourced cards | Created, parent CEP-29 |
+| CUL-80 (Linear) | Axis 4 redressed comment | Posted |
+| OPS-156 (Linear) | Seam is Brightbean comment | Posted |
+| PART-137 (Linear) | Third sighting of primitive comment | Posted |
+| PART-25 (Linear) | June rebase precedent comment | Posted |
+| PART-141 (Linear, new) | Public humanities funding pathway | Created, High |
+| CUL-97 (Linear, new) | Transmission Terms — Phase 2 veto test | Created, Urgent |
+| ENG-481 (Linear, new) | Zernio Rung 1 widening | Created |
+| ENG-482 (Linear, new) | Venue-authority sub-check | Created, High |
+| FRM-6 (Linear) | Retitled — dropped "Nordcraft" | Done |
+| ENG-475 (Linear) | Patched — build plan finalized note prepended | Done |
+| Card Schema v1 (Linear doc) | steward required, withdrawal, archive≠grant note | Patched (3 ops) |
+| Outlet Strategy (Linear doc) | grantedFor terms gate + Brightbean correction | Patched |
+| Opportunity Radar (Linear doc) | America250 verification callout | Patched |
+
+## NOTHING REMAINING FROM THIS LOG
+
+Every staged item across all batches has been applied. Confirm no new items before archiving this file.
 
 ---
 
