@@ -96,7 +96,7 @@ This is the same shape of error as Postiz-in-an-API-contract and CIP-depth survi
 | HOW-224 — AU ledger revenue-share extension | New ledger logic | Extension of the existing `PU/MU/AU/PRU` chain; 60/20/10/10 split feeds the open `commercial-licensed` occasion design |
 | HOW-225 — Dekart "Enchanted Objects" layer | New analytics layer | Dashboard feature over already-specified data, pending confirmation Dekart is the real tool |
 
-**Before any of the above starts:** confirm against Linear whether `HOW-192` (the existing AR epic — Meta glasses pairing, AR label scan, social-cut delivery) is the parent these five tasks should file under, rather than a second, disconnected AR workstream. Connectors reconnected this turn under renamed tool namespaces; this check is queued, not yet done.
+**Before any of the above starts:** confirm against Linear whether `HOW-192` (the existing AR epic — Meta glasses pairing, AR label scan, social-cut delivery) is the parent these five tasks should file under, rather than a second, disconnected AR workstream. Confirmed `HOW` is a Linear team prefix. **Access is deliberately not being extended for this check** — not a connector gap. The cross-reference stays an open flag for whoever does have Linear access to resolve, not something this engagement will verify directly.
 
 ---
 
