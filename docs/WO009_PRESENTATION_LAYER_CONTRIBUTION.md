@@ -1,8 +1,8 @@
 # WO-009 — Presentation Layer Contribution, AC-13 Fallback, AC-1 Elaboration, EDU/DACUM Forward-Link
 
 **Date:** 26 October 2026
-**Status:** Staged as a follow-up to Confluence comment 192380929 on WO-009 (147390466). Atlassian/Linear connectors disconnected mid-turn — posting deferred, content complete and ready.
-**Caveat:** AC-1's elaboration below reads from WO-009's own Confluence description of AC-1, not from FRM-23 (its canonical Linear tracker) directly — Linear is down this turn. Flag anything here that conflicts with FRM-23's actual text once it's reachable.
+**Status:** Still staged, not posted. Connectors reconnected briefly (confirmed by filing FRM-48/COR-43 in Linear and reading WO-009 + comment 192380929 directly from Confluence) but dropped again before the planned child-page creation under WO-009 completed — no partial write occurred. Content below is complete and current (includes the ATE/PART-98 correction); only the posting step remains.
+**Caveat:** AC-1's elaboration below reads from WO-009's own Confluence description of AC-1, not from FRM-23 (its canonical Linear tracker) directly. Flag anything here that conflicts with FRM-23's actual text if it's ever checked directly.
 
 ---
 
@@ -61,14 +61,16 @@ This engagement already has the doctrine this upcoming AC would plug into: `SCID
 | Mode | What `glass-swirl.riv` renders | Lookup table content | Governs |
 |---|---|---|---|
 | **Product** (current) | Shoppable commerce surface — Wine Flies Free, FIFA social surfaces | Liquid color/viscosity/pour-speed per `contentCategory` | AC-1 as specified |
-| **Induction** (upcoming) | DACUM task-analysis walkthrough — e.g. pour technique, tasting-note vocabulary, as a viticulture/mixology competency | Pedagogical cues per competency stage, same `contentCategory` axis repurposed | The AC this turn flags as upcoming |
+| **Induction** (upcoming) | DACUM task-analysis walkthrough against one of PART-98's actual D1–D5 duties (D1 Terroir Narrative Design, D2 Digital Spatial Navigation, D3 Culinary & Wine Stewardship, D4 Compliance & Guest Protection, D5 Pop-Up Event Hosting) — which one is not yet decided, see below | Pedagogical cues per competency stage, same `contentCategory` axis repurposed | FRM-48 / COR-43, filed 26 Oct 2026 |
 
-One primitive, one contract, two lookup tables selected by mode — not two builds. When the EDU/DACUM AC gets written, recommend scoping it as "a second lookup table on AC-1's existing `VesselData` contract, feeding SCID's Scaffolded Execution layer," rather than a new Rive primitive from scratch. Credential issuance on completion should route through SCID's ATProto VC path, consistent with the Swirly Eats recommendation, not a parallel induction-tracking system.
+One primitive, one contract, two lookup tables selected by mode — not two builds. The EDU/DACUM AC has since been filed, not just forward-flagged: **FRM-48** (Form) carries the design (second lookup table + mode flag on this same `VesselData` contract) and **COR-43** (Corridor) coordinates it as the NSF-facing deliverable. Credential issuance on completion should route through SCID's ATProto VC path, consistent with the Swirly Eats recommendation, not a parallel induction-tracking system.
 
-**This is forward-positioning, not a claim the AC exists yet.** Nothing here presumes the EDU/DACUM AC's actual scope — only that AC-1, as already specified, doesn't need to change to support it, which is worth knowing before that AC gets written rather than discovered after.
+**Correction, 26 Oct 2026, after this was first written:** the generic "competency stage" language above understated what's already real. PART-98 already carries the actual DACUM duty map (D1–D5) for the South Seattle College channel this induction mode targets — FRM-48's lookup table should key to one of those named duties, not an invented placeholder. And the audience isn't only PART-85 (NSF SBIR) as first assumed: `FUNDING_PATHWAYS_UPDATED.md` names NSF **ATE** as the better-fitting program for exactly this kind of curriculum/materials deliverable, with PART-139 (SSC/PNW Collaborative as lead applicant vs. us) the open question deciding who this artifact is actually produced for. Both calls — which duty, which program is primary — are flagged to PART-98's and PART-139's owners in COR-43, not decided here. Full detail: `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
+
+**This is forward-positioning, not a claim the AC's scope is settled.** AC-1 itself, as specified, doesn't need to change to support the induction mode — that part holds. Which duty and which NSF program are still open, by design, pending PART-98/PART-139's owners.
 
 ---
 
 ## Posting plan
 
-Once Atlassian reconnects: post this as a reply to footer comment 192380929 on WO-009 (147390466), or as a new footer comment if a reply isn't the right shape — whichever keeps the AC-13 fallback clause and the AC-1 elaboration attributable to the same thread as the original RML/CLI note.
+Post as a **child Confluence page under WO-009** (147390466) — the full content exceeds the 4096-character limit on a single Confluence comment — then reply to footer comment 192380929 with a short pointer to that page. This two-step plan was confirmed against Confluence's `createConfluenceComment` tool contract before the connector dropped; no page or comment has been created yet.
