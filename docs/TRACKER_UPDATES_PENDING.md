@@ -274,7 +274,7 @@ Connectors down again for this batch. Staged, ready to file on reconnect.
 > 1. The FRM design issue above — pedagogical lookup table + mode flag
 > 2. RML export of the resulting state machine + lookup table as committed, reviewable text (Candidate WO AC-3)
 > 3. Evidence Capture binding to SCID's assessment path (Candidate WO AC-4) — **inherits ENG-475's existing block** (package frozen, InterfaceType collision, per RES-131); sequence so the demonstrable artifact (items 1–2) does not wait on this
-> 4. The one unresolved due-diligence item: confirming Rive's licensing terms actually permit this artifact's use/distribution in a federal-grant demonstrable context (Candidate WO AC-5) — not yet checked anywhere in this engagement
+> 4. ~~The licensing due-diligence item~~ — **closed, 26 Oct 2026**: Rive's licensing restrictions attach to publishing/distribution, not build state; a Phase I demonstrable artifact is build-state use and carries no restriction (Candidate WO AC-5 resolved)
 > 5. **The actual CEP-routed content deliverable**: the NSF-facing narrative write-up itself, holding the non-negotiable framing line already established for Genblaze/GMI Cloud — Rive is substrate, never the innovation claim
 >
 > **Non-negotiable framing, restated for whoever picks this up:** do not let the NSF narrative cite GPU Canvas as a current capability (editor-ready, runtime-incomplete per the vendor's own documentation) — Phase II roadmap language only, if at all.
@@ -286,6 +286,8 @@ Connectors down again for this batch. Staged, ready to file on reconnect.
 ---
 
 ## ADDED 26 OCT 2026 (same-day follow-up) — attach docs to the FRM/COR issues on creation
+
+**FRM and COR confirmed as the correct teams** (user confirmation, 26 Oct 2026) — proceed on reconnect without re-checking team names against Linear's team list.
 
 Linear still down. The FRM and COR issues above have **not been filed yet** (staged only) — issue creation and attachment now fire together as one sequence the moment the connector returns, in this order:
 
