@@ -1,3 +1,9 @@
+> **SUPERSEDED BY MEASUREMENT — 26 Oct 2026.** This document's central claim — that `GrammarActor` ships as a five-state machine (`idle → induction → hold → carry → verified`) — is wrong. Confluence "The Propeller — Hub, Blades, and the Removability Test" (183926794, 2026-10-07) opened `GrammarActor.ts:32-46` directly: **the shipped machine has two states, `idle` and `acting`**, with `HOLD`/`RESET`/`RELEASE` defined as events and **no handlers — silently discarded**. The richer five-state vocabulary this document described lives in the *consumer*, `theatre-worker`'s `stateMap`, not in the machine itself.
+>
+> RES-131 (Linear, "Inquiry: co-sign as a kit") is now the precedent document for the actor-guard/co-sign doctrine this file attempted to derive — it builds on ENG-475's guard as settled, independently re-derives the same witness-may/consent-may-not line at three granularities (contract, document, utterance), and specifies a two-tier provenance model (Tier 1 micro block tags, Tier 2 macro DID signer) considerably more precise than this document's `steward`/`grantedFor` sketch. Read RES-131 first; treat this file as a superseded first pass, kept for its reasoning trail rather than its runtime claims.
+>
+> Also note: `ENG-475` itself is currently **blocked** (package frozen, InterfaceType collision) per its live Linear status — the actor-guard principle is accepted doctrine; its implementation has not shipped.
+
 # GrammarActor × Axis Model — Reconciliation
 
 **Version:** 1.0
