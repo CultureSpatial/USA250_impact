@@ -244,7 +244,7 @@ When the Cross-Team Operating Plan page is created, add `docs/ZERNIO_DISPATCH_ST
 
 ## ADDED 26 OCT 2026 — FRM design issue + NSF play as COR-owned
 
-Connectors down again for this batch. Staged, ready to file on reconnect.
+**APPLIED ✅ 26 Oct 2026** — Linear reconnected. Filed as **FRM-48** and **COR-43** (linked to each other). Attachments added via `links` on both: FRM-48 → WO009_PRESENTATION_LAYER_CONTRIBUTION.md + RIVE_CAPABILITY_UPDATE.md; COR-43 → NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md (primary) + WO009_PRESENTATION_LAYER_CONTRIBUTION.md + GRAMMAR_ACTOR_RECONCILIATION.md (background). Text below retained as the original staged record.
 
 ### NEW Linear issue — Form (FRM)
 
@@ -287,9 +287,7 @@ Connectors down again for this batch. Staged, ready to file on reconnect.
 
 ## ADDED 26 OCT 2026 (same-day follow-up) — attach docs to the FRM/COR issues on creation
 
-**FRM and COR confirmed as the correct teams** (user confirmation, 26 Oct 2026) — proceed on reconnect without re-checking team names against Linear's team list.
-
-Linear still down. The FRM and COR issues above have **not been filed yet** (staged only) — issue creation and attachment now fire together as one sequence the moment the connector returns, in this order:
+**APPLIED ✅ 26 Oct 2026.** FRM and COR confirmed via `list_teams` (Form = FRM, Corridor = COR) and both issues + attachments filed per the plan below. Text retained as the original staged record.
 
 1. `save_issue` → create FRM issue (title/description as staged above)
 2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known
