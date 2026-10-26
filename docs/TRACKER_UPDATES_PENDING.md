@@ -283,3 +283,21 @@ Connectors down again for this batch. Staged, ready to file on reconnect.
 >
 > Full analysis: `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
 
+---
+
+## ADDED 26 OCT 2026 (same-day follow-up) — attach docs to the FRM/COR issues on creation
+
+Linear still down. The FRM and COR issues above have **not been filed yet** (staged only) — issue creation and attachment now fire together as one sequence the moment the connector returns, in this order:
+
+1. `save_issue` → create FRM issue (title/description as staged above)
+2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known
+3. `create_attachment` on the FRM issue:
+   - **Primary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` — the AC-1 elaboration this design issue implements
+   - **Secondary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/RIVE_CAPABILITY_UPDATE.md` — the capability basis (GPU Canvas, RML/CLI) the design draws on
+4. `create_attachment` on the COR issue:
+   - **Primary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — the full viability case + Candidate WO + the open licensing item COR owns chasing down
+   - **Secondary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` — same design doc as FRM's primary, attached here too since COR coordinates that work without owning its build
+   - **Optional, background only:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/GRAMMAR_ACTOR_RECONCILIATION.md` — relevant to AC-4's actor-guard/Evidence Capture lineage (ENG-475, RES-131) if COR's assignee wants the fuller trail; not required reading to act on this issue
+
+All four URLs verified against the current remote branch tip (`98e5ace`) before staging — confirmed present, confirmed pushed, not guessed.
+
