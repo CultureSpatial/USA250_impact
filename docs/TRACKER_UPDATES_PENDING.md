@@ -289,6 +289,20 @@ When the Cross-Team Operating Plan page is created, add `docs/ZERNIO_DISPATCH_ST
 
 **APPLIED ✅ 26 Oct 2026.** FRM and COR confirmed via `list_teams` (Form = FRM, Corridor = COR) and both issues + attachments filed per the plan below. Text retained as the original staged record.
 
+---
+
+## ADDED 26 OCT 2026 (second same-day correction) — ATE program-fit gap, caught post-filing
+
+COR-43 and `NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` were filed framed around **PART-85 (SBIR) alone**. `FUNDING_PATHWAYS_UPDATED.md` already established that **NSF ATE** is the better-fitting program for DACUM/SCID vocational-technician work specifically — community-college-led, curriculum/materials development — with SBIR as a separate parallel track, not a substitute. **PART-139** (ATE institutional routing, SSC/PNW Collaborative lead-applicant question, open) and **PART-98** (the real DACUM duty map, D1–D5, already in flight for the same SSC channel) should have been cited and weren't.
+
+**Applied ✅ 26 Oct 2026:**
+- `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — new correction section added before "The future/possible AC"; TRIGGER/OBJECTIVE/AC-1 rows and Recommendation updated to name PART-98's D1–D5 duties and PART-139's open lead-applicant question instead of generic "DACUM-mapped competency"
+- **COR-43** — `relatedTo` extended with PART-139, PART-98; correction comment posted
+- **PART-98** — back-link comment posted, asking its owner which duty (D1–D5) is the right Phase I target
+- **PART-139** — back-link comment posted, noting its lead-applicant answer decides who the artifact is produced for
+
+**Still open, not this engagement's call to make unilaterally:** which NSF program (ATE vs. SBIR) is primary, and which DACUM duty AC-1 targets. Flagged to both issues' owners, not decided here.
+
 1. `save_issue` → create FRM issue (title/description as staged above)
 2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known
 3. `create_attachment` on the FRM issue:

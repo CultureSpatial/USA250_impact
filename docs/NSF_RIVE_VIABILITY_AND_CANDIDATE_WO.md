@@ -39,6 +39,20 @@ Get this framing wrong and the application reads as "we bought software," which 
 
 ---
 
+## Correction, 26 Oct 2026 — this was framed around the wrong NSF program alone
+
+Everything above and below was written against **PART-85 (NSF SBIR Phase I)** as the sole trigger. That's an incomplete frame, and the gap matters because of what this artifact actually is, not just where it gets cited.
+
+`FUNDING_PATHWAYS_UPDATED.md` (v2.1, Aug 2026) already corrected this exact category of program-fit error once, for the whole Guild Academy/SCID line, not just this artifact: it explicitly names **NSF ATE (Advanced Technological Education)** as the *better-fitting* program for DACUM/SCID vocational-technician work — "Skilled technical workforce (exactly Guild Academy)," "Community colleges + industry partnerships," "Curriculum/materials development — SCID competency schemas, mobile-first training materials" — and frames SBIR as the separate, parallel company-commercialization angle (validation study, Blaze/GMI Cloud alliance), not a substitute. Both are live Tier 2 pathways in that doc, pursued differently, not one superseding the other.
+
+Two issues already exist that this candidate WO should have cited and didn't:
+- **PART-139** — "NSF ATE institutional routing — who holds the accounting?" South Seattle College's PNW Wine Education Collaborative as lead applicant vs. us as lead, open and unresolved (Phase 0 per `CROSS_TEAM_OPERATING_PLAN.md`). This determines who this artifact's induction-mode demo is actually produced *for* — a subawardee's proof artifact for the lead institution's ATE application reads differently than a company's own SBIR validation artifact.
+- **PART-98** — "DACUM Competency Mapping — Culinary & Wine Steward Micro-Credential." This is the **real DACUM duty map already in flight** for exactly the South Seattle College channel this Candidate WO cites: D1 Terroir Narrative Design, D2 Digital Spatial Navigation, D3 Culinary & Wine Stewardship, D4 Compliance & Guest Protection, D5 Pop-Up Event Hosting. "DACUM-mapped competency" in this doc's OBJECTIVE row was written generically, as if the competency still needed choosing. It doesn't — PART-98's D1–D5 is the concrete candidate, and AC-1's pedagogical lookup table should key to these five duties (or a named subset) rather than an unspecified placeholder.
+
+**Corrected positioning:** the artifact serves both tracks without forking — it's one `.riv`/`VesselData` primitive in induction mode either way. But it should be named, from the start, as potentially **the ATE-track's own curriculum/materials deliverable** (PART-139's institution being the one that benefits most directly, since ATE explicitly funds "curriculum/materials development"), with the SBIR framing (PART-85, Rive-as-substrate, this doc's own non-negotiable line above) as the secondary, commercialization-facing use of the same build. Whoever picks up COR-43 should resolve with PART-139's owner which program this artifact is actually being produced to serve before assuming PART-85 is the only audience — the answer changes who the "one working proof artifact" needs to look legible to.
+
+---
+
 ## The future/possible AC — as a Candidate WO, not a WO-009 line item
 
 **This should not be an AC on WO-009.** WO-009's own TRIGGER row is explicit — FIFA-window-dated, Wine Flies Free social-surface scope. Folding an NSF deliverable into it would be the same scope-blur this engagement has flagged repeatedly elsewhere. The bridge is AC-1's *primitive* (reusable), not AC-1's *work order* (scoped to something else).
@@ -53,15 +67,15 @@ Following the convention already in use today (`FRM-47 — Candidate WO — Geo-
 |---|---|
 | WORK_ORDER_ID | *(unassigned — candidate)* |
 | STATUS | Candidate |
-| TRIGGER | NSF SBIR Phase I (PART-85) needs "one working proof artifact" — the named Phase 1 readiness exit criterion in `CROSS_TEAM_OPERATING_PLAN.md`, currently unmet |
-| PREMISE | AC-1's `glass-swirl.riv` / `VesselData` primitive is reused in induction mode, not rebuilt. One `.riv`, one contract, a second lookup table (pedagogical cues keyed to DACUM competency stage, not commerce liquid parameters), selected by mode — per `WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §4 |
-| OBJECTIVE | A demonstrable, RML-auditable artifact rendering SCID's Guided → Assisted → Autonomous scaffolding against one DACUM-mapped competency (viticulture or mixology, matching the South Seattle College PNW Wine Education Collaborative channel already established in `FUNDING_PATHWAYS_UPDATED.md`) |
+| TRIGGER | Dual: (1) NSF SBIR Phase I (PART-85) needs "one working proof artifact" — the named Phase 1 readiness exit criterion in `CROSS_TEAM_OPERATING_PLAN.md`, currently unmet; (2) NSF ATE's "curriculum/materials development" priority (`FUNDING_PATHWAYS_UPDATED.md`), where PART-139's institutional-routing question (SSC/PNW Collaborative as lead vs. us) decides who this artifact is actually produced for. Which trigger is primary is **open — see correction above**, not assumed to be (1) |
+| PREMISE | AC-1's `glass-swirl.riv` / `VesselData` primitive is reused in induction mode, not rebuilt. One `.riv`, one contract, a second lookup table (pedagogical cues keyed to a real DACUM duty, not commerce liquid parameters), selected by mode — per `WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §4 |
+| OBJECTIVE | A demonstrable, RML-auditable artifact rendering SCID's Guided → Assisted → Autonomous scaffolding against **PART-98's existing DACUM duty map** (D1 Terroir Narrative Design, D2 Digital Spatial Navigation, D3 Culinary & Wine Stewardship, D4 Compliance & Guest Protection, or D5 Pop-Up Event Hosting — a named subset, not all five in Phase I), matching the South Seattle College PNW Wine Education Collaborative channel already established in `FUNDING_PATHWAYS_UPDATED.md` |
 
 **Candidate acceptance criteria (draft, not filed):**
 
 | AC | Description | Depends on |
 |---|---|---|
-| AC-1 | Second `contentCategory`-keyed lookup table on existing `VesselData` ViewModel: pedagogical cues (pour technique, tasting-note vocabulary prompts) per competency stage, not liquid-color parameters | WO-009 AC-1 (consumes, does not fork) |
+| AC-1 | Second `contentCategory`-keyed lookup table on existing `VesselData` ViewModel: pedagogical cues keyed to one or more of PART-98's D1–D5 duties (e.g. D3 Culinary & Wine Stewardship — pour technique, tasting-note vocabulary prompts), not liquid-color parameters. Which duty/duties to start with needs PART-98's owner's input, not a unilateral pick | WO-009 AC-1 (consumes, does not fork); PART-98 (duty-map source) |
 | AC-2 | Mode flag selecting commerce vs. induction lookup table on the same artboard | AC-1 above |
 | AC-3 | RML export of the state-machine + lookup table, committed as literal reviewable text | Rive CLI/RML (available now) |
 | AC-4 | Evidence Capture binding: competency-attempt interaction writes to SCID's assessment path (B2 → VC issuance), reusing `ENG-475`'s actor guard so only a human steward's attempt counts as consequence-bearing, never an agent's | `SCID_ARCHITECTURE.md` Evidence Capture layer; `ENG-475` (currently blocked — see below) |
@@ -80,3 +94,4 @@ Following the convention already in use today (`FRM-47 — Candidate WO — Geo-
 1. Treat this as a Candidate WO (same status FRM-47 already carries) rather than filing it as a new AC anywhere today.
 2. Licensing is practically closed (AC-5) — no blocker found to naming Rive specifically in NSF-facing material for this Phase I use case, since export (Rive's real gate) is already paid for via AC-7. One direct read of Rive's actual ToS/pricing pages by a human is still worth doing before anything is formally submitted, as the final confirmation — cheap, not urgent, not a build blocker.
 3. If PART-85 needs its "one working proof artifact" sooner than a full candidate-WO build cycle allows, AC-1–AC-3 alone (no Evidence Capture binding yet) is enough to demonstrate the scaffolding-rendering claim on its own.
+4. **New, per the correction above:** before AC-1 picks a duty to model, resolve with PART-98's owner which of D1–D5 is the right Phase I target, and with PART-139's owner whether ATE (SSC/Collaborative-led) or SBIR (PART-85) is the primary audience for this artifact — both can be served by one build, but the demo's framing (who it's legible to, what it claims) differs by which is primary.
