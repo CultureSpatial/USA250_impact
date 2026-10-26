@@ -240,3 +240,46 @@ Connectors down again for this batch. Staged:
 
 When the Cross-Team Operating Plan page is created, add `docs/ZERNIO_DISPATCH_STATUS.md`'s widening ladder as the concrete example under the Phase 2 (Activation) section — it's the clearest illustration of the phase-gate model in the whole doc set.
 
+---
+
+## ADDED 26 OCT 2026 — FRM design issue + NSF play as COR-owned
+
+Connectors down again for this batch. Staged, ready to file on reconnect.
+
+### NEW Linear issue — Form (FRM)
+
+**Title:** `Design: SCID Scaffolding Primitive — pedagogical lookup table + mode flag on glass-swirl/VesselData`
+**Team:** Form · **Priority:** Medium · **Related:** WO-009 (Confluence 147390466, AC-1), FRM-47, COR issue below
+**Description:**
+> Design-authoring half of the Candidate WO in `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`. Covers that draft's AC-1 and AC-2 only — the build/governance half (RML export, Evidence Capture binding, licensing) stays with the COR-owned coordination issue below, not this one.
+>
+> **Scope:**
+> 1. A second `contentCategory`-keyed lookup table on the existing `VesselData` ViewModel (WO-009 AC-1) — pedagogical cues (pour technique, tasting-note vocabulary prompts) keyed to DACUM competency stage, parallel in shape to the existing commerce liquid-color/viscosity table, not a fork of the ViewModel itself.
+> 2. A mode flag on the same artboard selecting which lookup table renders — commerce (current, Wine Flies Free) vs. induction (new).
+>
+> **Explicit non-goals:** no new `.riv` primitive, no change to glass geometry, no change to WO-009's own scope or timeline. This consumes AC-1's contract; it does not fork it.
+>
+> **Precedent worth naming in the design doc itself:** AC-1's existing lookup-table pattern is already a second real instance of RES-131's "kit" shape (one contract, one swappable axis, one fixed element) alongside FRM-30's glass-kit — this design extends that same discipline to a second axis value (induction), not a new pattern.
+>
+> Full context: `docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §3, `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
+
+### NEW Linear issue — Corridor (COR)
+
+**Title:** `NSF Play — SCID Scaffolding Tangible: cross-team coordination for PART-85's proof artifact`
+**Team:** Corridor · **Priority:** High · **Related:** PART-85, FRM issue above, ENG-475, WO-009
+**Description:**
+> **Ownership note:** this is deliberately routed to Corridor, not Partnerships or Engineering. The thing being coordinated — turning a working Rive artifact into a reviewer-legible NSF narrative — is content-shape and cross-team pull-together, which is COR's stated ownership (`CROSS_TEAM_OPERATING_PLAN.md`: "Register governance, content shape... Owns CEP deliverables"). PART-85 stays the Partnerships-owned funding transaction; this issue owns making its Phase 1 "one working proof artifact" readiness criterion real.
+>
+> **What this issue coordinates (does not itself build):**
+> 1. The FRM design issue above — pedagogical lookup table + mode flag
+> 2. RML export of the resulting state machine + lookup table as committed, reviewable text (Candidate WO AC-3)
+> 3. Evidence Capture binding to SCID's assessment path (Candidate WO AC-4) — **inherits ENG-475's existing block** (package frozen, InterfaceType collision, per RES-131); sequence so the demonstrable artifact (items 1–2) does not wait on this
+> 4. The one unresolved due-diligence item: confirming Rive's licensing terms actually permit this artifact's use/distribution in a federal-grant demonstrable context (Candidate WO AC-5) — not yet checked anywhere in this engagement
+> 5. **The actual CEP-routed content deliverable**: the NSF-facing narrative write-up itself, holding the non-negotiable framing line already established for Genblaze/GMI Cloud — Rive is substrate, never the innovation claim
+>
+> **Non-negotiable framing, restated for whoever picks this up:** do not let the NSF narrative cite GPU Canvas as a current capability (editor-ready, runtime-incomplete per the vendor's own documentation) — Phase II roadmap language only, if at all.
+>
+> **Minimum viable version:** if PART-85 needs the proof artifact sooner than a full build cycle, items 1–2 alone (no Evidence Capture binding yet) are sufficient to demonstrate the core scaffolding-rendering claim.
+>
+> Full analysis: `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
+
