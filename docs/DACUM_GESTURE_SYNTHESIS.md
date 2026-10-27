@@ -95,3 +95,40 @@ Dekart's "Five Ways to Explore Wine" loosely echoes DACUM's four frames but shou
 - COR-13, OPS-147, CUL-87 — none read directly from Linear this entire session; retry owed before anything here is treated as settled.
 - §2's mapping and §3's reframed question both wait on OPS-147's actual editorial approach stabilizing — not this engagement's call to force.
 - Axis 10's parallel to RES-131/actor-guard doctrine is a proposed cross-check, not yet run.
+
+---
+
+## 6. Addendum, same day — "Sweep record addendum: mobile gesture proof + glass-kit"
+
+User-supplied, extending (not replacing) an "approved ten-issue sweep" this document hasn't otherwise seen. Recorded verbatim-in-substance since it changes two things already written above:
+
+- **`glass-kit` is an existing resource to inspect and reuse, not a new package to invent.** FRM-14 and ENG-504 now require a pinned package/revision/API/consumer inventory and a reuse-vs-gap table *before* building parallel abstractions. Package configuration existing does not itself establish registry publication, motion/gyro support, choreography, or PWA deployment — those are separate, unproven claims even if config files reference them.
+- **The delivery pipeline now reads:** COR-13 (composition) → OPS-147 (writing) → CUL-87 (presentation), **separately** from FRM-14 → ENG-504, which proves selected mobile interactions, drawing on `glass-kit` only where verified. This confirms §0/§1's correction independently — OPS-147 was never the interaction-proving stage; FRM-14/ENG-504 is, and it's a parallel track, not downstream of OPS-147/CUL-87.
+- **Rendering baseline:** begin with Rive; Phaser-only and Rive+Phaser-combined variants remain bounded tests, not commitments.
+- **New governing rule, extending CUL-87's consent gate:** *"Motion recognition is not cultural authority; no automatic save, mint or publicity."* A successful gesture/motion-recognition event is, itself, just another thing that "does not grant permission" — same family as "a view, tasting, purchase... does not grant permission" from §0, now named explicitly for the interaction layer specifically.
+- The v2 diagram (§0) **predates this addendum** and should be read together with it until the next diagram revision.
+
+**Consequence for axis 9 (induction-surface interaction model):** narrowed further. The interaction-proving work lives in FRM-14/ENG-504, against `glass-kit`, inventoried before anything new is built — not in OPS-147, and not assumed from the rendered gesture-library draft.
+
+---
+
+## 7. Where Sanity Portable Text fits — RML, the CLI, and existing data-binding methods
+
+**Asked:** how does Sanity Portable Text play a role across RML, the Rive CLI, and the data-binding methods already in this design.
+
+**Caveat up front, per this addendum's own discipline applied to itself:** Sanity's live schema hasn't been read this session (Sanity MCP down on every retry) — so whether `placePacket`/`loreEntry`/`storyGem` (the three Sanity document types already named in `SANITY_PLATFORM_REVIEW_2026.md` §2.4) already carry Portable Text fields, and what shape they're in, is **unverified**. Per the addendum's own rule for FRM-14/ENG-504 — inventory before building parallel abstractions — the same applies here: this is a design argument for where Portable Text *would* fit, not a claim that new Sanity infrastructure is needed. Check the existing schema first, once reachable.
+
+**What Portable Text actually is, relevant to this design:** a JSON array of typed blocks with inline marks — not HTML, not markdown — built specifically to be authored once and *serialized to many different render targets*. That shape is exactly what the COR-13→OPS-147→CUL-87 pipeline wants: OPS-147 authors content meant to be exercised across "meaningful alternatives, not a funnel," and CUL-87 then picks "one expression" to render. Portable Text is a natural fit for *that* stage — the authoring layer — not for the stages downstream of it.
+
+**Where each integration point actually sits, kept separate rather than conflated:**
+
+| Layer | What it is | Role |
+|---|---|---|
+| **Portable Text (Sanity)** | Structured, renderer-agnostic authored content — phrase-set lines, DACUM narrative/pedagogical cue text | **Content tier.** Where OPS-147's writing practice would live if it moves into Sanity — editable by writers, versioned, independent of any Rive file |
+| **RML** | Rive's own text format for state-machine/ViewModel/artboard *structure* — a behavior graph, not prose | **Structure tier.** Authored/reviewed by engineers or agents (`Agent (Rive MCP)`, per this engagement's existing practice on AC-1) |
+| **Rive CLI** | Builds/exports `.riv` from RML | **Build tier.** The natural place for a pipeline step that pulls resolved Portable Text content (via GROQ or the Sanity MCP server) and compiles it into whatever plain-string/structured fields a `VesselData`-style lookup table needs, before the CLI exports |
+| **Data-binding pattern (Pattern A property binding / Pattern B host-side `BehaviorStateMachine`)** | Runtime mechanism for getting data into a running Rive instance | **Runtime tier.** Portable Text doesn't choose between these — that's a Rive-runtime concern — but if Pattern B (host-side driver) is used, that same host-side JS is already outside the sandboxed canvas and is the natural place to also resolve/inject Portable-Text-sourced content, rather than baking copy into the `.riv` file itself |
+
+**The actual mechanism this implies:** a compile step between the content tier and the structure tier — Sanity holds the authored truth (Portable Text + plain fields for numeric params like `VesselData`'s liquid-color/viscosity), a build step resolves and serializes it, and that resolved form is what RML/the CLI/the chosen binding pattern actually consume. This lets writers iterate in Sanity Studio at their own cadence without touching `.riv` files or RML directly — the same separation of concerns the addendum's pipeline already draws between OPS-147 (writing) and FRM-14/ENG-504 (interaction proof), just extended one layer further into the authoring tooling itself.
+
+**Governance extends the same way, not a new mechanism:** this engagement already has "one terms model, two bindings" for Transmission Terms — Sanity Workflow (content-tier gate, beta) + `substrate/packages/shared resolve()` (runtime-tier gate, GA). The addendum's new rule ("motion recognition is not cultural authority; no automatic save, mint or publicity") is effectively a **third binding of the same terms model**, not a new governance mechanism — a successful gesture must still pass the same `resolve()`-shaped check before save/mint/publicity fire, exactly like dispatch does today. Reuse the existing `TransmissionTerms` type (`steward`, `grantedFor`, `withdrawal`) rather than invent a parallel consent model for the interaction layer — same "inspect and reuse" discipline the addendum states for `glass-kit`, applied to governance logic instead of code.
