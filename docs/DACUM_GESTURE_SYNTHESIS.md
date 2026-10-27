@@ -1,75 +1,97 @@
 # Synthesis — DACUM Stress Test × Gesture Block Library (OPS-147) × Wine Discovery (Dekart)
 
 **Date:** 27 October 2026
-**Status:** The deferred synthesis promised last turn. Built from three sources: `DACUM_Stress_Test_Marias_Culinary_Framework.pdf` (read prior turn), `Gesture_Block_Library_-_standalone_1.html` (OPS-147, rendered this turn — it's a self-unpacking bundle, not static HTML, so it was headlessly rendered rather than text-read), and `Experience-wine-like-data-Data-like-stories.pdf` (Spatial Studio / Dekart, extracted this turn via PyMuPDF since the sandbox's `poppler-utils` couldn't install — package mirror 404).
-**Not yet done:** COR-13 and CUL-75 ("earlier brainwriting") — Linear has been down across every retry this session. Flagged, not guessed at. Everything below stands independent of those two, but should be re-checked against them once reachable.
+**Status:** Corrected 27 Oct 2026, same day as first written — the original version over-indexed on OPS-147 and misnamed CUL-87 as CUL-75. See §0 before reading anything else in this document.
+**Not yet done:** COR-13, OPS-147, and CUL-87 have still not been read directly from Linear — down on every retry this session. Everything below that touches them is built from (a) the rendered gesture-library HTML artifact and (b) a conceptual diagram the user supplied, both of which **self-identify as non-authoritative** (see §0). Re-check against the live issues once reachable.
 
 ---
 
-## 1. The load-bearing finding: OPS-147 already answers "how does induction mode actually work"
+## 0. Correction — OPS-147 was over-indexed, and the real pipeline is COR-13 → OPS-147 → CUL-87
 
-WO-009 §4 and FRM-48 both specify induction mode as *content* — a second lookup table on `VesselData`, keyed to a DACUM duty. Neither specifies the *interaction* — how a user's thumb actually moves through that content. **OPS-147 is that answer, already built to v0.1, not hypothetical:**
+Two errors in the original version of this document, both caught by the user, not self-caught:
 
-- Explicitly labeled "INDUCTION SURFACES · GESTURE LIBRARY" — the same word this engagement has been using.
-- Explicitly tagged "WINE · FLIES · FREE" — the same campaign as WO-009.
-- 12 one-thumb gesture primitives (B-01–B-12: Tilt, Lift, Pour, Swirl, Witness-Hold, Catch, Route-Drag, Threshold, Stamp-Tap, Whisper, Shake, Edge-Peel), each with a `gesture` type, a reach `zone`, and a phrase `set`.
-- 6 recipes (2–3 blocks + a phrase = a minigame shape), 5 phrase sets.
-- Has its own delivery dependency already recorded: `OPS-33 (dec 31 · optional)`.
+**1. OPS-147 is not an interaction spec — it's a writing-practice stage, mid-refinement.** The original §1–§3 below treated the gesture-library HTML's internal text ("use exactly one branch primitive," "never five blocks," 15–30 second rule) as load-bearing design constraints FRM-48 would need to satisfy. That was wrong on two counts: OPS-147's actual remit, per the user, is **"writing practice"** — editorial exploration of "concrete action + actual accounts" and "meaningful alternatives, not a funnel" — a campaign/content effort still discovering its own editorial approach, not a frozen engineering spec. The rendered HTML is one draft artifact produced somewhere inside that exploration, not its settled output. Its internal "rules" are that draft's own working notes, not binding policy. Treating them as a constraint FRM-48 "would violate" was overstating a single rendered snapshot's authority.
 
-**Consequence for FRM-48:** the induction-mode lookup table shouldn't be designed in isolation and then paired with a yet-to-be-decided interaction later. It should be designed *against* OPS-147's existing gesture/recipe vocabulary from the start — the interaction layer already exists; FRM-48's job is content, not invention.
+**2. CUL-75 was a mistyping of CUL-87.** The actual third stage in the pipeline is CUL-87 ("Presentation / handoff"), not CUL-75. Not yet read directly from Linear either — what's below comes from the user-supplied diagram, which itself is labeled "Conceptual design illustration • not a deployed integration or approved offer."
+
+**The actual pipeline, per that diagram:**
+
+```
+COR-13 (Resource shape)  →  OPS-147 (Writing practice)  →  CUL-87 (Presentation / handoff)
+  Wine Flies Free /           Concrete action +              Rendered cut: one expression
+  swirl invitation            actual accounts                Interaction: independently tested
+  Place, source,               Meaningful alternatives,
+  route, terms                  not a funnel
+                                                                        ↓
+                        ┌──────────────────┬──────────────────┬──────────────────┐
+                   View / leave      Optional live lore   Optional commerce   Optional personal return
+                   Quiet / non-alc   OPS-139 destination   Current verified    Requested save + receipt
+                   No artifact req.  Access/capture checked  terms, not a      Usable retrieval tested
+                                                             governance co-sign
+```
+
+**Governing rule, stated directly on the diagram:** *"Separate gates: capture ≠ retention ≠ public circulation ≠ collective authority. A view, tasting, purchase, gesture, render success or agreeable response does not grant permission."*
+
+This is worth naming plainly: it's the same shape as this engagement's existing actor-guard / Transmission Terms doctrine (RES-131, GrammarActor's `verified` state, `grantedFor[]`/`withdrawal`) — a participation signal (view, taste, gesture, purchase) is never itself a consent/permission signal. Four separately-gated things (capture, retention, public circulation, collective authority) must each be granted on their own terms. This is a **real, load-bearing finding** — unlike the OPS-147 interaction-rules claim it replaces, this one is the diagram's own explicit governing statement, not an inference from a single draft artifact.
+
+**Still open per the diagram itself** ("Still to affirm"): approved sources, route differences, active section owner, destinations/offer terms, save/failure paths. **Also flagged on the diagram:** "May–June 2026 campaign copy is historical. Rendering reports are not acceptance of the revised encounter" — meaning the gesture-library HTML rendered last turn, if it dates to that window, should not be read as current, accepted content either.
+
+Everything below this point is the original synthesis, corrected in place rather than deleted, so the reasoning trail stays visible.
 
 ---
 
-## 2. Mapping OPS-147's 6 recipes onto the DACUM stress test's 4 frames
+## 1. What OPS-147 is — corrected
 
-This is a genuine structural fit, not a forced one — the recipes sort cleanly by *register*, and the stress test's own central finding (STRESS TEST 5: frame collision) is precisely that vocational and cultural registers must not be treated identically. OPS-147 already encodes that distinction at the interaction level, independently:
+OPS-147 is the **writing-practice** stage between COR-13 (resource shape) and CUL-87 (presentation/handoff) — not an interaction-engineering spec. The rendered gesture-library artifact (12 one-thumb primitives, 6 recipes, 5 phrase sets, tagged "INDUCTION SURFACES · GESTURE LIBRARY," "WINE · FLIES · FREE") is **one exploratory draft inside that writing practice**, not its deliverable. It is useful as a concrete example of the kind of editorial texture OPS-147 is working toward — but it is not something FRM-48 should build against as if it were settled.
 
-| OPS-147 recipe | Blocks | Register (OPS-147's own words) | Best-fit DACUM frame | Why |
+**Corrected consequence for FRM-48:** the induction-mode interaction layer is **not yet decided**. OPS-147 is still discovering its editorial approach; CUL-87 is where "interaction: independently tested" actually happens, downstream of OPS-147, not inside it. FRM-48 should not treat the rendered gesture bank as a dependency to build against until it's confirmed as OPS-147's actual settled output, which it is not, per the user.
+
+---
+
+## 2. The recipe-to-frame mapping — now explicitly speculative-on-a-draft
+
+The original table below (R-03→Vocational, R-02→Cultural, R-04→Educational, R-01/R-06→Avocational) is retained because the pattern-matching itself may still be useful once OPS-147's editorial approach stabilizes — but it is now doubly speculative: a proposed mapping, built from a single non-authoritative draft, of a stage (OPS-147) that is itself still discovering its own approach. Treat as a possible future direction to revisit, not a finding to act on.
+
+| OPS-147 recipe (draft) | Blocks | Register | Possible DACUM frame | Why (tentative) |
 |---|---|---|---|---|
-| **R-03 Read the Glass** | Swirl → Pour → Stamp | "1 prompt, 1 reply" | **Vocational** | Its own line — "Swirl to release notes from the glass. Tilt-pour the bottle to pour an answer" — is almost verbatim PART-98's D3 competency text ("pour technique, tasting-note vocabulary"). This may be the single cleanest content/interaction match in the whole set. |
-| **R-02 The Witnessing** | Witness-Hold → Whisper | "meditative · no-fail" | **Cultural** | No score, no win condition, explicitly reverent ("Come to the table, not to consume, but to witness"). This is the correct register for Cultural Sovereignty Stewardship — a scored minigame here would be the exact extraction risk the stress test flags. |
-| **R-04 Cross the Meridian** | Route-Drag → Threshold → Edge-Peel | "5 waypoints," tagged "food heritage" | **Educational** | Geographic waypoint-crossing maps directly onto "Regional Food Systems Literacy" 's foundational→advanced progression, and onto the stress test's own PNW-vs-Coastal-Mexico framing. |
-| **R-01 Catch the Flight**, **R-06 Shuffle the Branch** | Lift→Catch→Stamp / Shake→Tilt→Catch | "score," "branch choice" | **Avocational** | Playful, scored, low-stakes — matches the Community Food Educator / farmers-market register, not the cultural one. |
-| **R-05 What the Hand Lifts** | Lift → Whisper → Stamp | "single artifact" | Cultural or Educational (single-moment use) | Shares Witness's reverent tone; could serve either, depending on content. |
-
-**This is a proposal, not a confirmed design decision** — it falls out of reading both documents side by side, but neither document states this mapping explicitly. Worth validating with whoever owns OPS-147 before FRM-48 commits to it.
+| R-03 Read the Glass | Swirl → Pour → Stamp | "1 prompt, 1 reply" | Vocational | Echoes D3's "pour technique, tasting-note vocabulary" wording |
+| R-02 The Witnessing | Witness-Hold → Whisper | "meditative · no-fail" | Cultural | No score/win-condition, reverent register |
+| R-04 Cross the Meridian | Route-Drag → Threshold → Edge-Peel | "5 waypoints," "food heritage" | Educational | Waypoint structure echoes regional-literacy progression |
+| R-01 / R-06 | Lift→Catch→Stamp / Shake→Tilt→Catch | "score," "branch choice" | Avocational | Playful, low-stakes register |
 
 ---
 
-## 3. A real tension the two documents create together, not papered over
+## 3. The "level-chaining tension" — withdrawn as stated, real question moved downstream
 
-OPS-147's own design rule #5: *"Use exactly one [branch primitive] per induction reel; chained branches read as a quiz, which kills the witnessing register."* Rule #3: *"never five [blocks]... if the recipe needs instructions, it is too long for the feed."*
+The original version framed a conflict between OPS-147's internal draft notes (no chained branches, no 5-block recipes) and DACUM's three-level competency model, as if FRM-48 would "violate" a rule. **That framing is withdrawn** — there is no binding rule to violate; OPS-147 hasn't settled on one yet.
 
-The DACUM stress test's competency model has **three levels per competency** (foundational/intermediate/advanced), validated by evidence. Naively chaining gesture checks to "assess" all three levels in one reel would violate both of OPS-147's own rules at once — and would be exactly the "quiz" failure mode OPS-147 was designed to avoid.
-
-**Resolution implied, not yet decided by anyone:** competency *levels* likely need to be separate reels (foundational = simplest 1–2 block recipe; advanced = fuller 3-block recipe), rather than one reel assessing a whole competency. This is a design consequence worth surfacing to whoever picks up FRM-48, not something to silently assume.
+The underlying question is still real, just relocated: **how does a three-level competency (foundational/intermediate/advanced) get expressed as interaction**, once CUL-87's "interaction: independently tested" stage actually runs? That's a genuine open question for whoever owns CUL-87, not a constraint FRM-48 needs to design around today.
 
 ---
 
-## 4. Wine Discovery / Dekart — a different surface, but two real structural echoes
+## 4. Wine Discovery / Dekart — unaffected by the correction above
 
-Dekart is a web dashboard product (Spatial Studio), not a Rive mobile surface — it doesn't answer the "how do we build this as Rive components" question directly. But it echoes two things already live in this engagement, worth naming as corroborating evidence rather than ignoring:
+This section's claims don't depend on OPS-147's authority and stand as originally written:
 
-- **Three Phases (Explore → Measure → Improve)** is the same three-stage shape as SCID's Scaffolded Execution (Guided → Assisted → Autonomous) and DACUM's own foundational→intermediate→advanced levels. Third independent arrival at the same shape in this engagement's materials — the kind of convergence this engagement has flagged before as worth citing as corroborating, not coincidental.
-- **Founding Guild revenue share** ("contribute 5 best practices... when other wineries license those practices, you get a small revenue share") is structurally the same mechanism as the DACUM stress test's **Gap 2** (originating-community revenue split override, 50/40/10 vs default 70/20/10 Ubuntu split). Both are "contributor earns when their knowledge gets reused by others." These may be the same underlying mechanism built twice rather than two separate inventions — worth checking, not assumed here.
+- **Three Phases (Explore → Measure → Improve)** is the same three-stage shape as SCID's Scaffolded Execution (Guided → Assisted → Autonomous) and DACUM's foundational→intermediate→advanced levels — a third independent arrival at the same shape in this engagement's materials, worth citing as corroborating.
+- **Founding Guild revenue share** ("contribute 5 best practices... license those practices, get a small revenue share") structurally echoes the DACUM stress test's Gap 2 (originating-community revenue split override). Possibly the same mechanism invented twice — worth checking, not assumed.
 
-Dekart's "Five Ways to Explore Wine" also roughly tracks four stakeholder registers (self-directed visitor, parity/equity-focused, producer-facing, organizer-facing) that loosely echo DACUM's four frames, though this is a looser fit than the OPS-147 mapping above and shouldn't be over-read.
+Dekart's "Five Ways to Explore Wine" loosely echoes DACUM's four frames but shouldn't be over-read as a confirmed mapping, same caveat as §2.
 
 ---
 
-## 5. Updated axis table — one row changed, one row added
-
-Extending `DACUM_STRESS_TEST_REFRAMING_AND_AXES.md`'s table:
+## 5. Updated axis table
 
 | Axis | Prior state | Updated by this turn |
 |---|---|---|
-| **8. CompetencyFrame** (vocational/cultural/educational/avocational) | Named, not reconciled against VesselData mode or D3 | **Still open**, but now has a concrete interaction-layer candidate per frame (§2 above), not just content-layer |
-| **9. Induction-surface interaction model** *(new)* | Did not exist as a named axis | OPS-147's 12 gestures / 6 recipes — exists, v0.1, already tagged "induction surfaces," already tied to the Wine Flies Free campaign. Known action: confirm with OPS-147's owner whether FRM-48 should build against it directly, and resolve the level-chaining tension in §3 |
+| **8. CompetencyFrame** (vocational/cultural/educational/avocational) | Named, not reconciled | Still open — no interaction-layer candidate can be confirmed until OPS-147/CUL-87 settle (§1 correction) |
+| **9. Induction-surface interaction model** | Thought closed (OPS-147 "already answers it") | **Reopened.** Not settled — OPS-147 is mid-refinement, CUL-87 is where interaction actually gets tested. Known action: read COR-13/OPS-147/CUL-87 directly once Linear reconnects, rather than build against the rendered draft |
+| **10. Consent/permission gating** *(new, from the diagram)* | Did not exist as a named axis here | CUL-87's branch structure: capture ≠ retention ≠ public circulation ≠ collective authority, each separately gated. Direct parallel to RES-131/GrammarActor's actor-guard doctrine — worth cross-checking the two formally once both are reachable, rather than treating them as two separate inventions |
 
 ---
 
 ## Still pending
 
-- COR-13, CUL-75 — Linear unreachable all session; re-check these against everything above once reconnected, per your instruction.
-- The §2 recipe-to-frame mapping is this document's own proposal, not yet validated by OPS-147's or FRM-48's owners.
-- The §3 level-chaining tension has no proposed owner yet.
+- COR-13, OPS-147, CUL-87 — none read directly from Linear this entire session; retry owed before anything here is treated as settled.
+- §2's mapping and §3's reframed question both wait on OPS-147's actual editorial approach stabilizing — not this engagement's call to force.
+- Axis 10's parallel to RES-131/actor-guard doctrine is a proposed cross-check, not yet run.
