@@ -317,6 +317,7 @@ User pasted FRM-48's current, fully updated description + comment thread (severa
 - `docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §4 — second correction block added
 - **COR-43** — comment posted reconciling all three findings, flagging the Phase-I-speed caveat as required in the eventual NSF narrative (item 5)
 - **WO-009 Confluence page** — the originally-staged presentation-layer contribution (§1–4, now carrying both corrections) posted as a child page (192774145), with a short reply pointer on footer comment 192380929 (comment 192806913)
+- **WO-009's own page body (147390466, now v9)** — initially only the comment/child-page above were done, leaving the parent page itself untouched; caught and corrected same session. AC-13's cell now carries a dated "Revised 2026-10-27" GPU Canvas fallback clause; AC-1's cell carries a dated "Noted 2026-10-27" pointer to its RES-131 kit-pattern/RML-CLI elaboration; a new AGENT_LOG entry (2026-10-27) records the turn, matching the page's existing house style for dated AC revisions rather than leaving the substance comment-only
 
 1. `save_issue` → create FRM issue (title/description as staged above)
 2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known

@@ -1,7 +1,7 @@
 # WO-009 — Presentation Layer Contribution, AC-13 Fallback, AC-1 Elaboration, EDU/DACUM Forward-Link
 
 **Date:** 26–27 October 2026
-**Status:** Posted. Published as a child page under WO-009 (Confluence 192774145), with a short reply pointer on footer comment 192380929 (comment 192806913). Content includes both the 26 Oct (ATE/PART-98) and 27 Oct (D3/ENG-418–422) corrections.
+**Status:** Posted, and merged into WO-009's own page body (not just comment/child-page). Published as a child page under WO-009 (Confluence 192774145), with a short reply pointer on footer comment 192380929 (comment 192806913). AC-13 and AC-1's own cells on WO-009 (147390466, now version 9) carry a fallback-clause note and an elaboration pointer respectively, plus a new 2026-10-27 AGENT_LOG entry — matching the page's own house style for prior revisions (e.g. "AC-9 | Corrected 2026-10-25") rather than leaving the content comment-only. Content includes both the 26 Oct (ATE/PART-98) and 27 Oct (D3/ENG-418–422) corrections.
 **Caveat:** AC-1's elaboration below reads from WO-009's own Confluence description of AC-1, not from FRM-23 (its canonical Linear tracker) directly. Flag anything here that conflicts with FRM-23's actual text if it's ever checked directly.
 
 ---
