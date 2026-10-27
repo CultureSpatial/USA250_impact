@@ -142,6 +142,22 @@ The user pasted all three issues' complete descriptions and comment threads afte
 
 Both the earlier correction (§0) and the user's own follow-up message called this a mistyping of CUL-87. Reading the actual issues shows it's not that simple: **CUL-75 is a distinct, real issue** — *"Define Explore Clique website homepage structure and register (the long term planned structure)"* — **status Canceled**. It's referenced repeatedly across COR-13 and CUL-87, always the same way: *"CUL-75's canceled record does not supply an active section owner"* / *"CUL-75 is Canceled and cannot remain the assumed implementation home."* Both issues flag, as a live open item, that **the active website-section owner still needs to be identified** now that CUL-75 can't be assumed to be it. CUL-87 is the separate, real issue about the Wine Flies Free timed section and commerce bridge — Done status, but with its Oct 26 creative/interaction revision explicitly not yet accepted against that Done record. Two different open questions, not one typo.
 
+**Update, same day — why CUL-75 was canceled.** The user supplied the answer directly: CUL-75 was **superseded by the American Lore Outlet Strategy** — an existing Linear doc already live in this engagement since September 2026 (`docs/TRACKER_UPDATES_PENDING.md`'s earliest batch records it being patched with a `grantedFor` terms gate and a Brightbean correction, well before this session). CUL-75's premise was a single canonical website homepage structure; the Outlet Strategy instead routes content per-platform, with "Web editorial" as one of seven outlet rows rather than a standalone site-structure project:
+
+| Outlet | Phase | Payload | Notes |
+|---|---|---|---|
+| Bluesky / ATProto | Primer + Return signal | sound bite, citation, carry-forward trace | best open-social continuity surface |
+| Instagram | Primer | visual card + concise editorial caption | strongest for first-touch visual discovery |
+| Discord | Live witness + Return signal | discussion prompts, voice-card prompts, contribution asks | useful for session and community continuity |
+| YouTube | Primer + Live witness | teaser clips, narrated lore fragments, session-linked prompts | use for longer explainers and live tie-ins |
+| Twitch | Live witness | moment-bound prompts and companion discussion | less canonical for archive grounding |
+| **Web editorial** | Primer + Return signal | full card, citation, timeline, contributor path | **strongest canonical home for full card** |
+| LinkedIn | Primer | institutional framing, operator/partner read | use for public-humanities and partner surfaces |
+
+**Terms gate (added Sept 2026, predates this session):** every outlet transformation must check `grantedFor` on the source card before publishing to that occasion — a grant for `locale-card-public` doesn't carry to `open-social-carryforward` automatically. This is the exact same `TransmissionTerms`/`grantedFor` mechanism already cited throughout this document (§7, §9) and established back in `AXIS_4_REDRESS.md` — not a new or parallel consent system.
+
+**What this does and doesn't resolve for COR-13/CUL-87's open item:** "Web editorial" is named as the canonical full-card home, which plausibly *is* the answer to "who owns the active website-section" — a routing destination rather than a dedicated homepage-structure project. But COR-13/CUL-87 ask specifically about the Wine Flies Free timed section's implementation owner, and nothing read so far confirms the Outlet Strategy doc names CUL-87 or Explore Clique by identifier. Treat as a strong candidate resolution, not a confirmed one, until that link is checked directly.
+
 ### 8.2 The real pipeline, confirmed verbatim (not inferred from a diagram)
 
 ```
