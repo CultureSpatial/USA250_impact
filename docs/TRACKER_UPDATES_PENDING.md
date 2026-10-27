@@ -305,6 +305,18 @@ COR-43 and `NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` were filed framed around **P
 
 ---
 
+## ADDED 27 OCT 2026 — "Swirly Meme and Visual Language" brief received, flagged as likely-fabricated, NOT applied
+
+User shared a Perplexity-generated "Reverse Demo" brief proposing a "Swirly Meme and Visual Language" system, explicitly framed by its own source as ready to post to Linear as a versioned update to **HOW-21**. **Not posted anywhere. Not folded into any synthesis doc as grounded content.** Recorded here only so it isn't silently lost, with the reasons it shouldn't be trusted as-is:
+
+- **Citations don't support the content.** The link list is generic Linear API docs, Reddit threads, and unrelated 1990s USC business-school PDFs — none back the specific claims (`IGNIS-ADAPT Protocol`, `Tier 1 Veto`, `HeritageToken`, `IntegrationToken`, "Delta x SkyTeam"). None of these terms appear anywhere else in this engagement's docs or any Linear issue actually read this session.
+- **Directly contradicts governance work established this same session.** The FRM-14/ENG-504 sweep addendum stated plainly: "motion recognition is not cultural authority; no automatic save, mint or publicity." This brief proposes token minting (`HeritageToken`/`IntegrationToken`) with no steward or `grantedFor` check — exactly the pattern Transmission Terms and the actor-guard doctrine exist to prevent.
+- **Real trademark risk, invented with no grounding:** "Star Alliance appropriated from a competitor" as a visual element for a Delta-branded piece is a genuine legal exposure, not a design idea this project asked for.
+
+**HOW-21 has not been confirmed to exist** — Linear down on every retry. Before any of this is acted on: verify HOW-21 is real and what it actually contains, and route the governance question (token minting, consent) through the existing `TransmissionTerms`/actor-guard model rather than this brief's own invented mechanism, consistent with the rest of this session's work.
+
+---
+
 ## ADDED 27 OCT 2026 — FRM-48's own thread settled the duty question + surfaced ENG-418–422
 
 User pasted FRM-48's current, fully updated description + comment thread (several of its own comments self-corrected mid-thread). Net findings, reconciled:
