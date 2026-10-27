@@ -301,7 +301,22 @@ COR-43 and `NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` were filed framed around **P
 - **PART-98** — back-link comment posted, asking its owner which duty (D1–D5) is the right Phase I target
 - **PART-139** — back-link comment posted, noting its lead-applicant answer decides who the artifact is produced for
 
-**Still open, not this engagement's call to make unilaterally:** which NSF program (ATE vs. SBIR) is primary, and which DACUM duty AC-1 targets. Flagged to both issues' owners, not decided here.
+**Still open, not this engagement's call to make unilaterally:** which NSF program (ATE vs. SBIR) is primary. Flagged to PART-139's owner, not decided here.
+
+---
+
+## ADDED 27 OCT 2026 — FRM-48's own thread settled the duty question + surfaced ENG-418–422
+
+User pasted FRM-48's current, fully updated description + comment thread (several of its own comments self-corrected mid-thread). Net findings, reconciled:
+1. Duty narrowed to **D3** (Culinary & Wine Stewardship) — content-matched, proposed on PART-98, pending owner confirmation.
+2. FRM-30's sandboxed-webview binding-failure concern raised then walked back (tested on a different, older runtime — 2.39.0 — than WO-009's actual `^4.16.1`); net: a direct-test item before AC-2 reaches Discord/Reddit, not an inherited blocker.
+3. **Load-bearing finding:** a separate, in-progress, Urgent/High-priority production DACUM track exists — `DacumViewModel` + 11 artboards (ENG-418–422), `CompetencyAtlas` (ENG-419). FRM-48/COR-43's VesselData reuse is explicitly a Phase-I-speed tradeoff, not a substitute for it.
+
+**Applied ✅ 27 Oct 2026:**
+- `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — PREMISE/OBJECTIVE/AC-1/AC-2 rows and Recommendation updated to name D3, ENG-418–422, and the runtime-version correction on AC-2
+- `docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §4 — second correction block added
+- **COR-43** — comment posted reconciling all three findings, flagging the Phase-I-speed caveat as required in the eventual NSF narrative (item 5)
+- **WO-009 Confluence page** — the originally-staged presentation-layer contribution (§1–4, now carrying both corrections) posted as a child page (192774145), with a short reply pointer on footer comment 192380929 (comment 192806913)
 
 1. `save_issue` → create FRM issue (title/description as staged above)
 2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known
