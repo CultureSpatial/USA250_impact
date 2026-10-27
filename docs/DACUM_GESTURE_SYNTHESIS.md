@@ -1,8 +1,7 @@
 # Synthesis — DACUM Stress Test × Gesture Block Library (OPS-147) × Wine Discovery (Dekart)
 
 **Date:** 27 October 2026
-**Status:** Corrected 27 Oct 2026, same day as first written — the original version over-indexed on OPS-147 and misnamed CUL-87 as CUL-75. See §0 before reading anything else in this document.
-**Not yet done:** COR-13, OPS-147, and CUL-87 have still not been read directly from Linear — down on every retry this session. Everything below that touches them is built from (a) the rendered gesture-library HTML artifact and (b) a conceptual diagram the user supplied, both of which **self-identify as non-authoritative** (see §0). Re-check against the live issues once reachable.
+**Status:** Corrected twice same day. First correction (§0) withdrew over-indexing on a single draft artifact. **Second correction (§8) replaces both prior readings with the actual COR-13/CUL-87/OPS-147 issue text**, pasted in full by the user after Linear stayed unreachable all session. §0–§7 are kept for the reasoning trail but §8 supersedes their factual claims about these three issues wherever they conflict. Read §8 first if short on time.
 
 ---
 
@@ -132,3 +131,68 @@ User-supplied, extending (not replacing) an "approved ten-issue sweep" this docu
 **The actual mechanism this implies:** a compile step between the content tier and the structure tier — Sanity holds the authored truth (Portable Text + plain fields for numeric params like `VesselData`'s liquid-color/viscosity), a build step resolves and serializes it, and that resolved form is what RML/the CLI/the chosen binding pattern actually consume. This lets writers iterate in Sanity Studio at their own cadence without touching `.riv` files or RML directly — the same separation of concerns the addendum's pipeline already draws between OPS-147 (writing) and FRM-14/ENG-504 (interaction proof), just extended one layer further into the authoring tooling itself.
 
 **Governance extends the same way, not a new mechanism:** this engagement already has "one terms model, two bindings" for Transmission Terms — Sanity Workflow (content-tier gate, beta) + `substrate/packages/shared resolve()` (runtime-tier gate, GA). The addendum's new rule ("motion recognition is not cultural authority; no automatic save, mint or publicity") is effectively a **third binding of the same terms model**, not a new governance mechanism — a successful gesture must still pass the same `resolve()`-shaped check before save/mint/publicity fire, exactly like dispatch does today. Reuse the existing `TransmissionTerms` type (`steward`, `grantedFor`, `withdrawal`) rather than invent a parallel consent model for the interaction layer — same "inspect and reuse" discipline the addendum states for `glass-kit`, applied to governance logic instead of code.
+
+---
+
+## 8. Correction, same day — COR-13, CUL-87 and OPS-147 read in full
+
+The user pasted all three issues' complete descriptions and comment threads after Linear stayed unreachable all session. This replaces every inference §0–§7 made about these three issues from a diagram image and a rendered HTML artifact. Kept separate rather than merged into the sections above, so the reasoning trail — including what was wrong — stays visible.
+
+### 8.1 CUL-75 was never a typo — it's a real, separate, Canceled issue
+
+Both the earlier correction (§0) and the user's own follow-up message called this a mistyping of CUL-87. Reading the actual issues shows it's not that simple: **CUL-75 is a distinct, real issue** — *"Define Explore Clique website homepage structure and register (the long term planned structure)"* — **status Canceled**. It's referenced repeatedly across COR-13 and CUL-87, always the same way: *"CUL-75's canceled record does not supply an active section owner"* / *"CUL-75 is Canceled and cannot remain the assumed implementation home."* Both issues flag, as a live open item, that **the active website-section owner still needs to be identified** now that CUL-75 can't be assumed to be it. CUL-87 is the separate, real issue about the Wine Flies Free timed section and commerce bridge — Done status, but with its Oct 26 creative/interaction revision explicitly not yet accepted against that Done record. Two different open questions, not one typo.
+
+### 8.2 The real pipeline, confirmed verbatim (not inferred from a diagram)
+
+```
+Approved source + place/route context
+                 ↓
+COR-13: resource composition
+                 ↓
+OPS-147: scene / language alternatives
+                 ↓
+CUL-87: rendered presentation OR separately tested interactive entry
+         ├─ view / leave / no artifact
+         ├─ optional live lore → OPS-139
+         ├─ optional commerce → current terms and destination
+         └─ optional save → scope + successful retrieval
+Public redistribution requires its own authorized circulation grant.
+```
+
+And, confirmed verbatim in **both** COR-13 and CUL-87 independently (not just the diagram image from last turn): *"Response ≠ retention permission ≠ circulation grant ≠ co-sign"* / *"A view, tasting, purchase, gesture, render success or agreeable response does not grant permission."* §0's reading of the governance rule stands confirmed, now from primary text rather than an image.
+
+**COR-13 defines two compositions, not four DACUM frames:**
+
+| Composition | Concrete resource | Optional continuation | Must not imply |
+|---|---|---|---|
+| **Wine Flies Free** | Place/producer/route context; attributed story; separately qualified logistics/offer reference | Read another account, visit a verified destination, request a usable copy, or separately choose commerce | A free tasting, funded fare, airline entitlement, or commercial permission without verified terms |
+| **Swirl invitation** | Observable gesture or playful flight, followed by an available account or meaningful alternative | Compare, challenge, stay single-lens, wait, or leave | Motion proves understanding; camera POV is testimony; challenge completion grants authority |
+
+**This is a different taxonomy than DACUM's four competency frames (§2–§5 above), and shouldn't be forced to align with it.** COR-13's two compositions split by *resource shape and participant posture* (commerce-adjacent story vs. gesture-challenge); DACUM's four frames split by *who's being credentialed and why* (chef vs. steward vs. visitor vs. vendor). They touch the same substrate (Rive, `glass-kit`, swirl gesture) but answer different questions. §2's recipe-to-frame mapping should not be read as also mapping onto Wine Flies Free vs. Swirl — that would be forcing two independent taxonomies together.
+
+### 8.3 OPS-147's real scope doesn't match the rendered Gesture Block Library HTML — flagged, not resolved
+
+This is the load-bearing finding of this correction. OPS-147's actual, current description (*"Writing engine — induction scenography source layer (BC Edition: Mapbox · Spline headless · Martha ElevenLabs; Adventr retired)"*) and its full comment history describe a **mature, extensively specified production system**: a five-beat arc (Invitation → Witness → Interpret → Inherit → Branch), production-ready ElevenLabs voice scripts, a Mapbox GL JS flyover scene spec, Spline headless 3D scenes, an XState headless branch-node JSON manifest, a Voice QA checklist, and three independently-arrived-at sequence vocabularies cross-walked against each other (RES-72's behavioral invariant, CUL-33's three movements, OPS-147's own five beats).
+
+**None of this is one-thumb mobile gesture primitives.** The HTML artifact rendered two turns ago — self-titled "OPS-147 · INDUCTION SURFACES · GESTURE LIBRARY," 12 primitives (Tilt, Lift, Pour, Swirl...), 6 recipes — does not appear anywhere in OPS-147's actual Linear text, and its content (one-thumb phone gestures, TikTok/FB feed minigame format) has no connection to Mapbox/Spline/ElevenLabs/XState. Two honest possibilities, not resolved here:
+
+1. It's a stale or mislabeled draft that doesn't reflect OPS-147's current, real scope — in which case §1–§3 above were built on the wrong artifact entirely, not just an over-indexed one.
+2. It's actually closer in content to **FRM-14/ENG-504** (the mobile PWA swirl-gesture lab, physical-device interaction, sensory feedback and choreography) — a one-thumb gesture bank is a far more natural fit for a *mobile PWA swirl gesture lab* than for a Mapbox-flyover/Spline-3D/voice-script writing engine.
+
+**Action, not conclusion:** whoever owns FRM-14/ENG-504 should be shown the rendered gesture-library HTML directly and asked whether it's already known there (and possibly already superseded, per FRM-14/ENG-504's own addendum rule to inventory `glass-kit` before building new) — rather than this document continuing to treat it as OPS-147's output.
+
+### 8.4 Consequence for §2's recipe mapping and §9's forthcoming CompetencyFrame axis
+
+§2's R-01–R-06 recipe-to-DACUM-frame mapping is now doubly unmoored: it was speculative-on-a-draft before (§1 correction), and that draft may not even belong to OPS-147. It's retained only as a possible future direction **if** the gesture-library content turns out to be real and placed correctly (most likely under FRM-14/ENG-504) — not as live guidance for anyone building against OPS-147 today.
+
+---
+
+## 9. Sanity Portable Text — action items
+
+Turning §7's discussion into a concrete list, as asked. None of these have been executed — Sanity MCP was unreachable all session.
+
+1. **Inspect the live Sanity schema** for `placePacket`, `loreEntry`, `storyGem` (named in `SANITY_PLATFORM_REVIEW_2026.md` §2.4) — confirm whether any already carry a Portable Text field, and in what shape, before proposing one as new. Per this session's own "inspect and reuse" rule for `glass-kit`, applied here to Sanity schema.
+2. **Check whether OPS-147's actual deliverables — ElevenLabs scripts, branch-node manifest entries, phrase-bank lines — already live in Sanity in some form**, now that OPS-147's real scope is known (§8.3). If they're currently plain strings in Linear comments/JSON (as pasted this turn), that's the concrete gap Portable Text would close: structured, writer-editable, versioned content instead of copy embedded in JSON manifests and issue comments.
+3. **Prototype the compile step** described in §7 — resolve Sanity-authored content (Portable Text + plain fields) into whatever string/structured form a consumer needs, scoped first to OPS-147's `martha_beat0N_*` script naming convention (§8.3) as the concrete test case, since that's real, production-named content today.
+4. **Do not build a new consent mechanism for Portable Text content.** Bind any cultural-origin material to the existing `TransmissionTerms` type (`steward`, `grantedFor`, `withdrawal`) from `SANITY_WORKFLOWS_TERMS_PLAN.md`, consistent with CUL-87/COR-13's own governance line (§8.2) and the addendum's motion-recognition rule.
+5. **Re-run this whole section once Sanity MCP reconnects** — everything above is a plan built from docs, not a verified finding.
