@@ -239,3 +239,28 @@ The Perplexity-sourced "Swirly Meme and Visual Language" brief (recorded in `TRA
 - **Export-vs-withdraw distinction (Theme 1) applies directly to contributor governance in the kit-pattern mechanism** (§10's "Generative & Evolving" row): if a contributor's motif gets combined into a Swirly, `WITHDRAW`'s recall-only scope isn't enough — they may want an exportable copy of their own contribution independent of revoking it. Same distinction, same unresolved gap, now a second concrete case for it.
 
 **This changes §10's framing slightly:** it's not "graft the embryonic idea onto infrastructure this session built" — most of the real infrastructure predates this session by two weeks, already named, already scoped, sitting in a doc that just hadn't been cross-read until asked.
+
+---
+
+## 11. Correction, 27 Oct (re-checked live 28 Oct–5 Nov) — COR-13/CUL-87 moved past what §8.2 and the CUL-75 reading said, and COR-8 is a separate, unconnected track
+
+Re-read COR-13 and CUL-87 live (Linear reconnected) rather than relying on the pasted dump from earlier — both picked up real content on 27–28 October that **directly corrects §8's CUL-75/Outlet Strategy reading**, not just extends it.
+
+### 11.1 Walk-back: the Outlet Strategy does *not* resolve CUL-75's cancellation or ownership — the live issues say so explicitly
+
+§8.1's update (built from the user's own "CUL-75 was superseded by this Outlet" statement) treated the American Lore Outlet Strategy's "Web editorial" row as a plausible answer to "who owns the active website-section." **Both COR-13 and CUL-87 now explicitly disclaim exactly that inference**, in near-identical language added 27 Oct:
+
+- COR-13: *"Domain role and implementation ownership remain TBD; this is not a decision to replace Explore Clique or evidence explaining CUL-75's cancellation."*
+- CUL-87: *"This does not make foodcards the confirmed home of CUL-87, prove its deployment, or establish why CUL-75 was canceled."*
+
+What actually happened: the Outlet Strategy doc was updated to add **foodcards.xyz** as a user-identified candidate domain, and a new issue — **FRM-49**, "foodcards.xyz: compare practitioner co-design door and public card" — now owns comparing it against **foodies.run** (participation/return) as two possible entry paths, explicitly flagged as a hypothesis, not a decision: *"one primary site plus alias/reserved domain remains valid. Do not resolve the active website-section owner... merely from that positioning."* Ownership is still genuinely open. §8.1's "strong candidate resolution" framing should be read as superseded by this, not confirmed by it — primary sources moved between when the user described it and when I read it live.
+
+### 11.2 New, unverified: "Attie"
+
+Both issues now flag **Attie** — *"a candidate social-experience companion alongside the existing outlet strategy, not an adopted ATProto replacement, new terms system or verified private-review host. Verify capabilities and boundaries with cleared/synthetic material before integration."* Recorded here only as a named unknown, consistent with how every other candidate tool in this document set has been treated (GPU Canvas, Attie's governance capabilities, the Gesture Block Library's actual owner) — not evaluated, not assumed.
+
+### 11.3 COR-8 — a separate track, not folded into this synthesis
+
+Asked to check "cor8 too." It's **"Xbox / PlayFab — Digital Corridor Mesh: Guided + Continuity Hybrid"** — a different platform (Xbox/PlayFab, not web/mobile), deciding its canonical experience form (operator-guided choreography + PLAC-location/community-memory continuity + venue-specific sonic register + acoustic-geometry "Room primitive"), unblocking OPS-158/OPS-207, most recently updated 3 Nov — the freshest primary source touched this whole session.
+
+**One thing worth flagging, not asserting:** COR-8 cites its own "Room primitive" (FRM-12, venue acoustic geometry) as grounding its spatial audio. COR-13 separately cites a "Room primitive" too (OPS-179, "operator perspective... operational unit of the corridor," with FRM-39 as its "narrative/consequence facet"). These are **different issue IDs** — FRM-12 vs. OPS-179 — so either "Room primitive" is a shared multi-facet concept spanning both the wine corridor and the Xbox/PlayFab corridor mesh (operational facet, narrative facet, now possibly an acoustic facet), or it's an unrelated naming coincidence across two separate tracks. Neither FRM-12 nor OPS-179 has been read directly — this is a question to check, not a finding to build on. Everything else in COR-8 (PLAC, CUL-64 continuity/belonging, FRM-2 sonic register, SOP-17 register visibility, OPS-127 curation) is a self-contained decision with no other connection to the DACUM/gesture/OPS-147/Swirly thread this document otherwise tracks — reported here as received, not forced into this synthesis.
