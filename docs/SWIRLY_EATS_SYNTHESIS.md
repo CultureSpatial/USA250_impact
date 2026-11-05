@@ -3,6 +3,7 @@
 **Date:** 15 October 2026
 **Source:** Ernest Mudimu, document-set proposal (24 Sept 2025) + ten-theme elaboration
 **Status:** First-pass synthesis. Written fresh in current repo state — see the repository-state note above; this doc doesn't depend on the vanished corpus, but several cross-references below point at decisions made in Linear/Jira (CEP-29, PART-25, ENG-475, etc.) that remain real and current regardless of this repo's git history.
+**Update, 27 October 2026:** cross-read against `docs/DACUM_GESTURE_SYNTHESIS.md` and a Perplexity-sourced "Swirly Meme and Visual Language" brief — several themes here (Protocol cards, commons-first economics, "Swirl Studio kits," Protocol Clinics) turned out to already answer questions that brief and that document were still treating as open. Theme 3 is now confirmed, not just recommended — see its update below.
 
 ---
 
@@ -40,7 +41,9 @@
 
 ### 3. Accompanist AI
 
-**This is the best available brand name for the actor-guard principle** already specified in ENG-475 and corroborated independently by Sanity's own Workflow stage model (agent checks and advances-or-returns; human submits). "Accompanist" is a better word than anything in the engineering docs for *why* the guard exists: an accompanist supports a performance without becoming its author. Recommend adopting "Accompanist AI" as the external-facing name for the `TRIGGER`/`HOLD`-yes, `CO_SIGN`/`CARRY_FORWARD`-no guard table, rather than leaving it as an unnamed internal rule.
+**Confirmed, 27 Oct 2026 — this is no longer just a recommendation.** This theme's suggestion was never posted to Linear (checked the apply log directly — it only ever existed here), so when OPS-147's own content independently named "Accompanist" as one of Martha's four voice-posture roles (alongside Consumption Ecologist, Liminal Translator, Witness-Keeper), that's a genuine second, unconnected arrival at the same word — not this recommendation propagating. Posted as a cross-reference to OPS-147 (comment, 27 Oct 2026) so the convergence is visible from both sides.
+
+**This is the best available brand name for the actor-guard principle** already specified in ENG-475 and corroborated independently by Sanity's own Workflow stage model (agent checks and advances-or-returns; human submits) — now a *third* independent corroboration, not two. "Accompanist" is a better word than anything in the engineering docs for *why* the guard exists: an accompanist supports a performance without becoming its author. **Adopt "Accompanist AI" as the external-facing name** for the `TRIGGER`/`HOLD`-yes, `CO_SIGN`/`CARRY_FORWARD`-no guard table — no longer just a recommendation to consider, but one scope caveat: this is the engineering/governance-layer name for the event-permission rule; OPS-147's four-role posture is a separate, narration-tone application of the same underlying principle, not the same mechanism. Keep them related, not merged.
 
 ### 4. Commons-First Economic Model
 
