@@ -264,3 +264,32 @@ Both issues now flag **Attie** — *"a candidate social-experience companion alo
 Asked to check "cor8 too." It's **"Xbox / PlayFab — Digital Corridor Mesh: Guided + Continuity Hybrid"** — a different platform (Xbox/PlayFab, not web/mobile), deciding its canonical experience form (operator-guided choreography + PLAC-location/community-memory continuity + venue-specific sonic register + acoustic-geometry "Room primitive"), unblocking OPS-158/OPS-207, most recently updated 3 Nov — the freshest primary source touched this whole session.
 
 **One thing worth flagging, not asserting:** COR-8 cites its own "Room primitive" (FRM-12, venue acoustic geometry) as grounding its spatial audio. COR-13 separately cites a "Room primitive" too (OPS-179, "operator perspective... operational unit of the corridor," with FRM-39 as its "narrative/consequence facet"). These are **different issue IDs** — FRM-12 vs. OPS-179 — so either "Room primitive" is a shared multi-facet concept spanning both the wine corridor and the Xbox/PlayFab corridor mesh (operational facet, narrative facet, now possibly an acoustic facet), or it's an unrelated naming coincidence across two separate tracks. Neither FRM-12 nor OPS-179 has been read directly — this is a question to check, not a finding to build on. Everything else in COR-8 (PLAC, CUL-64 continuity/belonging, FRM-2 sonic register, SOP-17 register visibility, OPS-127 curation) is a self-contained decision with no other connection to the DACUM/gesture/OPS-147/Swirly thread this document otherwise tracks — reported here as received, not forced into this synthesis.
+
+---
+
+## 12. Resolved — one Room primitive, four facets, already fully cross-linked by their own authors
+
+Read FRM-12, FRM-39, OPS-179, and PART-130 directly, as asked. §11.3's open question is settled, by the issues' own explicit doctrine, not inferred: **this is one Room primitive with four facets**, each its own issue, each carrying its own "primacy" (which facet governs at render time, per viewer):
+
+| Issue | Facet | Primacy | Question it answers |
+|---|---|---|---|
+| FRM-12 | acoustic | substrate | how the room *sounds* |
+| FRM-39 | narrative | guest | what the room *means* |
+| OPS-179 | operational | operator | how the room is *governed* |
+| PART-130 | commerce | partner | what it *costs*, who captures it |
+
+**Co-occurrence** (all four present) is guaranteed at event time; **primacy** (which one governs) resolves at render time, per viewer — two different rules that compose rather than compete. FRM-39's own description records that a prior citation error pointed three separate documents at FRM-12 for narrative/chapter-semantics questions that actually belong to FRM-39 — a real, already-corrected mistake in this doctrine's own history, not something this document needs to re-litigate.
+
+**All four are already mutually cross-linked** (`relatedTo`), and FRM-39 already links BOT-101 directly — COR-8 also already links FRM-12. **No new relatedTo links are needed here; adding them would duplicate cross-referencing these issues' own authors have already done thoroughly.** This document's one genuine gap was that the §10 "soapbox" proposal hadn't been connected to FRM-39, which is exactly where it belongs (FRM-39 already owns `branch_vote`/`branch_resolved` and states *"a shared beat or tally is not a collective co-sign"* — the same invariant the soapbox proposal depends on).
+
+### 12.1 Correction: the lineage-royalty mechanism cited in §10 is specified, not operational
+
+PART-130's own 3 Nov 2026 status check is blunt about this: *"No commerce window runs anywhere."* Measured directly in Sanity (`7tx1ysoc/production`): `subsidyOp` has 17 documents, 16 are empty test fixtures, one is an unpublished draft; `commercePacket`, `pruClaimEvent`, `magnetEmissionEvent`, `cpmImpressionLog`, `shopifySync` all have zero documents; `ambientCommerceControl.laneEnabled` is `false`.
+
+This corrects §10's framing: the commons-first/`commercial-licensed`-grant/lineage-royalty mechanism cited there as "the real version of HeritageToken/IntegrationToken" is **specified** (the `subsidyOp` schema, `ubuntuAllocation`, the instrument types) but **not operational** — nothing actually runs yet. The specification is still the right answer to build toward rather than inventing a token system, but it shouldn't be described as already working. Worth the same caveat applied everywhere else in this document: specified ≠ built ≠ live.
+
+### 12.2 Staged, not yet posted — connector dropped mid-write
+
+Drafted a comment for FRM-39 proposing the `audioLayer`-based "soapbox" idea from the prior turn (every surviving option in a `branch_resolved` tally gets a short audio presentation, not just the winner — using the real `audioLayer` Sanity schema found in media-studio: `title`, `audioFile`, `r2Url`, `transcript`, `toneProfile<martha_a|martha_b|martha_c>`), explicitly scoped to **not** trigger an `artifact-egress` event, PART-130's Artifact Window, or anything resembling `CO_SIGN` — same boundary FRM-39 already draws for gestures and completed stops. First candidate case: OPS-147's own six confirmed Beat02 branch prompts, already written, no new authoring needed. A short cross-link was planned for BOT-101 as well.
+
+**The connector dropped (worker restart) before either comment posted — no partial write occurred.** Re-attempt once reachable.
