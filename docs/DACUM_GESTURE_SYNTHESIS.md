@@ -325,3 +325,24 @@ The `audioLayer`-based "soapbox" proposal (every surviving option in a `branch_r
 - This path needs something **demo-able**, not a doctrine write-up — none of FRM-12/OPS-147/the gesture library is currently in a state a booth visitor could interact with. Poster session doesn't have that requirement.
 
 **Net comparison:** poster session is the better next step if there's genuine interest — cheap or free, matches two real topic categories by name, and fits what this work actually is right now (a formalized doctrine worth describing, not a shipped tool worth demoing). Stage Expo exhibiting is a real option but presupposes a demo-ready artifact and a real budget line neither of which exist yet. Neither is this document's call to commit to — both are now concretely scoped rather than speculative.
+
+### 13.2 A third path, correcting a search gap — Conference Assistant program (user-supplied, from usitt.org directly)
+
+My web search in §13.1 missed this entirely — it exists, confirmed from the actual USITT27 Conference Assistants page, not inferred:
+
+- **$25 to attend the full USITT27 conference**, in exchange for a 15-hour work commitment plus one required mentorship-orientation session. Requires current USITT membership first (so ~$36–$126/yr membership + $25 = roughly $60–$150 total, far cheaper than either the poster path's unconfirmed membership requirement alone or any exhibiting cost in §13.1).
+- Financial-hardship accommodation exists — contact the National Office before applying if the $25 itself is a barrier.
+- **First-come-first-served, capacity-limited — "DO NOT WAIT"** if this is worth pursuing.
+- **Roles directly matching this workspace's two real fit points**: Sound Crew (load-in/out, Sound Lab — the FRM-12 acoustic-geometry match) and Digital Media/Video Crew (load-in/out, Digital Media Lab — the OPS-147 scenography match). Also Stage Expo Assistant, for direct floor-level exposure to exactly the exhibiting path described in §13.1 before committing a budget to it.
+- **Mentorship continues past the conference itself** — a year of webinars with National Office staff and industry professionals. This is a relationship-building/learning path, not a content-submission or exhibiting path — a genuinely different thing from §13.1's two options.
+- Confirms USITT27 dates precisely: Mainstage Load-In required Monday 3/15 and Tuesday 3/16; Load-Out through 8pm Saturday 3/20 — consistent with the conference's own 17–20 March 2027 dates found earlier, with crew work bracketing it on both ends.
+
+**This is arguably the lowest-risk first move of all three paths** — cheapest, no content obligation, no booth budget, and it puts a real person inside the professional community (Sound Lab, Digital Media Lab) before any decision about presenting or exhibiting this workspace's own work. It requires a specific person committing real travel and 15 on-site hours in Baltimore, March 2027 — not something to decide from this document, but now fully scoped rather than something my earlier search simply failed to surface.
+
+### 13.3 The actual throughline, named directly: dining and kitchen theatre
+
+The user's framing is the right one and it isn't a stretch — it's already written into this engagement's own doctrine, just never stated as the connective thread to USITT specifically:
+
+- `SWIRLY_EATS_SYNTHESIS.md` Theme 7 names **"Kitchen theatre"** and **"Chef-Story duets"** directly, mapped onto the existing Theatre of the Mind work (CUL-77, COR-7) and the paired-perspectives format (RES-19).
+- The entire Room-primitive doctrine (§12) — chapter semantics and consequence grammar per Room class (FRM-39), venue-keyed acoustic geometry (FRM-12), operational manifest and commerce windows (OPS-179, PART-130) — is, read plainly, **a dining/hospitality venue formalized as a theatrical Room**: a kitchen or tasting table treated with the same rigor as a stage — entry threshold, narrative chapter, acoustic signature, consequence/egress, commerce window.
+- This is the specific, named genre that would make a USITT submission distinctive rather than generic "we do scenography too" — "dining and kitchen theatre sets" is a real scenographic niche (restaurant/kitchen-as-stage, dining-as-performance), not a borrowed vocabulary. Worth stating as the poster abstract's actual thesis if that path is taken: not "here is our acoustic/digital-media tooling," but "here is a formal grammar for treating the dining venue as a theatrical Room, and here's what that grammar produces."
