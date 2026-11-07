@@ -119,3 +119,19 @@ User's instinct to check Drive, not just Linear, was right — both were sitting
 **NYWGF is real, live, and far more concrete than "adjacent work."** Found the actual submission: `Sub NYwsg.docx` / `NYWGF_PROOF_DRINKER_Budget.xlsx` — a **$100,000 research proposal submitted to the New York Wine & Grape Foundation Research Program, FY 2026-27**, titled *"PROOF DRINKER: Heritage Commerce for New Demographics — A Media-Led Market Education & Experience Activation Pilot."* Principal Experiential Designer: Chef Martha. Co-Collaborator: Kudzi Mudimu, Spatial Studio. Category: Business Development. Tests a narrative-positioning strategy for NY wines targeting Gen Z/Millennial consumers via a cannabis→wine translation throughline (terpenes/strain-lineage language mapped onto wine chemistry/storytelling) — plus an actual pitch script ("Hello, I'm Chef Martha...") and a video asset. **A live shared folder — "NYWGF Research 27-28," owned by `nywgf1@gmail.com` — was last modified 2026-11-06, yesterday relative to today.** This is an active, ongoing collaboration with the real foundation, not a filed-and-forgotten application. "NYwsg" in the user's phrasing turns out to be the literal filename abbreviation used in this workspace's own docs, not a typo of NYWGF — both point at the same real thing.
 
 **One adjacent-but-distinct thread surfaced, not yet reconciled with Bard and Cork:** `VanWineFest_MoU_2027_Spatial_Studio.docx` — a real Memorandum of Understanding between the Vancouver International Wine Festival Society and Spatial Studio for 2027. This is **not** the same as RES-55's Bard on the Beach target — both are Vancouver-based, both wine/culture institutions, but they're two separate partnership threads under the same BC/Okanagan lane. Worth keeping distinct rather than assuming either stands in for the other.
+
+---
+
+## Staged, 7 Nov 2026 — Linear updates + CUL team ownership check
+
+**Asked:** push the accumulated corrections into Linear, and check which CUL team could hold all the poster work. Linear is down on this retry — staged below, fires once reachable.
+
+**Planned Linear updates (one comment per issue, correcting/cross-linking):**
+- **RES-55** — comment noting it's confirmed as Bard and Cork's landscape document, now cited from this workspace's local synthesis.
+- **OPS-42** — comment correcting/refining the earlier "unrelated vertical" read: it's one domain skin of OKRF-001's shared oral-kinetic kernel, sibling to PROOF DRINKER, not standalone.
+- **HOW-178** — comment confirming HAR = Human Activity Recognition (not a codename), and cross-linking to OPS-42/the wine work as sibling domain skins.
+- **A new NYWGF-adjacent issue, if none exists** — the live $100K NY Wine & Grape Foundation collaboration (`Sub NYwsg.docx`) has no Linear issue at all currently, only Drive documents. Worth creating one so it's tracked alongside everything else, rather than leaving a live, actively-updated external relationship untracked in the system of record.
+
+**CUL team ownership check — not yet run.** `list_teams` for "CUL"/"Cultural" once reachable, to see whether a single Cultural Governance-family team (CUL-87 already sits on "Cultural Governance") could reasonably hold the whole poster effort — Kitchen as Stage, Bard and Cork, and the OKRF-001 kernel/skins material — under one roof, rather than scattered across COR/RES/OPS/HOW as it currently is.
+
+**Not understood, flagged rather than guessed at: "the fourth angle we were going to shop in the xAI circles."** The fourth angle is the HAR/technical-research venue (sensor/activity-recognition literature, separate from USITT) named last turn. "xAI circles" — unclear whether this means Elon Musk's xAI company specifically, a different "x.ai"-branded thing, or something else entirely. Not guessed at here; need the actual referent before doing anything with it.
