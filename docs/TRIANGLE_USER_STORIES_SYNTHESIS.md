@@ -29,7 +29,7 @@ A user-story spec for a platform ("Assemble") hosting three related deployments:
 
 **"Red-list" and `sacred_boundary` are used here as live, active schema fields** (US-PM-02: *"estate can mark specific zones as `sacred_boundary: closed`"*; US-PM-03: *"Red-list items are never included in any derivative synthesis even after walk-away"*). `SWIRLY_EATS_SYNTHESIS.md` Theme 2 explicitly said to **retire** "red-listing" and "opaque archives" as vocabulary, translating forward to Transmission Terms' `steward`/`grantedFor` model instead — on the grounds that depth/classification scales put authority with the classifier rather than the steward.
 
-This document is a *different* part of the same broader system, and it's not clear which is newer or which should govern. Not resolved here — worth checking dates/authorship against `AXIS_4_REDRESS.md`'s original redress before assuming either vocabulary should yield to the other.
+**Resolved by operator ruling, 7 Nov 2026:** Transmission Terms is the current, governing model; Red-list is lineage — vocabulary that predates the redress, not a live alternative to it. This document's active use of `sacred_boundary`/Red-list fields should be read as the pre-redress layer this system is built on top of, not a competing current spec. Nothing in this document's user stories needs to change on that basis — the fields themselves (zone marking, synthesis exclusion) are real content to carry forward; the governing vocabulary around them is Transmission Terms' `steward`/`grantedFor`, not Red-list's classification-tier framing.
 
 ---
 
@@ -42,3 +42,37 @@ This is a stronger, more concrete source for "dining as theatre" than the abstra
 - **The chef-accompanist role itself**, facilitating a live multi-party session while structurally forbidden from dominating it (Foodie Globe), is a named theatrical role with an enforced performance constraint, not just a job title.
 
 The poster abstract (`docs/USITT_POSTER_ABSTRACT_DRAFT.md`) should be revised to ground its claims in this material rather than the more abstract Room-primitive language — see that file for the update.
+
+---
+
+## Three entries — checked against Linear, 7 Nov 2026
+
+User named three candidate regional "entries" (swim lanes for additional poster/involvement rationale). Checked each against real Linear issues rather than taken on description alone:
+
+**1. US Virgin Islands + camera-tip gesture capture**
+- **OPS-42** — "EPIC: Sound Clash Virgin Islands Expansion - Cultural Hospitality Lab Model" (Todo). Direct match for "Virgin Islands... Cultural Hospitality Lab."
+- **OPS-37** — "[v0.app] Camera Tip Button Component - MoveSign Integration" (Todo), **OPS-32** — "v0.app UI build: Camera tip button + Ubuntu payment flow" (Todo), **OPS-149** — "MoveSign sovereignty layer integration spec — gesture capture → Dify handoff" (Backlog). Direct match for "camera tipper."
+- **"HAR"** — no matching issue found under that term. Not guessed at; flag it directly if there's a specific reference meant, and I'll check again.
+
+**2. New York — wine tasting room research**
+- **OPS-64** — "NY Wine Research Grant Sprint (DEADLINE: Jan 16)" (Done).
+- **OPS-133** — "Adapt OPS-66 match arc into New York wine guidebook edition" (Backlog).
+- Direct match for "theoretical studies for better improvement within the wine tasting rooms."
+
+**3. Vancouver/Okanagan — wine identity marketing**
+- **PART-47** — "PART-25-B: BC Producer Cohort Identification (VanWineFest Pilot)" (Backlog-Unmapped).
+- **PART-57** — "Destination BC Supplier Funnel – Strategic Orchestration" (Outreach Active).
+- **RES-30** — "Enablement Blueprint: Destination BC 'Cultivating Experiences' → Vintage & Voice kit" (Useful pullout).
+- **PART-25** — "WGBC + BC Tourism — BC Practitioner Participation Governance Layer" (In Progress).
+- **OPS-60** — "BC/Okanagan Cross-Border Agreement" (Canceled — historical, not active).
+- Direct match for "the appeal by the Vancouver Okanagan area with the marketing for identity around what's happening with their wines."
+
+**All three are real, live tracks** (except the one explicitly Canceled OPS-60), each already a going concern independent of the USITT poster work — not invented to fit the poster, the poster fits an existing pattern across three regions.
+
+## "Bard and cork" — checked, partial answer
+
+Searched Linear for both terms separately.
+
+**"Bard" is a well-established, real, recurring stem** — not a one-off: ENG-123 (BARD/HyperFrames audio-first substrate), RES-55 (Wine & Books Trend Scan → Bard Micro-Pilot), RES-48 (Bard narrative qualifier for wine heritage articulation), RES-52 (DACUM task map: RES vs. Bard vs. co-owned duties), RES-34 (Design Logo System — Bard Theme, Superseded). Confirms what OPS-147 itself already said: Bard supplies the literary/interpretive stem to this whole corridor of work.
+
+**"Cork" returned nothing wine-related** — the search surfaced only loosely-matched camera-tip/gesture content, no issue, document, or project actually named "Cork" or combining it with "Bard." If "Bard and Cork" is meant as a paired name (literary + wine, matching this engagement's existing literary/wine-fusion throughline), it doesn't exist yet in this workspace under that name — worth confirming what was meant before assuming it's an existing reference I missed.
