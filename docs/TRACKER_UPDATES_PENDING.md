@@ -315,6 +315,8 @@ User shared a Perplexity-generated "Reverse Demo" brief proposing a "Swirly Meme
 
 **HOW-21 has not been confirmed to exist** — Linear down on every retry. Before any of this is acted on: verify HOW-21 is real and what it actually contains, and route the governance question (token minting, consent) through the existing `TransmissionTerms`/actor-guard model rather than this brief's own invented mechanism, consistent with the rest of this session's work.
 
+**Correction, 7 Nov 2026:** `IGNIS-ADAPT Protocol` should not have been listed above as an unsupported claim. It's real — **OPS-42** ("EPIC: Sound Clash Virgin Islands Expansion") names "IGNIS-ADAPT sovereignty protocols" as an actual governance mechanism. It just hadn't been found yet when this was written. The other claims in the bulleted list (`Tier 1 Veto`, `HeritageToken`, `IntegrationToken`, "Delta x SkyTeam") remain unconfirmed anywhere in this workspace.
+
 ---
 
 ## ADDED 27 OCT 2026 — FRM-48's own thread settled the duty question + surfaced ENG-418–422
