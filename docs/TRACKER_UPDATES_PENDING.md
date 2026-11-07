@@ -1,0 +1,345 @@
+# Tracker Updates — Apply Log
+
+**Date:** 17 September 2026 · **Fully applied:** 29 September 2026 (connectors restored, full batch fired)
+
+## APPLIED ✅
+
+| Target | What | Result |
+|---|---|---|
+| **CEP-75** (Jira) | Closed as decided — Brightbean, Postiz moot; Postiz-in-API-path cleanup noted | Comment 13929 |
+| **CEP-29** (Jira) | Axis 4 redressed **and** dependency inverted to ENG-111 | Comment 13930 |
+| **ENG-111** (Linear) | Upstream of Axis 4; `WITHDRAW` missing; actor guard; placement correction; ams-host bridge = AMS gap | Posted |
+| **FRM-6** (Linear) | `data-state` carries three orthogonal dimensions; `proto-resolving` reclassified grammar-tier; retitle; critical path | Posted |
+| **BOT-1** (Linear) | The call — scaffold → adaptive substrate; venue authority; corrected placement | Posted |
+| **ENG-475** (Linear, new) | GrammarActor `WITHDRAW` + actor guard, resolved in `substrate/packages/shared` | Created, Urgent |
+
+## APPLIED — 29 SEPT 2026 BATCH ✅
+
+| Target | What | Result |
+|---|---|---|
+| Confluence (new) | Cross-Team Operating Plan — Phase 0 → 2 | Page 180387841 |
+| Confluence (new) | American Lore Canopy — Directional Cluster Switch | Page 180420609 |
+| CEP-72 (Jira) | Retitled Postiz → Brightbean; comment explaining retitle + staleness | Comment 13967 |
+| CEP-29 (Jira) | Transmission Terms build plan finalized comment | Comment 13968 |
+| CEP-87 (Jira, new) | Transmission Terms — Axis 4 implementation as shared primitive | Created, parent CEP-28 |
+| CEP-88 (Jira, new) | Archive rights clearance practice for LOC/AFC-sourced cards | Created, parent CEP-29 |
+| CUL-80 (Linear) | Axis 4 redressed comment | Posted |
+| OPS-156 (Linear) | Seam is Brightbean comment | Posted |
+| PART-137 (Linear) | Third sighting of primitive comment | Posted |
+| PART-25 (Linear) | June rebase precedent comment | Posted |
+| PART-141 (Linear, new) | Public humanities funding pathway | Created, High |
+| CUL-97 (Linear, new) | Transmission Terms — Phase 2 veto test | Created, Urgent |
+| ENG-481 (Linear, new) | Zernio Rung 1 widening | Created |
+| ENG-482 (Linear, new) | Venue-authority sub-check | Created, High |
+| FRM-6 (Linear) | Retitled — dropped "Nordcraft" | Done |
+| ENG-475 (Linear) | Patched — build plan finalized note prepended | Done |
+| Card Schema v1 (Linear doc) | steward required, withdrawal, archive≠grant note | Patched (3 ops) |
+| Outlet Strategy (Linear doc) | grantedFor terms gate + Brightbean correction | Patched |
+| Opportunity Radar (Linear doc) | America250 verification callout | Patched |
+
+## NOTHING REMAINING FROM THIS LOG
+
+Every staged item across all batches has been applied. Confirm no new items before archiving this file.
+
+---
+
+The original staged text follows, retained for the entries not yet applied.
+
+---
+
+## JIRA
+
+### CEP-75 — close as decided
+**Transition:** → Done / Decided
+**Comment:**
+> Decision: **Brightbean**. Postiz is moot as of September 2026. This unblocks CEP-72 and the American Lore Wave 2 publishing rhythm, and removes the BC Tourism FC dependency. Follow-on cleanup tracked below.
+
+### CEP-72 — retitle and rescope
+**Current title:** `[CO][E] OPS-156 — Postiz Publishing Seam Architecture: Platform Runbook + DM Routing`
+**New title:** `[CO][E] OPS-156 — Brightbean Publishing Seam Architecture: Platform Runbook + DM Routing`
+**Comment:**
+> Retitled per CEP-75. Seam is Brightbean; Postiz references in the description and in OPS-156 need scrubbing.
+
+### CEP-29 — replace Axis 4 in the epic description
+**Replace:**
+> **Axis 4**: Surface CIP (public lore) → Deep CIP (oral tradition with contributor consent) → Benthic CIP (sacred/protected knowledge — no share without explicit gate)
+
+**With:**
+> **Axis 4 — Transmission Terms** (redressed Sept 2026, replaces CIP depth): `steward` · `grantedFor[]` (occasions: in-session, locale-card-public, open-social-carryforward, classroom-k12, archive-deposit, partner-institutional) · `attribution` · `conditions[]` (incl. `no-commercial-adjacency`) · `withdrawal` · `openQuestion`. Default is that **nothing circulates without named terms**; absence of a steward is a blocker, not a green light.
+
+**Also update the success criterion:**
+> …each expression carries correct **transmission terms**, and no commercial overlay is applied to material whose conditions include `no-commercial-adjacency`.
+
+**Comment:**
+> Axis 4 redressed — the CIP depth scale was abstract and out of line with the social practice model (PART-57 Adaptation crosswalk; PART-25 June rebase). Depth treats sensitivity as a property of content and locates authority in whoever classifies; transmission terms locate it with the steward. Full argument, migration table and open questions: `docs/AXIS_4_REDRESS.md`.
+> The unimplemented "benthic gate" is **obsolete by redesign** rather than outstanding: nothing circulates without a named steward and a grant for that specific occasion.
+> Epic also refreshed against the July foundational docs and the America250 premise verification (see below) — it had been four months behind its own strategy.
+
+### NEW — CEP: Transmission Terms implementation
+**Type:** Story · **Parent:** CEP-28 (execution layer) · **Labels:** `content-os`, `governance`, `civic-memory`
+**Summary:** `[CO][E] Transmission Terms — Axis 4 implementation as shared primitive`
+**Description:**
+> Implements the Axis 4 replacement specified in `docs/AXIS_4_REDRESS.md`.
+> Fields: `steward` (required, blocking) · `grantedFor[]` (multi-select occasions, not a ladder) · `attribution` · `conditions[]` · `withdrawal` (required — retraction path for already-distributed ATProto traces) · `openQuestion` (narrower terms govern where stewards disagree).
+> Build **once** as a shared primitive across three threads that are the same shape — a claim, its steward, and the terms under which it circulates:
+> • CEP-29 American Lore (lore circulation)
+> • PART-25 attribution routing (value distribution)
+> • PART-137 provenance / truth-in-labelling (origin disclosure)
+> Promotes the Card Schema v1 invitation-path consent fields (attribution preference, consent requirements, governance flags) from metadata to governing status.
+> `cipDepth` may survive only as a derived, non-authoritative display hint. It must not gate anything.
+> **Do not fix the occasion vocabulary before validating against three real cases** — one state, one territory, one tribal nation locale.
+
+### NEW — CEP: Archive rights clearance practice
+**Type:** Story · **Parent:** CEP-29 · **Labels:** `civic-memory`, `governance`
+**Summary:** `[CO] Archive rights clearance practice for LOC/AFC-sourced cards`
+**Description:**
+> Card Schema v1 requires an archive trace per card with a rights/usage note. LOC and American Folklife Center rights status varies per item. Needs a standing clearance practice, not per-card improvisation.
+> **Critical distinction (see `AXIS_4_REDRESS.md` open question 4):** an archive citation is **not** a transmission grant. `archiveTrace` and `steward` are separate fields and must not be conflated. Institutional archive material may have clear rights and still have no living steward — that combination needs its own rule.
+
+---
+
+## CONFLUENCE
+
+### New page — "Cross-Team Operating Plan — Phase 0 → 2"
+**Space:** governance/ops space · **Body:** `docs/CROSS_TEAM_OPERATING_PLAN.md`
+Canonical home for the phase model, the procurement glossary and gate decision rights — reaches partners and academic collaborators who are not in Linear. The glossary is the part worth circulating widest.
+
+### New page — "American Lore Canopy — Directional Cluster Switch"
+**Space:** same · **Body:** `docs/AMERICAN_LORE_CANOPY.md`
+Records the FIFA → American Lore switch, the absorption of FIFA assets under CEP-29, and the America250 premise verification.
+
+### New page — "Axis 4 Redress — Transmission Terms"
+**Space:** same · **Body:** `docs/AXIS_4_REDRESS.md`
+Child of the canopy page. This is the one to put in front of Cultural Governance.
+
+### Update existing — funding pathways page (if mirrored)
+Add §XI Public Humanities Pathway from `docs/FUNDING_PATHWAYS_UPDATED.md`.
+
+---
+
+## LINEAR
+
+### CUL-80 — comment (foundational doc anchor)
+> **Axis 4 redressed (Sept 2026).** CIP depth (Surface/Deep/Benthic) is replaced by **Transmission Terms** — steward, granted-for occasions, attribution, conditions, withdrawal, open question. Reason: the depth scale is abstract and misaligned with the social practice model; it treats sensitivity as a property of content and puts authority with the classifier rather than the steward. See `docs/AXIS_4_REDRESS.md`.
+> Consequence for the **Card Schema v1** doc: the invitation-path fields (attribution preference, consent requirements, governance flags) are promoted from metadata to governing status, and a `withdrawal` field is added. Minimum-viable v1 card gains one required element: **named steward**.
+> Consequence for the **Outlet Strategy** doc: the outlet matrix must check `grantedFor` per occasion. A card granted for `locale-card-public` is not thereby granted for `open-social-carryforward` — primer, live witness and return signal are three distinct grants, not one.
+
+### Foundational docs — edits to apply
+1. **American Lore Civic Memory Card Schema v1** — add `steward` as required; add `withdrawal`; promote consent fields to governing; note that archive trace ≠ transmission grant.
+2. **American Lore Outlet Strategy** — replace Postiz references with Brightbean; add the per-occasion `grantedFor` check to the outlet matrix.
+3. **American Lore Opportunity Radar** — replace OPS-156/Postiz references with Brightbean; add §XI public humanities funders (Federation of State Humanities Councils, LOC/AFC, Smithsonian CFCH, IMLS) to the external lanes; record the America250 "After the Fireworks" verification and its closing window.
+
+### OPS-156 — comment
+> Publishing seam is **Brightbean**; Postiz is moot (CEP-75 decided, Sept 2026). Scrub Postiz from this issue and from the two American Lore foundational docs that reference it.
+
+### PART-137 — comment (Canada provenance thesis)
+> Third sighting of the same primitive. Transmission Terms (CEP-29 Axis 4), attribution routing (PART-25) and provenance labelling (this issue) are all **a claim, its steward, and the terms under which it circulates**. Recommend building once rather than three times — spec in `docs/AXIS_4_REDRESS.md`.
+
+### PART-25 — comment
+> The June 2026 sovereignty rebase is the direct precedent for the Axis 4 redress: it replaced "practitioners as validation subjects" with practitioners who configure their own participation. Axis 4's CIP depth had reintroduced exactly the pattern this rebase removed. Now corrected — see `docs/AXIS_4_REDRESS.md`.
+
+### NEW issue — Partnerships: public humanities pathway
+**Team:** Partnerships · **Priority:** High · **Related:** PART-58, PART-137, CUL-80
+**Title:** `Public humanities funding pathway — Federation of State Humanities Councils + By the People`
+**Description:**
+> New funding circuit, added as §XI of `FUNDING_PATHWAYS_UPDATED.md` at Tier 1. Distinct from the NSF technical-education circuit in funder, scale, cadence and review culture — typically $2K–$75K on weeks-to-months cycles, which is the only pathway that can fund **Wave 1 grounding** inside the current quarter.
+> **Entry point:** "By the People: Conversations Beyond 250" — Federation of State Humanities Councils + Smithsonian Center for Folklife. 51 councils including DC and **four U.S. territories**. Themes explicitly include cooks alongside storytellers, so foodways is in scope by name.
+> **Territory councils are the shortest path from the canopy to USVI Sound Clash**, whose replicability framework already names Hawaii, Puerto Rico, Guam and American Samoa.
+> **Timing:** America250's "After the Fireworks" runs through the remainder of 2026 — roughly one quarter. Do not queue Wave 1 behind other threads.
+> **Do not** route this through the NSF narrative. Different circuit, different language; conflating them weakens both.
+> Study first: Illinois Voices 250, Alaska Humanities Forum Storytelling Fellowship, Alabama "Share Your Story".
+
+### NEW issue — Cultural Governance: transmission terms as veto test
+**Team:** Cultural Governance · **Priority:** Urgent · **Related:** CUL-80
+**Title:** `Transmission Terms — operationalize the Phase 2 activation veto`
+**Description:**
+> `CROSS_TEAM_OPERATING_PLAN.md` gives Cultural Governance veto authority at Phase 2 activation but no concrete test. Under Transmission Terms the test becomes mechanical and record-answerable:
+> 1. Is there a named steward?
+> 2. Are terms granted for **this specific** occasion?
+> 3. Is attribution honored as specified?
+> 4. Are conditions satisfied (incl. `no-commercial-adjacency`)?
+> 5. Is the withdrawal path live?
+> Also owns open questions 2–4 in `docs/AXIS_4_REDRESS.md`: steward succession; honest scoping of withdrawal reach across ATProto (and disclosing that limit to stewards **before** they grant, not after); and institutional stewards where archive material has rights but no living steward.
+
+---
+
+## ADDED 19 SEPT 2026 — GrammarActor reconciliation
+
+Source: ENG-111 and FRM-6 read in full. See `docs/GRAMMAR_ACTOR_RECONCILIATION.md`.
+
+### CEP-29 — invert the Axis 4 dependency (revises the entry above)
+
+The Axis 4 replacement text staged earlier still stands as *vocabulary*, but the framing changes: Axis 4 is **not a dimension of the content**. It is the record GrammarActor emits at `verified`.
+
+**Comment:**
+> Axis 4 dependency inverted. GrammarActor (ENG-111, created 2026-05-10, Done) predates this epic (2026-05-19) and already implements graduated accession as a shipped XState machine: `idle → induction → hold → carry → verified`. `verified` is a Governed Relation emitting a participant-owned AT Protocol record with a BOT-31 `traceId`.
+> Transmission Terms is therefore a **projection of GrammarActor**, not a parallel classification: `grantedFor[]` is what `CO_SIGN` writes; `conditions[]` are XState guards; `hold` is the gate this epic left unnamed for four months. Axis 4 should reference ENG-111 rather than define its own model.
+
+### ENG-111 — comment
+
+> Reconciled against the Content OS axis model (`docs/GRAMMAR_ACTOR_RECONCILIATION.md`).
+> **This machine is upstream of CEP-29 Axis 4, not downstream.** Three follow-ons:
+> 1. **`WITHDRAW` event missing.** `RESET` returns to `idle` but does not retract an emitted ATProto record. A `WITHDRAW` event plus a post-`verified` state is the highest-value addition to an otherwise-complete package — without it, participant "ownership" of the record overstates what the machine supports.
+> 2. **Actor guard needed.** The event list does not restrict actorhood, and `INTENT_IDENTIFIED` / `SENTIMENT_SHIFT` already admit machine-originated events. `CO_SIGN` and `CARRY_FORWARD` must be human-only — an agent that can emit `CO_SIGN` makes consent synthetic and voids the Guild Academy constitutional bound. `HOLD` should be agent-emittable (pausing on a terms violation is the right use). Enforce in the machine, not by convention.
+> 3. **The one open acceptance criterion — the `ams-host` provenance bridge — is the same gap as the AMS pipeline gap map.** SCID competency evidence, GSBF governance trail and PART-35 funder evidence all terminate there. Treat as one work item.
+> Also: state "Rive renders; GrammarActor decides" here and in FRM-6 — this issue says GrammarActor replaces Rive's state machine while FRM-6 migrates to Rive + Bit.dev, which reads as a contradiction.
+
+### FRM-6 — comment + retitle
+
+**Retitle:** drop "Nordcraft" — the Bit.dev/Rive migration (ENG-396) has moved the target and the body already says so.
+
+**Comment:**
+> **`data-state` is carrying three orthogonal dimensions** and needs splitting:
+> • machine state (`idle`/`induction`/`hold`/`carry`/`verified`) → `data-grammar-state`
+> • emotion tokens (`elated` → `--kinetic-intensity: 0.85`, per `emotionTokenMap.ts`) → `data-emotion`
+> • Fenceless/VPS (`pose-matching`, `pose-verified`) → `data-spatial`
+> A surface can be in `hold` **and** `elated` **and** `pose-matching` simultaneously; one attribute cannot express that. This is the same collapse-independent-dimensions error the Axis 4 redress corrected.
+> **`proto-resolving` is grammar-tier, not spatial** — it is the transient between `carry` and `verified`, and belongs in `data-grammar-state`, which also gives co-sign a visible in-flight state rather than an instant flip.
+> **Critical path note:** FRM-6 is in Backlog but gates FRM-4 → SIG-1, the compliance chain. Blocked by ENG-392.
+
+### NEW Linear issue — Engineering
+
+**Title:** `GrammarActor WITHDRAW event + actor guard on CO_SIGN/CARRY_FORWARD`
+**Team:** Engineering · **Priority:** High · **Related:** ENG-111, ENG-89, CUL-80
+**Description:**
+> Two additions to `@vinejocket/grammar-actor`, both governance-bearing:
+> 1. **`WITHDRAW` event and post-`verified` state.** `RESET` clears a session; it does not retract an emitted ATProto record. Until this exists, participant ownership of the record is claimed but not supported. Scope honestly: ATProto records propagate, so document what retraction can and cannot recall, and disclose that limit to participants **before** co-sign, not after.
+> 2. **Actor guard.** Human-only: `CO_SIGN`, `CARRY_FORWARD`, `WITHDRAW`. Agent-permitted: `TRIGGER`, `HOLD`, `INTENT_IDENTIFIED`, `SENTIMENT_SHIFT`. Operator: `RESET`. Enforce in the machine.
+
+---
+
+## ADDED 23 SEPT 2026 — Zernio widening + Sanity Workflows build plan
+
+Connectors down again for this batch. Staged:
+
+### Linear — ENG-475 revision
+
+**Re-scope** to reference `docs/SANITY_WORKFLOWS_TERMS_PLAN.md` directly rather than describing the runtime gate in isolation. The plan now specifies: `TransmissionTerms` type on `BasePacket` (required, alongside `provenance`) → `resolve()` in `substrate/packages/shared` → wire into `vj-bot` dispatch, then the `ams-host` direct `VENUES` bind, then GrammarActor's guard. Build order and refusal-type contract are in the plan §5.
+
+### Linear — NEW issue: Zernio Seasonal full-platform widening (Rung 1)
+
+**Team:** Engineering · **Priority:** Medium
+**Title:** `Zernio Rung 1 — widen Seasonal from Instagram-only to full ANGLE_PLATFORMS fan-out`
+**Description:**
+> Spike 0b/2 built out for Seasonal/Instagram only (see `docs/ZERNIO_DISPATCH_STATUS.md`). Rung 1 widens Seasonal to its full platform set (Instagram, TikTok, LinkedIn, X, Pinterest) — zero governance risk since Seasonal has no sensitive fields, and it validates fan-out mechanics before any terms-gated angle.
+> **Precondition: create `ZERNIO_DELIVERY_QUEUE` (Gap 3) first.** Five platforms without a retry buffer against a free-tier engine with documented sleep cycles multiplies the silent-loss surface by five.
+> Remove `ANGLE_PLATFORM_OVERRIDE`; let `ANGLE_PLATFORMS` resolve normally. Connect remaining 4 accounts via the `vj-bot` diagnostic-route pattern (never export `ZERNIO_API_KEY` locally).
+
+### Linear — NEW issue: Venue-authority resolver (unblocks Rung 2 / Place angle)
+
+**Team:** Engineering · **Priority:** High · **Related:** ENG-475, ENG-389
+**Title:** `Venue-authority sub-check — at:// co-sign resolver, standalone from full terms model`
+**Description:**
+> Smallest standalone piece of `resolve()` (see `SANITY_WORKFLOWS_TERMS_PLAN.md` §2, build order item 3). Checks the co-signed `at://` venue record before any Place-angle dispatch; refuses if only `fsqPlaceId`/`plusCode`/VPS pose data is present, since those locate but do not authorize. Ships independently of the full terms model — smallest unit of the substrate resolution work, highest ratio of governance value to build cost.
+
+### Jira — CEP-29 comment
+
+> Transmission Terms build plan finalized: `docs/SANITY_WORKFLOWS_TERMS_PLAN.md`. One model, two bindings — Sanity Workflow stage (beta, content tier) + `substrate/packages/shared resolve()` (GA, runtime tier) — so a beta feature is never the sole gate on practitioner material. Workflow stages proposed: `draft → pending-steward-grant → granted → published`, with `granted` corresponding to GrammarActor's `verified` state. Function timeout should be set to 30s in Blueprint config (not the 10s default) since venue-authority resolution makes an external call.
+
+### Confluence — no change to pages already staged; add cross-reference
+
+When the Cross-Team Operating Plan page is created, add `docs/ZERNIO_DISPATCH_STATUS.md`'s widening ladder as the concrete example under the Phase 2 (Activation) section — it's the clearest illustration of the phase-gate model in the whole doc set.
+
+---
+
+## ADDED 26 OCT 2026 — FRM design issue + NSF play as COR-owned
+
+**APPLIED ✅ 26 Oct 2026** — Linear reconnected. Filed as **FRM-48** and **COR-43** (linked to each other). Attachments added via `links` on both: FRM-48 → WO009_PRESENTATION_LAYER_CONTRIBUTION.md + RIVE_CAPABILITY_UPDATE.md; COR-43 → NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md (primary) + WO009_PRESENTATION_LAYER_CONTRIBUTION.md + GRAMMAR_ACTOR_RECONCILIATION.md (background). Text below retained as the original staged record.
+
+### NEW Linear issue — Form (FRM)
+
+**Title:** `Design: SCID Scaffolding Primitive — pedagogical lookup table + mode flag on glass-swirl/VesselData`
+**Team:** Form · **Priority:** Medium · **Related:** WO-009 (Confluence 147390466, AC-1), FRM-47, COR issue below
+**Description:**
+> Design-authoring half of the Candidate WO in `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`. Covers that draft's AC-1 and AC-2 only — the build/governance half (RML export, Evidence Capture binding, licensing) stays with the COR-owned coordination issue below, not this one.
+>
+> **Scope:**
+> 1. A second `contentCategory`-keyed lookup table on the existing `VesselData` ViewModel (WO-009 AC-1) — pedagogical cues (pour technique, tasting-note vocabulary prompts) keyed to DACUM competency stage, parallel in shape to the existing commerce liquid-color/viscosity table, not a fork of the ViewModel itself.
+> 2. A mode flag on the same artboard selecting which lookup table renders — commerce (current, Wine Flies Free) vs. induction (new).
+>
+> **Explicit non-goals:** no new `.riv` primitive, no change to glass geometry, no change to WO-009's own scope or timeline. This consumes AC-1's contract; it does not fork it.
+>
+> **Precedent worth naming in the design doc itself:** AC-1's existing lookup-table pattern is already a second real instance of RES-131's "kit" shape (one contract, one swappable axis, one fixed element) alongside FRM-30's glass-kit — this design extends that same discipline to a second axis value (induction), not a new pattern.
+>
+> Full context: `docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §3, `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
+
+### NEW Linear issue — Corridor (COR)
+
+**Title:** `NSF Play — SCID Scaffolding Tangible: cross-team coordination for PART-85's proof artifact`
+**Team:** Corridor · **Priority:** High · **Related:** PART-85, FRM issue above, ENG-475, WO-009
+**Description:**
+> **Ownership note:** this is deliberately routed to Corridor, not Partnerships or Engineering. The thing being coordinated — turning a working Rive artifact into a reviewer-legible NSF narrative — is content-shape and cross-team pull-together, which is COR's stated ownership (`CROSS_TEAM_OPERATING_PLAN.md`: "Register governance, content shape... Owns CEP deliverables"). PART-85 stays the Partnerships-owned funding transaction; this issue owns making its Phase 1 "one working proof artifact" readiness criterion real.
+>
+> **What this issue coordinates (does not itself build):**
+> 1. The FRM design issue above — pedagogical lookup table + mode flag
+> 2. RML export of the resulting state machine + lookup table as committed, reviewable text (Candidate WO AC-3)
+> 3. Evidence Capture binding to SCID's assessment path (Candidate WO AC-4) — **inherits ENG-475's existing block** (package frozen, InterfaceType collision, per RES-131); sequence so the demonstrable artifact (items 1–2) does not wait on this
+> 4. The licensing due-diligence item — **corrected and practically closed, 26 Oct 2026**: the real gate is export ("publish" in Rive's own vocabulary), not public-vs-private audience as first assumed; export already requires the paid plan WO-009's AC-7 already holds, so no blocker found. Rive's primary ToS/pricing pages were not directly readable this session (host unreachable) — one human direct-read check still recommended before formal NSF submission, not before Phase I build (Candidate WO AC-5, see `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` risk #3 for the full correction)
+> 5. **The actual CEP-routed content deliverable**: the NSF-facing narrative write-up itself, holding the non-negotiable framing line already established for Genblaze/GMI Cloud — Rive is substrate, never the innovation claim
+>
+> **Non-negotiable framing, restated for whoever picks this up:** do not let the NSF narrative cite GPU Canvas as a current capability (editor-ready, runtime-incomplete per the vendor's own documentation) — Phase II roadmap language only, if at all.
+>
+> **Minimum viable version:** if PART-85 needs the proof artifact sooner than a full build cycle, items 1–2 alone (no Evidence Capture binding yet) are sufficient to demonstrate the core scaffolding-rendering claim.
+>
+> Full analysis: `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md`.
+
+---
+
+## ADDED 26 OCT 2026 (same-day follow-up) — attach docs to the FRM/COR issues on creation
+
+**APPLIED ✅ 26 Oct 2026.** FRM and COR confirmed via `list_teams` (Form = FRM, Corridor = COR) and both issues + attachments filed per the plan below. Text retained as the original staged record.
+
+---
+
+## ADDED 26 OCT 2026 (second same-day correction) — ATE program-fit gap, caught post-filing
+
+COR-43 and `NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` were filed framed around **PART-85 (SBIR) alone**. `FUNDING_PATHWAYS_UPDATED.md` already established that **NSF ATE** is the better-fitting program for DACUM/SCID vocational-technician work specifically — community-college-led, curriculum/materials development — with SBIR as a separate parallel track, not a substitute. **PART-139** (ATE institutional routing, SSC/PNW Collaborative lead-applicant question, open) and **PART-98** (the real DACUM duty map, D1–D5, already in flight for the same SSC channel) should have been cited and weren't.
+
+**Applied ✅ 26 Oct 2026:**
+- `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — new correction section added before "The future/possible AC"; TRIGGER/OBJECTIVE/AC-1 rows and Recommendation updated to name PART-98's D1–D5 duties and PART-139's open lead-applicant question instead of generic "DACUM-mapped competency"
+- **COR-43** — `relatedTo` extended with PART-139, PART-98; correction comment posted
+- **PART-98** — back-link comment posted, asking its owner which duty (D1–D5) is the right Phase I target
+- **PART-139** — back-link comment posted, noting its lead-applicant answer decides who the artifact is produced for
+
+**Still open, not this engagement's call to make unilaterally:** which NSF program (ATE vs. SBIR) is primary. Flagged to PART-139's owner, not decided here.
+
+---
+
+## ADDED 27 OCT 2026 — "Swirly Meme and Visual Language" brief received, flagged as likely-fabricated, NOT applied
+
+User shared a Perplexity-generated "Reverse Demo" brief proposing a "Swirly Meme and Visual Language" system, explicitly framed by its own source as ready to post to Linear as a versioned update to **HOW-21**. **Not posted anywhere. Not folded into any synthesis doc as grounded content.** Recorded here only so it isn't silently lost, with the reasons it shouldn't be trusted as-is:
+
+- **Citations don't support the content.** The link list is generic Linear API docs, Reddit threads, and unrelated 1990s USC business-school PDFs — none back the specific claims (`IGNIS-ADAPT Protocol`, `Tier 1 Veto`, `HeritageToken`, `IntegrationToken`, "Delta x SkyTeam"). None of these terms appear anywhere else in this engagement's docs or any Linear issue actually read this session.
+- **Directly contradicts governance work established this same session.** The FRM-14/ENG-504 sweep addendum stated plainly: "motion recognition is not cultural authority; no automatic save, mint or publicity." This brief proposes token minting (`HeritageToken`/`IntegrationToken`) with no steward or `grantedFor` check — exactly the pattern Transmission Terms and the actor-guard doctrine exist to prevent.
+- **Real trademark risk, invented with no grounding:** "Star Alliance appropriated from a competitor" as a visual element for a Delta-branded piece is a genuine legal exposure, not a design idea this project asked for.
+
+**HOW-21 has not been confirmed to exist** — Linear down on every retry. Before any of this is acted on: verify HOW-21 is real and what it actually contains, and route the governance question (token minting, consent) through the existing `TransmissionTerms`/actor-guard model rather than this brief's own invented mechanism, consistent with the rest of this session's work.
+
+---
+
+## ADDED 27 OCT 2026 — FRM-48's own thread settled the duty question + surfaced ENG-418–422
+
+User pasted FRM-48's current, fully updated description + comment thread (several of its own comments self-corrected mid-thread). Net findings, reconciled:
+1. Duty narrowed to **D3** (Culinary & Wine Stewardship) — content-matched, proposed on PART-98, pending owner confirmation.
+2. FRM-30's sandboxed-webview binding-failure concern raised then walked back (tested on a different, older runtime — 2.39.0 — than WO-009's actual `^4.16.1`); net: a direct-test item before AC-2 reaches Discord/Reddit, not an inherited blocker.
+3. **Load-bearing finding:** a separate, in-progress, Urgent/High-priority production DACUM track exists — `DacumViewModel` + 11 artboards (ENG-418–422), `CompetencyAtlas` (ENG-419). FRM-48/COR-43's VesselData reuse is explicitly a Phase-I-speed tradeoff, not a substitute for it.
+
+**Applied ✅ 27 Oct 2026:**
+- `docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — PREMISE/OBJECTIVE/AC-1/AC-2 rows and Recommendation updated to name D3, ENG-418–422, and the runtime-version correction on AC-2
+- `docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` §4 — second correction block added
+- **COR-43** — comment posted reconciling all three findings, flagging the Phase-I-speed caveat as required in the eventual NSF narrative (item 5)
+- **WO-009 Confluence page** — the originally-staged presentation-layer contribution (§1–4, now carrying both corrections) posted as a child page (192774145), with a short reply pointer on footer comment 192380929 (comment 192806913)
+- **WO-009's own page body (147390466, now v9)** — initially only the comment/child-page above were done, leaving the parent page itself untouched; caught and corrected same session. AC-13's cell now carries a dated "Revised 2026-10-27" GPU Canvas fallback clause; AC-1's cell carries a dated "Noted 2026-10-27" pointer to its RES-131 kit-pattern/RML-CLI elaboration; a new AGENT_LOG entry (2026-10-27) records the turn, matching the page's existing house style for dated AC revisions rather than leaving the substance comment-only
+
+1. `save_issue` → create FRM issue (title/description as staged above)
+2. `save_issue` → create COR issue (title/description as staged above), with `relatedTo` including the FRM issue's new ID once known
+3. `create_attachment` on the FRM issue:
+   - **Primary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` — the AC-1 elaboration this design issue implements
+   - **Secondary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/RIVE_CAPABILITY_UPDATE.md` — the capability basis (GPU Canvas, RML/CLI) the design draws on
+4. `create_attachment` on the COR issue:
+   - **Primary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/NSF_RIVE_VIABILITY_AND_CANDIDATE_WO.md` — the full viability case + Candidate WO + the open licensing item COR owns chasing down
+   - **Secondary:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/WO009_PRESENTATION_LAYER_CONTRIBUTION.md` — same design doc as FRM's primary, attached here too since COR coordinates that work without owning its build
+   - **Optional, background only:** `https://github.com/cultura-d/USA250_impact/blob/claude/modular-conference-components-otCib/docs/GRAMMAR_ACTOR_RECONCILIATION.md` — relevant to AC-4's actor-guard/Evidence Capture lineage (ENG-475, RES-131) if COR's assignee wants the fuller trail; not required reading to act on this issue
+
+All four URLs verified against the current remote branch tip (`98e5ace`) before staging — confirmed present, confirmed pushed, not guessed.
+
